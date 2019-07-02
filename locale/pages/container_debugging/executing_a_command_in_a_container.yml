@@ -1,0 +1,75 @@
+texts:
+  en: >-
+    {% panel style="success", title="Providing Feedback" %}
+
+    **Provide feedback at the [survey](https://www.surveymonkey.com/r/JH35X82)**
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: '{% panel style="info", title="TL;DR" %}'
+  ja: __COPY__
+---
+texts:
+  en: Execute a Command in a Container
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Get a Shell in a Container
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: Executing Commands
+  ja: __COPY__
+---
+texts:
+  en: Motivation
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Debugging Workloads by running commands within the Container.  Commands may be a Shell with
+
+    a tty.
+  ja: __COPY__
+---
+texts:
+  en: "{% method %}"
+  ja: __COPY__
+---
+texts:
+  en: Exec Command
+  ja: __COPY__
+---
+texts:
+  en: Run a command in a Container in the cluster by specifying the **Pod name**.
+  ja: __COPY__
+---
+texts:
+  en: '{% sample lang="yaml" %}'
+  ja: __COPY__
+---
+texts:
+  en: "{% endmethod %}"
+  ja: __COPY__
+---
+texts:
+  en: Exec Shell
+  ja: __COPY__
+---
+texts:
+  en: To get a Shell in a Container, use the `-t -i` options to get a tty and attach STDIN.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% panel style="info", title="Specifying the Container" %}
+
+    For Pods running multiple Containers, the Container should be specified with `-c <container-name>`.
+
+    {% endpanel %}
+  ja: __COPY__

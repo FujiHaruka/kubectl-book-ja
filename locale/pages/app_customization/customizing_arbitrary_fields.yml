@@ -1,0 +1,147 @@
+texts:
+  en: >-
+    {% panel style="success", title="Providing Feedback" %}
+
+    **Provide feedback at the [survey](https://www.surveymonkey.com/r/C855WZW)**
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: '{% panel style="info", title="TL;DR" %}'
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Customize arbitrary fields from arbitrary Resources in a Base.
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: Customizing Resource Fields
+  ja: __COPY__
+---
+texts:
+  en: Motivation
+  ja: __COPY__
+---
+texts:
+  en: >-
+    It is often necessary for users to want to **modify arbitrary fields** from a Base, such
+
+    as resource reservations for Pods, replicas on Deployments, etc.  Overlays and patches can
+
+    be used by Variants to specify fields values which will override the Base field values.
+  ja: __COPY__
+---
+texts:
+  en: '{% panel style="info", title="Reference" %}'
+  ja: __COPY__
+---
+texts:
+  en: "[patchesjson6902](../reference/kustomize.md#patchesjson6902)"
+  ja: __COPY__
+---
+texts:
+  en: >-
+    [patchesStrategicMerge](../reference/kustomize.md#patchesstrategicmerge)
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: Customizing Arbitrary Fields with Overlays
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% method %}
+
+    Arbitrary **fields may be added, changed, or deleted** by supplying *Overlays* against the
+
+    Resources provided by the Base.  **Overlays are sparse Resource definitions** that
+
+    allow arbitrary customizations to be performed without requiring a base to expose
+
+    the customization as a template.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Overlays require the *Group, Version, Kind* and *Name* of the Resource to be specified, as
+
+    well as any fields that should be set on the base Resource.  Overlays are applied using
+
+    *StrategicMergePatch*.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    **Use Case:** Different Environments (test, dev, staging, canary, prod) require fields such as
+
+    replicas or resources to be overridden.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% sample lang="yaml" %}
+
+    **Input:** The kustomization.yaml file and overlay
+  ja: __COPY__
+---
+texts:
+  en: "**Base:**"
+  ja: __COPY__
+---
+texts:
+  en: "**Applied:** The Resource that is Applied to the cluster"
+  ja: __COPY__
+---
+texts:
+  en: "{% endmethod %}"
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% panel style="info", title="Merge Semantics for Overlays" %}
+
+    Overlays use the same [merge semantics](../app_management/field_merge_semantics.md) as Applying Resource Config to cluster.  One difference
+
+    is that there is no *Last Applied Resource Config* when merging overlays, so fields may only be deleted
+
+    if they are explicitly set to nil.
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: Customizing Arbitrary Fields with JsonPatch
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% method %}
+
+    Arbitrary fields may be added, changed, or deleted by supplying *JSON Patches* against the
+
+    Resources provided by the base.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    JSON Patches are [RFC 6902](https://tools.ietf.org/html/rfc6902) patches that are applied
+
+    to resources.  Patches require the *Group, Version, Kind* and *Name* of the Resource to be
+
+    specified in addition to the Patch.  Patches offer a number of powerful imperative operations
+
+    for modifying the base Resources.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% sample lang="yaml" %}
+
+    **Input:** The kustomization.yaml file
+  ja: __COPY__

@@ -1,0 +1,104 @@
+texts:
+  en: >-
+    {% panel style="success", title="Providing Feedback" %}
+
+    **Provide feedback at the [survey](https://www.surveymonkey.com/r/JH35X82)**
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: '{% panel style="info", title="TL;DR" %}'
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Copy files to and from Containers in a cluster
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: Copying Container Files
+  ja: __COPY__
+---
+texts:
+  en: Motivation
+  ja: __COPY__
+---
+texts:
+  en: Copying files from Containers in a cluster to a local filesystem
+  ja: __COPY__
+---
+texts:
+  en: Copying files from a local filesystem to Containers in a cluster
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% panel style="warning", title="Install Tar" %}
+
+    Copy requires that *tar* be installed in the container image.
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: "{% method %}"
+  ja: __COPY__
+---
+texts:
+  en: Local to Remote
+  ja: __COPY__
+---
+texts:
+  en: Copy a local file to a remote Pod in a cluster.
+  ja: __COPY__
+---
+texts:
+  en: Local file format is `<path>`
+  ja: __COPY__
+---
+texts:
+  en: Remote file format is `<pod-name>:<path>`
+  ja: __COPY__
+---
+texts:
+  en: '{% sample lang="yaml" %}'
+  ja: __COPY__
+---
+texts:
+  en: "{% endmethod %}"
+  ja: __COPY__
+---
+texts:
+  en: Remote to Local
+  ja: __COPY__
+---
+texts:
+  en: Copy a remote file from a Pod to a local file.
+  ja: __COPY__
+---
+texts:
+  en: Specify the Container
+  ja: __COPY__
+---
+texts:
+  en: Specify the Container within a Pod running multiple containers.
+  ja: __COPY__
+---
+texts:
+  en: "`-c <container-name>`"
+  ja: __COPY__
+---
+texts:
+  en: Namespaces
+  ja: __COPY__
+---
+texts:
+  en: Set the Pod namespace by prefixing the Pod name with `<namespace>/` .
+  ja: __COPY__
+---
+texts:
+  en: "`<pod-namespace>/<pod-name>:<path>`"
+  ja: __COPY__

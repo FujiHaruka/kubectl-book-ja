@@ -1,0 +1,173 @@
+texts:
+  en: >-
+    {% panel style="success", title="Providing Feedback" %}
+
+    **Provide feedback at the [survey](https://www.surveymonkey.com/r/JH35X82)**
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: '{% panel style="info", title="TL;DR" %}'
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Imperatively Create a Resources
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: Creating Resources
+  ja: __COPY__
+---
+texts:
+  en: Motivation
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Create Resources directly from the command line for the purposes of development or debugging.
+
+    Not for production Application Management.
+  ja: __COPY__
+---
+texts:
+  en: "{% method %}"
+  ja: __COPY__
+---
+texts:
+  en: Deployment
+  ja: __COPY__
+---
+texts:
+  en: A Deployment can be created with the `create deployment` command.
+  ja: __COPY__
+---
+texts:
+  en: '{% sample lang="yaml" %}'
+  ja: __COPY__
+---
+texts:
+  en: "{% endmethod %}"
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% panel style="success", title="Running and Attaching" %}
+
+    It is possible to run a container and immediately attach to it using the `-i -t` flags.  e.g.
+
+    `kubectl run -t -i my-dep --image ubuntu -- bash`
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: ConfigMap
+  ja: __COPY__
+---
+texts:
+  en: Create a configmap based on a file, directory, or specified literal value.
+  ja: __COPY__
+---
+texts:
+  en: A single configmap may package one or more key/value pairs.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    When creating a configmap based on a file, the key will default to the basename of the file, and the value will default
+
+    to the file content.  If the basename is an invalid key, you may specify an alternate key.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    When creating a configmap based on a directory, each file whose basename is a valid key in the directory will be
+
+    packaged into the configmap.  Any directory entries except regular files are ignored (e.g. subdirectories, symlinks,
+
+    devices, pipes, etc).
+  ja: __COPY__
+---
+texts:
+  en: Secret
+  ja: __COPY__
+---
+texts:
+  en: Create a new secret named my-secret with keys for each file in folder bar
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% panel style="success", title="Bootstrapping Config" %}
+
+    Imperative commands can be used to bootstrap config by using `--dry-run -o yaml`.
+
+    `kubectl create secret generic my-secret --from-file=path/to/bar --dry-run -o yaml`
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: Namespace
+  ja: __COPY__
+---
+texts:
+  en: Create a new namespace named my-namespace
+  ja: __COPY__
+---
+texts:
+  en: Auth Resources
+  ja: __COPY__
+---
+texts:
+  en: ClusterRole
+  ja: __COPY__
+---
+texts:
+  en: Create a ClusterRole named "foo" with API Group specified.
+  ja: __COPY__
+---
+texts:
+  en: ClusterRoleBinding
+  ja: __COPY__
+---
+texts:
+  en: Create a role binding to give a user cluster admin permissions.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% panel style="info", title="Required Admin Permissions" %}
+
+    The cluster-admin role maybe required for creating new RBAC bindings.
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: Role
+  ja: __COPY__
+---
+texts:
+  en: Create a Role named "foo" with API Group specified.
+  ja: __COPY__
+---
+texts:
+  en: RoleBinding
+  ja: __COPY__
+---
+texts:
+  en: Create a RoleBinding for user1, user2, and group1 using the admin ClusterRole.
+  ja: __COPY__
+---
+texts:
+  en: ServiceAccount
+  ja: __COPY__
+---
+texts:
+  en: Create a new service account named my-service-account
+  ja: __COPY__

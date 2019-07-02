@@ -1,0 +1,244 @@
+texts:
+  en: >-
+    {% panel style="success", title="Feedback and Contributing" %}
+
+    **Provide feedback on new kubectl docs at the [survey](https://www.surveymonkey.com/r/JH35X82)**
+  ja: __COPY__
+---
+texts:
+  en: >-
+    See [CONTRIBUTING](https://github.com/kubernetes/kubectl/blob/master/docs/book/CONTRIBUTING.md) for
+
+    instructions on filing/fixing issues and adding new content.
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: '{% panel style="info", title="TL;DR" %}'
+  ja: __COPY__
+---
+texts:
+  en: Kubectl is the Kubernetes cli
+  ja: __COPY__
+---
+texts:
+  en: Kubectl provides a swiss army knife of functionality for working with Kubernetes clusters
+  ja: __COPY__
+---
+texts:
+  en: Kubectl may be used to deploy and manage applications on Kubernetes
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Kubectl may be used for scripting and building higher-level frameworks
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: Kubectl
+  ja: __COPY__
+---
+texts:
+  en: Kubectl is the Kubernetes cli version of a swiss army knife, and can do many things.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    While this Book is focused on using Kubectl to declaratively manage Applications in Kubernetes, it
+
+    also covers other Kubectl functions.
+  ja: __COPY__
+---
+texts:
+  en: Command Families
+  ja: __COPY__
+---
+texts:
+  en: "Most Kubectl commands typically fall into one of a few categories:"
+  ja: __COPY__
+---
+texts:
+  en: Type
+  ja: __COPY__
+---
+texts:
+  en: Used For
+  ja: __COPY__
+---
+texts:
+  en: Description
+  ja: __COPY__
+---
+texts:
+  en: Declarative Resource Management
+  ja: __COPY__
+---
+texts:
+  en: Deployment and Operations (e.g. GitOps)
+  ja: __COPY__
+---
+texts:
+  en: Declaratively manage Kubernetes Workloads using Resource Config
+  ja: __COPY__
+---
+texts:
+  en: Imperative Resource Management
+  ja: __COPY__
+---
+texts:
+  en: Development Only
+  ja: __COPY__
+---
+texts:
+  en: Run commands to manage Kubernetes Workloads using Command Line arguments and flags
+  ja: __COPY__
+---
+texts:
+  en: Printing Workload State
+  ja: __COPY__
+---
+texts:
+  en: Debugging
+  ja: __COPY__
+---
+texts:
+  en: Print information about Workloads
+  ja: __COPY__
+---
+texts:
+  en: Interacting with Containers
+  ja: __COPY__
+---
+texts:
+  en: Exec, Attach, Cp, Logs
+  ja: __COPY__
+---
+texts:
+  en: Cluster Management
+  ja: __COPY__
+---
+texts:
+  en: Cluster Ops
+  ja: __COPY__
+---
+texts:
+  en: Drain and Cordon Nodes
+  ja: __COPY__
+---
+texts:
+  en: Declarative Application Management
+  ja: __COPY__
+---
+texts:
+  en: >-
+    The preferred approach for managing Resources is through
+
+    declarative files called Resource Config used with the Kubectl *Apply* command.
+
+    This command reads a local (or remote) file structure and modifies cluster state to
+
+    reflect the declared intent.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% panel style="info", title="Apply" %}
+
+    Apply is the preferred mechanism for managing Resources in a Kubernetes cluster.
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: Printing state about Workloads
+  ja: __COPY__
+---
+texts:
+  en: Users will need to view Workload state.
+  ja: __COPY__
+---
+texts:
+  en: Printing summarize state and information about Resources
+  ja: __COPY__
+---
+texts:
+  en: Printing complete state and information about Resources
+  ja: __COPY__
+---
+texts:
+  en: Printing specific fields from Resources
+  ja: __COPY__
+---
+texts:
+  en: Query Resources matching labels
+  ja: __COPY__
+---
+texts:
+  en: Debugging Workloads
+  ja: __COPY__
+---
+texts:
+  en: "Kubectl supports debugging by providing commands for:"
+  ja: __COPY__
+---
+texts:
+  en: Printing Container logs
+  ja: __COPY__
+---
+texts:
+  en: Printing cluster events
+  ja: __COPY__
+---
+texts:
+  en: Exec or attaching to a Container
+  ja: __COPY__
+---
+texts:
+  en: Copying files from Containers in the cluster to a user's filesystem
+  ja: __COPY__
+---
+texts:
+  en: >-
+    On occasion, users may need to perform operations to the Nodes of cluster.  Kubectl supports
+
+    commands to drain Workloads from a Node so that it can be decommission or debugged.
+  ja: __COPY__
+---
+texts:
+  en: Porcelain
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Users may find using Resource Config overly verbose for *Development* and prefer to work with
+
+    the cluster *imperatively* with a shell-like workflow.  Kubectl offers porcelain commands for
+
+    generating and modifying Resources.
+  ja: __COPY__
+---
+texts:
+  en: Generating + creating Resources such as Deployments, StatefulSets, Services, ConfigMaps, etc
+  ja: __COPY__
+---
+texts:
+  en: Setting fields on Resources
+  ja: __COPY__
+---
+texts:
+  en: Editing (live) Resources in a text editor
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% panel style="danger", title="Porcelain For Dev Only" %}
+
+    Porcelain commands are time saving for experimenting with workloads in a dev cluster, but shouldn't
+
+    be used for production.
+
+    {% endpanel %}
+  ja: __COPY__

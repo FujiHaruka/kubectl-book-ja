@@ -1,0 +1,164 @@
+texts:
+  en: >-
+    {% panel style="success", title="Providing Feedback" %}
+
+    **Provide feedback at the [survey](https://www.surveymonkey.com/r/JH35X82)**
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: '{% panel style="info", title="TL;DR" %}'
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Queries for Getting or Describing Resources
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: Matching Objects from Get and Describing
+  ja: __COPY__
+---
+texts:
+  en: Motivation
+  ja: __COPY__
+---
+texts:
+  en: Match Resources with Queries when Getting or Describing them.
+  ja: __COPY__
+---
+texts:
+  en: "{% method %}"
+  ja: __COPY__
+---
+texts:
+  en: Resource Config By `kustomization.yaml`
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Get all Resources provided by the `kustomization.yaml` in project/.
+
+    {% sample lang="yaml" %}
+  ja: __COPY__
+---
+texts:
+  en: "{% endmethod %}"
+  ja: __COPY__
+---
+texts:
+  en: Resource Config By Dir
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Get all Resources present in the Resource Config for a directory.
+
+    {% sample lang="yaml" %}
+  ja: __COPY__
+---
+texts:
+  en: Resource Types
+  ja: __COPY__
+---
+texts:
+  en: Get **all** Resources in a namespace for a given type.
+  ja: __COPY__
+---
+texts:
+  en: The Group and Version for the Resource are determined by the apiserver discovery service.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    The Singular, Plural, Short Name also apply to *Types with Name* and *Types with Selectors*.
+
+    {% sample lang="yaml" %}
+  ja: __COPY__
+---
+texts:
+  en: Resource Types with Group / Version
+  ja: __COPY__
+---
+texts:
+  en: The Group and Version for the Resource are explicit.
+  ja: __COPY__
+---
+texts:
+  en: '{% sample lang="yaml" %}'
+  ja: __COPY__
+---
+texts:
+  en: Resource Types with Name
+  ja: __COPY__
+---
+texts:
+  en: Get named Resources in a namespace for a given type.
+  ja: __COPY__
+---
+texts:
+  en: Label Selector
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Get **all** Resources in a namespace **matching a label select** for a given type.
+
+    {% sample lang="yaml" %}
+  ja: __COPY__
+---
+texts:
+  en: Namespaces
+  ja: __COPY__
+---
+texts:
+  en: >-
+    By default Get and Describe will fetch resource in the default namespace or the namespace specified
+
+    with `--namespace`.
+  ja: __COPY__
+---
+texts:
+  en: The `---all-namespaces` flag will **fetch Resources from all namespaces**.
+  ja: __COPY__
+---
+texts:
+  en: List multiple Resource types
+  ja: __COPY__
+---
+texts:
+  en: Get and Describe can accept **multiple Resource types**, and it will print them both in separate sections.
+  ja: __COPY__
+---
+texts:
+  en: List multiple Resource types by name
+  ja: __COPY__
+---
+texts:
+  en: Get and Describe can accept **multiple Resource types and names**.
+  ja: __COPY__
+---
+texts:
+  en: Uninitialized
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Kubernetes **Resources may be hidden until they have gone through an initialization process**.
+
+    These Resources can be view with the `--include-uninitialized` flag.
+  ja: __COPY__
+---
+texts:
+  en: Not Found
+  ja: __COPY__
+---
+texts:
+  en: >-
+    By default, Get or Describe **will return an error if an object is requested and doesn't exist**.
+
+    The `--ignore-not-found` flag will cause kubectl to exit 0 if the Resource is not found
+  ja: __COPY__

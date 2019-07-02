@@ -1,0 +1,85 @@
+texts:
+  en: >-
+    {% panel style="success", title="Providing Feedback" %}
+
+    **Provide feedback at the [survey](https://www.surveymonkey.com/r/JH35X82)**
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: '{% panel style="info", title="TL;DR" %}'
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Port Forward local connections to Pods running in a cluster 
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: Port Forward
+  ja: __COPY__
+---
+texts:
+  en: Motivation
+  ja: __COPY__
+---
+texts:
+  en: Connect to ports of Pods running a cluster by port forwarding local ports.
+  ja: __COPY__
+---
+texts:
+  en: "{% method %}"
+  ja: __COPY__
+---
+texts:
+  en: Forward Multiple Ports
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Listen on ports 5000 and 6000 locally, forwarding data to/from ports 5000 and 6000 in the pod
+
+    {% sample lang="yaml" %}
+  ja: __COPY__
+---
+texts:
+  en: "{% endmethod %}"
+  ja: __COPY__
+---
+texts:
+  en: Pod in a Workload
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Listen on ports 5000 and 6000 locally, forwarding data to/from ports 5000 and 6000 in a pod selected by the
+
+    deployment
+
+    {% sample lang="yaml" %}
+  ja: __COPY__
+---
+texts:
+  en: Different Local and Remote Ports
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Listen on port 8888 locally, forwarding to 5000 in the pod
+
+    {% sample lang="yaml" %}
+  ja: __COPY__
+---
+texts:
+  en: Random Local Port
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Listen on a random port locally, forwarding to 5000 in the pod
+
+    {% sample lang="yaml" %}
+  ja: __COPY__

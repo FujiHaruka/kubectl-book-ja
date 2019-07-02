@@ -1,0 +1,137 @@
+texts:
+  en: >-
+    {% panel style="success", title="Providing Feedback" %}
+
+    **Provide feedback at the [survey](https://www.surveymonkey.com/r/JH35X82)**
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: '{% panel style="info", title="TL;DR" %}'
+  ja: __COPY__
+---
+texts:
+  en: Target a cluster for a rollout with the `--context` flag
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Target a cluster for a rollout with the `--kubeconfig` flag
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: Multi-Cluster Targeting
+  ja: __COPY__
+---
+texts:
+  en: Motivation
+  ja: __COPY__
+---
+texts:
+  en: >-
+    It is common for users to need to deploy **different Variants of an Application to different clusters**.
+
+    This can be done by configuring the different Variants using different `kustomization.yaml`'s,
+
+    and targeting each variant using the `--context` or `--kubeconfig` flag.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    **Note:** The examples shown in this chapter store the Resource Config in a directory
+
+    matching the name of the cluster (i.e. as it is referred to be context).
+  ja: __COPY__
+---
+texts:
+  en: Targeting a Cluster via Context
+  ja: __COPY__
+---
+texts:
+  en: The kubeconfig file allows multiple contexts to be specified, each with a different cluster + auth.
+  ja: __COPY__
+---
+texts:
+  en: List Contexts
+  ja: __COPY__
+---
+texts:
+  en: "{% method %}"
+  ja: __COPY__
+---
+texts:
+  en: List the contexts in the kubeconfig file
+  ja: __COPY__
+---
+texts:
+  en: '{% sample lang="yaml" %}'
+  ja: __COPY__
+---
+texts:
+  en: "{% endmethod %}"
+  ja: __COPY__
+---
+texts:
+  en: Print a Context
+  ja: __COPY__
+---
+texts:
+  en: Print information about the current context
+  ja: __COPY__
+---
+texts:
+  en: Specify a Context Flag
+  ja: __COPY__
+---
+texts:
+  en: Specify the kubeconfig context as part of the command.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    **Note:** In this example the `kustomization.yaml` exists in a directory whose name matches
+
+    the name of the context.
+  ja: __COPY__
+---
+texts:
+  en: Switch to use a Context
+  ja: __COPY__
+---
+texts:
+  en: Switch the current context before running the command.
+  ja: __COPY__
+---
+texts:
+  en: Targeting a Cluster via Kubeconfig
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Alternatively, different kubeconfig files may be used for different clusters.  The
+
+    kubeconfig may be specified with the `--kubeconfig` flag.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    **Note:** In this example the `kustomization.yaml` exists in a directory whose name matches
+
+    the name of the directory containing the kubeconfig.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% panel style="info", title="More Info" %}
+
+    For more information on configuring kubeconfig and contexts, see the
+
+    [Configure Access to Multiple Clusters](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/)
+
+    k8s.io document.
+
+    {% endpanel %}
+  ja: __COPY__

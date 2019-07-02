@@ -1,0 +1,97 @@
+texts:
+  en: >-
+    {% panel style="success", title="Providing Feedback" %}
+
+    **Provide feedback at the [survey](https://www.surveymonkey.com/r/JH35X82)**
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: '{% panel style="info", title="TL;DR" %}'
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Get or List Raw Resources in a cluster as Yaml or Json
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: Print Raw Resource
+  ja: __COPY__
+---
+texts:
+  en: Motivation
+  ja: __COPY__
+---
+texts:
+  en: Inspecting or Debugging Resources.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    The Kubernetes Resources stored in etcd by the apiserver have **many more fields than
+
+    are shown in the summarized views**.  Users can learn much more about a Resource by
+
+    viewing the Raw Resource as Yaml or Json.  The Raw Resource will contain:
+  ja: __COPY__
+---
+texts:
+  en: fields specified by the **user** in the Resource Config (e.g. `metadata.name`)
+  ja: __COPY__
+---
+texts:
+  en: metadata fields owned by the **apiserver** (e.g. `metadata.creationTimestamp`)
+  ja: __COPY__
+---
+texts:
+  en: fields defaulted by the **apiserver** (e.g. `spec..imagePullPolicy`)
+  ja: __COPY__
+---
+texts:
+  en: fields set by **Controllers** (e.g. `spec.clusterIp`, `status`)
+  ja: __COPY__
+---
+texts:
+  en: Get
+  ja: __COPY__
+---
+texts:
+  en: >-
+    The `kubectl get` reads Resources from the cluster and formats them as output.  The examples in
+
+    this chapter will query for Resources by providing Get the *Resource Type* as an argument.
+
+    For more query options see [Queries and Options](queries_and_options.md).
+  ja: __COPY__
+---
+texts:
+  en: "{% method %}"
+  ja: __COPY__
+---
+texts:
+  en: YAML
+  ja: __COPY__
+---
+texts:
+  en: Print the Raw Resource formatting it as YAML.
+  ja: __COPY__
+---
+texts:
+  en: '{% sample lang="yaml" %}'
+  ja: __COPY__
+---
+texts:
+  en: "{% endmethod %}"
+  ja: __COPY__
+---
+texts:
+  en: JSON
+  ja: __COPY__
+---
+texts:
+  en: Print the Raw Resource formatting it as JSON.
+  ja: __COPY__

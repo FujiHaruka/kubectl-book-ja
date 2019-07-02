@@ -1,0 +1,196 @@
+texts:
+  en: >-
+    {% panel style="success", title="Providing Feedback" %}
+
+    **Provide feedback at the [survey](https://www.surveymonkey.com/r/CLQBQHR)**
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: '{% panel style="info", title="TL;DR" %}'
+  ja: __COPY__
+---
+texts:
+  en: Set the Namespace for all Resources within a Project with `namespace`
+  ja: __COPY__
+---
+texts:
+  en: Prefix the Names of all Resources within a Project with `namePrefix`
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Suffix the Names of all Resources within a Project with `nameSuffix`
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: Setting Namespaces and Names
+  ja: __COPY__
+---
+texts:
+  en: Motivation
+  ja: __COPY__
+---
+texts:
+  en: >-
+    It may be useful to enforce consistency across the namespace and names of all Resources within
+
+    a Project.
+  ja: __COPY__
+---
+texts:
+  en: Ensure all Resources are in the correct Namespace
+  ja: __COPY__
+---
+texts:
+  en: Ensure all Resources share a common naming convention
+  ja: __COPY__
+---
+texts:
+  en: Copy or Fork an existing Project and change the Namespace / Names
+  ja: __COPY__
+---
+texts:
+  en: See [Bases and Variations](../app_customization/bases_and_variants.md) for more details on Copying Projects.
+  ja: __COPY__
+---
+texts:
+  en: '{% panel style="info", title="Reference" %}'
+  ja: __COPY__
+---
+texts:
+  en: "[namespace](../reference/kustomize.md#namespace)"
+  ja: __COPY__
+---
+texts:
+  en: "[namePrefix](../reference/kustomize.md#nameprefix)"
+  ja: __COPY__
+---
+texts:
+  en: >-
+    [nameSuffix](../reference/kustomize.md#namesuffix)
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: Setting the Namespace for all Resources
+  ja: __COPY__
+---
+texts:
+  en: "Reference: "
+  ja: __COPY__
+---
+texts:
+  en: >-
+    The Namespace for all namespaced Resources declared in the Resource Config may be set with `namespace`.
+
+    This sets the namespace for both generated Resources (e.g. ConfigMaps and Secrets) and non-generated
+
+    Resources.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% method %}
+
+    **Example:** Set the `namespace` specified in the `kustomization.yaml` on the namespaced Resources.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% sample lang="yaml" %}
+
+    **Input:** The kustomization.yaml and deployment.yaml files
+  ja: __COPY__
+---
+texts:
+  en: "**Applied:** The Resource that is Applied to the cluster"
+  ja: __COPY__
+---
+texts:
+  en: "{% endmethod %}"
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% panel style="info", title="Overriding Namespaces" %}
+
+    Setting the namespace will override the namespace on Resources if it is already set.
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: Setting a Name prefix or suffix for all Resources
+  ja: __COPY__
+---
+texts:
+  en: >-
+    A name prefix or suffix can be set for all resources using `namePrefix` or
+
+    `nameSuffix`.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% method %}
+
+    **Example:** Prefix the names of all Resources.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% panel style="info", title="Propagation of the Name to Object References" %}
+
+    Resources such as Deployments and StatefulSets may reference other Resources such as
+
+    ConfigMaps and Secrets in the Pod Spec.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    This sets a name prefix or suffix for both generated Resources (e.g. ConfigMaps 
+
+    and Secrets) and non-generated Resources.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    The namePrefix or nameSuffix that is applied is propagated to references to updated resources -
+
+    e.g. references to Secrets and ConfigMaps are updated with the namePrefix and nameSuffix.
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: This will update the ConfigMap reference in the Deployment to have the `foo` prefix.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% panel style="info", title="References" %}
+
+    Apply will propagate the `namePrefix` to any place Resources within the project are referenced by other Resources
+
+    including:
+  ja: __COPY__
+---
+texts:
+  en: Service references from StatefulSets
+  ja: __COPY__
+---
+texts:
+  en: ConfigMap references from PodSpecs
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Secret references from PodSpecs
+
+    {% endpanel %}
+  ja: __COPY__

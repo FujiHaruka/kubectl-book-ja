@@ -1,0 +1,34 @@
+texts:
+  en: >-
+    {% panel style="success", title="Providing Feedback" %}
+
+    **Provide feedback at the [survey](https://www.surveymonkey.com/r/JH35X82)**
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: Introduction
+  ja: __COPY__
+---
+texts:
+  en: >-
+    While Declarative Management of Applications is the recommended pattern for production
+
+    use cases, imperative porcelain commands may be helpful for development or debugging
+
+    issues.  These commands are particularly helpful for learning about Kubernetes when coming
+
+    from an imperative system.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    **Note:** Some imperative commands can by run with `--dry-run -o yaml` to display the declarative
+
+    form.
+  ja: __COPY__
+---
+texts:
+  en: This section describes imperative commands that will generate or patch Resource Config.
+  ja: __COPY__

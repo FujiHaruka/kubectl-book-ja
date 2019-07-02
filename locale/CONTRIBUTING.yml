@@ -1,0 +1,143 @@
+texts:
+  en: Contributing
+  ja: __COPY__
+---
+texts:
+  en: Process
+  ja: __COPY__
+---
+texts:
+  en: Fixing Issues
+  ja: __COPY__
+---
+texts:
+  en: Open an Issue
+  ja: __COPY__
+---
+texts:
+  en: Create a PR
+  ja: __COPY__
+---
+texts:
+  en: "Email PR to sig-cli@googlegroups.com with subject `Kubectl Book: Fix Issue <Issue> in <PR>`"
+  ja: __COPY__
+---
+texts:
+  en: "Optional: Come to sig-cli meeting to discuss"
+  ja: __COPY__
+---
+texts:
+  en: Adding New Content
+  ja: __COPY__
+---
+texts:
+  en: Open an Issue with proposed content
+  ja: __COPY__
+---
+texts:
+  en: "Email sig-cli@googlegroups.com with subject `Kubectl Book: Proposed Content <Issue>`"
+  ja: __COPY__
+---
+texts:
+  en: Editing
+  ja: __COPY__
+---
+texts:
+  en: Running Locally
+  ja: __COPY__
+---
+texts:
+  en: Install [GitBook Toolchain](https://toolchain.gitbook.com/setup.html)
+  ja: __COPY__
+---
+texts:
+  en: From `docs/book` run `npm install`  to install node_modules locally (don't run install, it updates the shrinkwrap.json)
+  ja: __COPY__
+---
+texts:
+  en: From `docs/book` run `gitbook serve`
+  ja: __COPY__
+---
+texts:
+  en: Go to `http://localhost:4000` in a browser
+  ja: __COPY__
+---
+texts:
+  en: Adding a Section
+  ja: __COPY__
+---
+texts:
+  en: Update `SUMMARY.md` with a new section formatted as `## Section Name`
+  ja: __COPY__
+---
+texts:
+  en: Adding a Chapter
+  ja: __COPY__
+---
+texts:
+  en: Update `SUMMARY.md` under section with chapter formatted as `* [Name of Chapter](pages/section_chapter.md)`
+  ja: __COPY__
+---
+texts:
+  en: Add file `pages/section_chapter.md`
+  ja: __COPY__
+---
+texts:
+  en: Adding Examples to a Chapter
+  ja: __COPY__
+---
+texts:
+  en: Adding Notes to a Chapter
+  ja: __COPY__
+---
+texts:
+  en: "Notes may have the following styles:"
+  ja: __COPY__
+---
+texts:
+  en: success
+  ja: __COPY__
+---
+texts:
+  en: info
+  ja: __COPY__
+---
+texts:
+  en: warning
+  ja: __COPY__
+---
+texts:
+  en: danger
+  ja: __COPY__
+---
+texts:
+  en: Building and Publishing a release
+  ja: __COPY__
+---
+texts:
+  en: Run `gitbook build`
+  ja: __COPY__
+---
+texts:
+  en: Push fies in `_book` to a server
+  ja: __COPY__
+---
+texts:
+  en: Adding GitBook plugins
+  ja: __COPY__
+---
+texts:
+  en: Update `book.json` with the plugin
+  ja: __COPY__
+---
+texts:
+  en: Run `npm install <npm-plugin-name>`
+  ja: __COPY__
+---
+texts:
+  en: Cool plugins
+  ja: __COPY__
+---
+texts:
+  en: See https://github.com/swapagarwal/awesome-gitbook-plugins for more plugins.
+  ja: __COPY__

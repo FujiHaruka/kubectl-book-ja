@@ -1,0 +1,54 @@
+texts:
+  en: >-
+    {% panel style="success", title="Providing Feedback" %}
+
+    **Provide feedback at the [survey](https://www.surveymonkey.com/r/JH35X82)**
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: '{% panel style="info", title="TL;DR" %}'
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Edit a live Resource in an editor
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: Editing Resources
+  ja: __COPY__
+---
+texts:
+  en: Motivation
+  ja: __COPY__
+---
+texts:
+  en: Directly modify a Resource in the cluster by opening its Config in an editor.
+  ja: __COPY__
+---
+texts:
+  en: "{% method %}"
+  ja: __COPY__
+---
+texts:
+  en: Edit
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Edit allows a user to directly edit a Resource in a cluster rather than
+
+    editing it through a local file.
+  ja: __COPY__
+---
+texts:
+  en: '{% sample lang="yaml" %}'
+  ja: __COPY__
+---
+texts:
+  en: "{% endmethod %}"
+  ja: __COPY__

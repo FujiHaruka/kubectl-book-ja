@@ -1,0 +1,162 @@
+texts:
+  en: >-
+    {% panel style="success", title="Providing Feedback" %}
+
+    **Provide feedback at the [survey](https://www.surveymonkey.com/r/JH35X82)**
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: '{% panel style="info", title="TL;DR" %}'
+  ja: __COPY__
+---
+texts:
+  en: Print information about the Cluster and Client versions
+  ja: __COPY__
+---
+texts:
+  en: Print information about the Control Plane
+  ja: __COPY__
+---
+texts:
+  en: Print information about Nodes
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Print information about APIs
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: Cluster Info
+  ja: __COPY__
+---
+texts:
+  en: Motivation
+  ja: __COPY__
+---
+texts:
+  en: >-
+    It may be necessary to learn about the Kubernetes cluster itself, rather
+
+    than just the workloads running in it.  This can be useful for debugging
+
+    unexpected behavior.
+  ja: __COPY__
+---
+texts:
+  en: Versions
+  ja: __COPY__
+---
+texts:
+  en: "{% method %}"
+  ja: __COPY__
+---
+texts:
+  en: >-
+    The `kubectl version` prints the client and server versions.  Note that
+
+    the client version may not be present for clients built locally from
+
+    source.
+  ja: __COPY__
+---
+texts:
+  en: '{% sample lang="yaml" %}'
+  ja: __COPY__
+---
+texts:
+  en: "{% endmethod %}"
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% panel style="warning", title="Version Skew" %}
+
+    Kubectl supports +/-1 version skew with the Kubernetes cluster.  Kubectl
+
+    versions that are more than 1 version ahead of or behind the cluster are
+
+    not guaranteed to be compatible.
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: Control Plane and Addons
+  ja: __COPY__
+---
+texts:
+  en: >-
+    The `kubectl cluster-info` prints information about the control plane and
+
+    add-ons.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% panel style="info", title="Kube Proxy" %}
+
+    The URLs printed by `cluster-info` can be access at `127.0.0.1:8001` by
+
+    running `kubectl proxy`. 
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: Nodes
+  ja: __COPY__
+---
+texts:
+  en: >-
+    The `kubectl top node` and `kubectl top pod` print information about the
+
+    top nodes and pods.
+  ja: __COPY__
+---
+texts:
+  en: APIs
+  ja: __COPY__
+---
+texts:
+  en: >-
+    The `kubectl api-versions` and `kubectl api-resources` print information
+
+    about the available Kubernetes APIs.  This information is read from the
+
+    Discovery Service.
+  ja: __COPY__
+---
+texts:
+  en: Print the Resource Types available in the cluster.
+  ja: __COPY__
+---
+texts:
+  en: Print the API versions available in the cluster.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% panel style="info", title="Discovery" %}
+
+    The discovery information can be viewed at `127.0.0.1:8001/` by running
+
+    `kubectl proxy`.  The Discovery for specific API can be found under either
+
+    `/api/v1` or `apis/<group>/<version>`, depending on the API group -
+
+    e.g. `127.0.0.1:8001/apis/apps/v1`
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: >-
+    The `kubectl explain` command can be used to print metadata about specific
+
+    Resource types.  This is useful for learning about the type.
+  ja: __COPY__

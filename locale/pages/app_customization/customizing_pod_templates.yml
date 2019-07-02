@@ -1,0 +1,264 @@
+texts:
+  en: >-
+    {% panel style="success", title="Providing Feedback" %}
+
+    **Provide feedback at the [survey](https://www.surveymonkey.com/r/C855WZW)**
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: '{% panel style="info", title="TL;DR" %}'
+  ja: __COPY__
+---
+texts:
+  en: Override Base Pod and PodTemplate Image **Names** and **Tags**
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Override Base Pod and PodTemplate Environment Variables and Arguments
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: Customizing Pods
+  ja: __COPY__
+---
+texts:
+  en: Motivation
+  ja: __COPY__
+---
+texts:
+  en: >-
+    It is common for users to customize their Applications for specific environments.
+
+    Simple customizations to Pod Templates may be through **Images, Environment Variables and
+
+    Command Line Arguments**.
+  ja: __COPY__
+---
+texts:
+  en: "Common examples include:"
+  ja: __COPY__
+---
+texts:
+  en: Running **different versions of an Image** for dev, test, canary, production
+  ja: __COPY__
+---
+texts:
+  en: Configuring **different Pod Environment Variables and Arguments** for dev, test, canary, production
+  ja: __COPY__
+---
+texts:
+  en: '{% panel style="info", title="Reference" %}'
+  ja: __COPY__
+---
+texts:
+  en: "[images](../reference/kustomize.md#images)"
+  ja: __COPY__
+---
+texts:
+  en: "[configMapGenerator](../reference/kustomize.md#configmapgenerator)"
+  ja: __COPY__
+---
+texts:
+  en: >-
+    [secretGenerator](../reference/kustomize.md#secretgenerator)
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: Customizing Images
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% method %}
+
+    **Use Case:** Different Environments (test, dev, staging, canary, prod) use images with different tags.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Override the name or tag for an `image` field from a [Pod Template](https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/#pod-templates)
+
+    in a base by specifying the `images` field in the `kustomization.yaml`.
+  ja: __COPY__
+---
+texts:
+  en: Field
+  ja: __COPY__
+---
+texts:
+  en: Description
+  ja: __COPY__
+---
+texts:
+  en: Example Field
+  ja: __COPY__
+---
+texts:
+  en: Example Result
+  ja: __COPY__
+---
+texts:
+  en: "`name`"
+  ja: __COPY__
+---
+texts:
+  en: Match images with this image name
+  ja: __COPY__
+---
+texts:
+  en: "`name: nginx`"
+  ja: __COPY__
+---
+texts:
+  en: "`newTag`"
+  ja: __COPY__
+---
+texts:
+  en: Override the image **tag** or **digest** for images whose image name matches `name`
+  ja: __COPY__
+---
+texts:
+  en: "`newTag: new`"
+  ja: __COPY__
+---
+texts:
+  en: "`nginx:old` -> `nginx:new`"
+  ja: __COPY__
+---
+texts:
+  en: "`newName`"
+  ja: __COPY__
+---
+texts:
+  en: Override the image **name** for images whose image name matches `name`
+  ja: __COPY__
+---
+texts:
+  en: "`newImage: nginx-special`"
+  ja: __COPY__
+---
+texts:
+  en: "`nginx:old` -> `nginx-special:old`"
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% sample lang="yaml" %}
+
+    **Input:** The `kustomization.yaml` file
+  ja: __COPY__
+---
+texts:
+  en: "**Base:** Resources to be modified by the `kustomization.yaml`"
+  ja: __COPY__
+---
+texts:
+  en: "**Applied:** The Resource that is Applied to the cluster"
+  ja: __COPY__
+---
+texts:
+  en: "{% endmethod %}"
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% panel style="info", title="Replacing Images" %}
+
+    `newImage` allows an image name to be replaced with another arbitrary image name.  e.g. you could
+
+    call your image `webserver` or `database` and replace it with `nginx` or `mysql`.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    For more information on customizing images, see [Container Images](../app_management/container_images.md).
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: Customizing Pod Environment Variables
+  ja: __COPY__
+---
+texts:
+  en: "{% method %}"
+  ja: __COPY__
+---
+texts:
+  en: >-
+    **Use Case:** Different Environments (test, dev, staging, canary, prod) are configured with
+
+    different Environment Variables.
+  ja: __COPY__
+---
+texts:
+  en: Override Pod Environment Variables.
+  ja: __COPY__
+---
+texts:
+  en: Base uses ConfigMap data in Pods as Environment Variables
+  ja: __COPY__
+---
+texts:
+  en: Each Variant overrides or extends ConfigMap data
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% sample lang="yaml" %}
+
+    **Input:** The kustomization.yaml file
+  ja: __COPY__
+---
+texts:
+  en: "**Base: kustomization.yaml and Resources**"
+  ja: __COPY__
+---
+texts:
+  en: "**Applied:** The Resources that are Applied to the cluster"
+  ja: __COPY__
+---
+texts:
+  en: See [ConfigMaps and Secrets](../app_management/secrets_and_configmaps.md).
+  ja: __COPY__
+---
+texts:
+  en: Customizing Pod Command Arguments
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% method %}
+
+    **Use Case:** Different Environments (test, dev, staging, canary, prod) provide different Commandline
+
+    Arguments to a Pod.
+  ja: __COPY__
+---
+texts:
+  en: Override Pod Command Arguments.
+  ja: __COPY__
+---
+texts:
+  en: Base uses ConfigMap data in Pods as Command Arguments
+  ja: __COPY__
+---
+texts:
+  en: Each Variant defines different ConfigMap data
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% panel style="info", title="More Info" %}
+
+    See [Secrets and ConfigMaps](../app_management/secrets_and_configmaps.md) for more information on ConfigMap and Secret generation.
+
+    {% endpanel %}
+  ja: __COPY__

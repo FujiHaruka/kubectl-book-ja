@@ -1,0 +1,203 @@
+texts:
+  en: Resource Management With Kubectl
+  ja: __COPY__
+---
+texts:
+  en: Background Information
+  ja: __COPY__
+---
+texts:
+  en: "[Getting Started with Kubectl](pages/kubectl_book/getting_started.md)"
+  ja: __COPY__
+---
+texts:
+  en: "[Resources + Controllers Overview](pages/kubectl_book/resources_and_controllers.md)"
+  ja: __COPY__
+---
+texts:
+  en: App Management
+  ja: __COPY__
+---
+texts:
+  en: "[Introduction](pages/app_management/introduction.md)"
+  ja: __COPY__
+---
+texts:
+  en: "[Apply](pages/app_management/apply.md)"
+  ja: __COPY__
+---
+texts:
+  en: "[Secrets and ConfigMaps](pages/app_management/secrets_and_configmaps.md)"
+  ja: __COPY__
+---
+texts:
+  en: "[Container Images](pages/app_management/container_images.md)      "
+  ja: __COPY__
+---
+texts:
+  en: "[Namespaces and Names](pages/app_management/namespaces_and_names.md)"
+  ja: __COPY__
+---
+texts:
+  en: "[Labels and Annotations](pages/app_management/labels_and_annotations.md)"
+  ja: __COPY__
+---
+texts:
+  en: "[Field Merge Semantics](pages/app_management/field_merge_semantics.md)"
+  ja: __COPY__
+---
+texts:
+  en: Resource Printing
+  ja: __COPY__
+---
+texts:
+  en: "[Summaries](pages/resource_printing/summaries.md)"
+  ja: __COPY__
+---
+texts:
+  en: "[Raw](pages/resource_printing/raw.md)"
+  ja: __COPY__
+---
+texts:
+  en: "[Fields](pages/resource_printing/fields.md)"
+  ja: __COPY__
+---
+texts:
+  en: "[Describe](pages/resource_printing/describe.md)"
+  ja: __COPY__
+---
+texts:
+  en: "[Queries and Options](pages/resource_printing/queries_and_options.md)"
+  ja: __COPY__
+---
+texts:
+  en: "[Watch](pages/resource_printing/watch.md)"
+  ja: __COPY__
+---
+texts:
+  en: "[Cluster Information](pages/resource_printing/cluster_information.md)"
+  ja: __COPY__
+---
+texts:
+  en: Container Debugging
+  ja: __COPY__
+---
+texts:
+  en: "[Container Logs](pages/container_debugging/container_logs.md)"
+  ja: __COPY__
+---
+texts:
+  en: "[Copying Container Files](pages/container_debugging/copying_container_files.md)"
+  ja: __COPY__
+---
+texts:
+  en: "[Executing a Command in a Container](pages/container_debugging/executing_a_command_in_a_container.md)"
+  ja: __COPY__
+---
+texts:
+  en: "[Port Forward to Pods](pages/container_debugging/port_forward_to_pods.md)"
+  ja: __COPY__
+---
+texts:
+  en: "[Proxying Traffic to Services](pages/container_debugging/proxying_traffic_to_services.md)"
+  ja: __COPY__
+---
+texts:
+  en: App Customization
+  ja: __COPY__
+---
+texts:
+  en: "[Introduction](pages/app_customization/introduction.md)"
+  ja: __COPY__
+---
+texts:
+  en: "[Bases and Variations](pages/app_customization/bases_and_variants.md)"
+  ja: __COPY__
+---
+texts:
+  en: "[Customizing Pod Templates](pages/app_customization/customizing_pod_templates.md)"
+  ja: __COPY__
+---
+texts:
+  en: "[Customizing Arbitrary Fields](pages/app_customization/customizing_arbitrary_fields.md)"
+  ja: __COPY__
+---
+texts:
+  en: "[Config Reflection](pages/app_customization/config_reflection.md)"
+  ja: __COPY__
+---
+texts:
+  en: App Structure
+  ja: __COPY__
+---
+texts:
+  en: "[Introduction](pages/app_composition_and_deployment/structure_introduction.md)"
+  ja: __COPY__
+---
+texts:
+  en: "[Directory Layout](pages/app_composition_and_deployment/structure_directories.md)"
+  ja: __COPY__
+---
+texts:
+  en: "[Branches Layout](pages/app_composition_and_deployment/structure_branches.md)"
+  ja: __COPY__
+---
+texts:
+  en: "[Repository Layout](pages/app_composition_and_deployment/structure_repositories.md)"
+  ja: __COPY__
+---
+texts:
+  en: "[Shared Base Layout](pages/app_composition_and_deployment/structure_multi_tier_apps.md)"
+  ja: __COPY__
+---
+texts:
+  en: App Deployment
+  ja: __COPY__
+---
+texts:
+  en: "[Diffing Local and Remote State](pages/app_composition_and_deployment/diffing_local_and_remote_resources.md)"
+  ja: __COPY__
+---
+texts:
+  en: "[Accessing Multiple Clusters](pages/app_composition_and_deployment/accessing_multiple_clusters.md)"
+  ja: __COPY__
+---
+texts:
+  en: "[Publishing Config](pages/app_composition_and_deployment/publishing_bases.md)"
+  ja: __COPY__
+---
+texts:
+  en: Reference
+  ja: __COPY__
+---
+texts:
+  en: "[kustomization.yaml](pages/reference/kustomize.md)"
+  ja: __COPY__
+---
+texts:
+  en: Examples
+  ja: __COPY__
+---
+texts:
+  en: "[kustomization.yaml](pages/examples/kustomize.md)"
+  ja: __COPY__
+---
+texts:
+  en: Miscellaneous Imperative Commands
+  ja: __COPY__
+---
+texts:
+  en: "[Introduction](pages/imperative_porcelain/introduction.md)"
+  ja: __COPY__
+---
+texts:
+  en: "[Creating Resources](pages/imperative_porcelain/creating_resources.md)"
+  ja: __COPY__
+---
+texts:
+  en: "[Setting Fields](pages/imperative_porcelain/setting_fields.md)"
+  ja: __COPY__
+---
+texts:
+  en: "[Editing Workloads](pages/imperative_porcelain/editing_workloads.md)"
+  ja: __COPY__

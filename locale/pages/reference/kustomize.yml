@@ -1,0 +1,1212 @@
+texts:
+  en: >-
+    {% panel style="success", title="Providing Feedback" %}
+
+    **Provide feedback at the [survey](https://www.surveymonkey.com/r/JH35X82)**
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: '{% panel style="info", title="TL;DR" %}'
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Reference for `kustomization.yaml`
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: Kustomization.yaml Reference
+  ja: __COPY__
+---
+texts:
+  en: "Terms:"
+  ja: __COPY__
+---
+texts:
+  en: "**Generators**: Provide Resource Config to Kustomize - e.g. `resources`, `bases`, `secretGenerators`."
+  ja: __COPY__
+---
+texts:
+  en: "**Transformers**: Modify Resource Config by adding, updating or deleting fields - e.g. `namespace`, `commonLabels`, `images`."
+  ja: __COPY__
+---
+texts:
+  en: "**Meta**: Configure behavior of Generators and Transformers - e.g. generatorOptions, crds, configurations."
+  ja: __COPY__
+---
+texts:
+  en: Table of Contents
+  ja: __COPY__
+---
+texts:
+  en: Name
+  ja: __COPY__
+---
+texts:
+  en: Type
+  ja: __COPY__
+---
+texts:
+  en: Descriptions
+  ja: __COPY__
+---
+texts:
+  en: Guides
+  ja: __COPY__
+---
+texts:
+  en: "[bases](#bases)"
+  ja: __COPY__
+---
+texts:
+  en: Generator
+  ja: __COPY__
+---
+texts:
+  en: Add Resource Configs from another `kustomization.yaml`
+  ja: __COPY__
+---
+texts:
+  en: "[Bases and Variants](../app_customization/bases_and_variants.md)"
+  ja: __COPY__
+---
+texts:
+  en: "[commonAnnotations](#commonannotations)"
+  ja: __COPY__
+---
+texts:
+  en: Transformer
+  ja: __COPY__
+---
+texts:
+  en: Set annotations on all Resources and Selectors.
+  ja: __COPY__
+---
+texts:
+  en: "[Labels and Annotations](../app_management/labels_and_annotations.md#setting-annotations-for-all-resources)"
+  ja: __COPY__
+---
+texts:
+  en: "[commonLabels](#commonlabels)"
+  ja: __COPY__
+---
+texts:
+  en: Set labels on all Resources and Selectors.
+  ja: __COPY__
+---
+texts:
+  en: "[Labels and Annotations](../app_management/labels_and_annotations.md#setting-labels-for-all-resources)"
+  ja: __COPY__
+---
+texts:
+  en: "[configMapGenerator](#configmapgenerator)"
+  ja: __COPY__
+---
+texts:
+  en: Generate ConfigMap Resources.
+  ja: __COPY__
+---
+texts:
+  en: "[Secrets and ConfigMaps](../app_management/secrets_and_configmaps.md#configmaps-from-files)"
+  ja: __COPY__
+---
+texts:
+  en: "[configurations](#configurations)"
+  ja: __COPY__
+---
+texts:
+  en: Meta
+  ja: __COPY__
+---
+texts:
+  en: Extend functionality of builtin Transformers to work with additional types (e.g. CRDs).
+  ja: __COPY__
+---
+texts:
+  en: "[generatorOptions](#generatoroptions)"
+  ja: __COPY__
+---
+texts:
+  en: Configure how ConfigMaps and Secrets are generated.
+  ja: __COPY__
+---
+texts:
+  en: "[images](#images)"
+  ja: __COPY__
+---
+texts:
+  en: Override image names and tags.
+  ja: __COPY__
+---
+texts:
+  en: "[Container Images](../app_management/container_images.md)"
+  ja: __COPY__
+---
+texts:
+  en: "[namespace](#namespace)"
+  ja: __COPY__
+---
+texts:
+  en: Override namespaces on all Resources.
+  ja: __COPY__
+---
+texts:
+  en: "[Namespaces and Names](../app_management/namespaces_and_names.md##setting-a-namespace-for-all-resources)"
+  ja: __COPY__
+---
+texts:
+  en: "[namePrefix](#nameprefix)"
+  ja: __COPY__
+---
+texts:
+  en: Add a prefix to the names of all Resources and References.
+  ja: __COPY__
+---
+texts:
+  en: "[Namespaces and Names](../app_management/namespaces_and_names.md#setting-a-name-prefix-or-suffix-for-all-resources)"
+  ja: __COPY__
+---
+texts:
+  en: "[nameSuffix](#namesuffix)"
+  ja: __COPY__
+---
+texts:
+  en: Add a suffix to the name of all Resources and References.
+  ja: __COPY__
+---
+texts:
+  en: "[patchesJson6902](#patchesjson6902)"
+  ja: __COPY__
+---
+texts:
+  en: Patch Resource Config using json patch.
+  ja: __COPY__
+---
+texts:
+  en: "[Customizing Resource Fields](../app_customization/customizing_arbitrary_fields.md#customizing-arbitrary-fields-with-jsonpatch)"
+  ja: __COPY__
+---
+texts:
+  en: "[patchesStrategicMerge](#patchesstrategicmerge)"
+  ja: __COPY__
+---
+texts:
+  en: Patch Resource Config using an overlay.
+  ja: __COPY__
+---
+texts:
+  en: "[Customizing Resource Fields](../app_customization/customizing_arbitrary_fields.md#customizing-arbitrary-fields-with-overlays)"
+  ja: __COPY__
+---
+texts:
+  en: "[resources](#resources)"
+  ja: __COPY__
+---
+texts:
+  en: Add Raw Resource Configs.
+  ja: __COPY__
+---
+texts:
+  en: "[Apply](../app_management/apply.md#usage)"
+  ja: __COPY__
+---
+texts:
+  en: "[secretGenerator](#secretgenerator)"
+  ja: __COPY__
+---
+texts:
+  en: Generate Secret Resources.
+  ja: __COPY__
+---
+texts:
+  en: "[Secrets and ConfigMaps](../app_management/secrets_and_configmaps.md#secrets-from-files)"
+  ja: __COPY__
+---
+texts:
+  en: "[vars](#vars)"
+  ja: __COPY__
+---
+texts:
+  en: Substitute Resource Config field values into Pod Arguments.
+  ja: __COPY__
+---
+texts:
+  en: "[Config Reflection](../app_customization/config_reflection.md)"
+  ja: __COPY__
+---
+texts:
+  en: See this [example kustomization.yaml](../examples/kustomize.md)
+  ja: __COPY__
+---
+texts:
+  en: Resource Generators
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Resource Generators provide Resource Configs to Kustomize from sources such as files, urls, or
+
+    `kustomization.yaml` fields.
+  ja: __COPY__
+---
+texts:
+  en: bases
+  ja: __COPY__
+---
+texts:
+  en: "{% method %}"
+  ja: __COPY__
+---
+texts:
+  en: "`bases` contains a list of paths to **directories or git repositories** containing `kustomization.yaml`s."
+  ja: __COPY__
+---
+texts:
+  en: >-
+    `bases` produce Resource Config by running Kustomize against the target.  The provided Resource Config
+
+    will then have Transformers from the current `kustomization.yaml` applied.
+  ja: __COPY__
+---
+texts:
+  en: "`bases` are conceptually similar to a base image referenced by `FROM` in a Dockerfile."
+  ja: __COPY__
+---
+texts:
+  en: Desc
+  ja: __COPY__
+---
+texts:
+  en: "**base**"
+  ja: __COPY__
+---
+texts:
+  en: "[]string"
+  ja: __COPY__
+---
+texts:
+  en: List of paths must point to directories or git repositories containing `kustomization.yaml`s.
+  ja: __COPY__
+---
+texts:
+  en: '{% sample lang="yaml" %}'
+  ja: __COPY__
+---
+texts:
+  en: "{% endmethod %}"
+  ja: __COPY__
+---
+texts:
+  en: configMapGenerator
+  ja: __COPY__
+---
+texts:
+  en: "`configMapGenerator` contains a list of ConfigMaps to generate."
+  ja: __COPY__
+---
+texts:
+  en: >-
+    By default, generated ConfigMaps will have a hash appended to the name.  The ConfigMap hash is
+
+    appended after a `nameSuffix`, if one is specified. Changes to ConfigMap data will cause a ConfigMap
+
+    with a new name to be generated, triggering a rolling update to Workloads referencing the ConfigMap.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Resources such as PodTemplates should reference ConfigMaps by the `name` ConfigMapGenerator field,
+
+    and Kustomize will update the reference to match the generated name,
+
+    as well as `namePrefix`'s and `nameSuffix`'s.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    **Note:** Hash suffix generation can be disabled for a subset of ConfigMaps by creating a separate
+
+    `kustomization.yaml` and  generating these ConfigMaps there.  This `kustomization.yaml` must set
+
+    `generatorOptions.disableNameSuffixHash=true`, and be used as a `base`.  See
+
+    [generatorOptions](#generatoroptions) for more details.
+  ja: __COPY__
+---
+texts:
+  en: "**configMapGenerator**"
+  ja: __COPY__
+---
+texts:
+  en: "[]ConfigMapGeneratorArgs"
+  ja: __COPY__
+---
+texts:
+  en: List of ConfigMaps to generate.
+  ja: __COPY__
+---
+texts:
+  en: ConfigMapGeneratorArgs
+  ja: __COPY__
+---
+texts:
+  en: "**behavior**"
+  ja: __COPY__
+---
+texts:
+  en: string
+  ja: __COPY__
+---
+texts:
+  en: Merge behavior when the ConfigMap generator is defined in a base.  May be one of `create`, `replace`, `merge.
+  ja: __COPY__
+---
+texts:
+  en: "**env**"
+  ja: __COPY__
+---
+texts:
+  en: Single file to generate ConfigMap data entries from.  Should be a path to a local *env* file, e.g. `path/to/file.env`, where each line of the file is a `key=value` pair.  *Each line* will appear as an entry in the ConfigMap data field.
+  ja: __COPY__
+---
+texts:
+  en: "**files**"
+  ja: __COPY__
+---
+texts:
+  en: List of files to generate ConfigMap data entries from. Each item should be a path to a local file, e.g. `path/to/file.config`, and the filename will appear as an entry in the ConfigMap data field with its contents as a value.
+  ja: __COPY__
+---
+texts:
+  en: "**literals**"
+  ja: __COPY__
+---
+texts:
+  en: List of literal ConfigMap data entries. Each item should be a key and literal value, e.g. `somekey=somevalue`, and the key/value will appear as an entry in the ConfigMap data field.
+  ja: __COPY__
+---
+texts:
+  en: "**name**"
+  ja: __COPY__
+---
+texts:
+  en: Name for the ConfigMap.  Modified by the `namePrefix` and `nameSuffix` fields.
+  ja: __COPY__
+---
+texts:
+  en: "**namespace**"
+  ja: __COPY__
+---
+texts:
+  en: Namespace for the ConfigMap.  Overridden by kustomize-wide `namespace` field.
+  ja: __COPY__
+---
+texts:
+  en: resources
+  ja: __COPY__
+---
+texts:
+  en: >-
+    `resources` contains a list of Resource Config file paths to be customized.  Each file may contain multiple
+
+    Resource Config definitions separated by `\n---\n`.
+  ja: __COPY__
+---
+texts:
+  en: "**resources**"
+  ja: __COPY__
+---
+texts:
+  en: Paths to Resource Config files.
+  ja: __COPY__
+---
+texts:
+  en: secretGenerator
+  ja: __COPY__
+---
+texts:
+  en: "`secretGenerator` contains a list of Secrets to generate."
+  ja: __COPY__
+---
+texts:
+  en: >-
+    By default, generated Secrets will have a hash appended to the name.  The Secrets hash is
+
+    appended after a `nameSuffix`, if one is specified. Changes to Secrets data will cause a Secrets
+
+    with a new name to be generated, triggering a rolling update to Workloads referencing the Secrets.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Resources such as PodTemplates should reference Secrets by the `name` secretsGenerator field,
+
+    and Kustomize will update the reference to match the generated name,
+
+    as well as `namePrefix`'s and `nameSuffix`'s.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    **Note:** Hash suffix generation can be disabled for a subset of Secret by creating a separate
+
+    `kustomization.yaml` and  generating these Secret there.  This `kustomization.yaml` must set
+
+    `generatorOptions.disableNameSuffixHash=true`, and be used as a `base`.  See
+
+    [generatorOptions](#generatoroptions) for more details.
+  ja: __COPY__
+---
+texts:
+  en: "**secretGenerator**"
+  ja: __COPY__
+---
+texts:
+  en: "[]SecretGeneratorArgs"
+  ja: __COPY__
+---
+texts:
+  en: List of Secrets to generate.
+  ja: __COPY__
+---
+texts:
+  en: SecretGeneratorArgs
+  ja: __COPY__
+---
+texts:
+  en: Merge behavior when the Secret generator is defined in a base.  May be one of `create`, `replace`, `merge.
+  ja: __COPY__
+---
+texts:
+  en: Single file to generate Secret data entries from.  Should be a path to a local *env* file, e.g. `path/to/file.env`, where each line of the file is a `key=value` pair.  *Each line* will appear as an entry in the Secret data field.
+  ja: __COPY__
+---
+texts:
+  en: List of files to generate Secret data entries from. Each item should be a path to a local file, e.g. `path/to/file.config`, and the filename will appear as an entry in the ConfigMap data field with its contents as a value.
+  ja: __COPY__
+---
+texts:
+  en: List of literal Secret data entries. Each item should be a key and literal value, e.g. `somekey=somevalue`, and the key/value will appear as an entry in the Secret data field.
+  ja: __COPY__
+---
+texts:
+  en: Name for the Secret.  Modified by the `namePrefix` and `nameSuffix` fields.
+  ja: __COPY__
+---
+texts:
+  en: Namespace for the Secret.  Overridden by kustomize-wide `namespace` field.
+  ja: __COPY__
+---
+texts:
+  en: "**type**"
+  ja: __COPY__
+---
+texts:
+  en: 'Type of Secret. If type is "kubernetes.io/tls", then "literals" or "files" must have exactly two keys: "tls.key" and "tls.crt".'
+  ja: __COPY__
+---
+texts:
+  en: Transformers
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Transformers modify Resources by adding, updating or deleting fields.  Transformers work against Generated Resource
+
+    Config - e.g.
+  ja: __COPY__
+---
+texts:
+  en: "`resources`"
+  ja: __COPY__
+---
+texts:
+  en: "`bases`"
+  ja: __COPY__
+---
+texts:
+  en: "`configMapGenerator`"
+  ja: __COPY__
+---
+texts:
+  en: "`secretGenerator`"
+  ja: __COPY__
+---
+texts:
+  en: commonAnnotations
+  ja: __COPY__
+---
+texts:
+  en: >-
+    `commonAnnotations` sets annotations on all Resources.  `commonAnnotations`'s from bases will stack - e.g.
+
+    if a `commonAnnotations` was set in a `base`, the new `commonAnnotations` will be added
+
+    to or override the base `commonAnnotations`.
+  ja: __COPY__
+---
+texts:
+  en: "**commonAnnotations**"
+  ja: __COPY__
+---
+texts:
+  en: map[string]string
+  ja: __COPY__
+---
+texts:
+  en: Keys/Values for annotations.
+  ja: __COPY__
+---
+texts:
+  en: commonLabels
+  ja: __COPY__
+---
+texts:
+  en: >-
+    This field sets labels on all Resources.  `commonLabels`'s from bases will stack - e.g.
+
+    if a `commonLabels` was set in a `base`, the new `commonLabels` will be added
+
+    to or override the base `commonLabels`.
+  ja: __COPY__
+---
+texts:
+  en: "`commonLabels` will also be applied both to Label Selector fields and Label fields in PodTemplates."
+  ja: __COPY__
+---
+texts:
+  en: "**Note:**  Because `commonLabels` are applied to Selectors, they cannot be changed for some objects."
+  ja: __COPY__
+---
+texts:
+  en: "**commonLabels**"
+  ja: __COPY__
+---
+texts:
+  en: Keys/Values for labels.
+  ja: __COPY__
+---
+texts:
+  en: images
+  ja: __COPY__
+---
+texts:
+  en: >-
+    `images` overrides image names and tags in all `[spec.template.]spec.containers.image` fields matching the
+
+    `name`.  This is an alternative to creating patches to change images.
+  ja: __COPY__
+---
+texts:
+  en: "**images**"
+  ja: __COPY__
+---
+texts:
+  en: "[]Image"
+  ja: __COPY__
+---
+texts:
+  en: Images to override.
+  ja: __COPY__
+---
+texts:
+  en: Image
+  ja: __COPY__
+---
+texts:
+  en: "Definitions:"
+  ja: __COPY__
+---
+texts:
+  en: "*name*: portion of the `image` field value before the `:` - e.g. for `foo:v1` the name would be `foo`."
+  ja: __COPY__
+---
+texts:
+  en: "*tag*: portion of the `image` field value after the `:` - e.g. for `foo:v1` the name would be `v1`."
+  ja: __COPY__
+---
+texts:
+  en: "*digest*: alternative to tag for referencing an image. "
+  ja: __COPY__
+---
+texts:
+  en: Match all `image` fields with this value for the *name*
+  ja: __COPY__
+---
+texts:
+  en: "**nameName**"
+  ja: __COPY__
+---
+texts:
+  en: Replace the `image` field *name* with this value.
+  ja: __COPY__
+---
+texts:
+  en: "**newTag**"
+  ja: __COPY__
+---
+texts:
+  en: Replace the `image` field *tag* with this tag value.
+  ja: __COPY__
+---
+texts:
+  en: "**digest**"
+  ja: __COPY__
+---
+texts:
+  en: Replace the `image` field *tag* with this digest value.  Includes the `sha256:` portion of the digest.
+  ja: __COPY__
+---
+texts:
+  en: patchesJson6902
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Each entry in this list should resolve to a kubernetes object and a JSON patch that will be applied
+
+    to the object. The JSON patch schema is documented at https://tools.ietf.org/html/rfc6902
+  ja: __COPY__
+---
+texts:
+  en: "**patchesJson6902**"
+  ja: __COPY__
+---
+texts:
+  en: "[]Json6902"
+  ja: __COPY__
+---
+texts:
+  en: List of patch definitions.
+  ja: __COPY__
+---
+texts:
+  en: Json6902
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Target field points to a kubernetes object by the object's group, version, kind, name and namespace.
+
+    Path field is a relative file path of a JSON patch file.  File contents can be either json or yaml.
+  ja: __COPY__
+---
+texts:
+  en: "**target**"
+  ja: __COPY__
+---
+texts:
+  en: Target
+  ja: __COPY__
+---
+texts:
+  en: Target Resource for the patch.
+  ja: __COPY__
+---
+texts:
+  en: "**path**"
+  ja: __COPY__
+---
+texts:
+  en: Path to json patch file.  Maybe json or yaml.
+  ja: __COPY__
+---
+texts:
+  en: " Example patch file:"
+  ja: __COPY__
+---
+texts:
+  en: "**group**"
+  ja: __COPY__
+---
+texts:
+  en: Group of the Resource to patch.
+  ja: __COPY__
+---
+texts:
+  en: "**kind**"
+  ja: __COPY__
+---
+texts:
+  en: Kind of the Resource to patch.
+  ja: __COPY__
+---
+texts:
+  en: Name of the Resource to patch.
+  ja: __COPY__
+---
+texts:
+  en: Namespace of the Resource to patch.
+  ja: __COPY__
+---
+texts:
+  en: "**version**"
+  ja: __COPY__
+---
+texts:
+  en: Version of the Resource to patch.
+  ja: __COPY__
+---
+texts:
+  en: patchesStrategicMerge
+  ja: __COPY__
+---
+texts:
+  en: >-
+    `patchesStrategicMerge` applies patches to the matching Resource Config (by Group/Version/Kind + Name/Namespace).  Patch
+
+    files contain sparse Resource Config definitions - i.e. containing only the Resource Config fields to
+
+    add or override.  Strategic merge patches are also called *overlays*.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Small patches that do one thing are best, e.g. modify a memory request/limit.
+
+    Small patches are easy to review and easy to compose together.
+  ja: __COPY__
+---
+texts:
+  en: "**patchesStrategicMerge**"
+  ja: __COPY__
+---
+texts:
+  en: Paths to files containing sparse Resource Config.
+  ja: __COPY__
+---
+texts:
+  en: namespace
+  ja: __COPY__
+---
+texts:
+  en: >-
+    This field sets the `namespace` of all namespaced Resources.  If the namespace has already been set in the
+
+    Resource Config, this will override the namespace.
+  ja: __COPY__
+---
+texts:
+  en: String
+  ja: __COPY__
+---
+texts:
+  en: Namespace
+  ja: __COPY__
+---
+texts:
+  en: namePrefix
+  ja: __COPY__
+---
+texts:
+  en: >-
+    `namePrefix` sets a name prefix on all Resources.  `namePrefix`'s from bases will stack - 
+
+    e.g. if a `namePrefix` was set in a `base`, the new `namePrefix` will be pre-prended to the `namePrefix` in the
+
+    `base`.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Fields that references another Resource will also have the `namePrefix` applied so that the reference is
+
+    updated.
+  ja: __COPY__
+---
+texts:
+  en: "**namePrefix**"
+  ja: __COPY__
+---
+texts:
+  en: Value to prepend to all Resource names and references.
+  ja: __COPY__
+---
+texts:
+  en: nameSuffix
+  ja: __COPY__
+---
+texts:
+  en: >-
+    `nameSuffix` sets a `nameSuffix` on all Resources.  `nameSuffix`'s from bases will stack - 
+
+    e.g. if a `nameSuffix` was set in a `base`, the new `nameSuffix` will be appended to the `nameSuffix` in the
+
+    `base`.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Fields that references another Resource will also have the `nameSuffix` applied so that the reference is
+
+    updated.
+  ja: __COPY__
+---
+texts:
+  en: "**nameSuffix**"
+  ja: __COPY__
+---
+texts:
+  en: Value to append to all Resource names and references.
+  ja: __COPY__
+---
+texts:
+  en: vars
+  ja: __COPY__
+---
+texts:
+  en: >-
+    `vars` defines values that can be substituted into Pod container arguments and environment variables.
+
+    This is necessary for wiring post-transformed fields into container arguments and environment variables.
+
+    e.g. Services names may be transformed by `namePrefix` and containers may need to refer to Service names
+
+    at runtime. 
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Vars are similar to the Kubernetes [Downward API](https://kubernetes.io/docs/tasks/inject-data-application/environment-variable-expose-pod-information/#use-container-fields-as-values-for-environment-variables)
+
+    in that they allow Pods to reference information about the environment in which they are run.
+  ja: __COPY__
+---
+texts:
+  en: Variables are referenced from container argument using `$(MY_VAR_NAME)`
+  ja: __COPY__
+---
+texts:
+  en: "Example:"
+  ja: __COPY__
+---
+texts:
+  en: "**vars**"
+  ja: __COPY__
+---
+texts:
+  en: "[]Var"
+  ja: __COPY__
+---
+texts:
+  en: List of variable declarations that may be referenced in container arguments.
+  ja: __COPY__
+---
+texts:
+  en: Var
+  ja: __COPY__
+---
+texts:
+  en: Name of the variable.  Referenced by `$(NAME)`.
+  ja: __COPY__
+---
+texts:
+  en: "**objref**"
+  ja: __COPY__
+---
+texts:
+  en: Reference to the object containing the field to be referenced.  ObjRef should use the unTransformed object name
+  ja: __COPY__
+---
+texts:
+  en: "**fieldref**"
+  ja: __COPY__
+---
+texts:
+  en: Reference to the field in the object.  Defaults to `metadata.name` if unspecified.
+  ja: __COPY__
+---
+texts:
+  en: Meta Options
+  ja: __COPY__
+---
+texts:
+  en: Meta Options control how Kustomize generates and transforms Resource Config.
+  ja: __COPY__
+---
+texts:
+  en: configurations
+  ja: __COPY__
+---
+texts:
+  en: >-
+    `configurations` is used to configure the built-in Kustomize Transformers to work with CRDs.  The built-in
+
+    Kustomize configurations can be found [here](https://github.com/kubernetes-sigs/kustomize/tree/master/pkg/transformers/config/defaultconfig)
+  ja: __COPY__
+---
+texts:
+  en: "Examples:"
+  ja: __COPY__
+---
+texts:
+  en: "*images* that should be updated by the `images` Transformer"
+  ja: __COPY__
+---
+texts:
+  en: "*object references* that should be updated by `namePrefix`, `nameSuffix`"
+  ja: __COPY__
+---
+texts:
+  en: "*secret* and *configmap* references that should be updated by `secretGenerator` and `configMapGenerator`"
+  ja: __COPY__
+---
+texts:
+  en: "**configurations**"
+  ja: __COPY__
+---
+texts:
+  en: List of paths to yaml files containing Kustomize meta configuration.
+  ja: __COPY__
+---
+texts:
+  en: kustomization.yaml
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Specify `commonAnnotations` in the **configuration file** to configure the Kustomize `commonAnnotations` field
+
+    to find additional annotation fields on CRDs.
+  ja: __COPY__
+---
+texts:
+  en: "[]Annotation"
+  ja: __COPY__
+---
+texts:
+  en: List of paths to annotations fields.
+  ja: __COPY__
+---
+texts:
+  en: "**create**"
+  ja: __COPY__
+---
+texts:
+  en: bool
+  ja: __COPY__
+---
+texts:
+  en: If true, create the annotation field if it is not present on the Resource Config.
+  ja: __COPY__
+---
+texts:
+  en: API Group of the object to add the annotation to.  If unset, applies to all API Groups.
+  ja: __COPY__
+---
+texts:
+  en: Kind of the object to add the annotation to.  If unset, applies to all Kinds.
+  ja: __COPY__
+---
+texts:
+  en: Path to annotation field.
+  ja: __COPY__
+---
+texts:
+  en: API Version of the object to add the annotation to.  If unset, applies to all Versions.
+  ja: __COPY__
+---
+texts:
+  en: "[Built-in examples](https://github.com/kubernetes-sigs/kustomize/blob/master/pkg/transformers/config/defaultconfig/commonannotations.go)"
+  ja: __COPY__
+---
+texts:
+  en: mykind_configuration.yaml file referenced by the configurations field
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Specify `commonLabels` in the **configuration file** to configure the Kustomize `commonLabels` field find
+
+    additional labels and selector fields on CRDs.
+  ja: __COPY__
+---
+texts:
+  en: "[]Label"
+  ja: __COPY__
+---
+texts:
+  en: List of paths to label fields.
+  ja: __COPY__
+---
+texts:
+  en: If true, create the label field if it is not present on the Resource Config.
+  ja: __COPY__
+---
+texts:
+  en: API Group of the object to add the label to.  If unset, applies to all API Groups.
+  ja: __COPY__
+---
+texts:
+  en: Kind of the object to add the label to.  If unset, applies to all Kinds.
+  ja: __COPY__
+---
+texts:
+  en: Path to label field.
+  ja: __COPY__
+---
+texts:
+  en: API Version of the object to add the label to.  If unset, applies to all Versions.
+  ja: __COPY__
+---
+texts:
+  en: "[Built-in examples](https://github.com/kubernetes-sigs/kustomize/blob/master/pkg/transformers/config/defaultconfig/commonlabels.go)"
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Specify `images` in the **configuration file** to configure the Kustomize `images` field find additional
+
+    image fields on CRDs.
+  ja: __COPY__
+---
+texts:
+  en: List of paths to image fields.
+  ja: __COPY__
+---
+texts:
+  en: Name References
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Specify `nameReference` in the **configuration file** for CRDs that reference other objects by name - e.g.
+
+    Secrets, ConfigMaps, Services, etc.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    `nameReference` registers for a given type, that **it is referenced by name from another type** - e.g.
+
+    Secrets are referenced by Pods.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Doing so will configure Generators and Transformers to update the field value with a new name when
+
+    names are modified - e.g. `namePrefix`, `secretGenerator`.
+  ja: __COPY__
+---
+texts:
+  en: "**nameReference**"
+  ja: __COPY__
+---
+texts:
+  en: "[]Reference"
+  ja: __COPY__
+---
+texts:
+  en: List of types of objects that are referenced by other objects.
+  ja: __COPY__
+---
+texts:
+  en: API Group of the object **that is being referenced**.  If unset, applies to all API Groups.
+  ja: __COPY__
+---
+texts:
+  en: Kind of the object to **that is being referenced - e.g. Secret, ConfigMap**.
+  ja: __COPY__
+---
+texts:
+  en: "**fieldSpecs**"
+  ja: __COPY__
+---
+texts:
+  en: "[]FieldSpec"
+  ja: __COPY__
+---
+texts:
+  en: Object types that reference this object type.
+  ja: __COPY__
+---
+texts:
+  en: API Version of the object **that is being referenced**.  If unset, applies to all Versions.
+  ja: __COPY__
+---
+texts:
+  en: API Group of the object **that contains a reference**.  If unset, applies to all API Groups.
+  ja: __COPY__
+---
+texts:
+  en: Kind of the object *that contains a reference - e.g. Pod, Deployment**.  If unset, applies to all Kinds.
+  ja: __COPY__
+---
+texts:
+  en: Path to the name field that is a reference.
+  ja: __COPY__
+---
+texts:
+  en: API Version of the object *that contains a reference**.  If unset, applies to all Versions.
+  ja: __COPY__
+---
+texts:
+  en: "[Built-In Examples](https://github.com/kubernetes-sigs/kustomize/blob/master/pkg/transformers/config/defaultconfig/namereference.go)"
+  ja: __COPY__
+---
+texts:
+  en: generatorOptions
+  ja: __COPY__
+---
+texts:
+  en: >-
+    `generatorOptions` modifies behavior of all ConfigMap and Secret generators in the current `kustomization.yaml`.
+
+    generatorOptions from `bases` apply **only** to the Secrets and ConfigMaps generated within **the same
+
+    `kustomization.yaml`**.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    **Note** It is possible to define generatorOptions for a subset of generated Resources by defining a `base` to generate
+
+    the Resources and setting the options there.  This supports generating some ConfigMaps with hash-suffixes, and some
+
+    without.
+  ja: __COPY__
+---
+texts:
+  en: "**generatorOptions**"
+  ja: __COPY__
+---
+texts:
+  en: GeneratorOptions
+  ja: __COPY__
+---
+texts:
+  en: Options to define how Secrets and ConfigMaps are generated.
+  ja: __COPY__
+---
+texts:
+  en: "**labels**"
+  ja: __COPY__
+---
+texts:
+  en: Labels to add to all Resources generated from this `kustomization.yaml`.
+  ja: __COPY__
+---
+texts:
+  en: "**annotations**"
+  ja: __COPY__
+---
+texts:
+  en: map[string]annotations
+  ja: __COPY__
+---
+texts:
+  en: Annotations to add to all Resources generated from this `kustomization.yaml`.
+  ja: __COPY__
+---
+texts:
+  en: "**disableNameSuffixHash**"
+  ja: __COPY__
+---
+texts:
+  en: If set to true, don't add a hash suffix to any Resources generated from this `kustomization.yaml`.
+  ja: __COPY__

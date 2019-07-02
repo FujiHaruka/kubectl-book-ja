@@ -1,0 +1,128 @@
+texts:
+  en: >-
+    {% panel style="success", title="Providing Feedback" %}
+
+    **Provide feedback at the [survey](https://www.surveymonkey.com/r/JH35X82)**
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: '{% panel style="info", title="TL;DR" %}'
+  ja: __COPY__
+---
+texts:
+  en: Creating Resources
+  ja: __COPY__
+---
+texts:
+  en: Printing Resources
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Debugging Containers
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: Getting Started With Kubectl
+  ja: __COPY__
+---
+texts:
+  en: "**Note**: If you are already familiar with Kubectl, you can skip this section."
+  ja: __COPY__
+---
+texts:
+  en: >-
+    This section provides a brief overview of the most basic Kubectl commands, which are
+
+    described in more detail in later chapters.
+  ja: __COPY__
+---
+texts:
+  en: For more background on the Kubernetes APIs themselves, see the docs at [k8s.io](k8s.io).
+  ja: __COPY__
+---
+texts:
+  en: Listing Kubernetes Resources
+  ja: __COPY__
+---
+texts:
+  en: "{% method %}"
+  ja: __COPY__
+---
+texts:
+  en: List the Kubernetes *Deployment* Resources that are in the kube-system namespace.
+  ja: __COPY__
+---
+texts:
+  en: "**Note:** Deployments are Resources which manage Pod replicas (Pods run Containers)"
+  ja: __COPY__
+---
+texts:
+  en: '{% sample lang="yaml" %}'
+  ja: __COPY__
+---
+texts:
+  en: "{% endmethod %}"
+  ja: __COPY__
+---
+texts:
+  en: Print detailed information about the kube-dns Deployment in the kube-system namespace.
+  ja: __COPY__
+---
+texts:
+  en: Creating a Resource from Config
+  ja: __COPY__
+---
+texts:
+  en: Create or Update Kubernetes Resources from Remote Config.
+  ja: __COPY__
+---
+texts:
+  en: Create or Update Kubernetes Resources from Local Config.
+  ja: __COPY__
+---
+texts:
+  en: Print the Resources that were Applied.
+  ja: __COPY__
+---
+texts:
+  en: Generating a Config from a Command
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Generate Config for a Deployment Resource.  This could be Applied to a cluster by writing the output
+
+    to a file, and then running `kubectl apply -f <yaml-file>`
+  ja: __COPY__
+---
+texts:
+  en: >-
+    **Note:** The generated Config has extra boilerplate that users shouldn't include but exists
+
+    due to the serialization process of go objects.
+  ja: __COPY__
+---
+texts:
+  en: Viewing Pods Associated with Resources
+  ja: __COPY__
+---
+texts:
+  en: View the Pods created by the Deployment using the Pod labels.
+  ja: __COPY__
+---
+texts:
+  en: Debugging Containers
+  ja: __COPY__
+---
+texts:
+  en: Get the logs from all Pods managed by the Deployment.
+  ja: __COPY__
+---
+texts:
+  en: Get a shell into a specific Pod's Container
+  ja: __COPY__

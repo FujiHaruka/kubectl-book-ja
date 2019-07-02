@@ -1,0 +1,287 @@
+texts:
+  en: >-
+    {% panel style="success", title="Providing Feedback" %}
+
+    **Provide feedback at the [survey](https://www.surveymonkey.com/r/CLQBQHR)**
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: '{% panel style="info", title="TL;DR" %}'
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Override or set the Name and Tag for Container Images
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: Container Images
+  ja: __COPY__
+---
+texts:
+  en: Motivation
+  ja: __COPY__
+---
+texts:
+  en: It may be useful to define the tags or digests of container images which are used across many Workloads.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Container image tags and digests are used to refer to a specific version or instance of a container
+
+    image - e.g. for the `nginx` container image you might use the tag `1.15.9` or `1.14.2`.
+  ja: __COPY__
+---
+texts:
+  en: Update the container image name or tag for multiple Workloads at once
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Increase visibility of the versions of container images being used within
+
+    the project
+  ja: __COPY__
+---
+texts:
+  en: Set the image tag from external sources - such as environment variables
+  ja: __COPY__
+---
+texts:
+  en: Copy or Fork an existing Project and change the Image Tag for a container
+  ja: __COPY__
+---
+texts:
+  en: Change the registry used for an image
+  ja: __COPY__
+---
+texts:
+  en: See [Bases and Variations](../app_customization/bases_and_variants.md) for more details on Copying Projects.
+  ja: __COPY__
+---
+texts:
+  en: '{% panel style="info", title="Reference" %}'
+  ja: __COPY__
+---
+texts:
+  en: >-
+    [images](../reference/kustomize.md#images)
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: images
+  ja: __COPY__
+---
+texts:
+  en: >-
+    It is possible to set image tags for container images through
+
+    the `kustomization.yaml` using the `images` field.  When `images` are
+
+    specified, Apply will override the images whose image name matches `name` with a new
+
+    tag.
+  ja: __COPY__
+---
+texts:
+  en: Field
+  ja: __COPY__
+---
+texts:
+  en: Description
+  ja: __COPY__
+---
+texts:
+  en: Example Field
+  ja: __COPY__
+---
+texts:
+  en: Example Result
+  ja: __COPY__
+---
+texts:
+  en: "`name`"
+  ja: __COPY__
+---
+texts:
+  en: Match images with this image name
+  ja: __COPY__
+---
+texts:
+  en: "`name: nginx`"
+  ja: __COPY__
+---
+texts:
+  en: "`newTag`"
+  ja: __COPY__
+---
+texts:
+  en: Override the image **tag** or **digest** for images whose image name matches `name`
+  ja: __COPY__
+---
+texts:
+  en: "`newTag: new`"
+  ja: __COPY__
+---
+texts:
+  en: "`nginx:old` -> `nginx:new`"
+  ja: __COPY__
+---
+texts:
+  en: "`newName`"
+  ja: __COPY__
+---
+texts:
+  en: Override the image **name** for images whose image name matches `name`
+  ja: __COPY__
+---
+texts:
+  en: "`newImage: nginx-special`"
+  ja: __COPY__
+---
+texts:
+  en: "`nginx:old` -> `nginx-special:old`"
+  ja: __COPY__
+---
+texts:
+  en: "{% method %}"
+  ja: __COPY__
+---
+texts:
+  en: >-
+    **Example:** Use `images` in the `kustomization.yaml` to update the container
+
+    images in `deployment.yaml`
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Apply will set the `nginx` image to have the tag `1.8.0` - e.g. `nginx:1.8.0` and
+
+    change the image name to `nginx-special`.
+
+    This will set the name and tag for *all* images matching the *name*.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% sample lang="yaml" %}
+
+    **Input:** The kustomization.yaml and deployment.yaml files
+  ja: __COPY__
+---
+texts:
+  en: "**Applied:** The Resource that is Applied to the cluster"
+  ja: __COPY__
+---
+texts:
+  en: "{% endmethod %}"
+  ja: __COPY__
+---
+texts:
+  en: Setting a Name
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% method %}
+
+    The name for an image may be set by specifying `newName` and the name of the old container image.
+
+    {% sample lang="yaml" %}
+  ja: __COPY__
+---
+texts:
+  en: Setting a Tag
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% method %}
+
+    The tag for an image may be set by specifying `newTag` and the name of the container image.
+
+    {% sample lang="yaml" %}
+  ja: __COPY__
+---
+texts:
+  en: Setting a Digest
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% method %}
+
+    The digest for an image may be set by specifying `digest` and the name of the container image.
+
+    {% sample lang="yaml" %}
+  ja: __COPY__
+---
+texts:
+  en: Setting a Tag from the latest commit SHA
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% method %}
+
+    A common CI/CD pattern is to tag container images with the git commit SHA of source code.  e.g. if
+
+    the image name is `foo` and an image was built for the source code at commit `1bb359ccce344ca5d263cd257958ea035c978fd3`
+
+    then the container image would be `foo:1bb359ccce344ca5d263cd257958ea035c978fd3`.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    A simple way to push an image that was just built without manually updating the image tags is to
+
+    download the [kustomize standalone](https://github.com/kubernetes-sigs/kustomize/) tool and run
+
+    `kustomize edit set imagetag` command to update the tags for you.
+  ja: __COPY__
+---
+texts:
+  en: "**Example:** Set the latest git commit SHA as the image tag for `foo` images."
+  ja: __COPY__
+---
+texts:
+  en: '{% sample lang="yaml" %}'
+  ja: __COPY__
+---
+texts:
+  en: Setting a Tag from an Environment Variable
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% method %}
+
+    It is also possible to set a Tag from an environment variable using the same technique for setting from a commit SHA.
+  ja: __COPY__
+---
+texts:
+  en: "**Example:** Set the tag for the `foo` image to the value in the environment variable `FOO_IMAGE_TAG`."
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% panel style="info", title="Committing Image Tag Updates" %}
+
+    The `kustomization.yaml` changes *may* be committed back to git so that they
+
+    can be audited.  When committing the image tag updates that have already
+
+    been pushed by a CI/CD system, be careful not to trigger new builds +
+
+    deployments for these changes.
+
+    {% endpanel %}
+  ja: __COPY__

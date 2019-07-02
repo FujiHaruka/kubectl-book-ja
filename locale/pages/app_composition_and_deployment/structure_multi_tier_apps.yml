@@ -1,0 +1,253 @@
+texts:
+  en: >-
+    {% panel style="success", title="Providing Feedback" %}
+
+    **Provide feedback at the [survey](https://www.surveymonkey.com/r/JH35X82)**
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% panel style="warning", title="Experimental" %}
+
+    **Content in this chapter is experimental and will evolve based on user feedback.**
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Leave feedback on the conventions by creating an issue in the [kubectl](https://github.com/kubernetes/kubectl/issues)
+
+    GitHub repository.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Also provide feedback on new kubectl docs at the [survey](https://www.surveymonkey.com/r/JH35X82)
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: '{% panel style="info", title="TL;DR" %}'
+  ja: __COPY__
+---
+texts:
+  en: >-
+    The same Base may be used multiple times for different Applications within the same project.
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: Composition with Shared Bases
+  ja: __COPY__
+---
+texts:
+  en: Motivation
+  ja: __COPY__
+---
+texts:
+  en: "Users may want to reuse the **same base multiple times within the same Apply Project**.  Examples:"
+  ja: __COPY__
+---
+texts:
+  en: Define a very generic base (e.g. "Java Application") used by multiple Applications within a Project.
+  ja: __COPY__
+---
+texts:
+  en: Define multiple Environments (e.g. Staging, Canary, Prod) within a Project.
+  ja: __COPY__
+---
+texts:
+  en: Composition With A Shared Base
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% method %}
+
+    It is possible to reuse the same base multiple times within the same project by using a 3-tier
+
+    structure to compose multiple Variants of the base.
+  ja: __COPY__
+---
+texts:
+  en: Generic Base in a `kustomization.yaml`.
+  ja: __COPY__
+---
+texts:
+  en: Variants of the Generic Base in multiple `kustomization.yaml`'s.
+  ja: __COPY__
+---
+texts:
+  en: Compose Variants as Bases to a single `kustomization.yaml`.
+  ja: __COPY__
+---
+texts:
+  en: Each layer may add customizations and resources to the preceding layers.
+  ja: __COPY__
+---
+texts:
+  en: "Generic Base Layer: **../base/java**"
+  ja: __COPY__
+---
+texts:
+  en: define the java app base Deployment
+  ja: __COPY__
+---
+texts:
+  en: define the java app base Service
+  ja: __COPY__
+---
+texts:
+  en: "Variant Layers: **../app1/ + ../app2/**"
+  ja: __COPY__
+---
+texts:
+  en: inherit the generic base
+  ja: __COPY__
+---
+texts:
+  en: set a namePrefix
+  ja: __COPY__
+---
+texts:
+  en: set labels and selectors
+  ja: __COPY__
+---
+texts:
+  en: overlay an image on the base
+  ja: __COPY__
+---
+texts:
+  en: set the image tag
+  ja: __COPY__
+---
+texts:
+  en: "Composition Layer: **kustomization.yaml**"
+  ja: __COPY__
+---
+texts:
+  en: compose the 2 apps as bases
+  ja: __COPY__
+---
+texts:
+  en: set the namespace for Resources in the project
+  ja: __COPY__
+---
+texts:
+  en: set a namePrefix for Resources in the project
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% sample lang="yaml" %}
+
+    **Generic Base Layer:**
+  ja: __COPY__
+---
+texts:
+  en: "**Variant Layers 1 and 2:**"
+  ja: __COPY__
+---
+texts:
+  en: "**Composition Layer:**"
+  ja: __COPY__
+---
+texts:
+  en: "{% endmethod %}"
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% method %}
+
+    **Result**:
+  ja: __COPY__
+---
+texts:
+  en: 2 Deployments are created
+  ja: __COPY__
+---
+texts:
+  en: Each Deployment has a different images
+  ja: __COPY__
+---
+texts:
+  en: Each Deployment has different labels / selectors
+  ja: __COPY__
+---
+texts:
+  en: Each Deployment has a different name
+  ja: __COPY__
+---
+texts:
+  en: 2 Services are created
+  ja: __COPY__
+---
+texts:
+  en: Each Service has different selectors, matching the corresponding Deployment
+  ja: __COPY__
+---
+texts:
+  en: All Resource names share the same prefix
+  ja: __COPY__
+---
+texts:
+  en: All Resources share the same namespace
+  ja: __COPY__
+---
+texts:
+  en: "**Summary**"
+  ja: __COPY__
+---
+texts:
+  en: Most of the complexity lives in the shared common base
+  ja: __COPY__
+---
+texts:
+  en: Cross Team or Cross Org conventions can be canonized in the common base
+  ja: __COPY__
+---
+texts:
+  en: Variations of the Base are much simpler and can modify pieces bespoke to the Variation - e.g. images, args, etc
+  ja: __COPY__
+---
+texts:
+  en: Variations may be Composed to form a Project where project-wide conventions are applied
+  ja: __COPY__
+---
+texts:
+  en: "**Benefits**"
+  ja: __COPY__
+---
+texts:
+  en: Reduced maintenance through propagating updates to Base downstream
+  ja: __COPY__
+---
+texts:
+  en: Reduced complexity in Variations through separation of concerns
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% sample lang="yaml" %}
+
+    **Applied:**
+  ja: __COPY__
+---
+texts:
+  en: '{% panel style="info", title="Use Cases" %}'
+  ja: __COPY__
+---
+texts:
+  en: Defining Generic Per-Application Archetype Bases
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Composing multiple Projects pushed together into a meta-Project
+
+    {% endpanel %}
+  ja: __COPY__

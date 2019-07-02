@@ -1,0 +1,55 @@
+texts:
+  en: >-
+    {% panel style="success", title="Providing Feedback" %}
+
+    **Provide feedback at the [survey](https://www.surveymonkey.com/r/JH35X82)**
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: '{% panel style="info", title="TL;DR" %}'
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Examples for `kustomization.yaml`
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: Kustomization.yaml Examples
+  ja: __COPY__
+---
+texts:
+  en: >-2
+     {% method %}
+    This file declares the customization provided by the kustomize program.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Since customization is, by definition, _custom_, there are no default
+
+    values that should be copied from this file or that are recommended.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    In practice, fields with no value should simply be  omitted from kustomization.yaml
+
+    to reduce the content visible in configuration reviews.
+  ja: __COPY__
+---
+texts:
+  en: Example copied from the [kustomize repo](https://github.com/kubernetes-sigs/kustomize/blob/master/docs/kustomization.yaml)
+  ja: __COPY__
+---
+texts:
+  en: ' {% sample lang="yaml" %}'
+  ja: __COPY__
+---
+texts:
+  en: " {% endmethod %}"
+  ja: __COPY__

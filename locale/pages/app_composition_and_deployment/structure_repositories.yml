@@ -1,0 +1,261 @@
+texts:
+  en: >-
+    {% panel style="success", title="Providing Feedback" %}
+
+    **Provide feedback at the [survey](https://www.surveymonkey.com/r/JH35X82)**
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% panel style="warning", title="Experimental" %}
+
+    **Content in this chapter is experimental and will evolve based on user feedback.**
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Leave feedback on the conventions by creating an issue in the [kubectl](https://github.com/kubernetes/kubectl/issues)
+
+    GitHub repository.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Also provide feedback on new kubectl docs at the [survey](https://www.surveymonkey.com/r/JH35X82)
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% panel style="info", title="TL;DR" %}
+
+    Decouple changes to Config owned by separate Teams.
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: Repository Structure Based Layout
+  ja: __COPY__
+---
+texts:
+  en: Motivation
+  ja: __COPY__
+---
+texts:
+  en: "**Isolation between teams** managing separate Environments"
+  ja: __COPY__
+---
+texts:
+  en: Permissions
+  ja: __COPY__
+---
+texts:
+  en: "**Fine grain control** over"
+  ja: __COPY__
+---
+texts:
+  en: PRs
+  ja: __COPY__
+---
+texts:
+  en: Issues
+  ja: __COPY__
+---
+texts:
+  en: Projects
+  ja: __COPY__
+---
+texts:
+  en: Automation
+  ja: __COPY__
+---
+texts:
+  en: Directory Structure
+  ja: __COPY__
+---
+texts:
+  en: Resource Config
+  ja: __COPY__
+---
+texts:
+  en: Repo Type
+  ja: __COPY__
+---
+texts:
+  en: Deployed to a Cluster
+  ja: __COPY__
+---
+texts:
+  en: Contains
+  ja: __COPY__
+---
+texts:
+  en: Example Names
+  ja: __COPY__
+---
+texts:
+  en: Base
+  ja: __COPY__
+---
+texts:
+  en: "**No** - Used as Base"
+  ja: __COPY__
+---
+texts:
+  en: Config shared with other teams.
+  ja: __COPY__
+---
+texts:
+  en: "`platform`"
+  ja: __COPY__
+---
+texts:
+  en: App
+  ja: __COPY__
+---
+texts:
+  en: "**Yes** - Manually or Continuously"
+  ja: __COPY__
+---
+texts:
+  en: Deployable Config.
+  ja: __COPY__
+---
+texts:
+  en: "`guest-book`"
+  ja: __COPY__
+---
+texts:
+  en: Use with techniques described in [Directories](structure_directories.md) and [Branches](structure_branches.md)
+  ja: __COPY__
+---
+texts:
+  en: Workflow Example
+  ja: __COPY__
+---
+texts:
+  en: Alice on the Java Platform team updates the Java Base used by other teams
+  ja: __COPY__
+---
+texts:
+  en: Alice creates a Git Tag for the new release
+  ja: __COPY__
+---
+texts:
+  en: Bob on the GuestBook App team switches to the new Java Base by updating the reference
+  ja: __COPY__
+---
+texts:
+  en: Diagram
+  ja: __COPY__
+---
+texts:
+  en: Scenario
+  ja: __COPY__
+---
+texts:
+  en: Alice modifies java Base Repo and tags it v2
+  ja: __COPY__
+---
+texts:
+  en: Change doesn't get pushed anywhere yet
+  ja: __COPY__
+---
+texts:
+  en: Bob modifies GuestBook App Repo to use v2 of the java Base
+  ja: __COPY__
+---
+texts:
+  en: Change gets pushed by continuous deployment
+  ja: __COPY__
+---
+texts:
+  en: "{% sequence width=1000 %}"
+  ja: __COPY__
+---
+texts:
+  en: >-
+    participant Base Repo as BR
+
+    participant App Repo as AR
+
+    participant Cluster as C
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Note left of BR: Alice: Platform Dev
+
+    Note over BR: Alice modifies java Base
+
+    Note over BR: Alice tags java Base v2
+
+    Note left of AR: Bob: App Dev
+
+    Note over AR: Uses java Base v1
+
+    BR-->AR: Bob updates to reference Base v2
+
+    Note over AR: Uses java Base v2
+
+    AR-->C: java Base v2 changes deployed
+  ja: __COPY__
+---
+texts:
+  en: "{% endsequence %}"
+  ja: __COPY__
+---
+texts:
+  en: "{% method %}"
+  ja: __COPY__
+---
+texts:
+  en: '{% sample lang="yaml" %}'
+  ja: __COPY__
+---
+texts:
+  en: "Structure:"
+  ja: __COPY__
+---
+texts:
+  en: Platform teams create Base Repositories for shared Config
+  ja: __COPY__
+---
+texts:
+  en: App teams create App Repositories for their Apps
+  ja: __COPY__
+---
+texts:
+  en: Remotely reference the Base Repository
+  ja: __COPY__
+---
+texts:
+  en: "**Base Repository:** Platform Team"
+  ja: __COPY__
+---
+texts:
+  en: "**App Repository:** GuestBook Team"
+  ja: __COPY__
+---
+texts:
+  en: "{% endmethod %}"
+  ja: __COPY__
+---
+texts:
+  en: '{% panel style="info", title="Remote URLs vs Vendoring" %}'
+  ja: __COPY__
+---
+texts:
+  en: Repositories owned and controlled by the same organization may be referenced to by their URL
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Repositories owned or controlled by separate organizations should be vendored and referenced
+      by path to the vendor directory.
+    {% endpanel %}
+  ja: __COPY__

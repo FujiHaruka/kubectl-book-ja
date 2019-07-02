@@ -1,0 +1,68 @@
+texts:
+  en: >-
+    {% panel style="success", title="Providing Feedback" %}
+
+    **Provide feedback at the [survey](https://www.surveymonkey.com/r/JH35X82)**
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: '{% panel style="info", title="TL;DR" %}'
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Continuously Watch and print Resources as they change
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: Watching Resources for changes
+  ja: __COPY__
+---
+texts:
+  en: Motivation
+  ja: __COPY__
+---
+texts:
+  en: Print Resources as they are updated.
+  ja: __COPY__
+---
+texts:
+  en: "{% method %}"
+  ja: __COPY__
+---
+texts:
+  en: >-
+    It is possible to have `kubectl get` **continuously watch for changes to objects**, and print the objects
+
+    when they are changed or when the watch is reestablished.
+  ja: __COPY__
+---
+texts:
+  en: '{% sample lang="yaml" %}'
+  ja: __COPY__
+---
+texts:
+  en: "{% endmethod %}"
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% panel style="danger", title="Watch Timeouts" %}
+
+    Watch **timesout after 5 minutes**, after which kubectl will re-establish the watch and print the
+
+    resources.
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: >-
+    It is possible to have `kubectl get` continuously watch for changes to objects **without fetching them first**
+
+    using the `--watch-only` flag.
+  ja: __COPY__

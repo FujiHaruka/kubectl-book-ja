@@ -1,0 +1,94 @@
+texts:
+  en: >-
+    {% panel style="success", title="Providing Feedback" %}
+
+    **Provide feedback at the [survey](https://www.surveymonkey.com/r/JH35X82)**
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: '{% panel style="info", title="TL;DR" %}'
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Imperatively Set fields on Resources
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: Creating Resources
+  ja: __COPY__
+---
+texts:
+  en: Motivation
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Set fields on Resources directly from the command line for the purposes of development or debugging.
+
+    Not for production Application Management.
+  ja: __COPY__
+---
+texts:
+  en: "{% method %}"
+  ja: __COPY__
+---
+texts:
+  en: Scale
+  ja: __COPY__
+---
+texts:
+  en: The Replicas field on a Resource can be set using the `kubectl scale` command.
+  ja: __COPY__
+---
+texts:
+  en: '{% sample lang="yaml" %}'
+  ja: __COPY__
+---
+texts:
+  en: "{% endmethod %}"
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% panel style="info", title="Conditional Scale Update" %}
+
+    It is possible to conditionally update the replicas if and only if the
+
+    replicas haven't changed from their last known value using the `--current-replicas` flag.
+
+    e.g. `kubectl scale --current-replicas=2 --replicas=3 deployment/mysql`
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: Labels
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Labels can be set using the `kubectl label` command.  Multiple Resources can
+
+    be updated in a single command using the `-l` flag.
+  ja: __COPY__
+---
+texts:
+  en: Annotations
+  ja: __COPY__
+---
+texts:
+  en: Annotations can be set using the `kubectl annotate` command.
+  ja: __COPY__
+---
+texts:
+  en: Patches
+  ja: __COPY__
+---
+texts:
+  en: Arbitrary fields can be set using the `kubectl patch` command.
+  ja: __COPY__

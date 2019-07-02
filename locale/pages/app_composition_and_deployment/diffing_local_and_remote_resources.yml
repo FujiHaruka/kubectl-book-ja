@@ -1,0 +1,67 @@
+texts:
+  en: >-
+    {% panel style="success", title="Providing Feedback" %}
+
+    **Provide feedback at the [survey](https://www.surveymonkey.com/r/JH35X82)**
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: '{% panel style="info", title="TL;DR" %}'
+  ja: __COPY__
+---
+texts:
+  en: >-
+    View diff of changes before they are Applied to the cluster
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: Diffing Local and Cluster State
+  ja: __COPY__
+---
+texts:
+  en: Motivation
+  ja: __COPY__
+---
+texts:
+  en: The ability to view what changes will be made before applying them to a cluster can be useful.
+  ja: __COPY__
+---
+texts:
+  en: "{% method %}"
+  ja: __COPY__
+---
+texts:
+  en: Generating a Diff
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Use the `diff` program in a user's path to display a diff of the changes that will be
+
+    made by Apply.
+  ja: __COPY__
+---
+texts:
+  en: '{% sample lang="yaml" %}'
+  ja: __COPY__
+---
+texts:
+  en: "{% endmethod %}"
+  ja: __COPY__
+---
+texts:
+  en: Setting the Diff Program
+  ja: __COPY__
+---
+texts:
+  en: >-
+    The `KUBECTL_EXTERNAL_DIFF` environment variable can be used to select your own diff command.
+
+    By default, the "diff" command available in your path will be run with "-u" (unified) and "-N"
+
+    (treat new files as empty) options.
+  ja: __COPY__

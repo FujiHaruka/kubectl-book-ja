@@ -1,0 +1,169 @@
+texts:
+  en: >-
+    {% panel style="success", title="Providing Feedback" %}
+
+    **Provide feedback at the [survey](https://www.surveymonkey.com/r/C855WZW)**
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: '{% panel style="info", title="TL;DR" %}'
+  ja: __COPY__
+---
+texts:
+  en: Customize Base Resource Namespaces
+  ja: __COPY__
+---
+texts:
+  en: Customize Base Resource Names with Prefixes or Suffixes
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Customize Base Resource Labels or Annotations
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: Customizing Resource Metadata
+  ja: __COPY__
+---
+texts:
+  en: Motivation
+  ja: __COPY__
+---
+texts:
+  en: >-
+    It is common for users to customize the metadata of their Applications - including
+
+    the **names, namespaces, labels and annotations**.
+  ja: __COPY__
+---
+texts:
+  en: "Examples:"
+  ja: __COPY__
+---
+texts:
+  en: Overriding the Namespace
+  ja: __COPY__
+---
+texts:
+  en: Overriding the Names of Resources by supplying a Prefix or Suffix
+  ja: __COPY__
+---
+texts:
+  en: Overriding Labels and Annotations
+  ja: __COPY__
+---
+texts:
+  en: Running **multiple instances of the same White-Box Base** using the above techniques
+  ja: __COPY__
+---
+texts:
+  en: '{% panel style="info", title="Reference" %}'
+  ja: __COPY__
+---
+texts:
+  en: "[namespace](../reference/kustomize.md#namespace)"
+  ja: __COPY__
+---
+texts:
+  en: "[namePrefix](../reference/kustomize.md#nameprefix)"
+  ja: __COPY__
+---
+texts:
+  en: >-
+    [nameSuffix](../reference/kustomize.md#namesuffix)
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: Customizing Resource Namespaces
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% method %}
+
+    **Use Case:**
+  ja: __COPY__
+---
+texts:
+  en: Change the Namespace for Resources from Base.
+  ja: __COPY__
+---
+texts:
+  en: Customize the Namespace of all Resources in the Base by adding `namespace`.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% sample lang="yaml" %}
+
+    **Input:** The kustomization.yaml file
+  ja: __COPY__
+---
+texts:
+  en: "**Base:**"
+  ja: __COPY__
+---
+texts:
+  en: "**Applied:** The Resource that is Applied to the cluster"
+  ja: __COPY__
+---
+texts:
+  en: "{% endmethod %}"
+  ja: __COPY__
+---
+texts:
+  en: Customizing Resource Name Prefixes and Suffixes
+  ja: __COPY__
+---
+texts:
+  en: Run multiple instances of the same Base.
+  ja: __COPY__
+---
+texts:
+  en: Create naming conventions for different Environments (test, dev, staging, canary, prod).
+  ja: __COPY__
+---
+texts:
+  en: Customize the Name of all Resources in the Base by adding `namePrefix` or `nameSuffix` in Variants.
+  ja: __COPY__
+---
+texts:
+  en: See [Namespaces and Names](../app_management/namespaces_and_names.md).
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% panel style="success", title="Chaining Name Prefixes" %}
+
+    Name Prefix's and Suffix's in Bases will be concatenated with Name Prefix's
+
+    and Suffix's specified in Variants - e.g. if a Base has a Name Prefix of `app-name-`
+
+    and the Variant has a Name Prefix of `test-` the Applied Resources will have
+
+    a Name Prefix of `test-app-name-`.
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: Customizing Resource Labels and Annotations
+  ja: __COPY__
+---
+texts:
+  en: Create Label or Annotation conventions for different Environments (test, dev, staging, canary, prod).
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Customize the Labels and Annotations of all Resources in the Base by adding a
+
+    `commonLabels` or `commonAnnotations` in the variants.
+  ja: __COPY__

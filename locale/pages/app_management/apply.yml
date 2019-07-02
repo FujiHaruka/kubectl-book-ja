@@ -1,0 +1,212 @@
+texts:
+  en: >-
+    {% panel style="success", title="Providing Feedback" %}
+
+    **Provide feedback at the [survey](https://www.surveymonkey.com/r/CLQBQHR)**
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: '{% panel style="info", title="TL;DR" %}'
+  ja: __COPY__
+---
+texts:
+  en: Apply Creates and Updates Resources in a cluster through running `kubectl apply` on Resource Config.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Apply manages complexity such as ordering of operations and merging user defined and cluster defined state.
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: Apply
+  ja: __COPY__
+---
+texts:
+  en: Motivation
+  ja: __COPY__
+---
+texts:
+  en: Apply is a command that will update a Kubernetes cluster to match state defined locally in files.
+  ja: __COPY__
+---
+texts:
+  en: Fully declarative - don't need to specify create or update - just manage files
+  ja: __COPY__
+---
+texts:
+  en: Merges user owned state (e.g. Service `selector`) with state owned by the cluster (e.g. Service `clusterIp`)
+  ja: __COPY__
+---
+texts:
+  en: Definitions
+  ja: __COPY__
+---
+texts:
+  en: "**Resources**: *Objects* in a cluster - e.g. Deployments, Services, etc."
+  ja: __COPY__
+---
+texts:
+  en: >-
+    **Resource Config**: *Files* declaring the desired state for Resources - e.g. deployment.yaml.
+
+    Resources are created and updated using Apply with these files.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    *kubectl apply* Creates and Updates Resources through local or remote files.  This may be through
+
+    either raw Resource Config or *kustomization.yaml*.
+  ja: __COPY__
+---
+texts:
+  en: Usage
+  ja: __COPY__
+---
+texts:
+  en: "{% method %}"
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Though Apply can be run directly against Resource Config files or directories using `-f`, it is recommended
+
+    to run Apply against a `kustomization.yaml` using `-k`.  The `kustomization.yaml` allows users to define
+
+    configuration that cuts across many Resources (e.g. namespace).
+  ja: __COPY__
+---
+texts:
+  en: '{% sample lang="yaml" %}'
+  ja: __COPY__
+---
+texts:
+  en: "{% endmethod %}"
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% method %}
+
+    Users run Apply on directories containing `kustomization.yaml` files using `-k` or on raw
+
+    ResourceConfig files using `-f`.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% panel style="info", title="Multi-Resource Configs" %}
+
+    A single Resource Config file may declare multiple Resources separated by `\n---\n`.
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: CRUD Operations
+  ja: __COPY__
+---
+texts:
+  en: Creating Resources
+  ja: __COPY__
+---
+texts:
+  en: Any Resources that do not exist and are declared in Resource Config when Apply is run will be Created.
+  ja: __COPY__
+---
+texts:
+  en: Updating Resources
+  ja: __COPY__
+---
+texts:
+  en: Any Resources that already exist and are declared in Resource Config when Apply is run may be Updated.
+  ja: __COPY__
+---
+texts:
+  en: "**Added Fields**"
+  ja: __COPY__
+---
+texts:
+  en: Any fields that have been added to the Resource Config will be set on the Resource.
+  ja: __COPY__
+---
+texts:
+  en: "**Updated Fields** "
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Any fields that contain different values for the fields specified locally in the Resource Config from what is
+
+    in the Resource will be updated by merging the Resource Config into the live Resource.  See [merging](field_merge_semantics.md)
+
+    for more details.
+  ja: __COPY__
+---
+texts:
+  en: "**Deleted Fields**"
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Fields that were in the Resource Config the last time Apply was run, will be deleted from the Resource, and
+
+    return to their default values.
+  ja: __COPY__
+---
+texts:
+  en: "**Unmanaged Fields**"
+  ja: __COPY__
+---
+texts:
+  en: Fields that were not specified in the Resource Config but are set on the Resource will be left unmodified.
+  ja: __COPY__
+---
+texts:
+  en: Deleting Resources
+  ja: __COPY__
+---
+texts:
+  en: Declarative deletion of Resources does not yet exist in a usable form, but is under development.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% panel style="info", title="Continuously Applying The Hard Way" %}
+
+    In some cases, it may be useful to automatically Apply changes when ever the Resource Config is changed.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    This example uses the unix `watch` command to periodically invoke Apply against a target.
+
+    `watch -n 60 kubectl apply -k https://github.com/myorg/myrepo`
+  ja: __COPY__
+---
+texts:
+  en: "{% endpanel %}"
+  ja: __COPY__
+---
+texts:
+  en: Resource Creation Ordering
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Certain Resource Types may be dependent on other Resource Types being created first.  e.g. Namespaced
+
+    Resources on the Namespaces, RoleBindings on Roles, CustomResources on the CRDs, etc.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    When used with a `kustomization.yaml`, Apply sorts the Resources by Resource type to ensure Resources
+
+    with these dependencies are created in the correct order.
+  ja: __COPY__

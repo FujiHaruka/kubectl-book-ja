@@ -1,0 +1,183 @@
+texts:
+  en: >-
+    {% panel style="success", title="Providing Feedback" %}
+
+    **Provide feedback at the [survey](https://www.surveymonkey.com/r/C855WZW)**
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: '{% panel style="info", title="TL;DR" %}'
+  ja: __COPY__
+---
+texts:
+  en: Reuse Resource Config as Bases to `kustomization.yaml`'s.
+  ja: __COPY__
+---
+texts:
+  en: Customize Base for different Environments.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Reuse a Base across multiple Projects.
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: Bases and Variations
+  ja: __COPY__
+---
+texts:
+  en: Motivation
+  ja: __COPY__
+---
+texts:
+  en: >-
+    It is common for users to deploy several **Variants of the same Resource Config**, or for different projects
+
+    to **reuse the same Resource Config**.  The Resource Config produced by a `kustomization.yaml` can be
+
+    reused across multiple project using the `kustomization.yaml` as a *Base*.
+  ja: __COPY__
+---
+texts:
+  en: "Examples:"
+  ja: __COPY__
+---
+texts:
+  en: >-
+    a project may be deployed to **dev, test, staging, canary and production environments**,
+
+    but with variants between the environments.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    a project may be deployed to **different clusters** that are tuned differently or running
+
+    different versions of the project.
+  ja: __COPY__
+---
+texts:
+  en: '{% panel style="info", title="Reference" %}'
+  ja: __COPY__
+---
+texts:
+  en: >-
+    [bases](../reference/kustomize.md#bases)
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: Bases
+  ja: __COPY__
+---
+texts:
+  en: Bases are shared Resource Config in a `kustomization.yaml` to be used and customized by another `kustomization.yaml`.
+  ja: __COPY__
+---
+texts:
+  en: "Examples of Bases:"
+  ja: __COPY__
+---
+texts:
+  en: Common Java Base
+  ja: __COPY__
+---
+texts:
+  en: Used in multiple Apps (e.g. Guest Book, Calendar, Auth)
+  ja: __COPY__
+---
+texts:
+  en: Common Guest Book App Base
+  ja: __COPY__
+---
+texts:
+  en: Used in multiple Environments (e.g. Test, Staging, Prod)
+  ja: __COPY__
+---
+texts:
+  en: Common Prod Guest Book App Base
+  ja: __COPY__
+---
+texts:
+  en: Used in multiple clusters (e.g. us-west, us-east, us-canary)
+  ja: __COPY__
+---
+texts:
+  en: Referring to a Base
+  ja: __COPY__
+---
+texts:
+  en: >-
+    A project can add a Base by adding a path (relative to the `kustomization.yaml`) to **`base` that
+
+    points to a directory** containing another `kustomization.yaml` file.  This will automatically
+
+    add and kustomize all of the Resources from the base project to the current project.
+  ja: __COPY__
+---
+texts:
+  en: "Bases can be:"
+  ja: __COPY__
+---
+texts:
+  en: Relative paths from the `kustomization.yaml` - e.g. `../base`
+  ja: __COPY__
+---
+texts:
+  en: Urls - e.g. `github.com/kubernetes-sigs/kustomize/examples/multibases?ref=v1.0.6`
+  ja: __COPY__
+---
+texts:
+  en: Diagrams
+  ja: __COPY__
+---
+texts:
+  en: Single Base inheritted by single Application
+  ja: __COPY__
+---
+texts:
+  en: Shared Bases inheritted by different Applications
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% method %}
+
+    **Example:** Add a `kustomization.yaml` as a Base.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% sample lang="yaml" %}
+
+    **Input:** The kustomization.yaml file
+  ja: __COPY__
+---
+texts:
+  en: "**Base: kustomization.yaml and Resource Config**"
+  ja: __COPY__
+---
+texts:
+  en: "**Applied:** The Resource that is Applied to the cluster"
+  ja: __COPY__
+---
+texts:
+  en: "{% endmethod %}"
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% panel style="info", title="Bases in Bases" %}
+
+    Bases themselves may also be Variants and have their own Bases. See [Advanced Composition](../app_composition_and_deployment/structure_multi_tier_apps.md)
+
+    for more information.
+
+    {% endpanel %}
+  ja: __COPY__

@@ -1,0 +1,123 @@
+texts:
+  en: >-
+    {% panel style="success", title="Providing Feedback" %}
+
+    **Provide feedback at the [survey](https://www.surveymonkey.com/r/C855WZW)**
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: '{% panel style="info", title="TL;DR" %}'
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Inject the values of other Resource Config fields into Pod Env Vars and Command Args with `vars`.
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: Config Reflection
+  ja: __COPY__
+---
+texts:
+  en: Motivation
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Applications running in Pods may need to know about Application context or configuration.
+
+    For example, a **Pod may take the name of Service defined in the Project as a command argument**.
+
+    Instead of hard coding the value of the Service directly into the PodSpec, users can **reference
+
+    the Service value using a `vars` entry**.  If the value is updated or transformed by the
+
+    `kustomization.yaml` file (e.g. by setting a `namePrefix`), the value will be propagated
+
+    to where it is referenced in the PodSpec.
+  ja: __COPY__
+---
+texts:
+  en: '{% panel style="info", title="Reference" %}'
+  ja: __COPY__
+---
+texts:
+  en: >-
+    [vars](../reference/kustomize.md#var)
+
+    {% endpanel %} 
+  ja: __COPY__
+---
+texts:
+  en: Vars
+  ja: __COPY__
+---
+texts:
+  en: >-
+    The `vars` section contains variable references to Resource Config fields within the project.  They require
+
+    the following to be defined:
+  ja: __COPY__
+---
+texts:
+  en: Resource Kind
+  ja: __COPY__
+---
+texts:
+  en: Resource Version
+  ja: __COPY__
+---
+texts:
+  en: Resource name
+  ja: __COPY__
+---
+texts:
+  en: Field path
+  ja: __COPY__
+---
+texts:
+  en: "{% method %}"
+  ja: __COPY__
+---
+texts:
+  en: "**Example:** Set the Pod command argument to the value of a Service name."
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Apply will resolve `$(BACKEND_SERVICE_NAME)` to a value using the object reference
+
+    specified in `vars`.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% sample lang="yaml" %}
+
+    **Input:** The kustomization.yaml, deployment.yaml and service.yaml files
+  ja: __COPY__
+---
+texts:
+  en: "**Applied:** The Resources that are Applied to the cluster"
+  ja: __COPY__
+---
+texts:
+  en: "{% endmethod %}"
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% panel style="warning", title="Referencing Variables" %}
+
+    Variables are intended only to inject Resource Config into Pods.  They are
+
+    **not** intended as a general templating mechanism.  Overriding values should be done with
+
+    patches instead of variables.  See [Bases and Variations](bases_and_variants.md).
+
+    {% endpanel %}
+  ja: __COPY__

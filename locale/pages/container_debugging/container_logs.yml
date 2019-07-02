@@ -1,0 +1,170 @@
+texts:
+  en: >-
+    {% panel style="success", title="Providing Feedback" %}
+
+    **Provide feedback at the [survey](https://www.surveymonkey.com/r/JH35X82)**
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: '{% panel style="info", title="TL;DR" %}'
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Print the Logs of a Container in a cluster
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: Summarizing Resources
+  ja: __COPY__
+---
+texts:
+  en: Motivation
+  ja: __COPY__
+---
+texts:
+  en: Debugging Workloads by printing out the Logs of containers in a cluster.
+  ja: __COPY__
+---
+texts:
+  en: "{% method %}"
+  ja: __COPY__
+---
+texts:
+  en: Print Logs for a Container in a Pod
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Print the logs for a Pod running a single Container
+
+    {% sample lang="yaml" %}
+  ja: __COPY__
+---
+texts:
+  en: "{% endmethod %}"
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% panel style="success", title="Crash Looping Containers" %}
+
+    If a container is crash looping and you want to print its logs after it
+
+    exits, use the `-p` flag to look at the **logs from containers that have
+
+    exited**.  e.g. `kubectl logs -p -c ruby web-1`
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: Print Logs for all Pods for a Workload
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Print the logs for all Pods for a Workload
+
+    {% sample lang="yaml" %}
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% panel style="success", title="Workloads Logs" %}
+
+    Print all logs from **all containers for a Workload** by passing the
+
+    Workload label selector to the `-l` flag.  e.g. if your Workload
+
+    label selector is `app=nginx` usie `-l "app=nginx"` to print logs
+
+    for all the Pods from that Workload.
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: Follow Logs for a Container
+  ja: __COPY__
+---
+texts:
+  en: Stream logs from a container.
+  ja: __COPY__
+---
+texts:
+  en: '{% sample lang="yaml" %}'
+  ja: __COPY__
+---
+texts:
+  en: Printing Logs for a Container that has exited
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Print the logs for the previously running container.  This is useful for printing containers that have
+
+    crashed or are crash looping.
+
+    {% sample lang="yaml" %}
+  ja: __COPY__
+---
+texts:
+  en: Selecting a Container in a Pod
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Print the logs from a specific container within a Pod.  This is necessary for Pods running multiple
+
+    containers.
+
+    {% sample lang="yaml" %}
+  ja: __COPY__
+---
+texts:
+  en: Printing Logs After a Time
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Print the logs that occurred after an absolute time.
+
+    {% sample lang="yaml" %}
+  ja: __COPY__
+---
+texts:
+  en: Printing Logs Since a Time
+  ja: __COPY__
+---
+texts:
+  en: Print the logs that are newer than a duration.
+  ja: __COPY__
+---
+texts:
+  en: "Examples:"
+  ja: __COPY__
+---
+texts:
+  en: "0s: 0 seconds"
+  ja: __COPY__
+---
+texts:
+  en: "1m: 1 minute"
+  ja: __COPY__
+---
+texts:
+  en: "2h: 2 hours"
+  ja: __COPY__
+---
+texts:
+  en: Include Timestamps
+  ja: __COPY__
+---
+texts:
+  en: Include timestamps in the log lines
+  ja: __COPY__

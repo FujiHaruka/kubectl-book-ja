@@ -1,0 +1,137 @@
+texts:
+  en: >-
+    {% panel style="success", title="Providing Feedback" %}
+
+    **Provide feedback at the [survey](https://www.surveymonkey.com/r/JH35X82)**
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: '{% panel style="info", title="TL;DR" %}'
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Get a Summary of Resources Running in the Cluster
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: Summarizing Resources
+  ja: __COPY__
+---
+texts:
+  en: Motivation
+  ja: __COPY__
+---
+texts:
+  en: Quickly summarizing a collection of Resources and their state.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Summarizing Resource State using a columnar format is the most common way to view cluster
+
+    state when developing applications or triaging issues.  The **columnar view gives a compact
+
+    summary of the most relevant information** for a collection of Resources.
+  ja: __COPY__
+---
+texts:
+  en: Get
+  ja: __COPY__
+---
+texts:
+  en: >-
+    The `kubectl get` reads Resources from the cluster and formats them as output.  The examples in
+
+    this chapter will query for Resources by providing Get the *Resource Type* as an argument.
+
+    For more query options see [Queries and Options](queries_and_options.md).
+  ja: __COPY__
+---
+texts:
+  en: "{% method %}"
+  ja: __COPY__
+---
+texts:
+  en: Default
+  ja: __COPY__
+---
+texts:
+  en: If no output format is specified, Get will print a default set of columns.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    **Note:** Some columns *may* not directly map to fields on the Resource, but instead may
+
+    be a summary of fields.
+  ja: __COPY__
+---
+texts:
+  en: '{% sample lang="yaml" %}'
+  ja: __COPY__
+---
+texts:
+  en: "{% endmethod %}"
+  ja: __COPY__
+---
+texts:
+  en: Wide
+  ja: __COPY__
+---
+texts:
+  en: Print the default columns plus some additional columns.
+  ja: __COPY__
+---
+texts:
+  en: Custom Columns
+  ja: __COPY__
+---
+texts:
+  en: Print out specific fields as Columns.
+  ja: __COPY__
+---
+texts:
+  en: "**Note:** Custom Columns can also be read from a file using `-o custom-columns-file`."
+  ja: __COPY__
+---
+texts:
+  en: Labels
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Print out specific labels each as their own columns
+
+    {% sample lang="yaml" %}
+  ja: __COPY__
+---
+texts:
+  en: Show Labels
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Print out all labels on each Resource in a single column (last).
+
+    {% sample lang="yaml" %}
+  ja: __COPY__
+---
+texts:
+  en: Show Kind
+  ja: __COPY__
+---
+texts:
+  en: Print out the Group.Kind as part of the Name column.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    **Note:** This can be useful if the user did not specify the group in the command and
+
+    they want to know which API is being used.
+  ja: __COPY__

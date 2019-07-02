@@ -1,0 +1,41 @@
+texts:
+  en: >-
+    {% panel style="success", title="Providing Feedback" %}
+
+    **Provide feedback at the [survey](https://www.surveymonkey.com/r/C855WZW)**
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: Introduction
+  ja: __COPY__
+---
+texts:
+  en: >-
+    This section of the book covers how to build Projects and Applications with Config
+
+    shared across teams.  Apply kustomizations allow the authoring of Resource Config to
+
+    be a collaboration across teams.
+  ja: __COPY__
+---
+texts:
+  en: "Kustomizations facilitate:"
+  ja: __COPY__
+---
+texts:
+  en: Developing Variations of Resource Config for multiple Environments with different configurations
+  ja: __COPY__
+---
+texts:
+  en: Developing Variations of Resource Config for multiple Clusters with different configurations
+  ja: __COPY__
+---
+texts:
+  en: Developing and Publishing Ready-Made Resource Config for users to extend and customize
+  ja: __COPY__
+---
+texts:
+  en: Composing Resource Config from multiple sources
+  ja: __COPY__

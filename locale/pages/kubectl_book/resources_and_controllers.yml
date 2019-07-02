@@ -1,0 +1,507 @@
+texts:
+  en: >-
+    {% panel style="success", title="Providing Feedback" %}
+
+    **Provide feedback at the [survey](https://www.surveymonkey.com/r/JH35X82)**
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: '{% panel style="info", title="TL;DR" %}'
+  ja: __COPY__
+---
+texts:
+  en: A Kubernetes API has 2 parts - a Resource Type and a Controller
+  ja: __COPY__
+---
+texts:
+  en: Resources are objects declared as json or yaml and written to a cluster
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Controllers asynchronously actuate Resources after they are stored
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: Kubernetes Resources and Controllers Overview
+  ja: __COPY__
+---
+texts:
+  en: >-
+    This section provides background on the Kubernetes Resource model.  This information
+
+    is also available at the [kubernetes.io](https://kubernetes.io/docs/home/) docs site.
+  ja: __COPY__
+---
+texts:
+  en: "For more information on Kubernetes Resources see: [kubernetes.io Concepts](https://kubernetes.io/docs/concepts/)."
+  ja: __COPY__
+---
+texts:
+  en: Resources
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Instances of Kubernetes objects (e.g. Deployment, Services, Namespaces, etc)
+
+    are called **Resources**.
+  ja: __COPY__
+---
+texts:
+  en: Resources which run containers are referred to as **Workloads**.
+  ja: __COPY__
+---
+texts:
+  en: "Examples of Workloads:"
+  ja: __COPY__
+---
+texts:
+  en: "[Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)"
+  ja: __COPY__
+---
+texts:
+  en: "[StatefulSets](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/)"
+  ja: __COPY__
+---
+texts:
+  en: "[Jobs](https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/)"
+  ja: __COPY__
+---
+texts:
+  en: "[CronJobs](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/)"
+  ja: __COPY__
+---
+texts:
+  en: "[DaemonSets](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) "
+  ja: __COPY__
+---
+texts:
+  en: >-
+    **Users work with Resource APIs by declaring them in files which are then Applied to a Kubernetes
+
+    cluster.  These declarative files are called Resource Config.**
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Resource Config is *Applied* (declarative Create/Update/Delete) to a Kubernetes cluster using
+
+    tools such as Kubectl, and then actuated by a *Controller*.
+  ja: __COPY__
+---
+texts:
+  en: "Resources are uniquely identified:"
+  ja: __COPY__
+---
+texts:
+  en: "**apiVersion** (API Type Group and Version)"
+  ja: __COPY__
+---
+texts:
+  en: "**kind** (API Type Name)"
+  ja: __COPY__
+---
+texts:
+  en: "**metadata.namespace** (Instance namespace)"
+  ja: __COPY__
+---
+texts:
+  en: "**metadata.name** (Instance name)"
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% panel style="warning", title="Default Namespace" %}
+
+    If namespace is omitted from the Resource Config, the *default* namespace is used.  Users
+
+    should almost always explicitly specify the namespace for their Application using a
+
+    `kustomization.yaml`.
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: "{% method %}"
+  ja: __COPY__
+---
+texts:
+  en: Resources Structure
+  ja: __COPY__
+---
+texts:
+  en: Resources have the following components.
+  ja: __COPY__
+---
+texts:
+  en: "**TypeMeta:** Resource Type **apiVersion** and **kind**."
+  ja: __COPY__
+---
+texts:
+  en: "**ObjectMeta:** Resource **name** and **namespace** + other metadata (labels, annotations, etc)."
+  ja: __COPY__
+---
+texts:
+  en: "**Spec:** the desired state of the Resource - intended state the user provides to the cluster."
+  ja: __COPY__
+---
+texts:
+  en: "**Status:** the observed state of the object - recorded state the cluster provides to the user."
+  ja: __COPY__
+---
+texts:
+  en: Resource Config written by the user omits the Status field.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    **Example Deployment Resource Config**
+
+    {% sample lang="yaml" %}
+  ja: __COPY__
+---
+texts:
+  en: "{% endmethod %}"
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% panel style="info", title="Spec and Status" %}
+
+    Resources such as ConfigMaps and Secrets do not have a Status,
+
+    and as a result their Spec is implicit (i.e. they don't have a spec field).
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: Controllers
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Controllers actuate Kubernetes APIs.  They observe the state of the system and look for
+
+    changes either to desired state of Resources (create, update, delete) or the system
+
+    (Pod or Node dies).
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Controllers then make changes to the cluster to fulfill the intent specified by the user
+
+    (e.g. in Resource Config) or automation (e.g. changes from Autoscalers).
+  ja: __COPY__
+---
+texts:
+  en: >-
+    **Example:** After a user creates a Deployment, the Deployment Controller will see
+
+    that the Deployment exists and verify that the corresponding ReplicaSet it expects
+
+    to find exists.  The Controller will see that the ReplicaSet does not exist and will
+
+    create one.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% panel style="warning", title="Asynchronous Actuation" %}
+
+    Because Controllers run asynchronously, issues such as a bad
+
+    Container Image or unschedulable Pods will not be present in the CRUD response.
+
+    Tooling must facilitate processes for watching the state of the system until changes are
+
+    completely actuated by Controllers.  Once the changes have been fully actuated such
+
+    that the desired state matches the observed state, the Resource is considered *Settled*.
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: Controller Structure
+  ja: __COPY__
+---
+texts:
+  en: "**Reconcile**"
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Controllers actuate Resources by reading the Resource they are Reconciling + related Resources,
+
+    such as those that they create and delete.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    **Controllers *do not* Reconcile events, rather they Reconcile the expected
+
+    cluster state to the observed cluster state at the time Reconcile is run.**
+  ja: __COPY__
+---
+texts:
+  en: Deployment Controller creates/deletes ReplicaSets
+  ja: __COPY__
+---
+texts:
+  en: ReplicaSet Controller creates/delete Pods
+  ja: __COPY__
+---
+texts:
+  en: Scheduler (Controller) writes Nodes to Pods
+  ja: __COPY__
+---
+texts:
+  en: Node (Controller) runs Containers specifid in Pods on the Node
+  ja: __COPY__
+---
+texts:
+  en: "**Watch**"
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Controllers actuate Resources *after* they are written by Watching Resource Types, and then
+
+    triggering Reconciles from Events.  After a Resource is created/updated/deleted, Controllers
+
+    Watching the Resource Type will receive a notification that the Resource has been changed,
+
+    and they will read the state of the system to see what has changed (instead of relying on
+
+    the Event for this information).
+  ja: __COPY__
+---
+texts:
+  en: Deployment Controller watches Deployments + ReplicaSets (+ Pods)
+  ja: __COPY__
+---
+texts:
+  en: ReplicaSet Controller watches ReplicaSets + Pods
+  ja: __COPY__
+---
+texts:
+  en: Scheduler (Controller) watches Pods
+  ja: __COPY__
+---
+texts:
+  en: Node (Controller) watches Pods (+ Secrets + ConfigMaps)
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% panel style="info", title="Level vs Edge Based Reconciliation" %}
+
+    Because Controllers don't respond to individual Events, but instead Reconcile the state
+
+    of the system at the time that Reconcile is run, **changes from several different events may be observed
+
+    and Reconciled together.**  This is referred to as a *Level Based* system, whereas a system that
+
+    responds to each event individually would be referred to as an *Edge Based* system.
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: Overview of Kubernetes Resource APIs
+  ja: __COPY__
+---
+texts:
+  en: Pods
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Containers are run in [*Pods*](https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/) which are
+
+    scheduled to run on *Nodes* (i.e. worker machines) in a cluster.
+  ja: __COPY__
+---
+texts:
+  en: "Pods run a *single replica* of an Application and provide:"
+  ja: __COPY__
+---
+texts:
+  en: Compute Resources (cpu, memory, disk)
+  ja: __COPY__
+---
+texts:
+  en: Environment Variables
+  ja: __COPY__
+---
+texts:
+  en: Readiness and Health Checking
+  ja: __COPY__
+---
+texts:
+  en: Network (IP address shared by containers in the Pod)
+  ja: __COPY__
+---
+texts:
+  en: Mounting Shared Configuration and Secrets
+  ja: __COPY__
+---
+texts:
+  en: Mounting Storage Volumes
+  ja: __COPY__
+---
+texts:
+  en: Initialization
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% panel style="warning", title="Multi Container Pods" %}
+
+    Multiple replicas of an Application should be created using a Workload API to manage
+
+    creation and deletion of Pod replicas using a PodTemplate.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    In some cases a Pod may contain multiple Containers forming a single instance of an Application.  These
+
+    containers may coordinate with one another through shared network (IP) and storage.
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: Workloads
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Pods are typically managed by higher level abstractions that handle concerns such as
+
+    replication, identity, persistent storage, custom scheduling, rolling updates, etc.
+  ja: __COPY__
+---
+texts:
+  en: "The most common out-of-the-box Workload APIs (manage Pods) are:"
+  ja: __COPY__
+---
+texts:
+  en: "[Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) (Stateless Applications)"
+  ja: __COPY__
+---
+texts:
+  en: replication + rollouts
+  ja: __COPY__
+---
+texts:
+  en: "[StatefulSets](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/) (Stateful Applications)"
+  ja: __COPY__
+---
+texts:
+  en: replication + rollouts + persistent storage + identity
+  ja: __COPY__
+---
+texts:
+  en: "[Jobs](https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/) (Batch Work)"
+  ja: __COPY__
+---
+texts:
+  en: run to completion
+  ja: __COPY__
+---
+texts:
+  en: "[CronJobs](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/) (Scheduled Batch Work)"
+  ja: __COPY__
+---
+texts:
+  en: scheduled run to completion
+  ja: __COPY__
+---
+texts:
+  en: "[DaemonSets](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) (Per-Machine)"
+  ja: __COPY__
+---
+texts:
+  en: per-Node scheduling
+  ja: __COPY__
+---
+texts:
+  en: >-
+    {% panel style="success", title="API Abstraction Layers" %}
+
+    High-level Workload APIs may manage lower-level Workload APIs instead of directly managing Pods
+
+    (e.g. Deployments manage ReplicaSets).
+
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: Service Discovery and Load Balancing
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Service discovery and Load Balancing may be managed by a *Service* object.  Services provide a single
+
+    virtual IP address and dns name load balanced to a collection of Pods matching Labels.
+  ja: __COPY__
+---
+texts:
+  en: '{% panel style="info", title="Internal vs External Services" %}'
+  ja: __COPY__
+---
+texts:
+  en: >-
+    [Services Resources](https://kubernetes.io/docs/concepts/services-networking/service/)
+
+    (L4) may expose Pods internally within a cluster or externally through an HA proxy.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    [Ingress Resources](https://kubernetes.io/docs/concepts/services-networking/ingress/) (L7)
+      may expose URI endpoints and route them to Services.
+    {% endpanel %}
+  ja: __COPY__
+---
+texts:
+  en: Configuration and Secrets
+  ja: __COPY__
+---
+texts:
+  en: >-
+    Shared Configuration and Secret data may be provided by ConfigMaps and Secrets.  This allows
+
+    Environment Variables, Command Line Arguments and Files to be loosely injected into
+
+    the Pods and Containers that consume them.
+  ja: __COPY__
+---
+texts:
+  en: '{% panel style="info", title="ConfigMaps vs Secrets" %}'
+  ja: __COPY__
+---
+texts:
+  en: >-
+    [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/)
+
+    are for providing non-sensitive data to Pods.
+  ja: __COPY__
+---
+texts:
+  en: >-
+    [Secrets](https://kubernetes.io/docs/concepts/configuration/secret/)
+      are for providing sensitive data to Pods.
+    {% endpanel %}
+  ja: __COPY__
