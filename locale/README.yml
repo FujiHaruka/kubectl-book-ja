@@ -3,7 +3,7 @@ texts:
     {% panel style="success", title="Feedback and Contributing" %}
 
     **Provide feedback on new kubectl docs at the [survey](https://www.surveymonkey.com/r/JH35X82)**
-  ja: __COPY__
+  ja: ""
 ---
 texts:
   en: >-
@@ -12,7 +12,7 @@ texts:
     instructions on filing/fixing issues and adding new content.
 
     {% endpanel %}
-  ja: __COPY__
+  ja: ""
 ---
 texts:
   en: '{% panel style="info", title="TL;DR" %}'
@@ -20,22 +20,25 @@ texts:
 ---
 texts:
   en: Kubectl is the Kubernetes cli
-  ja: __COPY__
+  ja: Kubectl は Kubernetes CLI です
 ---
 texts:
   en: Kubectl provides a swiss army knife of functionality for working with Kubernetes clusters
-  ja: __COPY__
+  ja: Kubectl は Kubernetes クラスタを扱うための十徳ナイフです
 ---
 texts:
   en: Kubectl may be used to deploy and manage applications on Kubernetes
-  ja: __COPY__
+  ja: Kubectl は Kubernetes 上のアプリケーションをデプロイ・管理するのに使います
 ---
 texts:
   en: >-
     Kubectl may be used for scripting and building higher-level frameworks
 
     {% endpanel %}
-  ja: __COPY__
+  ja: >-
+    Kubectl はより高レベルのフレームワークを書き、構築するために使うこともできます
+
+    {% endpanel %}
 ---
 texts:
   en: Kubectl
@@ -43,86 +46,86 @@ texts:
 ---
 texts:
   en: Kubectl is the Kubernetes cli version of a swiss army knife, and can do many things.
-  ja: __COPY__
+  ja: Kubectl は Kubenetes の CLI バージョンで、多くのことができる十徳ナイフです。
 ---
 texts:
   en: >-
     While this Book is focused on using Kubectl to declaratively manage Applications in Kubernetes, it
 
     also covers other Kubectl functions.
-  ja: __COPY__
+  ja: この本は Kubectl を使って Kubernetes 内のアプリケーションを宣言的に管理することにフォーカスしていますが、Kubectl の他の機能も網羅しています。
 ---
 texts:
   en: Command Families
-  ja: __COPY__
+  ja: コマンドの分類
 ---
 texts:
   en: "Most Kubectl commands typically fall into one of a few categories:"
-  ja: __COPY__
+  ja: ほとんどの Kubectl コマンドは一般的に以下のカテゴリの一つに分類されます。
 ---
 texts:
   en: Type
-  ja: __COPY__
+  ja: 種類
 ---
 texts:
   en: Used For
-  ja: __COPY__
+  ja: 用途
 ---
 texts:
   en: Description
-  ja: __COPY__
+  ja: 説明
 ---
 texts:
   en: Declarative Resource Management
-  ja: __COPY__
+  ja: 宣言的なリソース管理
 ---
 texts:
   en: Deployment and Operations (e.g. GitOps)
-  ja: __COPY__
+  ja: デプロイと (GitOps のような) オペレーション
 ---
 texts:
   en: Declaratively manage Kubernetes Workloads using Resource Config
-  ja: __COPY__
+  ja: Resource Config を使った Kubernetes ワークロードを宣言的に管理する
 ---
 texts:
   en: Imperative Resource Management
-  ja: __COPY__
+  ja: 命令的なリソース管理
 ---
 texts:
   en: Development Only
-  ja: __COPY__
+  ja: デプロイのみ
 ---
 texts:
   en: Run commands to manage Kubernetes Workloads using Command Line arguments and flags
-  ja: __COPY__
+  ja: コマンドラインで引数とフラグを使って Kubernetes ワークロードを管理するコマンドを実行する
 ---
 texts:
   en: Printing Workload State
-  ja: __COPY__
+  ja: ワークロードの状態を表示
 ---
 texts:
   en: Debugging
-  ja: __COPY__
+  ja: デバッグ
 ---
 texts:
   en: Print information about Workloads
-  ja: __COPY__
+  ja: ワークロードについての情報を表示する
 ---
 texts:
   en: Interacting with Containers
-  ja: __COPY__
+  ja: コンテナの相互作用
 ---
 texts:
   en: Exec, Attach, Cp, Logs
-  ja: __COPY__
+  ja: Exec、Attach、Cp、Logs
 ---
 texts:
   en: Cluster Management
-  ja: __COPY__
+  ja: クラスタ管理
 ---
 texts:
   en: Cluster Ops
-  ja: __COPY__
+  ja: クラスタ Ops
 ---
 texts:
   en: Drain and Cordon Nodes
@@ -130,7 +133,7 @@ texts:
 ---
 texts:
   en: Declarative Application Management
-  ja: __COPY__
+  ja: 宣言的なアプリケーション管理
 ---
 texts:
   en: >-
@@ -141,7 +144,7 @@ texts:
     This command reads a local (or remote) file structure and modifies cluster state to
 
     reflect the declared intent.
-  ja: __COPY__
+  ja: リソースを管理する方法は、Resource Config という名前の宣言的なファイルを置き、Kubectl *Apply* コマンドで管理するのを推奨します。このコマンドはローカル (リモートでも可) にあるファイル構造を読み込み、宣言通りの意図をくみ取ってクラスタの状態を変更します。
 ---
 texts:
   en: >-
@@ -150,62 +153,67 @@ texts:
     Apply is the preferred mechanism for managing Resources in a Kubernetes cluster.
 
     {% endpanel %}
-  ja: __COPY__
+  ja: >-
+    {% panel style="info", title="Apply" %}
+
+    Apply は Kubernetes のリソースを管理するための推奨の方法です。
+
+    {% endpanel %}
 ---
 texts:
   en: Printing state about Workloads
-  ja: __COPY__
+  ja: ワークロードの状態を表示
 ---
 texts:
   en: Users will need to view Workload state.
-  ja: __COPY__
+  ja: ワークロードの状態を見ることが必要になる場合があります。
 ---
 texts:
   en: Printing summarize state and information about Resources
-  ja: __COPY__
+  ja: リソースの状態とその情報を要約して表示する
 ---
 texts:
   en: Printing complete state and information about Resources
-  ja: __COPY__
+  ja: リソースの状態とその情報を完全に表示する
 ---
 texts:
   en: Printing specific fields from Resources
-  ja: __COPY__
+  ja: リソースから特定のフィールドを表示する
 ---
 texts:
   en: Query Resources matching labels
-  ja: __COPY__
+  ja: ラベルにマッチするリソースを検索する
 ---
 texts:
   en: Debugging Workloads
-  ja: __COPY__
+  ja: ワークロードのデバッグ
 ---
 texts:
   en: "Kubectl supports debugging by providing commands for:"
-  ja: __COPY__
+  ja: Kubectl はデバッグをサポートするコマンドを提供しています。
 ---
 texts:
   en: Printing Container logs
-  ja: __COPY__
+  ja: コンテナのログを表示する
 ---
 texts:
   en: Printing cluster events
-  ja: __COPY__
+  ja: クラスタのイベントを表示する
 ---
 texts:
   en: Exec or attaching to a Container
-  ja: __COPY__
+  ja: コンテナに対して Exec やアタッチを実行する
 ---
 texts:
   en: Copying files from Containers in the cluster to a user's filesystem
-  ja: __COPY__
+  ja: クラスタ内のコンテナにあるファイルをユーザーのファイルシステムにコピーする
 ---
 texts:
   en: >-
     On occasion, users may need to perform operations to the Nodes of cluster.  Kubectl supports
 
     commands to drain Workloads from a Node so that it can be decommission or debugged.
-  ja: __COPY__
+  ja: 時には、クラスタの Node に操作を実行する必要があります。Kubectl は Node からワークロードをドレイン？するコマンドをサポートしています。それを使うと、ワークロードを停止したりデバッグしたりできます。
 ---
 texts:
   en: Porcelain
@@ -218,19 +226,19 @@ texts:
     the cluster *imperatively* with a shell-like workflow.  Kubectl offers porcelain commands for
 
     generating and modifying Resources.
-  ja: __COPY__
+  ja: "Resource Config を使うのは**開発**用には冗長にすぎると感じる人がいるかもしれません。そういうときには、シェルのようなワークフローでクラスタを**命令的に**扱いたくなります。Kubectl はリソースを生成・変更するための porcelain な (訳注: ユーザーフレンドリーな) コマンドを提供しています。"
 ---
 texts:
   en: Generating + creating Resources such as Deployments, StatefulSets, Services, ConfigMaps, etc
-  ja: __COPY__
+  ja: Deployment、StatefulSet、Service、ConfigMap などのリソースを生成・作成する
 ---
 texts:
   en: Setting fields on Resources
-  ja: __COPY__
+  ja: リソースにフィールドを設定する
 ---
 texts:
   en: Editing (live) Resources in a text editor
-  ja: __COPY__
+  ja: テキストエディタでリソースを (稼働させたまま) 編集する
 ---
 texts:
   en: >-
@@ -241,4 +249,9 @@ texts:
     be used for production.
 
     {% endpanel %}
-  ja: __COPY__
+  ja: >-
+    {% panel style="danger", title="開発用" %}
+
+    porcelain なコマンドは開発用クラスタ内でワークロードを試行錯誤するのに時間の節約になりますが、本番で使うべきではありません。
+
+    {% endpanel %}
