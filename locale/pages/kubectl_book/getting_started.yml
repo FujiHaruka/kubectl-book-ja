@@ -5,7 +5,7 @@ texts:
     **Provide feedback at the [survey](https://www.surveymonkey.com/r/JH35X82)**
 
     {% endpanel %}
-  ja: __COPY__
+  ja: ""
 ---
 texts:
   en: '{% panel style="info", title="TL;DR" %}'
@@ -13,41 +13,44 @@ texts:
 ---
 texts:
   en: Creating Resources
-  ja: __COPY__
+  ja: リソースの作成
 ---
 texts:
   en: Printing Resources
-  ja: __COPY__
+  ja: リソースの表示
 ---
 texts:
   en: >-
     Debugging Containers
 
     {% endpanel %}
-  ja: __COPY__
+  ja: >-
+    コンテナのデバッグ
+
+    {% endpanel %}
 ---
 texts:
   en: Getting Started With Kubectl
-  ja: __COPY__
+  ja: Kubectl を始める
 ---
 texts:
   en: "**Note**: If you are already familiar with Kubectl, you can skip this section."
-  ja: __COPY__
+  ja: "**注意**: すでに Kubectl に慣れていれば、この章は読み飛ばしても構いません。"
 ---
 texts:
   en: >-
     This section provides a brief overview of the most basic Kubectl commands, which are
 
     described in more detail in later chapters.
-  ja: __COPY__
+  ja: この章では、Kubectl の基本的なコマンドを概説しますが、各コマンドの詳細は後の章で説明します。
 ---
 texts:
   en: For more background on the Kubernetes APIs themselves, see the docs at [k8s.io](k8s.io).
-  ja: __COPY__
+  ja: Kubernetes API 自体の詳細については、[k8s.io](https://k8s.io) のドキュメントを読んでください。
 ---
 texts:
   en: Listing Kubernetes Resources
-  ja: __COPY__
+  ja: Kubernetes リソースをリスト表示する
 ---
 texts:
   en: "{% method %}"
@@ -55,11 +58,11 @@ texts:
 ---
 texts:
   en: List the Kubernetes *Deployment* Resources that are in the kube-system namespace.
-  ja: __COPY__
+  ja: Kubernetes の *Deployment* リソースのうち、kube-system という名前空間にあるものをリスト表示します。
 ---
 texts:
   en: "**Note:** Deployments are Resources which manage Pod replicas (Pods run Containers)"
-  ja: __COPY__
+  ja: "**注意**: Deployment とは Pod レプリカを管理するリソースです。(Pod がコンテナを実行します)"
 ---
 texts:
   en: '{% sample lang="yaml" %}'
@@ -71,58 +74,58 @@ texts:
 ---
 texts:
   en: Print detailed information about the kube-dns Deployment in the kube-system namespace.
-  ja: __COPY__
+  ja: 名前空間 kube-system にある kube-dns という Deployment の詳細を表示します。
 ---
 texts:
   en: Creating a Resource from Config
-  ja: __COPY__
+  ja: 設定ファイルからリソースを作成する
 ---
 texts:
   en: Create or Update Kubernetes Resources from Remote Config.
-  ja: __COPY__
+  ja: Kubernetes リソースをリモートにある設定ファイルから作成または更新します。
 ---
 texts:
   en: Create or Update Kubernetes Resources from Local Config.
-  ja: __COPY__
+  ja: Kubernetes リソースをローカルにある設定ファイルから作成または更新します。
 ---
 texts:
   en: Print the Resources that were Applied.
-  ja: __COPY__
+  ja: Apply されたリソースを表示します。
 ---
 texts:
   en: Generating a Config from a Command
-  ja: __COPY__
+  ja: コマンドから設定を生成する
 ---
 texts:
   en: >-
     Generate Config for a Deployment Resource.  This could be Applied to a cluster by writing the output
 
     to a file, and then running `kubectl apply -f <yaml-file>`
-  ja: __COPY__
+  ja: Deployment リソースの設定ファイルを生成します。これをクラスタに Apply するには、出力をファイルに書き込んでから、`kubectl apply -f <yaml-file>` を実行します。
 ---
 texts:
   en: >-
     **Note:** The generated Config has extra boilerplate that users shouldn't include but exists
 
     due to the serialization process of go objects.
-  ja: __COPY__
+  ja: "**注意:** 生成された設定には削除すべき余分な箇所がありますが、go オブジェクトをシリアライズした結果生じたものです。"
 ---
 texts:
   en: Viewing Pods Associated with Resources
-  ja: __COPY__
+  ja: リソースに関連した Pod を見る
 ---
 texts:
   en: View the Pods created by the Deployment using the Pod labels.
-  ja: __COPY__
+  ja: Deployment によって作成された Pod を Pod ラベルで表示します
 ---
 texts:
   en: Debugging Containers
-  ja: __COPY__
+  ja: コンテナをデバッグする
 ---
 texts:
   en: Get the logs from all Pods managed by the Deployment.
-  ja: __COPY__
+  ja: Deployment が管理するすべての Pod からログを取得します。
 ---
 texts:
   en: Get a shell into a specific Pod's Container
-  ja: __COPY__
+  ja: 特定の Pod のコンテナの中に入ってシェルを実行します。
