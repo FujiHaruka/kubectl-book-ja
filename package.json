@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "sync": "inalz sync",
+    "build": "inalz build"
+  },
+  "dependencies": {
+    "inalz": "^0.4.1"
+  }
+}

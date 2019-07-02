@@ -1,0 +1,9 @@
+lang:
+  source: en
+  targets:
+    - ja
+documents:
+  - source: kubectl/docs/book
+    targets:
+      ja: book
+    locale: locale
