@@ -5,7 +5,7 @@ texts:
     **Provide feedback at the [survey](https://www.surveymonkey.com/r/JH35X82)**
 
     {% endpanel %}
-  ja: __COPY__
+  ja: ""
 ---
 texts:
   en: '{% panel style="info", title="TL;DR" %}'
@@ -13,52 +13,55 @@ texts:
 ---
 texts:
   en: A Kubernetes API has 2 parts - a Resource Type and a Controller
-  ja: __COPY__
+  ja: Kubernetes API は 2 つの部分からなります - リソースタイプとコントローラ
 ---
 texts:
   en: Resources are objects declared as json or yaml and written to a cluster
-  ja: __COPY__
+  ja: リソースは json や yaml で宣言されたオブジェクトで、クラスタに書き込まれます
 ---
 texts:
   en: >-
     Controllers asynchronously actuate Resources after they are stored
 
     {% endpanel %}
-  ja: __COPY__
+  ja: >-
+    コントローラはリソースの保存後に非同期にリソースを動かします
+
+    {% endpanel %}
 ---
 texts:
   en: Kubernetes Resources and Controllers Overview
-  ja: __COPY__
+  ja: Kubernetes のリソースとコントローラの概要
 ---
 texts:
   en: >-
     This section provides background on the Kubernetes Resource model.  This information
 
     is also available at the [kubernetes.io](https://kubernetes.io/docs/home/) docs site.
-  ja: __COPY__
+  ja: この章では Kubernetes リソースモデルの背景を説明します。ここに書かれていることは [kubernetes.io](https://kubernetes.io/docs/home/) のドキュメントでも確認できます。
 ---
 texts:
   en: "For more information on Kubernetes Resources see: [kubernetes.io Concepts](https://kubernetes.io/docs/concepts/)."
-  ja: __COPY__
+  ja: Kubernetes リソースの詳細は [kubernetes.io コンセプト](https://kubernetes.io/docs/concepts/)をご覧ください。
 ---
 texts:
   en: Resources
-  ja: __COPY__
+  ja: リソース
 ---
 texts:
   en: >-
     Instances of Kubernetes objects (e.g. Deployment, Services, Namespaces, etc)
 
     are called **Resources**.
-  ja: __COPY__
+  ja: Kubernetes オブジェクト (Deployment、Service、名前空間など) のインスタンスは**リソース**と呼ばれます。
 ---
 texts:
   en: Resources which run containers are referred to as **Workloads**.
-  ja: __COPY__
+  ja: コンテナを実行するリソースは特にワークロードといいます。
 ---
 texts:
   en: "Examples of Workloads:"
-  ja: __COPY__
+  ja: ワークロードの例。
 ---
 texts:
   en: "[Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)"
@@ -85,34 +88,34 @@ texts:
     **Users work with Resource APIs by declaring them in files which are then Applied to a Kubernetes
 
     cluster.  These declarative files are called Resource Config.**
-  ja: __COPY__
+  ja: "**リソース API を使うには、まずリソースをファイルで宣言し、それから Kubernetes クラスタに適用します。これらの宣言的なファイルはリソース設定と呼ばれます。**"
 ---
 texts:
   en: >-
     Resource Config is *Applied* (declarative Create/Update/Delete) to a Kubernetes cluster using
 
     tools such as Kubectl, and then actuated by a *Controller*.
-  ja: __COPY__
+  ja: リソース設定は、Kubectl のようなツールを使って Kubernetes クラスタに (宣言的な作成・更新・削除を) 適用され、それから**コントローラ**が作動させます。
 ---
 texts:
   en: "Resources are uniquely identified:"
-  ja: __COPY__
+  ja: リソースは一意に識別されます。
 ---
 texts:
   en: "**apiVersion** (API Type Group and Version)"
-  ja: __COPY__
+  ja: "**apiVersion** (API タイプのグループとバージョン)"
 ---
 texts:
   en: "**kind** (API Type Name)"
-  ja: __COPY__
+  ja: "**kind** (API タイプの名前)"
 ---
 texts:
   en: "**metadata.namespace** (Instance namespace)"
-  ja: __COPY__
+  ja: "**metadata.namespace** (インスタンスの名前空間)"
 ---
 texts:
   en: "**metadata.name** (Instance name)"
-  ja: __COPY__
+  ja: "**metadata.name** (インスタンス名)"
 ---
 texts:
   en: >-
@@ -125,7 +128,11 @@ texts:
     `kustomization.yaml`.
 
     {% endpanel %}
-  ja: __COPY__
+  ja: >-
+    {% panel style="warning", title="デフォルトの名前空間" %}
+
+    リソース設定で名前空間が省略されると *default* という名前空間が使用されます。ほとんどの場合、アプリケーションには明示的に名前空間を指定すべきです。名前空間は `kustomization.yaml` に記述します。
+    {% endpanel %}
 ---
 texts:
   en: "{% method %}"
@@ -133,31 +140,31 @@ texts:
 ---
 texts:
   en: Resources Structure
-  ja: __COPY__
+  ja: リソースの構造
 ---
 texts:
   en: Resources have the following components.
-  ja: __COPY__
+  ja: リソースの構成要素は次の通りです。
 ---
 texts:
   en: "**TypeMeta:** Resource Type **apiVersion** and **kind**."
-  ja: __COPY__
+  ja: "**TypeMeta:** リソースタイプの **apiVersion** と**種類**"
 ---
 texts:
   en: "**ObjectMeta:** Resource **name** and **namespace** + other metadata (labels, annotations, etc)."
-  ja: __COPY__
+  ja: "**ObjectMeta:** リソースの**名前**と**名前空間** + 他のメタデータ (ラベル、アノテーションなど)"
 ---
 texts:
   en: "**Spec:** the desired state of the Resource - intended state the user provides to the cluster."
-  ja: __COPY__
+  ja: "**Spec:** リソースの望ましい状態 - クラスタに対して教えるこうなってほしいという状態"
 ---
 texts:
   en: "**Status:** the observed state of the object - recorded state the cluster provides to the user."
-  ja: __COPY__
+  ja: "**Status:** オブジェクトの観測された状態 - クラスタが教えてくれる記録された状態"
 ---
 texts:
   en: Resource Config written by the user omits the Status field.
-  ja: __COPY__
+  ja: リソース設定を書くときには Status フィールドは省略します。
 ---
 texts:
   en: >-
