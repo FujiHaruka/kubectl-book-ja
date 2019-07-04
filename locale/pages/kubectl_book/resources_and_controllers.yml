@@ -171,7 +171,10 @@ texts:
     **Example Deployment Resource Config**
 
     {% sample lang="yaml" %}
-  ja: __COPY__
+  ja: >-
+      **Deployment のリソース設定の例**
+
+    {% sample lang="yaml" %}
 ---
 texts:
   en: "{% endmethod %}"
@@ -186,11 +189,16 @@ texts:
     and as a result their Spec is implicit (i.e. they don't have a spec field).
 
     {% endpanel %}
-  ja: __COPY__
+  ja: >-
+    {% panel style="info", title="Spec and Status" %}
+
+    ConfigMap や Secret のようなリソースには Status がありません。その結果、それらの Spec は暗黙的です (言い換えると spec フィールドがありません)。
+
+    {% endpanel %}
 ---
 texts:
   en: Controllers
-  ja: __COPY__
+  ja: コントローラ
 ---
 texts:
   en: >-
@@ -199,14 +207,15 @@ texts:
     changes either to desired state of Resources (create, update, delete) or the system
 
     (Pod or Node dies).
-  ja: __COPY__
+  ja: コントローラは Kubernetes API を作動します。コントローラはシステムの状態を監視し、リソースを望ましい状態にするための変更 (作成、更新、削除) や、システムの変更 (Pod や Node の停止) を検知します。
 ---
 texts:
   en: >-
     Controllers then make changes to the cluster to fulfill the intent specified by the user
 
     (e.g. in Resource Config) or automation (e.g. changes from Autoscalers).
-  ja: __COPY__
+  ja: >-
+    コントローラはユーザーが (たとえばリソース設定の中で) 決めた意図通りの仕様や (たとえば Autoscaler による) 自動化の要求を満たすようクラスタを変更ます。
 ---
 texts:
   en: >-
@@ -217,7 +226,7 @@ texts:
     to find exists.  The Controller will see that the ReplicaSet does not exist and will
 
     create one.
-  ja: __COPY__
+  ja: "**例**: Deployment が作成されると、Deployment コントローラは Deployment が存在することを理解し、対応する ReplicaSet が期待どおりに存在するかどうか検証します。ReplicaSet が存在しなければ作成します。"
 ---
 texts:
   en: >-
@@ -234,49 +243,54 @@ texts:
     that the desired state matches the observed state, the Resource is considered *Settled*.
 
     {% endpanel %}
-  ja: __COPY__
+  ja: >-
+    {% panel style="warning", title="非同期な動作" %}
+
+    コントローラは非同期に実行されるため、コンテナイメージが壊れているとか Pod がスケジュール不能であるとかといった問題は CRUD のレスポンスでは顕在化しません。何かツールを作る場合には、コントローラの動作が完了するまでシステムの状態を監視しておくことが簡単にできるようにすべきです。変更動作が完了して望ましい状態が現在の状態と一致したら、リソースは**安定状態にある**なとみなされます。
+
+    {% endpanel %}
 ---
 texts:
   en: Controller Structure
-  ja: __COPY__
+  ja: コントローラの構造
 ---
 texts:
   en: "**Reconcile**"
-  ja: __COPY__
+  ja: "**調停**"
 ---
 texts:
   en: >-
     Controllers actuate Resources by reading the Resource they are Reconciling + related Resources,
 
     such as those that they create and delete.
-  ja: __COPY__
+  ja: コントローラは自身が作成・削除するなどして調停中のリソースとその関連リソースを読み込むことによって、リソースを作動させます。
 ---
 texts:
   en: >-
     **Controllers *do not* Reconcile events, rather they Reconcile the expected
 
     cluster state to the observed cluster state at the time Reconcile is run.**
-  ja: __COPY__
+  ja: "**コントローラが実行する調停は、イベントを調停するの*ではなく*、期待されるクラスタの状態を現在のクラスタの状態に調停します。**"
 ---
 texts:
   en: Deployment Controller creates/deletes ReplicaSets
-  ja: __COPY__
+  ja: Deployment コントローラは ReplicaSets を作成・削除します
 ---
 texts:
   en: ReplicaSet Controller creates/delete Pods
-  ja: __COPY__
+  ja: ReplicaSet コントローラは Pod を作成・削除します
 ---
 texts:
   en: Scheduler (Controller) writes Nodes to Pods
-  ja: __COPY__
+  ja: Scheduler (コントローラ) は Node を Pod に書き込みます
 ---
 texts:
   en: Node (Controller) runs Containers specifid in Pods on the Node
-  ja: __COPY__
+  ja: Node (コントローラ) は Node 上の Pod に定義されたコンテナを実行します
 ---
 texts:
   en: "**Watch**"
-  ja: __COPY__
+  ja: "**監視**"
 ---
 texts:
   en: >-
@@ -289,23 +303,23 @@ texts:
     and they will read the state of the system to see what has changed (instead of relying on
 
     the Event for this information).
-  ja: __COPY__
+  ja: コントローラがリソースを作動させるのは監視用のリソースタイプが書き、それからイベントから調停がトリガーされた**後**です。リソースが作成・更新・削除された後、リソースタイプを監視しているコントローラはリソースが変更されたという通知を受け取り、(この情報のためのイベントに依存することなく) システムの状態を読み込んで何を変更すべきかを理解します。
 ---
 texts:
   en: Deployment Controller watches Deployments + ReplicaSets (+ Pods)
-  ja: __COPY__
+  ja: Deployment コントローラは Deployment と ReplicaSet (と Pod) を監視します。
 ---
 texts:
   en: ReplicaSet Controller watches ReplicaSets + Pods
-  ja: __COPY__
+  ja: ReplicaSet コントローラは ReplicaSets と Pod を監視します
 ---
 texts:
   en: Scheduler (Controller) watches Pods
-  ja: __COPY__
+  ja: Scheduler (コントローラ) は Pod を監視します
 ---
 texts:
   en: Node (Controller) watches Pods (+ Secrets + ConfigMaps)
-  ja: __COPY__
+  ja: Node (コントローラ) は Pod (と Secret と ConfigMap) を監視します
 ---
 texts:
   en: >-
@@ -320,15 +334,21 @@ texts:
     responds to each event individually would be referred to as an *Edge Based* system.
 
     {% endpanel %}
-  ja: __COPY__
+  ja: >-
+    {% panel style="info", title="レベルベースの調停とエッジベースの調停" %}
+
+    Because Controllers don't respond to individual Events, but instead Reconcile the state
+    コントローラは個々のイベントに反応せず、調停が実行されるときにシステムの状態を調停するため、**複数の異なるイベントから来る複数の変更が観測されうるし、一緒に調停されるかもしれません。**これは**レベルベース**のシステムと呼ばれます。それと対比して、個々のイベントに対して反応するシステムは**エッジベース**のシステムと呼ばれます。
+
+    {% endpanel %}
 ---
 texts:
   en: Overview of Kubernetes Resource APIs
-  ja: __COPY__
+  ja: Kubernetes リソース API の概要
 ---
 texts:
   en: Pods
-  ja: __COPY__
+  ja: Pod
 ---
 texts:
   en: >-
