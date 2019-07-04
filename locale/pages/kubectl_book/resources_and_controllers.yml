@@ -355,39 +355,39 @@ texts:
     Containers are run in [*Pods*](https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/) which are
 
     scheduled to run on *Nodes* (i.e. worker machines) in a cluster.
-  ja: __COPY__
+  ja: コンテナは [*Pod*](https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/) の中で実行され、Pod はクラスタ内の *Node* 上で実行をスケジュールされます。
 ---
 texts:
   en: "Pods run a *single replica* of an Application and provide:"
-  ja: __COPY__
+  ja: Pod はアプリケーションの**単一のレプリカ**を実行し、以下を提供します。
 ---
 texts:
   en: Compute Resources (cpu, memory, disk)
-  ja: __COPY__
+  ja: 計算リソース (CPU、メモリ、ディスク)
 ---
 texts:
   en: Environment Variables
-  ja: __COPY__
+  ja: 環境変数
 ---
 texts:
   en: Readiness and Health Checking
-  ja: __COPY__
+  ja: ヘルスチェック
 ---
 texts:
   en: Network (IP address shared by containers in the Pod)
-  ja: __COPY__
+  ja: ネットワーク (IP アドレスは Pod 内のコンテナに共有されます)
 ---
 texts:
   en: Mounting Shared Configuration and Secrets
-  ja: __COPY__
+  ja: Shared Configuration と Secret のマウント
 ---
 texts:
   en: Mounting Storage Volumes
-  ja: __COPY__
+  ja: Storage Volume のマウント
 ---
 texts:
   en: Initialization
-  ja: __COPY__
+  ja: 初期化
 ---
 texts:
   en: >-
@@ -396,7 +396,10 @@ texts:
     Multiple replicas of an Application should be created using a Workload API to manage
 
     creation and deletion of Pod replicas using a PodTemplate.
-  ja: __COPY__
+  ja: >-
+    {% panel style="warning", title="マルチコンテナの Pod" %}
+
+    アプリケーションには複数のレプリカを作るべきです。ワークロード API を使うと Pod レプリカの作成および削除を PodTemplate で管理できます。
 ---
 texts:
   en: >-
@@ -405,62 +408,63 @@ texts:
     containers may coordinate with one another through shared network (IP) and storage.
 
     {% endpanel %}
-  ja: __COPY__
+  ja: >-
+    場合によっては Pod は複数のコンテナを含み、それがアプリケーションの一つのインスタンスを形成しているかもしれません。これらのコンテナはネットワーク (IP) とストレージを共有することによって協働します。
 ---
 texts:
   en: Workloads
-  ja: __COPY__
+  ja: ワークロード
 ---
 texts:
   en: >-
     Pods are typically managed by higher level abstractions that handle concerns such as
 
     replication, identity, persistent storage, custom scheduling, rolling updates, etc.
-  ja: __COPY__
+  ja: 一般的に Pod は関心ごとに分けられた上位の抽象化によって管理されます。たとえば、レプリケーション、同一性、永続化ストレージ、カスタムスケジュール、ローリングアップデートなどです。
 ---
 texts:
   en: "The most common out-of-the-box Workload APIs (manage Pods) are:"
-  ja: __COPY__
+  ja: 最もよく使われるワークロード API (Pod を管理する API) は以下です。
 ---
 texts:
   en: "[Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) (Stateless Applications)"
-  ja: __COPY__
+  ja: "[Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) (ステートレスなアプリケーション)"
 ---
 texts:
   en: replication + rollouts
-  ja: __COPY__
+  ja: レプリケーション + ロールアウト
 ---
 texts:
   en: "[StatefulSets](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/) (Stateful Applications)"
-  ja: __COPY__
+  ja: "[StatefulSets](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/) (ステートフルなアプリケーション)"
 ---
 texts:
   en: replication + rollouts + persistent storage + identity
-  ja: __COPY__
+  ja: レプリケーション + ロールアウト + 永続化ストレージ + 同一性
 ---
 texts:
   en: "[Jobs](https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/) (Batch Work)"
-  ja: __COPY__
+  ja: "[Jobs](https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/) (バッチ処理)"
 ---
 texts:
   en: run to completion
-  ja: __COPY__
+  ja: 実行を完了する
 ---
 texts:
   en: "[CronJobs](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/) (Scheduled Batch Work)"
-  ja: __COPY__
+  ja: "[CronJobs](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/) (スケジュールされたバッチ処理)"
 ---
 texts:
   en: scheduled run to completion
-  ja: __COPY__
+  ja: 定期的に実行を完了する
 ---
 texts:
   en: "[DaemonSets](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) (Per-Machine)"
-  ja: __COPY__
+  ja: "[DaemonSets](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) (マシンごと)"
 ---
 texts:
   en: per-Node scheduling
-  ja: __COPY__
+  ja: Node ごとのスケジュール
 ---
 texts:
   en: >-
@@ -471,11 +475,16 @@ texts:
     (e.g. Deployments manage ReplicaSets).
 
     {% endpanel %}
-  ja: __COPY__
+  ja: >-
+    {% panel style="success", title="API の抽象化レイヤー" %}
+
+    上位のワークロード API は下位のワークロード API を管理できます。Pod を直接管理する必要はありません。(たとえば Deployment は ReplicaSet を管理します)
+
+    {% endpanel %}
 ---
 texts:
   en: Service Discovery and Load Balancing
-  ja: __COPY__
+  ja: サービスディスカバリとロードバランシング
 ---
 texts:
   en: >-
