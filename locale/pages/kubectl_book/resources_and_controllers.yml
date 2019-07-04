@@ -491,29 +491,30 @@ texts:
     Service discovery and Load Balancing may be managed by a *Service* object.  Services provide a single
 
     virtual IP address and dns name load balanced to a collection of Pods matching Labels.
-  ja: __COPY__
+  ja: サービスディスカバリとロードバランシングは **Service** オブジェクトが管理します。Service は一つの仮想 IP アドレスと DNS 名を提供し、ラベルにマッチする Pod たちにロードバランスされます。
 ---
 texts:
   en: '{% panel style="info", title="Internal vs External Services" %}'
-  ja: __COPY__
+  ja: '{% panel style="info", title="内部 Service vs 外部 Services" %}'
 ---
 texts:
   en: >-
     [Services Resources](https://kubernetes.io/docs/concepts/services-networking/service/)
 
     (L4) may expose Pods internally within a cluster or externally through an HA proxy.
-  ja: __COPY__
+  ja: "[Service リソース](https://kubernetes.io/docs/concepts/services-networking/service/) (L4) は内に向けてはクラスタに、外に向けては HA プロキシを通じて Pod を公開することができます。"
 ---
 texts:
   en: >-
     [Ingress Resources](https://kubernetes.io/docs/concepts/services-networking/ingress/) (L7)
       may expose URI endpoints and route them to Services.
     {% endpanel %}
-  ja: __COPY__
+  ja: >-
+    [Ingress Resources](https://kubernetes.io/docs/concepts/services-networking/ingress/) (L7) は URI エンドポイントを公開し、それを Service に振り分けます。
 ---
 texts:
   en: Configuration and Secrets
-  ja: __COPY__
+  ja: Configuration と Secret
 ---
 texts:
   en: >-
@@ -522,22 +523,28 @@ texts:
     Environment Variables, Command Line Arguments and Files to be loosely injected into
 
     the Pods and Containers that consume them.
-  ja: __COPY__
+  ja: 共有設定と機密情報は ConfigMap と Secret が提供します。これは環境変数、コマンドライン引数、ファイルを Pod とコンテナが使えるようにルーズに注入します。
 ---
 texts:
   en: '{% panel style="info", title="ConfigMaps vs Secrets" %}'
-  ja: __COPY__
+  ja: '{% panel style="info", title="ConfigMap vs Secret" %}'
 ---
 texts:
   en: >-
     [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/)
 
     are for providing non-sensitive data to Pods.
-  ja: __COPY__
+  ja: >-
+    [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/) は機密でないデータを Pod に提供します。
 ---
 texts:
   en: >-
     [Secrets](https://kubernetes.io/docs/concepts/configuration/secret/)
       are for providing sensitive data to Pods.
     {% endpanel %}
-  ja: __COPY__
+  ja: >-
+    [Secrets](https://kubernetes.io/docs/concepts/configuration/secret/)
+
+    は機密データを Pod に提供します。
+    {% endpanel %}
+
