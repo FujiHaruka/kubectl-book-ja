@@ -172,7 +172,7 @@ texts:
 
     {% sample lang="yaml" %}
   ja: >-
-      **Deployment のリソース設定の例**
+    **Deployment のリソース設定の例**
 
     {% sample lang="yaml" %}
 ---
