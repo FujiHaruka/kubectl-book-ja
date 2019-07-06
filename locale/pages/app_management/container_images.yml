@@ -44,8 +44,7 @@ texts:
 texts:
   en: >-
     Increase visibility of the versions of container images being used within
-
-    the project
+      the project
   ja: __COPY__
 ---
 texts:

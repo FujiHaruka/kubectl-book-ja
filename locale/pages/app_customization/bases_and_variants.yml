@@ -50,15 +50,13 @@ texts:
 texts:
   en: >-
     a project may be deployed to **dev, test, staging, canary and production environments**,
-
-    but with variants between the environments.
+      but with variants between the environments.
   ja: __COPY__
 ---
 texts:
   en: >-
     a project may be deployed to **different clusters** that are tuned differently or running
-
-    different versions of the project.
+      different versions of the project.
   ja: __COPY__
 ---
 texts:
@@ -68,8 +66,7 @@ texts:
 texts:
   en: >-
     [bases](../reference/kustomize.md#bases)
-
-    {% endpanel %}
+     {% endpanel %}
   ja: __COPY__
 ---
 texts:

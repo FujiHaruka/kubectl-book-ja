@@ -53,8 +53,7 @@ texts:
 texts:
   en: >-
     **Resource Config**: *Files* declaring the desired state for Resources - e.g. deployment.yaml.
-
-    Resources are created and updated using Apply with these files.
+      Resources are created and updated using Apply with these files.
   ja: __COPY__
 ---
 texts:

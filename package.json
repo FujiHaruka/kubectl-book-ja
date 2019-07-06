@@ -4,6 +4,6 @@
     "build": "inalz build"
   },
   "dependencies": {
-    "inalz": "^0.4.1"
+    "inalz": "^0.4.4"
   }
 }

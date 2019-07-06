@@ -132,6 +132,7 @@ texts:
     {% panel style="warning", title="デフォルトの名前空間" %}
 
     リソース設定で名前空間が省略されると *default* という名前空間が使用されます。ほとんどの場合、アプリケーションには明示的に名前空間を指定すべきです。名前空間は `kustomization.yaml` に記述します。
+
     {% endpanel %}
 ---
 texts:
@@ -214,8 +215,7 @@ texts:
     Controllers then make changes to the cluster to fulfill the intent specified by the user
 
     (e.g. in Resource Config) or automation (e.g. changes from Autoscalers).
-  ja: >-
-    コントローラはユーザーが (たとえばリソース設定の中で) 決めた意図通りの仕様や (たとえば Autoscaler による) 自動化の要求を満たすようクラスタを変更ます。
+  ja: コントローラはユーザーが (たとえばリソース設定の中で) 決めた意図通りの仕様や (たとえば Autoscaler による) 自動化の要求を満たすようクラスタを変更ます。
 ---
 texts:
   en: >-
@@ -337,7 +337,6 @@ texts:
   ja: >-
     {% panel style="info", title="レベルベースの調停とエッジベースの調停" %}
 
-    Because Controllers don't respond to individual Events, but instead Reconcile the state
     コントローラは個々のイベントに反応せず、調停が実行されるときにシステムの状態を調停するため、**複数の異なるイベントから来る複数の変更が観測されうるし、一緒に調停されるかもしれません。**これは**レベルベース**のシステムと呼ばれます。それと対比して、個々のイベントに対して反応するシステムは**エッジベース**のシステムと呼ばれます。
 
     {% endpanel %}
@@ -410,6 +409,8 @@ texts:
     {% endpanel %}
   ja: >-
     場合によっては Pod は複数のコンテナを含み、それがアプリケーションの一つのインスタンスを形成しているかもしれません。これらのコンテナはネットワーク (IP) とストレージを共有することによって協働します。
+
+    {% endpanel %}
 ---
 texts:
   en: Workloads
@@ -500,9 +501,10 @@ texts:
 texts:
   en: >-
     [Services Resources](https://kubernetes.io/docs/concepts/services-networking/service/)
-
-    (L4) may expose Pods internally within a cluster or externally through an HA proxy.
-  ja: "[Service リソース](https://kubernetes.io/docs/concepts/services-networking/service/) (L4) は内に向けてはクラスタに、外に向けては HA プロキシを通じて Pod を公開することができます。"
+      (L4) may expose Pods internally within a cluster or externally through an HA proxy.
+  ja: >-
+    [Service リソース](https://kubernetes.io/docs/concepts/services-networking/service/)
+      (L4) は内に向けてはクラスタに、外に向けては HA プロキシを通じて Pod を公開することができます。
 ---
 texts:
   en: >-
@@ -510,7 +512,9 @@ texts:
       may expose URI endpoints and route them to Services.
     {% endpanel %}
   ja: >-
-    [Ingress Resources](https://kubernetes.io/docs/concepts/services-networking/ingress/) (L7) は URI エンドポイントを公開し、それを Service に振り分けます。
+    [Ingress Resources](https://kubernetes.io/docs/concepts/services-networking/ingress/) (L7)
+      は URI エンドポイントを公開し、それを Service に振り分けます。
+    {% endpanel %}
 ---
 texts:
   en: Configuration and Secrets
@@ -532,10 +536,10 @@ texts:
 texts:
   en: >-
     [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/)
-
-    are for providing non-sensitive data to Pods.
+      are for providing non-sensitive data to Pods.
   ja: >-
-    [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/) は機密でないデータを Pod に提供します。
+    [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/)
+      は機密でないデータを Pod に提供します。
 ---
 texts:
   en: >-
@@ -544,7 +548,5 @@ texts:
     {% endpanel %}
   ja: >-
     [Secrets](https://kubernetes.io/docs/concepts/configuration/secret/)
-
-    は機密データを Pod に提供します。
+      は機密データを Pod に提供します。
     {% endpanel %}
-

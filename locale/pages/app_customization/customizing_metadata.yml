@@ -76,8 +76,7 @@ texts:
 texts:
   en: >-
     [nameSuffix](../reference/kustomize.md#namesuffix)
-
-    {% endpanel %}
+     {% endpanel %}
   ja: __COPY__
 ---
 texts:

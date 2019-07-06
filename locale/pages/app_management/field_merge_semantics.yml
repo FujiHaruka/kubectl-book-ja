@@ -148,8 +148,7 @@ texts:
 texts:
   en: >-
     Fields present in the Resource Config that are missing from the Resource will be added to the
-
-    Resource.
+      Resource.
   ja: __COPY__
 ---
 texts:
@@ -169,8 +168,7 @@ texts:
 texts:
   en: >-
     Fields present in the Resource Config that are also present in the Resource will be merged recursively
-
-    until a primitive field is updated, or a field is added / deleted.
+      until a primitive field is updated, or a field is added / deleted.
   ja: __COPY__
 ---
 texts:
@@ -190,15 +188,13 @@ texts:
 texts:
   en: >-
     Fields present in the **Last Applied Resource Config** that have been removed from the Resource Config
-
-    will be deleted from the Resource.
+      will be deleted from the Resource.
   ja: __COPY__
 ---
 texts:
   en: >-
     Fields set to *null* in the Resource Config that are present in the Resource Config will be deleted from the
-
-    Resource.
+      Resource.
   ja: __COPY__
 ---
 texts:

@@ -48,15 +48,13 @@ texts:
 texts:
   en: >-
     *Bases:* provide **common or shared Resource Config to be factored out** that can be
-
-    imported into multiple projects.
+      imported into multiple projects.
   ja: __COPY__
 ---
 texts:
   en: >-
     *Overlays and Customizations:* tailor **common or shared Resource Config to be modified** to
-
-    a specific application, environment or purpose.
+      a specific application, environment or purpose.
   ja: __COPY__
 ---
 texts:

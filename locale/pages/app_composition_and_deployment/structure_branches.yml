@@ -337,8 +337,7 @@ texts:
 texts:
   en: >-
     Add new required flags and environment variables to the Resource Config in the Base branch at the
-
-    time they are added to the code.
+      time they are added to the code.
   ja: __COPY__
 ---
 texts:
