@@ -25,7 +25,7 @@ texts:
 
     {% endpanel %}
   ja: >-
-    コントローラはリソースの保存後に非同期にリソースを動かします
+    コントローラはリソースが保存された後、非同期にリソースを作動させます
 
     {% endpanel %}
 ---
@@ -99,7 +99,7 @@ texts:
 ---
 texts:
   en: "Resources are uniquely identified:"
-  ja: リソースは一意に識別されます。
+  ja: リソースは以下の属性によって一意に識別されます。
 ---
 texts:
   en: "**apiVersion** (API Type Group and Version)"
@@ -131,7 +131,7 @@ texts:
   ja: >-
     {% panel style="warning", title="デフォルトの名前空間" %}
 
-    リソース設定で名前空間が省略されると *default* という名前空間が使用されます。ほとんどの場合、アプリケーションには明示的に名前空間を指定すべきです。名前空間は `kustomization.yaml` に記述します。
+    リソース設定で名前空間が省略されると **default** という名前空間が使用されます。ほとんどの場合、アプリケーションには明示的に名前空間を指定すべきです。名前空間は `kustomization.yaml` に記述します。
 
     {% endpanel %}
 ---
@@ -157,15 +157,15 @@ texts:
 ---
 texts:
   en: "**Spec:** the desired state of the Resource - intended state the user provides to the cluster."
-  ja: "**Spec:** リソースの望ましい状態 - クラスタに対して教えるこうなってほしいという状態"
+  ja: "**Spec:** リソースの望ましい状態 - こうなってほしいという状態をクラスタに教える"
 ---
 texts:
   en: "**Status:** the observed state of the object - recorded state the cluster provides to the user."
-  ja: "**Status:** オブジェクトの観測された状態 - クラスタが教えてくれる記録された状態"
+  ja: "**Status:** オブジェクトの現在の状態 - 現在の状態をクラスタが観測・記録して、教えてくれる"
 ---
 texts:
   en: Resource Config written by the user omits the Status field.
-  ja: リソース設定を書くときには Status フィールドは省略します。
+  ja: ユーザーがリソース設定を書くときには Status フィールドは省略します。
 ---
 texts:
   en: >-
@@ -191,9 +191,9 @@ texts:
 
     {% endpanel %}
   ja: >-
-    {% panel style="info", title="Spec and Status" %}
+    {% panel style="info", title="Spec と Status" %}
 
-    ConfigMap や Secret のようなリソースには Status がありません。その結果、それらの Spec は暗黙的です (言い換えると spec フィールドがありません)。
+    ConfigMap や Secret のようなリソースには Status がありません。そのため、それらの Spec は暗黙的です (言い換えると spec フィールドがありません)。
 
     {% endpanel %}
 ---
@@ -215,7 +215,7 @@ texts:
     Controllers then make changes to the cluster to fulfill the intent specified by the user
 
     (e.g. in Resource Config) or automation (e.g. changes from Autoscalers).
-  ja: コントローラはユーザーが (たとえばリソース設定の中で) 決めた意図通りの仕様や (たとえば Autoscaler による) 自動化の要求を満たすようクラスタを変更ます。
+  ja: コントローラはユーザーが (たとえばリソース設定の中で) 決めた意図通りの仕様や (たとえば Autoscaler による) 自動化の要求を満たすようクラスタを変更します。
 ---
 texts:
   en: >-
@@ -246,7 +246,7 @@ texts:
   ja: >-
     {% panel style="warning", title="非同期な動作" %}
 
-    コントローラは非同期に実行されるため、コンテナイメージが壊れているとか Pod がスケジュール不能であるとかといった問題は CRUD のレスポンスでは顕在化しません。何かツールを作る場合には、コントローラの動作が完了するまでシステムの状態を監視しておくことが簡単にできるようにすべきです。変更動作が完了して望ましい状態が現在の状態と一致したら、リソースは**安定状態にある**なとみなされます。
+    コントローラは非同期に実行されるため、コンテナイメージが壊れているとか Pod がスケジュール不能であるとかといった問題は CRUD のレスポンスでは顕在化しません。何かツールを作る場合には、コントローラの動作が完了するまでシステムの状態の監視を簡単にできるようにすべきです。リソースの変更が完了して、望ましい状態とコントローラが観測した状態とが一致したら、リソースは**安定状態にある**なとみなされます。
 
     {% endpanel %}
 ---
@@ -303,7 +303,7 @@ texts:
     and they will read the state of the system to see what has changed (instead of relying on
 
     the Event for this information).
-  ja: コントローラがリソースを作動させるのは監視用のリソースタイプが書き、それからイベントから調停がトリガーされた**後**です。リソースが作成・更新・削除された後、リソースタイプを監視しているコントローラはリソースが変更されたという通知を受け取り、(この情報のためのイベントに依存することなく) システムの状態を読み込んで何を変更すべきかを理解します。
+  ja: コントローラがリソースを作動させるタイミングは監視用のリソースタイプが書き込み、それからイベントから調停がトリガーされた**後**です。リソースが作成・更新・削除された後、リソースタイプを監視しているコントローラはリソースが変更されたという通知を受け取り、(この情報のためのイベントに依存することなく) システムの状態を読み込んで何を変更すべきかを理解します。
 ---
 texts:
   en: Deployment Controller watches Deployments + ReplicaSets (+ Pods)
@@ -354,11 +354,11 @@ texts:
     Containers are run in [*Pods*](https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/) which are
 
     scheduled to run on *Nodes* (i.e. worker machines) in a cluster.
-  ja: コンテナは [*Pod*](https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/) の中で実行され、Pod はクラスタ内の *Node* 上で実行をスケジュールされます。
+  ja: コンテナは [**Pod**](https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/) の中で実行され、Pod はクラスタ内の *Node* 上で実行をスケジュールされます。
 ---
 texts:
   en: "Pods run a *single replica* of an Application and provide:"
-  ja: Pod はアプリケーションの**単一のレプリカ**を実行し、以下を提供します。
+  ja: Pod はアプリケーションの**レプリカを一つ**を実行し、レプリカに以下を提供します。
 ---
 texts:
   en: Compute Resources (cpu, memory, disk)
@@ -504,7 +504,7 @@ texts:
       (L4) may expose Pods internally within a cluster or externally through an HA proxy.
   ja: >-
     [Service リソース](https://kubernetes.io/docs/concepts/services-networking/service/)
-      (L4) は内に向けてはクラスタに、外に向けては HA プロキシを通じて Pod を公開することができます。
+      (L4) は内側に対してはクラスタに、外側に対しては HA プロキシを通じて Pod を公開することができます
 ---
 texts:
   en: >-
@@ -513,7 +513,7 @@ texts:
     {% endpanel %}
   ja: >-
     [Ingress Resources](https://kubernetes.io/docs/concepts/services-networking/ingress/) (L7)
-      は URI エンドポイントを公開し、それを Service に振り分けます。
+      は URI エンドポイントを公開し、それを Service に振り分けます
     {% endpanel %}
 ---
 texts:
@@ -527,7 +527,7 @@ texts:
     Environment Variables, Command Line Arguments and Files to be loosely injected into
 
     the Pods and Containers that consume them.
-  ja: 共有設定と機密情報は ConfigMap と Secret が提供します。これは環境変数、コマンドライン引数、ファイルを Pod とコンテナが使えるようにルーズに注入します。
+  ja: 共有設定と機密情報は ConfigMap と Secret が提供します。環境変数、コマンドライン引数、ファイルを Pod とコンテナが使えるようにルーズに注入します。
 ---
 texts:
   en: '{% panel style="info", title="ConfigMaps vs Secrets" %}'
@@ -539,7 +539,7 @@ texts:
       are for providing non-sensitive data to Pods.
   ja: >-
     [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/)
-      は機密でないデータを Pod に提供します。
+      は機密でないデータを Pod に提供します
 ---
 texts:
   en: >-
@@ -548,5 +548,5 @@ texts:
     {% endpanel %}
   ja: >-
     [Secrets](https://kubernetes.io/docs/concepts/configuration/secret/)
-      は機密データを Pod に提供します。
+      は機密データを Pod に提供します
     {% endpanel %}

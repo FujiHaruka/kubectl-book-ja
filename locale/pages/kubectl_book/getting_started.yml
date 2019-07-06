@@ -35,7 +35,7 @@ texts:
 ---
 texts:
   en: "**Note**: If you are already familiar with Kubectl, you can skip this section."
-  ja: "**注意**: すでに Kubectl に慣れていれば、この章は読み飛ばしても構いません。"
+  ja: "**注意**: すでに Kubectl に慣れていれば、この章は飛ばしても構いません。"
 ---
 texts:
   en: >-
@@ -58,11 +58,11 @@ texts:
 ---
 texts:
   en: List the Kubernetes *Deployment* Resources that are in the kube-system namespace.
-  ja: Kubernetes の *Deployment* リソースのうち、kube-system という名前空間にあるものをリスト表示します。
+  ja: Kubernetes の **Deployment** リソースのうち、kube-system という名前空間にあるものをリスト表示します。
 ---
 texts:
   en: "**Note:** Deployments are Resources which manage Pod replicas (Pods run Containers)"
-  ja: "**注意**: Deployment とは Pod レプリカを管理するリソースです。(Pod がコンテナを実行します)"
+  ja: "**注意**: Deployment とは Pod レプリカを管理するリソースです。(Pod はコンテナを実行します)"
 ---
 texts:
   en: '{% sample lang="yaml" %}'
@@ -74,7 +74,7 @@ texts:
 ---
 texts:
   en: Print detailed information about the kube-dns Deployment in the kube-system namespace.
-  ja: 名前空間 kube-system にある kube-dns という Deployment の詳細を表示します。
+  ja: 名前空間 kube-system にある kube-dns という名前の Deployment について詳細を表示します。
 ---
 texts:
   en: Creating a Resource from Config
@@ -82,11 +82,11 @@ texts:
 ---
 texts:
   en: Create or Update Kubernetes Resources from Remote Config.
-  ja: Kubernetes リソースをリモートにある設定ファイルから作成または更新します。
+  ja: Kubernetes リソースをリモートにある設定ファイルから作成・更新します。
 ---
 texts:
   en: Create or Update Kubernetes Resources from Local Config.
-  ja: Kubernetes リソースをローカルにある設定ファイルから作成または更新します。
+  ja: Kubernetes リソースをローカルにある設定ファイルから作成・更新します。
 ---
 texts:
   en: Print the Resources that were Applied.
@@ -101,14 +101,14 @@ texts:
     Generate Config for a Deployment Resource.  This could be Applied to a cluster by writing the output
 
     to a file, and then running `kubectl apply -f <yaml-file>`
-  ja: Deployment リソースの設定ファイルを生成します。これをクラスタに Apply するには、出力をファイルに書き込んでから、`kubectl apply -f <yaml-file>` を実行します。
+  ja: Deployment リソースの設定ファイルを生成します。これをクラスタに適用するには、出力をファイルに書き込んでから、`kubectl apply -f <yaml-file>` を実行します。
 ---
 texts:
   en: >-
     **Note:** The generated Config has extra boilerplate that users shouldn't include but exists
 
     due to the serialization process of go objects.
-  ja: "**注意:** 生成された設定には削除すべき余分な箇所がありますが、go オブジェクトをシリアライズした結果生じたものです。"
+  ja: "**注意:** 生成された設定には削除すべき余計な箇所がありますが、go オブジェクトをシリアライズした結果生じたものです。"
 ---
 texts:
   en: Viewing Pods Associated with Resources
@@ -116,7 +116,7 @@ texts:
 ---
 texts:
   en: View the Pods created by the Deployment using the Pod labels.
-  ja: Deployment によって作成された Pod を Pod ラベルで表示します
+  ja: Deployment によって作成された Pod を Pod ラベルで表示します。
 ---
 texts:
   en: Debugging Containers
