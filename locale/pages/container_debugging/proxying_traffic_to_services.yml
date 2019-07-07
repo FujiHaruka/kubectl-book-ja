@@ -3,8 +3,6 @@ texts:
     {% panel style="success", title="Providing Feedback" %}
 
     **Provide feedback at the [survey](https://www.surveymonkey.com/r/JH35X82)**
-
-    {% endpanel %}
   ja: __COPY__
 ---
 texts:
@@ -12,10 +10,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    Proxy local connections to Services running in the cluster
-
-    {% endpanel %}
+  en: Proxy local connections to Services running in the cluster
   ja: __COPY__
 ---
 texts:
@@ -50,10 +45,6 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: "{% method %}"
-  ja: __COPY__
----
-texts:
   en: Connecting to an internal Service
   ja: __COPY__
 ---
@@ -70,10 +61,6 @@ texts:
 ---
 texts:
   en: '{% sample lang="yaml" %}'
-  ja: __COPY__
----
-texts:
-  en: "{% endmethod %}"
   ja: __COPY__
 ---
 texts:
@@ -100,10 +87,6 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: "{% endpanel %}"
-  ja: __COPY__
----
-texts:
   en: Builtin Cluster Services
   ja: __COPY__
 ---
@@ -121,6 +104,4 @@ texts:
     For more information on connecting to a cluster, see
 
     [Accessing Clusters](https://kubernetes.io/docs/tasks/access-application-cluster/access-cluster/).
-
-    {% endpanel %}
   ja: __COPY__

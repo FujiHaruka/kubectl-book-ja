@@ -10,8 +10,6 @@ texts:
     See [CONTRIBUTING](https://github.com/kubernetes/kubectl/blob/master/docs/book/CONTRIBUTING.md) for
 
     instructions on filing/fixing issues and adding new content.
-
-    {% endpanel %}
   ja: ""
 ---
 texts:
@@ -31,14 +29,8 @@ texts:
   ja: Kubectl は Kubernetes 上のアプリケーションのデプロイ・管理に使います
 ---
 texts:
-  en: >-
-    Kubectl may be used for scripting and building higher-level frameworks
-
-    {% endpanel %}
-  ja: >-
-    Kubectl はより高レベルのフレームワークを記述・構築するために使うこともできます
-
-    {% endpanel %}
+  en: Kubectl may be used for scripting and building higher-level frameworks
+  ja: Kubectl はより高レベルのフレームワークを記述・構築するために使うこともできます
 ---
 texts:
   en: Kubectl
@@ -151,14 +143,10 @@ texts:
     {% panel style="info", title="Apply" %}
 
     Apply is the preferred mechanism for managing Resources in a Kubernetes cluster.
-
-    {% endpanel %}
   ja: >-
     {% panel style="info", title="Apply" %}
 
     Apply は Kubernetes のリソースを管理するための推奨方法です。
-
-    {% endpanel %}
 ---
 texts:
   en: Printing state about Workloads
@@ -226,7 +214,7 @@ texts:
     the cluster *imperatively* with a shell-like workflow.  Kubectl offers porcelain commands for
 
     generating and modifying Resources.
-  ja: "リソース設定を使うのは**開発**時には冗長にすぎると感じる人がいるかもしれません。そういうときには、シェルのようなワークフローでクラスタを**命令的**に扱いたくなります。Kubectl はリソースを生成・変更するためのユーザーフレンドリーなコマンドを提供しています。"
+  ja: リソース設定を使うのは**開発**時には冗長にすぎると感じる人がいるかもしれません。そういうときには、シェルのようなワークフローでクラスタを**命令的**に扱いたくなります。Kubectl はリソースを生成・変更するためのユーザーフレンドリーなコマンドを提供しています。
 ---
 texts:
   en: Generating + creating Resources such as Deployments, StatefulSets, Services, ConfigMaps, etc
@@ -247,11 +235,7 @@ texts:
     Porcelain commands are time saving for experimenting with workloads in a dev cluster, but shouldn't
 
     be used for production.
-
-    {% endpanel %}
   ja: >-
     {% panel style="danger", title="開発用" %}
 
     命令的なコマンドはユーザーフレンドリーであるため開発用クラスタ内でワークロードを試行錯誤する上で時間の節約になりますが、本番で使うべきではありません。
-
-    {% endpanel %}

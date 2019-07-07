@@ -3,8 +3,6 @@ texts:
     {% panel style="success", title="Providing Feedback" %}
 
     **Provide feedback at the [survey](https://www.surveymonkey.com/r/CLQBQHR)**
-
-    {% endpanel %}
   ja: ""
 ---
 texts:
@@ -20,14 +18,8 @@ texts:
   ja: プロジェクト内のすべてのリソースに対して名前の接頭辞を付けるには `namePrefix` を使います
 ---
 texts:
-  en: >-
-    Suffix the Names of all Resources within a Project with `nameSuffix`
-
-    {% endpanel %}
-  ja: >-
-    プロジェクト内のすべてのリソースに対して名前の接尾辞を付けるには `nameSuffix` を使います
-
-    {% endpanel %}
+  en: Suffix the Names of all Resources within a Project with `nameSuffix`
+  ja: プロジェクト内のすべてのリソースに対して名前の接尾辞を付けるには `nameSuffix` を使います
 ---
 texts:
   en: Setting Namespaces and Names
@@ -73,10 +65,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    [nameSuffix](../reference/kustomize.md#namesuffix)
-
-    {% endpanel %}
+  en: "[nameSuffix](../reference/kustomize.md#namesuffix)"
   ja: __COPY__
 ---
 texts:
@@ -97,14 +86,8 @@ texts:
   ja: リソース設定の中で宣言されたすべてのリソースの名前空間は `namespace` で設定できます。これにより設定される名前空間は、生成されたリソース (たとえば ConfigMap と Secret) にも生成されたのでないリソースにも適用されます。
 ---
 texts:
-  en: >-
-    {% method %}
-
-    **Example:** Set the `namespace` specified in the `kustomization.yaml` on the namespaced Resources.
-  ja: >-
-    {% method %}
-
-    **例:** 名前空間で区切りたいリソースに対し `kustomization.yaml` の中に `namespace` を設定する
+  en: "**Example:** Set the `namespace` specified in the `kustomization.yaml` on the namespaced Resources."
+  ja: "**例:** 名前空間で区切りたいリソースに対し `kustomization.yaml` の中に `namespace` を設定する"
 ---
 texts:
   en: >-
@@ -121,22 +104,14 @@ texts:
   ja: "**適用:** クラスタに適用されるリソース"
 ---
 texts:
-  en: "{% endmethod %}"
-  ja: __COPY__
----
-texts:
   en: >-
     {% panel style="info", title="Overriding Namespaces" %}
 
     Setting the namespace will override the namespace on Resources if it is already set.
-
-    {% endpanel %}
   ja: >-
     {% panel style="info", title="名前空間の上書き" %}
 
     名前空間の設定は、すでにリソースの名前空間が設定されている場合には、上書きされます。
-
-    {% endpanel %}
 ---
 texts:
   en: Setting a Name prefix or suffix for all Resources
@@ -150,14 +125,8 @@ texts:
   ja: すべてのリソースに対して名前の接頭辞や接尾辞を設定するには `namePrefix` や `nameSuffix` を使用します。
 ---
 texts:
-  en: >-
-    {% method %}
-
-    **Example:** Prefix the names of all Resources.
-  ja: >-
-    {% method %}
-
-    **例:** すべてのリソースの名前に接頭辞を付ける
+  en: "**Example:** Prefix the names of all Resources."
+  ja: "**例:** すべてのリソースの名前に接頭辞を付ける"
 ---
 texts:
   en: >-
@@ -183,12 +152,7 @@ texts:
     The namePrefix or nameSuffix that is applied is propagated to references to updated resources -
 
     e.g. references to Secrets and ConfigMaps are updated with the namePrefix and nameSuffix.
-
-    {% endpanel %}
-  ja: >-
-    適用された namePrefix や nameSuffix は更新されたリソースを参照しているリソースに伝播します - たとえば Secret と ConfigMap への参照は namePrefix と nameSuffix と共に更新されます。
-
-    {% endpanel %}
+  ja: 適用された namePrefix や nameSuffix は更新されたリソースを参照しているリソースに伝播します - たとえば Secret と ConfigMap への参照は namePrefix と nameSuffix と共に更新されます。
 ---
 texts:
   en: This will update the ConfigMap reference in the Deployment to have the `foo` prefix.
@@ -215,11 +179,5 @@ texts:
   ja: PodSpec から参照される ConfigMap
 ---
 texts:
-  en: >-
-    Secret references from PodSpecs
-
-    {% endpanel %}
-  ja: >-
-    PodSpec から参照される Secret
-
-    {% endpanel %}
+  en: Secret references from PodSpecs
+  ja: PodSpec から参照される Secret

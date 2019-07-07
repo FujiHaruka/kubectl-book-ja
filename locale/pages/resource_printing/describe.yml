@@ -3,8 +3,6 @@ texts:
     {% panel style="success", title="Providing Feedback" %}
 
     **Provide feedback at the [survey](https://www.surveymonkey.com/r/JH35X82)**
-
-    {% endpanel %}
   ja: __COPY__
 ---
 texts:
@@ -12,10 +10,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    Print verbose debug information about a Resource
-
-    {% endpanel %}
+  en: Print verbose debug information about a Resource
   ja: __COPY__
 ---
 texts:
@@ -28,8 +23,6 @@ texts:
 ---
 texts:
   en: >-
-    {% method %}
-
     Describe is a **higher level printing operation that may aggregate data from other sources** in addition
 
     to the Resource being queried (e.g. Events).
@@ -55,10 +48,6 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: "{% endmethod %}"
-  ja: __COPY__
----
-texts:
   en: >-
     {% panel style="info", title="Get vs Describe" %}
 
@@ -72,6 +61,4 @@ texts:
     When Getting a Resource, it will only print information available from reading that Resource.  While Get may aggregate
 
     data from the the *fields* of that Resource, it won't look at fields from other Resources.
-
-    {% endpanel %}
   ja: __COPY__

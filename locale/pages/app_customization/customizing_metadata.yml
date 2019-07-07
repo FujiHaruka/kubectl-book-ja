@@ -3,8 +3,6 @@ texts:
     {% panel style="success", title="Providing Feedback" %}
 
     **Provide feedback at the [survey](https://www.surveymonkey.com/r/C855WZW)**
-
-    {% endpanel %}
   ja: __COPY__
 ---
 texts:
@@ -20,10 +18,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    Customize Base Resource Labels or Annotations
-
-    {% endpanel %}
+  en: Customize Base Resource Labels or Annotations
   ja: __COPY__
 ---
 texts:
@@ -84,10 +79,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    {% method %}
-
-    **Use Case:**
+  en: "**Use Case:**"
   ja: __COPY__
 ---
 texts:
@@ -111,10 +103,6 @@ texts:
 ---
 texts:
   en: "**Applied:** The Resource that is Applied to the cluster"
-  ja: __COPY__
----
-texts:
-  en: "{% endmethod %}"
   ja: __COPY__
 ---
 texts:
@@ -148,8 +136,6 @@ texts:
     and the Variant has a Name Prefix of `test-` the Applied Resources will have
 
     a Name Prefix of `test-app-name-`.
-
-    {% endpanel %}
   ja: __COPY__
 ---
 texts:

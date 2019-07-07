@@ -3,8 +3,6 @@ texts:
     {% panel style="success", title="Providing Feedback" %}
 
     **Provide feedback at the [survey](https://www.surveymonkey.com/r/JH35X82)**
-
-    {% endpanel %}
   ja: __COPY__
 ---
 texts:
@@ -24,10 +22,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    Print information about APIs
-
-    {% endpanel %}
+  en: Print information about APIs
   ja: __COPY__
 ---
 texts:
@@ -52,10 +47,6 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: "{% method %}"
-  ja: __COPY__
----
-texts:
   en: >-
     The `kubectl version` prints the client and server versions.  Note that
 
@@ -69,10 +60,6 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: "{% endmethod %}"
-  ja: __COPY__
----
-texts:
   en: >-
     {% panel style="warning", title="Version Skew" %}
 
@@ -81,8 +68,6 @@ texts:
     versions that are more than 1 version ahead of or behind the cluster are
 
     not guaranteed to be compatible.
-
-    {% endpanel %}
   ja: __COPY__
 ---
 texts:
@@ -103,8 +88,6 @@ texts:
     The URLs printed by `cluster-info` can be access at `127.0.0.1:8001` by
 
     running `kubectl proxy`. 
-
-    {% endpanel %}
   ja: __COPY__
 ---
 texts:
@@ -150,8 +133,6 @@ texts:
     `/api/v1` or `apis/<group>/<version>`, depending on the API group -
 
     e.g. `127.0.0.1:8001/apis/apps/v1`
-
-    {% endpanel %}
   ja: __COPY__
 ---
 texts:

@@ -3,8 +3,6 @@ texts:
     {% panel style="success", title="Providing Feedback" %}
 
     **Provide feedback at the [survey](https://www.surveymonkey.com/r/JH35X82)**
-
-    {% endpanel %}
   ja: __COPY__
 ---
 texts:
@@ -12,10 +10,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    Edit a live Resource in an editor
-
-    {% endpanel %}
+  en: Edit a live Resource in an editor
   ja: __COPY__
 ---
 texts:
@@ -31,10 +26,6 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: "{% method %}"
-  ja: __COPY__
----
-texts:
   en: Edit
   ja: __COPY__
 ---
@@ -47,8 +38,4 @@ texts:
 ---
 texts:
   en: '{% sample lang="yaml" %}'
-  ja: __COPY__
----
-texts:
-  en: "{% endmethod %}"
   ja: __COPY__

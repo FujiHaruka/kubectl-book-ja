@@ -3,8 +3,6 @@ texts:
     {% panel style="success", title="Providing Feedback" %}
 
     **Provide feedback at the [survey](https://www.surveymonkey.com/r/JH35X82)**
-
-    {% endpanel %}
   ja: __COPY__
 ---
 texts:
@@ -22,10 +20,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    Also provide feedback on new kubectl docs at the [survey](https://www.surveymonkey.com/r/JH35X82)
-
-    {% endpanel %}
+  en: Also provide feedback on new kubectl docs at the [survey](https://www.surveymonkey.com/r/JH35X82)
   ja: __COPY__
 ---
 texts:
@@ -33,10 +28,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    Publish a White Box Application as a Base for other users to Kustomize
-
-    {% endpanel %}
+  en: Publish a White Box Application as a Base for other users to Kustomize
   ja: __COPY__
 ---
 texts:
@@ -72,8 +64,6 @@ texts:
 ---
 texts:
   en: >-
-    {% method %}
-
     White Box Applications may be published to a URL and consumed as Bases in an `kustomization.yaml`.  It
 
     can then be consumed in the following manner.
@@ -92,10 +82,6 @@ texts:
 ---
 texts:
   en: "**Applied:** The Resource that is Applied to the cluster"
-  ja: __COPY__
----
-texts:
-  en: "{% endmethod %}"
   ja: __COPY__
 ---
 texts:

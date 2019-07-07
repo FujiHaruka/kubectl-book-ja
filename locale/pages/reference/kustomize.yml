@@ -3,8 +3,6 @@ texts:
     {% panel style="success", title="Providing Feedback" %}
 
     **Provide feedback at the [survey](https://www.surveymonkey.com/r/JH35X82)**
-
-    {% endpanel %}
   ja: __COPY__
 ---
 texts:
@@ -12,10 +10,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    Reference for `kustomization.yaml`
-
-    {% endpanel %}
+  en: Reference for `kustomization.yaml`
   ja: __COPY__
 ---
 texts:
@@ -258,10 +253,6 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: "{% method %}"
-  ja: __COPY__
----
-texts:
   en: "`bases` contains a list of paths to **directories or git repositories** containing `kustomization.yaml`s."
   ja: __COPY__
 ---
@@ -294,10 +285,6 @@ texts:
 ---
 texts:
   en: '{% sample lang="yaml" %}'
-  ja: __COPY__
----
-texts:
-  en: "{% endmethod %}"
   ja: __COPY__
 ---
 texts:

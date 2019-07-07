@@ -3,8 +3,6 @@ texts:
     {% panel style="success", title="Providing Feedback" %}
 
     **Provide feedback at the [survey](https://www.surveymonkey.com/r/CLQBQHR)**
-
-    {% endpanel %}
   ja: ""
 ---
 texts:
@@ -16,14 +14,8 @@ texts:
   ja: Apply はリソース設定上で `kubectl apply` を実行することによってクラスタ内のリソースを作成・更新します
 ---
 texts:
-  en: >-
-    Apply manages complexity such as ordering of operations and merging user defined and cluster defined state.
-
-    {% endpanel %}
-  ja: >-
-    Apply は、オペレーションの順序や、ユーザーが定義した状態とクラスタが定義した状態をマージするといった複雑性を管理します
-
-    {% endpanel %}
+  en: Apply manages complexity such as ordering of operations and merging user defined and cluster defined state.
+  ja: Apply は、オペレーションの順序や、ユーザーが定義した状態とクラスタが定義した状態をマージするといった複雑性を管理します
 ---
 texts:
   en: Apply
@@ -71,10 +63,6 @@ texts:
   ja: 使い方
 ---
 texts:
-  en: "{% method %}"
-  ja: __COPY__
----
-texts:
   en: >-
     Though Apply can be run directly against Resource Config files or directories using `-f`, it is recommended
 
@@ -88,34 +76,21 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: "{% endmethod %}"
-  ja: __COPY__
----
-texts:
   en: >-
-    {% method %}
-
     Users run Apply on directories containing `kustomization.yaml` files using `-k` or on raw
 
     ResourceConfig files using `-f`.
-  ja: >-
-    {% method %}
-
-    Apply コマンドは `kustomization.yaml` ファイルを含むディレクトリに `-k` オプションで実行するか、または生のリソース設定ファイルに対して `-f` オプションで実行します。
+  ja: Apply コマンドは `kustomization.yaml` ファイルを含むディレクトリに `-k` オプションで実行するか、または生のリソース設定ファイルに対して `-f` オプションで実行します。
 ---
 texts:
   en: >-
     {% panel style="info", title="Multi-Resource Configs" %}
 
     A single Resource Config file may declare multiple Resources separated by `\n---\n`.
-
-    {% endpanel %}
   ja: >-
     {% panel style="info", title="マルチリソースの設定" %}
 
     一つのリソース設定ファイルを `\n---\n` で分割すると、複数のリソースを宣言できます。
-
-    {% endpanel %}
 ---
 texts:
   en: CRUD Operations
@@ -201,10 +176,6 @@ texts:
 
     `watch -n 60 kubectl apply -k https://github.com/myorg/myrepo`
   ja: たとえば Apply を定期的に実行するために UNIX の `watch` コマンドを使います。`watch -n 60 kubectl apply -k https://github.com/myorg/myrepo`
----
-texts:
-  en: "{% endpanel %}"
-  ja: __COPY__
 ---
 texts:
   en: Resource Creation Ordering

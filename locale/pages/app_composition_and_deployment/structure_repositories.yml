@@ -3,8 +3,6 @@ texts:
     {% panel style="success", title="Providing Feedback" %}
 
     **Provide feedback at the [survey](https://www.surveymonkey.com/r/JH35X82)**
-
-    {% endpanel %}
   ja: __COPY__
 ---
 texts:
@@ -22,10 +20,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    Also provide feedback on new kubectl docs at the [survey](https://www.surveymonkey.com/r/JH35X82)
-
-    {% endpanel %}
+  en: Also provide feedback on new kubectl docs at the [survey](https://www.surveymonkey.com/r/JH35X82)
   ja: __COPY__
 ---
 texts:
@@ -33,8 +28,6 @@ texts:
     {% panel style="info", title="TL;DR" %}
 
     Decouple changes to Config owned by separate Teams.
-
-    {% endpanel %}
   ja: __COPY__
 ---
 texts:
@@ -206,14 +199,6 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: "{% endsequence %}"
-  ja: __COPY__
----
-texts:
-  en: "{% method %}"
-  ja: __COPY__
----
-texts:
   en: '{% sample lang="yaml" %}'
   ja: __COPY__
 ---
@@ -242,10 +227,6 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: "{% endmethod %}"
-  ja: __COPY__
----
-texts:
   en: '{% panel style="info", title="Remote URLs vs Vendoring" %}'
   ja: __COPY__
 ---
@@ -257,5 +238,4 @@ texts:
   en: >-
     Repositories owned or controlled by separate organizations should be vendored and referenced
       by path to the vendor directory.
-    {% endpanel %}
   ja: __COPY__

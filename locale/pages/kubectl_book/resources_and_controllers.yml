@@ -3,8 +3,6 @@ texts:
     {% panel style="success", title="Providing Feedback" %}
 
     **Provide feedback at the [survey](https://www.surveymonkey.com/r/JH35X82)**
-
-    {% endpanel %}
   ja: ""
 ---
 texts:
@@ -20,14 +18,8 @@ texts:
   ja: リソースは json や yaml で宣言されたオブジェクトで、クラスタに書き込まれます
 ---
 texts:
-  en: >-
-    Controllers asynchronously actuate Resources after they are stored
-
-    {% endpanel %}
-  ja: >-
-    コントローラはリソースが保存された後、非同期にリソースを作動させます
-
-    {% endpanel %}
+  en: Controllers asynchronously actuate Resources after they are stored
+  ja: コントローラはリソースが保存された後、非同期にリソースを作動させます
 ---
 texts:
   en: Kubernetes Resources and Controllers Overview
@@ -126,18 +118,10 @@ texts:
     should almost always explicitly specify the namespace for their Application using a
 
     `kustomization.yaml`.
-
-    {% endpanel %}
   ja: >-
     {% panel style="warning", title="デフォルトの名前空間" %}
 
     リソース設定で名前空間が省略されると **default** という名前空間が使用されます。ほとんどの場合、アプリケーションには明示的に名前空間を指定すべきです。名前空間は `kustomization.yaml` に記述します。
-
-    {% endpanel %}
----
-texts:
-  en: "{% method %}"
-  ja: __COPY__
 ---
 texts:
   en: Resources Structure
@@ -178,24 +162,16 @@ texts:
     {% sample lang="yaml" %}
 ---
 texts:
-  en: "{% endmethod %}"
-  ja: __COPY__
----
-texts:
   en: >-
     {% panel style="info", title="Spec and Status" %}
 
     Resources such as ConfigMaps and Secrets do not have a Status,
 
     and as a result their Spec is implicit (i.e. they don't have a spec field).
-
-    {% endpanel %}
   ja: >-
     {% panel style="info", title="Spec と Status" %}
 
     ConfigMap や Secret のようなリソースには Status がありません。そのため、それらの Spec は暗黙的です (言い換えると spec フィールドがありません)。
-
-    {% endpanel %}
 ---
 texts:
   en: Controllers
@@ -241,14 +217,10 @@ texts:
     completely actuated by Controllers.  Once the changes have been fully actuated such
 
     that the desired state matches the observed state, the Resource is considered *Settled*.
-
-    {% endpanel %}
   ja: >-
     {% panel style="warning", title="非同期な動作" %}
 
     コントローラは非同期に実行されるため、コンテナイメージが壊れているとか Pod がスケジュール不能であるとかといった問題は CRUD のレスポンスでは顕在化しません。何かツールを作る場合には、コントローラの動作が完了するまでシステムの状態の監視を簡単にできるようにすべきです。リソースの変更が完了して、望ましい状態とコントローラが観測した状態とが一致したら、リソースは**安定状態にある**なとみなされます。
-
-    {% endpanel %}
 ---
 texts:
   en: Controller Structure
@@ -332,14 +304,10 @@ texts:
     and Reconciled together.**  This is referred to as a *Level Based* system, whereas a system that
 
     responds to each event individually would be referred to as an *Edge Based* system.
-
-    {% endpanel %}
   ja: >-
     {% panel style="info", title="レベルベースの調停とエッジベースの調停" %}
 
     コントローラは個々のイベントに反応せず、調停の実行時にシステムの状態を期待される状態に一致させるため、**さまざまなイベントが変更を通知してきても、まとめて一度にシステムの観測と調停を行うことができます。**これは**レベルベース**のシステムと呼ばれます。これと対比して、個々のイベントに対して反応するシステムは**エッジベース**のシステムと呼ばれます。
-
-    {% endpanel %}
 ---
 texts:
   en: Overview of Kubernetes Resource APIs
@@ -405,12 +373,8 @@ texts:
     In some cases a Pod may contain multiple Containers forming a single instance of an Application.  These
 
     containers may coordinate with one another through shared network (IP) and storage.
-
-    {% endpanel %}
   ja: >-
     場合によっては Pod は複数のコンテナを含み、それがアプリケーションの一つのインスタンスを形成しているかもしれません。Pod 内のコンテナはネットワーク (IP) とストレージを共有することによって協働します。
-
-    {% endpanel %}
 ---
 texts:
   en: Workloads
@@ -474,14 +438,10 @@ texts:
     High-level Workload APIs may manage lower-level Workload APIs instead of directly managing Pods
 
     (e.g. Deployments manage ReplicaSets).
-
-    {% endpanel %}
   ja: >-
     {% panel style="success", title="API の抽象化レイヤー" %}
 
     上位のワークロード API は下位のワークロード API を管理できます。Pod を直接管理する必要はありません。(たとえば Deployment は ReplicaSet を管理します)
-
-    {% endpanel %}
 ---
 texts:
   en: Service Discovery and Load Balancing
@@ -510,11 +470,9 @@ texts:
   en: >-
     [Ingress Resources](https://kubernetes.io/docs/concepts/services-networking/ingress/) (L7)
       may expose URI endpoints and route them to Services.
-    {% endpanel %}
   ja: >-
     [Ingress Resources](https://kubernetes.io/docs/concepts/services-networking/ingress/) (L7)
       は URI エンドポイントを公開し、それを Service に振り分けます
-    {% endpanel %}
 ---
 texts:
   en: Configuration and Secrets
@@ -545,8 +503,6 @@ texts:
   en: >-
     [Secrets](https://kubernetes.io/docs/concepts/configuration/secret/)
       are for providing sensitive data to Pods.
-    {% endpanel %}
   ja: >-
     [Secrets](https://kubernetes.io/docs/concepts/configuration/secret/)
       は機密データを Pod に提供します
-    {% endpanel %}

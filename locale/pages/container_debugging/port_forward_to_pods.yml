@@ -3,8 +3,6 @@ texts:
     {% panel style="success", title="Providing Feedback" %}
 
     **Provide feedback at the [survey](https://www.surveymonkey.com/r/JH35X82)**
-
-    {% endpanel %}
   ja: __COPY__
 ---
 texts:
@@ -12,10 +10,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    Port Forward local connections to Pods running in a cluster 
-
-    {% endpanel %}
+  en: "Port Forward local connections to Pods running in a cluster "
   ja: __COPY__
 ---
 texts:
@@ -31,10 +26,6 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: "{% method %}"
-  ja: __COPY__
----
-texts:
   en: Forward Multiple Ports
   ja: __COPY__
 ---
@@ -43,10 +34,6 @@ texts:
     Listen on ports 5000 and 6000 locally, forwarding data to/from ports 5000 and 6000 in the pod
 
     {% sample lang="yaml" %}
-  ja: __COPY__
----
-texts:
-  en: "{% endmethod %}"
   ja: __COPY__
 ---
 texts:

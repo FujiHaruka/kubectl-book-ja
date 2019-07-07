@@ -3,8 +3,6 @@ texts:
     {% panel style="success", title="Providing Feedback" %}
 
     **Provide feedback at the [survey](https://www.surveymonkey.com/r/JH35X82)**
-
-    {% endpanel %}
   ja: __COPY__
 ---
 texts:
@@ -12,10 +10,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    Imperatively Create a Resources
-
-    {% endpanel %}
+  en: Imperatively Create a Resources
   ja: __COPY__
 ---
 texts:
@@ -34,10 +29,6 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: "{% method %}"
-  ja: __COPY__
----
-texts:
   en: Deployment
   ja: __COPY__
 ---
@@ -50,18 +41,12 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: "{% endmethod %}"
-  ja: __COPY__
----
-texts:
   en: >-
     {% panel style="success", title="Running and Attaching" %}
 
     It is possible to run a container and immediately attach to it using the `-i -t` flags.  e.g.
 
     `kubectl run -t -i my-dep --image ubuntu -- bash`
-
-    {% endpanel %}
   ja: __COPY__
 ---
 texts:
@@ -107,8 +92,6 @@ texts:
     Imperative commands can be used to bootstrap config by using `--dry-run -o yaml`.
 
     `kubectl create secret generic my-secret --from-file=path/to/bar --dry-run -o yaml`
-
-    {% endpanel %}
   ja: __COPY__
 ---
 texts:
@@ -144,8 +127,6 @@ texts:
     {% panel style="info", title="Required Admin Permissions" %}
 
     The cluster-admin role maybe required for creating new RBAC bindings.
-
-    {% endpanel %}
   ja: __COPY__
 ---
 texts:

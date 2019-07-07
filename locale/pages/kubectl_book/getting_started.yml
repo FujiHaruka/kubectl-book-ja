@@ -3,8 +3,6 @@ texts:
     {% panel style="success", title="Providing Feedback" %}
 
     **Provide feedback at the [survey](https://www.surveymonkey.com/r/JH35X82)**
-
-    {% endpanel %}
   ja: ""
 ---
 texts:
@@ -18,16 +16,6 @@ texts:
 texts:
   en: Printing Resources
   ja: リソースの表示
----
-texts:
-  en: >-
-    Debugging Containers
-
-    {% endpanel %}
-  ja: >-
-    コンテナのデバッグ
-
-    {% endpanel %}
 ---
 texts:
   en: Getting Started With Kubectl
@@ -53,10 +41,6 @@ texts:
   ja: Kubernetes リソースをリスト表示する
 ---
 texts:
-  en: "{% method %}"
-  ja: __COPY__
----
-texts:
   en: List the Kubernetes *Deployment* Resources that are in the kube-system namespace.
   ja: Kubernetes の **Deployment** リソースのうち、kube-system という名前空間にあるものをリスト表示します。
 ---
@@ -66,10 +50,6 @@ texts:
 ---
 texts:
   en: '{% sample lang="yaml" %}'
-  ja: __COPY__
----
-texts:
-  en: "{% endmethod %}"
   ja: __COPY__
 ---
 texts:

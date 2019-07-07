@@ -3,8 +3,6 @@ texts:
     {% panel style="success", title="Providing Feedback" %}
 
     **Provide feedback at the [survey](https://www.surveymonkey.com/r/JH35X82)**
-
-    {% endpanel %}
   ja: __COPY__
 ---
 texts:
@@ -12,10 +10,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    Print the Logs of a Container in a cluster
-
-    {% endpanel %}
+  en: Print the Logs of a Container in a cluster
   ja: __COPY__
 ---
 texts:
@@ -31,10 +26,6 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: "{% method %}"
-  ja: __COPY__
----
-texts:
   en: Print Logs for a Container in a Pod
   ja: __COPY__
 ---
@@ -46,10 +37,6 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: "{% endmethod %}"
-  ja: __COPY__
----
-texts:
   en: >-
     {% panel style="success", title="Crash Looping Containers" %}
 
@@ -58,8 +45,6 @@ texts:
     exits, use the `-p` flag to look at the **logs from containers that have
 
     exited**.  e.g. `kubectl logs -p -c ruby web-1`
-
-    {% endpanel %}
   ja: __COPY__
 ---
 texts:
@@ -84,8 +69,6 @@ texts:
     label selector is `app=nginx` usie `-l "app=nginx"` to print logs
 
     for all the Pods from that Workload.
-
-    {% endpanel %}
   ja: __COPY__
 ---
 texts:

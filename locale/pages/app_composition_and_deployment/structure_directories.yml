@@ -3,8 +3,6 @@ texts:
     {% panel style="success", title="Providing Feedback" %}
 
     **Provide feedback at the [survey](https://www.surveymonkey.com/r/JH35X82)**
-
-    {% endpanel %}
   ja: __COPY__
 ---
 texts:
@@ -22,10 +20,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    Also provide feedback on new kubectl docs at the [survey](https://www.surveymonkey.com/r/JH35X82)
-
-    {% endpanel %}
+  en: Also provide feedback on new kubectl docs at the [survey](https://www.surveymonkey.com/r/JH35X82)
   ja: __COPY__
 ---
 texts:
@@ -37,10 +32,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    Separate directories for separate Environment and Cluster [Config Variants](../app_customization/bases_and_variants.md)
-
-    {% endpanel %}
+  en: Separate directories for separate Environment and Cluster [Config Variants](../app_customization/bases_and_variants.md)
   ja: __COPY__
 ---
 texts:
@@ -58,8 +50,6 @@ texts:
     While this chapter is focused on conventions when using Directories, Branches and
 
     Repositories should be used with Directories as needed.
-
-    {% endpanel %}
   ja: __COPY__
 ---
 texts:
@@ -69,8 +59,6 @@ texts:
     The techniques and conventions in this Chapter work regardless of whether or not the Resource Config
 
     exists in the same Repository as the source code that is being deployed.
-
-    {% endpanel %}
   ja: __COPY__
 ---
 texts:
@@ -251,14 +239,6 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: "{% endsequence %}"
-  ja: __COPY__
----
-texts:
-  en: "{% method %}"
-  ja: __COPY__
----
-texts:
   en: "Techniques:"
   ja: __COPY__
 ---
@@ -307,10 +287,6 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: "{% endmethod %}"
-  ja: __COPY__
----
-texts:
   en: >-
     {% panel style="warning", title="Applying Environment + Cluster" %}
 
@@ -322,10 +298,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    For more information see [Multi-Cluster](accessing_multiple_clusters.md).
-
-    {% endpanel %}
+  en: For more information see [Multi-Cluster](accessing_multiple_clusters.md).
   ja: __COPY__
 ---
 texts:
@@ -335,8 +308,6 @@ texts:
     Some git hosting services provide the concept of *Code Owners* for providing a finer grain permissions model.
 
     *Code Owners* may be used to provide separate permissions for separate environments - e.g. dev, test, prod.
-
-    {% endpanel %}
   ja: __COPY__
 ---
 texts:

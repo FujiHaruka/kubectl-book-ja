@@ -3,8 +3,6 @@ texts:
     {% panel style="success", title="Providing Feedback" %}
 
     **Provide feedback at the [survey](https://www.surveymonkey.com/r/CLQBQHR)**
-
-    {% endpanel %}
   ja: ""
 ---
 texts:
@@ -12,14 +10,8 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    Override or set the Name and Tag for Container Images
-
-    {% endpanel %}
-  ja: >-
-    コンテナイメージのために名前とタグを上書きまたはセットします
-
-    {% endpanel %}
+  en: Override or set the Name and Tag for Container Images
+  ja: コンテナイメージのために名前とタグを上書きまたはセットします
 ---
 texts:
   en: Container Images
@@ -71,10 +63,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    [images](../reference/kustomize.md#images)
-
-    {% endpanel %}
+  en: "[images](../reference/kustomize.md#images)"
   ja: __COPY__
 ---
 texts:
@@ -153,10 +142,6 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: "{% method %}"
-  ja: __COPY__
----
-texts:
   en: >-
     **Example:** Use `images` in the `kustomization.yaml` to update the container
 
@@ -187,23 +172,15 @@ texts:
   ja: "**適用:** クラスタに適用されるリソース"
 ---
 texts:
-  en: "{% endmethod %}"
-  ja: __COPY__
----
-texts:
   en: Setting a Name
   ja: 名前の設定
 ---
 texts:
   en: >-
-    {% method %}
-
     The name for an image may be set by specifying `newName` and the name of the old container image.
 
     {% sample lang="yaml" %}
   ja: >-
-    {% method %}
-
     イメージの名前は `newName` と古いコンテナイメージ名を指定することで設定できます。
 
     {% sample lang="yaml" %}
@@ -214,14 +191,10 @@ texts:
 ---
 texts:
   en: >-
-    {% method %}
-
     The tag for an image may be set by specifying `newTag` and the name of the container image.
 
     {% sample lang="yaml" %}
   ja: >-
-    {% method %}
-
     イメージのタグは `newTag` とコンテナイメージ名を指定することで設定できます。
 
     {% sample lang="yaml" %}
@@ -232,14 +205,10 @@ texts:
 ---
 texts:
   en: >-
-    {% method %}
-
     The digest for an image may be set by specifying `digest` and the name of the container image.
 
     {% sample lang="yaml" %}
   ja: >-
-    {% method %}
-
     イメージのダイジェストは `digest` とコンテナイメージ名を指定することで設定できます。
 
     {% sample lang="yaml" %}
@@ -250,8 +219,6 @@ texts:
 ---
 texts:
   en: >-
-    {% method %}
-
     A common CI/CD pattern is to tag container images with the git commit SHA of source code.  e.g. if
 
     the image name is `foo` and an image was built for the source code at commit `1bb359ccce344ca5d263cd257958ea035c978fd3`
@@ -281,14 +248,8 @@ texts:
   ja: タグを環境変数から設定する
 ---
 texts:
-  en: >-
-    {% method %}
-
-    It is also possible to set a Tag from an environment variable using the same technique for setting from a commit SHA.
-  ja: >-
-    {% method %}
-
-    commit SHA からタグを設定するのと同じテクニックを使えば、環境変数からタグを設定できます。
+  en: It is also possible to set a Tag from an environment variable using the same technique for setting from a commit SHA.
+  ja: commit SHA からタグを設定するのと同じテクニックを使えば、環境変数からタグを設定できます。
 ---
 texts:
   en: "**Example:** Set the tag for the `foo` image to the value in the environment variable `FOO_IMAGE_TAG`."
@@ -305,11 +266,7 @@ texts:
     been pushed by a CI/CD system, be careful not to trigger new builds +
 
     deployments for these changes.
-
-    {% endpanel %}
   ja: >-
     {% panel style="info", title="イメージタグの更新をコミットする" %}
 
     `kustomization.yaml` の変更は検査できるように git にコミットすることが**できます**。すでに CI/CD システムによってプッシュされたイメージタグの更新をコミットが更新されるとき、その更新で新たなビルドとデプロイメントがトリガーしないよう気をつけてください。
-
-    {% endpanel %}

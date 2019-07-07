@@ -3,8 +3,6 @@ texts:
     {% panel style="success", title="Providing Feedback" %}
 
     **Provide feedback at the [survey](https://www.surveymonkey.com/r/JH35X82)**
-
-    {% endpanel %}
   ja: __COPY__
 ---
 texts:
@@ -16,10 +14,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    Get a Shell in a Container
-
-    {% endpanel %}
+  en: Get a Shell in a Container
   ja: __COPY__
 ---
 texts:
@@ -38,10 +33,6 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: "{% method %}"
-  ja: __COPY__
----
-texts:
   en: Exec Command
   ja: __COPY__
 ---
@@ -51,10 +42,6 @@ texts:
 ---
 texts:
   en: '{% sample lang="yaml" %}'
-  ja: __COPY__
----
-texts:
-  en: "{% endmethod %}"
   ja: __COPY__
 ---
 texts:
@@ -70,6 +57,4 @@ texts:
     {% panel style="info", title="Specifying the Container" %}
 
     For Pods running multiple Containers, the Container should be specified with `-c <container-name>`.
-
-    {% endpanel %}
   ja: __COPY__

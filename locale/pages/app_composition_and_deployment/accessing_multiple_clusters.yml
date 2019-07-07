@@ -3,8 +3,6 @@ texts:
     {% panel style="success", title="Providing Feedback" %}
 
     **Provide feedback at the [survey](https://www.surveymonkey.com/r/JH35X82)**
-
-    {% endpanel %}
   ja: __COPY__
 ---
 texts:
@@ -16,10 +14,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    Target a cluster for a rollout with the `--kubeconfig` flag
-
-    {% endpanel %}
+  en: Target a cluster for a rollout with the `--kubeconfig` flag
   ja: __COPY__
 ---
 texts:
@@ -59,19 +54,11 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: "{% method %}"
-  ja: __COPY__
----
-texts:
   en: List the contexts in the kubeconfig file
   ja: __COPY__
 ---
 texts:
   en: '{% sample lang="yaml" %}'
-  ja: __COPY__
----
-texts:
-  en: "{% endmethod %}"
   ja: __COPY__
 ---
 texts:
@@ -132,6 +119,4 @@ texts:
     [Configure Access to Multiple Clusters](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/)
 
     k8s.io document.
-
-    {% endpanel %}
   ja: __COPY__

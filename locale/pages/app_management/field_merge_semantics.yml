@@ -3,8 +3,6 @@ texts:
     {% panel style="success", title="Providing Feedback" %}
 
     **Provide feedback at the [survey](https://www.surveymonkey.com/r/CLQBQHR)**
-
-    {% endpanel %}
   ja: __COPY__
 ---
 texts:
@@ -12,11 +10,15 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    Fields set and deleted from Resource Config are merged into Resources by Apply
-        - If a Resource already exists, Apply updates the Resources by merging the local Resource Config into the remote Resources
-        - Fields removed from the Resource Config will be deleted from the remote Resource
-    {% endpanel %}
+  en: Fields set and deleted from Resource Config are merged into Resources by Apply
+  ja: __COPY__
+---
+texts:
+  en: If a Resource already exists, Apply updates the Resources by merging the local Resource Config into the remote Resources
+  ja: __COPY__
+---
+texts:
+  en: Fields removed from the Resource Config will be deleted from the remote Resource
   ja: __COPY__
 ---
 texts:
@@ -28,8 +30,6 @@ texts:
     {% panel style="warning", title="Advanced Section" %}
 
     This chapter contains advanced material that readers may want to skip and come back to later.
-
-    {% endpanel %}
   ja: __COPY__
 ---
 texts:
@@ -108,10 +108,6 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: "{% method %}"
-  ja: __COPY__
----
-texts:
   en: Last Applied Resource Config
   ja: __COPY__
 ---
@@ -127,10 +123,6 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: "{% endmethod %}"
-  ja: __COPY__
----
-texts:
   en: Merging Resources
   ja: __COPY__
 ---
@@ -139,10 +131,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    {% method %}
-
-    **Adding Fields:**
+  en: "**Adding Fields:**"
   ja: __COPY__
 ---
 texts:
@@ -159,10 +148,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    {% method %}
-
-    **Updating Fields**
+  en: "**Updating Fields**"
   ja: __COPY__
 ---
 texts:
@@ -179,10 +165,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    {% method %}
-
-    **Deleting Fields**
+  en: "**Deleting Fields**"
   ja: __COPY__
 ---
 texts:
@@ -225,8 +208,6 @@ texts:
     This can be performed using `kubectl apply edit-last-applied` to delete the `replicas` field from
 
     the **Last Applied Resource Config**, and then deleting it from the **Resource Config.**
-
-    {% endpanel %}
   ja: __COPY__
 ---
 texts:
@@ -494,8 +475,5 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    This is the same technique for retaining values set by cluster components such as autoscalers.
-
-    {% endpanel %}
+  en: This is the same technique for retaining values set by cluster components such as autoscalers.
   ja: __COPY__

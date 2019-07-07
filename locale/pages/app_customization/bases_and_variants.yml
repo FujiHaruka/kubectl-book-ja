@@ -3,8 +3,6 @@ texts:
     {% panel style="success", title="Providing Feedback" %}
 
     **Provide feedback at the [survey](https://www.surveymonkey.com/r/C855WZW)**
-
-    {% endpanel %}
   ja: __COPY__
 ---
 texts:
@@ -20,10 +18,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    Reuse a Base across multiple Projects.
-
-    {% endpanel %}
+  en: Reuse a Base across multiple Projects.
   ja: __COPY__
 ---
 texts:
@@ -143,10 +138,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    {% method %}
-
-    **Example:** Add a `kustomization.yaml` as a Base.
+  en: "**Example:** Add a `kustomization.yaml` as a Base."
   ja: __COPY__
 ---
 texts:
@@ -165,16 +157,10 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: "{% endmethod %}"
-  ja: __COPY__
----
-texts:
   en: >-
     {% panel style="info", title="Bases in Bases" %}
 
     Bases themselves may also be Variants and have their own Bases. See [Advanced Composition](../app_composition_and_deployment/structure_multi_tier_apps.md)
 
     for more information.
-
-    {% endpanel %}
   ja: __COPY__

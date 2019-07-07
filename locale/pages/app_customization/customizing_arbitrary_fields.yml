@@ -3,8 +3,6 @@ texts:
     {% panel style="success", title="Providing Feedback" %}
 
     **Provide feedback at the [survey](https://www.surveymonkey.com/r/C855WZW)**
-
-    {% endpanel %}
   ja: __COPY__
 ---
 texts:
@@ -12,10 +10,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    Customize arbitrary fields from arbitrary Resources in a Base.
-
-    {% endpanel %}
+  en: Customize arbitrary fields from arbitrary Resources in a Base.
   ja: __COPY__
 ---
 texts:
@@ -44,10 +39,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    [patchesStrategicMerge](../reference/kustomize.md#patchesstrategicmerge)
-
-    {% endpanel %}
+  en: "[patchesStrategicMerge](../reference/kustomize.md#patchesstrategicmerge)"
   ja: __COPY__
 ---
 texts:
@@ -56,8 +48,6 @@ texts:
 ---
 texts:
   en: >-
-    {% method %}
-
     Arbitrary **fields may be added, changed, or deleted** by supplying *Overlays* against the
 
     Resources provided by the Base.  **Overlays are sparse Resource definitions** that
@@ -99,10 +89,6 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: "{% endmethod %}"
-  ja: __COPY__
----
-texts:
   en: >-
     {% panel style="info", title="Merge Semantics for Overlays" %}
 
@@ -111,8 +97,6 @@ texts:
     is that there is no *Last Applied Resource Config* when merging overlays, so fields may only be deleted
 
     if they are explicitly set to nil.
-
-    {% endpanel %}
   ja: __COPY__
 ---
 texts:
@@ -121,8 +105,6 @@ texts:
 ---
 texts:
   en: >-
-    {% method %}
-
     Arbitrary fields may be added, changed, or deleted by supplying *JSON Patches* against the
 
     Resources provided by the base.

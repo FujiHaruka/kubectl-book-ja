@@ -3,8 +3,6 @@ texts:
     {% panel style="success", title="Providing Feedback" %}
 
     **Provide feedback at the [survey](https://www.surveymonkey.com/r/CLQBQHR)**
-
-    {% endpanel %}
   ja: ""
 ---
 texts:
@@ -16,14 +14,8 @@ texts:
   ja: Apply コマンドは Kubernetes リソースを定義するファイル (すなわちリソース設定) を通じてアプリケーションを管理します
 ---
 texts:
-  en: >-
-    Kustomize is used to author Resource Config
-
-    {% endpanel %}
-  ja: >-
-    Kustomize はリソース設定の作成に使います
-
-    {% endpanel %}
+  en: Kustomize is used to author Resource Config
+  ja: Kustomize はリソース設定の作成に使います
 ---
 texts:
   en: Declarative Application Management

@@ -3,8 +3,6 @@ texts:
     {% panel style="success", title="Providing Feedback" %}
 
     **Provide feedback at the [survey](https://www.surveymonkey.com/r/JH35X82)**
-
-    {% endpanel %}
   ja: __COPY__
 ---
 texts:
@@ -16,10 +14,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    Use when scripting with Get
-
-    {% endpanel %}
+  en: Use when scripting with Get
   ja: __COPY__
 ---
 texts:
@@ -80,8 +75,6 @@ texts:
     Failure to do this may result in the different API group / version being used after a cluster upgrade, and
 
     this group / version may have changed the representation of fields.
-
-    {% endpanel %}
   ja: __COPY__
 ---
 texts:
@@ -297,19 +290,11 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: "{% method %}"
-  ja: __COPY__
----
-texts:
   en: Print the JSON representation of the first Deployment in the list on a single line.
   ja: __COPY__
 ---
 texts:
   en: '{% sample lang="yaml" %}'
-  ja: __COPY__
----
-texts:
-  en: "{% endmethod %}"
   ja: __COPY__
 ---
 texts:
@@ -343,8 +328,4 @@ texts:
 ---
 texts:
   en: "For example:"
-  ja: __COPY__
----
-texts:
-  en: "{% endpanel %}"
   ja: __COPY__

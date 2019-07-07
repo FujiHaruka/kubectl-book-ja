@@ -3,8 +3,6 @@ texts:
     {% panel style="success", title="Providing Feedback" %}
 
     **Provide feedback at the [survey](https://www.surveymonkey.com/r/JH35X82)**
-
-    {% endpanel %}
   ja: __COPY__
 ---
 texts:
@@ -22,10 +20,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    Also provide feedback on new kubectl docs at the [survey](https://www.surveymonkey.com/r/JH35X82)
-
-    {% endpanel %}
+  en: Also provide feedback on new kubectl docs at the [survey](https://www.surveymonkey.com/r/JH35X82)
   ja: __COPY__
 ---
 texts:
@@ -33,10 +28,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    The same Base may be used multiple times for different Applications within the same project.
-
-    {% endpanel %}
+  en: The same Base may be used multiple times for different Applications within the same project.
   ja: __COPY__
 ---
 texts:
@@ -65,8 +57,6 @@ texts:
 ---
 texts:
   en: >-
-    {% method %}
-
     It is possible to reuse the same base multiple times within the same project by using a 3-tier
 
     structure to compose multiple Variants of the base.
@@ -156,14 +146,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: "{% endmethod %}"
-  ja: __COPY__
----
-texts:
-  en: >-
-    {% method %}
-
-    **Result**:
+  en: "**Result**:"
   ja: __COPY__
 ---
 texts:
@@ -246,8 +229,5 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    Composing multiple Projects pushed together into a meta-Project
-
-    {% endpanel %}
+  en: Composing multiple Projects pushed together into a meta-Project
   ja: __COPY__

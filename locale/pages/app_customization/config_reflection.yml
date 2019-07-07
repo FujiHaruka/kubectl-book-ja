@@ -3,8 +3,6 @@ texts:
     {% panel style="success", title="Providing Feedback" %}
 
     **Provide feedback at the [survey](https://www.surveymonkey.com/r/C855WZW)**
-
-    {% endpanel %}
   ja: __COPY__
 ---
 texts:
@@ -12,10 +10,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    Inject the values of other Resource Config fields into Pod Env Vars and Command Args with `vars`.
-
-    {% endpanel %}
+  en: Inject the values of other Resource Config fields into Pod Env Vars and Command Args with `vars`.
   ja: __COPY__
 ---
 texts:
@@ -79,10 +74,6 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: "{% method %}"
-  ja: __COPY__
----
-texts:
   en: "**Example:** Set the Pod command argument to the value of a Service name."
   ja: __COPY__
 ---
@@ -105,10 +96,6 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: "{% endmethod %}"
-  ja: __COPY__
----
-texts:
   en: >-
     {% panel style="warning", title="Referencing Variables" %}
 
@@ -117,6 +104,4 @@ texts:
     **not** intended as a general templating mechanism.  Overriding values should be done with
 
     patches instead of variables.  See [Bases and Variations](bases_and_variants.md).
-
-    {% endpanel %}
   ja: __COPY__

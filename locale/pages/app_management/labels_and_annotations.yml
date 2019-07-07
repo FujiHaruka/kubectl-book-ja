@@ -3,8 +3,6 @@ texts:
     {% panel style="success", title="Providing Feedback" %}
 
     **Provide feedback at the [survey](https://www.surveymonkey.com/r/CLQBQHR)**
-
-    {% endpanel %}
   ja: __COPY__
 ---
 texts:
@@ -16,10 +14,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    Set Annotations for all Resources declared within a Project with `commonAnnotations`
-
-    {% endpanel %}
+  en: Set Annotations for all Resources declared within a Project with `commonAnnotations`
   ja: __COPY__
 ---
 texts:
@@ -59,10 +54,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    [commonAnnotations](../reference/kustomize.md#commonannotations)
-
-    {% endpanel %}
+  en: "[commonAnnotations](../reference/kustomize.md#commonannotations)"
   ja: __COPY__
 ---
 texts:
@@ -70,10 +62,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    {% method %}
-
-    **Example:** Add the labels declared in `commonLabels` to all Resources in the project.
+  en: "**Example:** Add the labels declared in `commonLabels` to all Resources in the project."
   ja: __COPY__
 ---
 texts:
@@ -95,10 +84,6 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: "{% endmethod %}"
-  ja: __COPY__
----
-texts:
   en: >-
     {% panel style="warning", title="Propagating Labels to Selectors" %}
 
@@ -114,8 +99,6 @@ texts:
     **Note:** Once set, commonLabels should not be changed so as not to change the Selectors for Services
 
     or Workloads.
-
-    {% endpanel %}
   ja: __COPY__
 ---
 texts:
@@ -132,10 +115,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    Labeling Workload Resources makes it simpler to query Pods - e.g. for the purpose of getting their logs.
-
-    {% endpanel %}
+  en: Labeling Workload Resources makes it simpler to query Pods - e.g. for the purpose of getting their logs.
   ja: __COPY__
 ---
 texts:
@@ -143,10 +123,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    {% method %}
-
-    **Example:** Add the annotations declared in `commonAnnotations` to all Resources in the project.
+  en: "**Example:** Add the annotations declared in `commonAnnotations` to all Resources in the project."
   ja: __COPY__
 ---
 texts:
@@ -156,6 +133,4 @@ texts:
     In addition to updating the annotations for each Resource, any fields that contain ObjectMeta
 
     (e.g. PodTemplate) will also have the annotations added.
-
-    {% endpanel %}
   ja: __COPY__

@@ -3,8 +3,6 @@ texts:
     {% panel style="success", title="Providing Feedback" %}
 
     **Provide feedback at the [survey](https://www.surveymonkey.com/r/JH35X82)**
-
-    {% endpanel %}
   ja: __COPY__
 ---
 texts:
@@ -12,10 +10,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    Queries for Getting or Describing Resources
-
-    {% endpanel %}
+  en: Queries for Getting or Describing Resources
   ja: __COPY__
 ---
 texts:
@@ -31,10 +26,6 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: "{% method %}"
-  ja: __COPY__
----
-texts:
   en: Resource Config By `kustomization.yaml`
   ja: __COPY__
 ---
@@ -43,10 +34,6 @@ texts:
     Get all Resources provided by the `kustomization.yaml` in project/.
 
     {% sample lang="yaml" %}
-  ja: __COPY__
----
-texts:
-  en: "{% endmethod %}"
   ja: __COPY__
 ---
 texts:

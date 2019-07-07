@@ -3,8 +3,6 @@ texts:
     {% panel style="success", title="Providing Feedback" %}
 
     **Provide feedback at the [survey](https://www.surveymonkey.com/r/C855WZW)**
-
-    {% endpanel %}
   ja: __COPY__
 ---
 texts:
@@ -16,10 +14,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    Override Base Pod and PodTemplate Environment Variables and Arguments
-
-    {% endpanel %}
+  en: Override Base Pod and PodTemplate Environment Variables and Arguments
   ja: __COPY__
 ---
 texts:
@@ -64,10 +59,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    [secretGenerator](../reference/kustomize.md#secretgenerator)
-
-    {% endpanel %}
+  en: "[secretGenerator](../reference/kustomize.md#secretgenerator)"
   ja: __COPY__
 ---
 texts:
@@ -75,10 +67,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    {% method %}
-
-    **Use Case:** Different Environments (test, dev, staging, canary, prod) use images with different tags.
+  en: "**Use Case:** Different Environments (test, dev, staging, canary, prod) use images with different tags."
   ja: __COPY__
 ---
 texts:
@@ -164,10 +153,6 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: "{% endmethod %}"
-  ja: __COPY__
----
-texts:
   en: >-
     {% panel style="info", title="Replacing Images" %}
 
@@ -177,18 +162,11 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    For more information on customizing images, see [Container Images](../app_management/container_images.md).
-
-    {% endpanel %}
+  en: For more information on customizing images, see [Container Images](../app_management/container_images.md).
   ja: __COPY__
 ---
 texts:
   en: Customizing Pod Environment Variables
-  ja: __COPY__
----
-texts:
-  en: "{% method %}"
   ja: __COPY__
 ---
 texts:
@@ -235,8 +213,6 @@ texts:
 ---
 texts:
   en: >-
-    {% method %}
-
     **Use Case:** Different Environments (test, dev, staging, canary, prod) provide different Commandline
 
     Arguments to a Pod.
@@ -259,6 +235,4 @@ texts:
     {% panel style="info", title="More Info" %}
 
     See [Secrets and ConfigMaps](../app_management/secrets_and_configmaps.md) for more information on ConfigMap and Secret generation.
-
-    {% endpanel %}
   ja: __COPY__
