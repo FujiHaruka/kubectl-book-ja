@@ -5,7 +5,7 @@ texts:
     **Provide feedback at the [survey](https://www.surveymonkey.com/r/CLQBQHR)**
 
     {% endpanel %}
-  ja: __COPY__
+  ja: ""
 ---
 texts:
   en: '{% panel style="info", title="TL;DR" %}'
@@ -16,52 +16,55 @@ texts:
     Override or set the Name and Tag for Container Images
 
     {% endpanel %}
-  ja: __COPY__
+  ja: >-
+    コンテナイメージのために名前とタグを上書きまたはセットします
+
+    {% endpanel %}
 ---
 texts:
   en: Container Images
-  ja: __COPY__
+  ja: コンテナイメージ
 ---
 texts:
   en: Motivation
-  ja: __COPY__
+  ja: 動機
 ---
 texts:
   en: It may be useful to define the tags or digests of container images which are used across many Workloads.
-  ja: __COPY__
+  ja: 多くのワークロードを横断して使用されるコンテナイメージにはタグやダイジェストを定義するのが便利な場合があります。
 ---
 texts:
   en: >-
     Container image tags and digests are used to refer to a specific version or instance of a container
 
     image - e.g. for the `nginx` container image you might use the tag `1.15.9` or `1.14.2`.
-  ja: __COPY__
+  ja: コンテナイメージのタグとダイジェストは、コンテナイメージの特定のバージョンやインスタンスを参照します - たとえば `nginx` コンテナイメージにタグ `1.15.9` や `1.14.9` を使うことができます。
 ---
 texts:
   en: Update the container image name or tag for multiple Workloads at once
-  ja: __COPY__
+  ja: 複数のワークロードで使用するコンテナイメージの名前とタグを一度に更新できます
 ---
 texts:
   en: >-
     Increase visibility of the versions of container images being used within
       the project
-  ja: __COPY__
+  ja: プロジェクト内で使用されるコンテナイメージのバージョンの可視性を高めます
 ---
 texts:
   en: Set the image tag from external sources - such as environment variables
-  ja: __COPY__
+  ja: 環境変数といった外部のソースからイメージのタグをセットできます
 ---
 texts:
   en: Copy or Fork an existing Project and change the Image Tag for a container
-  ja: __COPY__
+  ja: 既存のプロジェクトをコピーまたはフォークして、コンテナのためにイメージのタグを変更できます
 ---
 texts:
   en: Change the registry used for an image
-  ja: __COPY__
+  ja: イメージを保存するレジストリを変更できます
 ---
 texts:
   en: See [Bases and Variations](../app_customization/bases_and_variants.md) for more details on Copying Projects.
-  ja: __COPY__
+  ja: プロジェクトのコピーについて詳細は [Bases and Variations](../app_customization/bases_and_variants.md) を確認してください。
 ---
 texts:
   en: '{% panel style="info", title="Reference" %}'
@@ -76,7 +79,7 @@ texts:
 ---
 texts:
   en: images
-  ja: __COPY__
+  ja: イメージ
 ---
 texts:
   en: >-
@@ -87,23 +90,23 @@ texts:
     specified, Apply will override the images whose image name matches `name` with a new
 
     tag.
-  ja: __COPY__
+  ja: "`kustomization.yaml` の `images` フィールドを使うとコンテナイメージのイメージタグをセットできます。`images` が指定されると、Apply は `name` に名前がマッチするイメージを新しいタグで上書きします。"
 ---
 texts:
   en: Field
-  ja: __COPY__
+  ja: フィールド
 ---
 texts:
   en: Description
-  ja: __COPY__
+  ja: 説明
 ---
 texts:
   en: Example Field
-  ja: __COPY__
+  ja: フィールドの例
 ---
 texts:
   en: Example Result
-  ja: __COPY__
+  ja: 結果の例
 ---
 texts:
   en: "`name`"
@@ -111,7 +114,7 @@ texts:
 ---
 texts:
   en: Match images with this image name
-  ja: __COPY__
+  ja: マッチさせたいイメージ名
 ---
 texts:
   en: "`name: nginx`"
@@ -123,7 +126,7 @@ texts:
 ---
 texts:
   en: Override the image **tag** or **digest** for images whose image name matches `name`
-  ja: __COPY__
+  ja: "`name` に名前がマッチするイメージについて **tag** と **digest** を上書きする"
 ---
 texts:
   en: "`newTag: new`"
@@ -139,7 +142,7 @@ texts:
 ---
 texts:
   en: Override the image **name** for images whose image name matches `name`
-  ja: __COPY__
+  ja: "`name` に名前がマッチするイメージについて **name** を上書きする"
 ---
 texts:
   en: "`newImage: nginx-special`"
@@ -158,7 +161,7 @@ texts:
     **Example:** Use `images` in the `kustomization.yaml` to update the container
 
     images in `deployment.yaml`
-  ja: __COPY__
+  ja: "**例:** `deployment.yaml` 内のコンテナイメージを更新するために `kustomization.yaml` の `images` を更新する"
 ---
 texts:
   en: >-
@@ -167,18 +170,21 @@ texts:
     change the image name to `nginx-special`.
 
     This will set the name and tag for *all* images matching the *name*.
-  ja: __COPY__
+  ja: Apply は `nginx` イメージがタグ `1.8.0` をもつように設定します (たとえば `nginx:1.8.0`)。そして、イメージ名を `nginx-special` に変更します。これは **name** にマッチする**すべての**イメージについて名前とタグをセットします。
 ---
 texts:
   en: >-
     {% sample lang="yaml" %}
 
     **Input:** The kustomization.yaml and deployment.yaml files
-  ja: __COPY__
+  ja: >-
+    {% sample lang="yaml" %}
+
+    **入力:** kustomization.yaml ファイルと deployment.yaml ファイル
 ---
 texts:
   en: "**Applied:** The Resource that is Applied to the cluster"
-  ja: __COPY__
+  ja: "**適用:** クラスタに適用されるリソース"
 ---
 texts:
   en: "{% endmethod %}"
@@ -186,7 +192,7 @@ texts:
 ---
 texts:
   en: Setting a Name
-  ja: __COPY__
+  ja: 名前の設定
 ---
 texts:
   en: >-
@@ -195,11 +201,16 @@ texts:
     The name for an image may be set by specifying `newName` and the name of the old container image.
 
     {% sample lang="yaml" %}
-  ja: __COPY__
+  ja: >-
+    {% method %}
+
+    イメージの名前は `newName` と古いコンテナイメージ名を指定することで設定できます。
+
+    {% sample lang="yaml" %}
 ---
 texts:
   en: Setting a Tag
-  ja: __COPY__
+  ja: タグの設定
 ---
 texts:
   en: >-
@@ -208,11 +219,16 @@ texts:
     The tag for an image may be set by specifying `newTag` and the name of the container image.
 
     {% sample lang="yaml" %}
-  ja: __COPY__
+  ja: >-
+    {% method %}
+
+    イメージのタグは `newTag` とコンテナイメージ名を指定することで設定できます。
+
+    {% sample lang="yaml" %}
 ---
 texts:
   en: Setting a Digest
-  ja: __COPY__
+  ja: ダイジェストの設定
 ---
 texts:
   en: >-
@@ -221,11 +237,16 @@ texts:
     The digest for an image may be set by specifying `digest` and the name of the container image.
 
     {% sample lang="yaml" %}
-  ja: __COPY__
+  ja: >-
+    {% method %}
+
+    イメージのダイジェストは `digest` とコンテナイメージ名を指定することで設定できます。
+
+    {% sample lang="yaml" %}
 ---
 texts:
   en: Setting a Tag from the latest commit SHA
-  ja: __COPY__
+  ja: 最新の commit SHA からタグを設定する
 ---
 texts:
   en: >-
@@ -236,7 +257,7 @@ texts:
     the image name is `foo` and an image was built for the source code at commit `1bb359ccce344ca5d263cd257958ea035c978fd3`
 
     then the container image would be `foo:1bb359ccce344ca5d263cd257958ea035c978fd3`.
-  ja: __COPY__
+  ja: よくある CI/CD のパターンとして、コンテナイメージにソースコードの git commit SHA でタグ付けするというやり方があります。たとえば、イメージ名が `foo` で、commit が `1bb359ccce344ca5d263cd257958ea035c978fd3` であるソースコードでイメージをビルドすると、そのコンテナイメージは `foo:1bb359ccce344ca5d263cd257958ea035c978fd3` となります。
 ---
 texts:
   en: >-
@@ -245,11 +266,11 @@ texts:
     download the [kustomize standalone](https://github.com/kubernetes-sigs/kustomize/) tool and run
 
     `kustomize edit set imagetag` command to update the tags for you.
-  ja: __COPY__
+  ja: イメージに手動でイメージタグを更新しないのであれば、ビルドしたイメージをプッシュする単純な方法は、[kustomize standalone](https://github.com/kubernetes-sigs/kustomize/) をダウンロードして、`kustomize edit set imagetag` コマンドを実行してタグを更新することです。
 ---
 texts:
   en: "**Example:** Set the latest git commit SHA as the image tag for `foo` images."
-  ja: __COPY__
+  ja: "**例:** 最新の git commit SHA を `foo` イメージのイメージタグに設定する"
 ---
 texts:
   en: '{% sample lang="yaml" %}'
@@ -257,18 +278,21 @@ texts:
 ---
 texts:
   en: Setting a Tag from an Environment Variable
-  ja: __COPY__
+  ja: タグを環境変数から設定する
 ---
 texts:
   en: >-
     {% method %}
 
     It is also possible to set a Tag from an environment variable using the same technique for setting from a commit SHA.
-  ja: __COPY__
+  ja: >-
+    {% method %}
+
+    commit SHA からタグを設定するのと同じテクニックを使えば、環境変数からタグを設定できます。
 ---
 texts:
   en: "**Example:** Set the tag for the `foo` image to the value in the environment variable `FOO_IMAGE_TAG`."
-  ja: __COPY__
+  ja: "**例:** `foo` イメージのタグを環境変数 `FOO_IMAGE_TAG` の値で設定する"
 ---
 texts:
   en: >-
@@ -283,4 +307,9 @@ texts:
     deployments for these changes.
 
     {% endpanel %}
-  ja: __COPY__
+  ja: >-
+    {% panel style="info", title="イメージタグの更新をコミットする" %}
+
+    `kustomization.yaml` の変更は検査できるように git にコミットすることが**できます**。すでに CI/CD システムによってプッシュされたイメージタグの更新をコミットが更新されるとき、その更新で新たなビルドとデプロイメントがトリガーしないよう気をつけてください。
+
+    {% endpanel %}
