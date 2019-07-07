@@ -263,14 +263,14 @@ texts:
     Controllers actuate Resources by reading the Resource they are Reconciling + related Resources,
 
     such as those that they create and delete.
-  ja: コントローラは自身が作成・削除するなどして調停中のリソースとその関連リソースを読み込むことによって、リソースを作動させます。
+  ja: コントローラがリソースを作動させるやり方は、リソースとそれに関連して作成・削除するリソースを読み込んで、期待される状態に一致させるというもので、これを「調停」といいます。
 ---
 texts:
   en: >-
     **Controllers *do not* Reconcile events, rather they Reconcile the expected
 
     cluster state to the observed cluster state at the time Reconcile is run.**
-  ja: "**コントローラが実行する調停は、イベントを調停するの*ではなく*、期待されるクラスタの状態を現在のクラスタの状態に調停します。**"
+  ja: "**コントローラは、イベントから受けた情報でクラスタを調停するの*ではなく*、調停の実行時にクラスタを観測し、現在のクラスタの状態を期待されるクラスタの状態に一致させます。**"
 ---
 texts:
   en: Deployment Controller creates/deletes ReplicaSets
@@ -303,7 +303,7 @@ texts:
     and they will read the state of the system to see what has changed (instead of relying on
 
     the Event for this information).
-  ja: コントローラがリソースを作動させるタイミングは監視用のリソースタイプが書き込み、それからイベントから調停がトリガーされた**後**です。リソースが作成・更新・削除された後、リソースタイプを監視しているコントローラはリソースが変更されたという通知を受け取り、(この情報のためのイベントに依存することなく) システムの状態を読み込んで何を変更すべきかを理解します。
+  ja: コントローラがリソースを作動させるタイミングは、監視用のリソースタイプによってリソースが書き込まれ、それからイベントが調停をトリガーした**後**です。リソースが作成・更新・削除された後、リソースタイプを監視しているコントローラはリソースが更新されたという通知を受け取り、(イベントが持っている更新情報に依存することなく) システムの状態を読み込んで何を更新すべきかを理解します。
 ---
 texts:
   en: Deployment Controller watches Deployments + ReplicaSets (+ Pods)
@@ -337,7 +337,7 @@ texts:
   ja: >-
     {% panel style="info", title="レベルベースの調停とエッジベースの調停" %}
 
-    コントローラは個々のイベントに反応せず、調停が実行されるときにシステムの状態を調停するため、**複数の異なるイベントから来る複数の変更が観測されうるし、一緒に調停されるかもしれません。**これは**レベルベース**のシステムと呼ばれます。それと対比して、個々のイベントに対して反応するシステムは**エッジベース**のシステムと呼ばれます。
+    コントローラは個々のイベントに反応せず、調停の実行時にシステムの状態を期待される状態に一致させるため、**さまざまなイベントが変更を通知してきても、まとめて一度にシステムの観測と調停を行うことができます。**これは**レベルベース**のシステムと呼ばれます。これと対比して、個々のイベントに対して反応するシステムは**エッジベース**のシステムと呼ばれます。
 
     {% endpanel %}
 ---
@@ -354,11 +354,11 @@ texts:
     Containers are run in [*Pods*](https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/) which are
 
     scheduled to run on *Nodes* (i.e. worker machines) in a cluster.
-  ja: コンテナは [**Pod**](https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/) の中で実行され、Pod はクラスタ内の *Node* 上で実行をスケジュールされます。
+  ja: コンテナは [**Pod**](https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/) の中で実行され、Pod の実行はクラスタ内の **Node** 上でスケジュールされます。
 ---
 texts:
   en: "Pods run a *single replica* of an Application and provide:"
-  ja: Pod はアプリケーションの**レプリカを一つ**を実行し、レプリカに以下を提供します。
+  ja: Pod はアプリケーションの**レプリカを一つ**を実行し、以下を提供します。
 ---
 texts:
   en: Compute Resources (cpu, memory, disk)
@@ -398,7 +398,7 @@ texts:
   ja: >-
     {% panel style="warning", title="マルチコンテナの Pod" %}
 
-    アプリケーションには複数のレプリカを作るべきです。ワークロード API を使うと Pod レプリカの作成および削除を PodTemplate で管理できます。
+    アプリケーションの複数のレプリカを作るにはワークロード API を使うべきです。ワークロード API は Pod レプリカの作成および削除を PodTemplate で管理できます。
 ---
 texts:
   en: >-
@@ -408,7 +408,7 @@ texts:
 
     {% endpanel %}
   ja: >-
-    場合によっては Pod は複数のコンテナを含み、それがアプリケーションの一つのインスタンスを形成しているかもしれません。これらのコンテナはネットワーク (IP) とストレージを共有することによって協働します。
+    場合によっては Pod は複数のコンテナを含み、それがアプリケーションの一つのインスタンスを形成しているかもしれません。Pod 内のコンテナはネットワーク (IP) とストレージを共有することによって協働します。
 
     {% endpanel %}
 ---
@@ -449,7 +449,7 @@ texts:
 ---
 texts:
   en: run to completion
-  ja: 実行を完了する
+  ja: 処理を完了する
 ---
 texts:
   en: "[CronJobs](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/) (Scheduled Batch Work)"
@@ -457,7 +457,7 @@ texts:
 ---
 texts:
   en: scheduled run to completion
-  ja: 定期的に実行を完了する
+  ja: 定期的に処理を完了する
 ---
 texts:
   en: "[DaemonSets](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) (Per-Machine)"
@@ -492,7 +492,7 @@ texts:
     Service discovery and Load Balancing may be managed by a *Service* object.  Services provide a single
 
     virtual IP address and dns name load balanced to a collection of Pods matching Labels.
-  ja: サービスディスカバリとロードバランシングは **Service** オブジェクトが管理します。Service は一つの仮想 IP アドレスと DNS 名を提供し、ラベルにマッチする Pod たちにロードバランスされます。
+  ja: サービスディスカバリとロードバランシングは **Service** オブジェクトが管理します。Service は一つの仮想 IP アドレスと DNS 名を提供し、ラベルにマッチする Pod にロードバランスされます。
 ---
 texts:
   en: '{% panel style="info", title="Internal vs External Services" %}'
@@ -527,7 +527,7 @@ texts:
     Environment Variables, Command Line Arguments and Files to be loosely injected into
 
     the Pods and Containers that consume them.
-  ja: 共有設定と機密情報は ConfigMap と Secret が提供します。環境変数、コマンドライン引数、ファイルを Pod とコンテナが使えるようにルーズに注入します。
+  ja: 共有設定と機密情報は ConfigMap と Secret が提供します。これらを使用すると環境変数、コマンドライン引数、ファイルを Pod とコンテナに注入し、その中で使えるようになります。そのおかげで Pod とコンテナはそれらの設定に対して依存関係が薄くなります。
 ---
 texts:
   en: '{% panel style="info", title="ConfigMaps vs Secrets" %}'
