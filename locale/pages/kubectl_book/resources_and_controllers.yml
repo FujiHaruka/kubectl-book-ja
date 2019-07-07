@@ -3,7 +3,7 @@ texts:
     {% panel style="success", title="Providing Feedback" %}
 
     **Provide feedback at the [survey](https://www.surveymonkey.com/r/JH35X82)**
-  ja: ""
+  ja: __COPY__
 ---
 texts:
   en: '{% panel style="info", title="TL;DR" %}'

@@ -3,7 +3,7 @@ texts:
     {% panel style="success", title="Feedback and Contributing" %}
 
     **Provide feedback on new kubectl docs at the [survey](https://www.surveymonkey.com/r/JH35X82)**
-  ja: ""
+  ja: __COPY__
 ---
 texts:
   en: >-
