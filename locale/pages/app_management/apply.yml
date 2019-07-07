@@ -5,7 +5,7 @@ texts:
     **Provide feedback at the [survey](https://www.surveymonkey.com/r/CLQBQHR)**
 
     {% endpanel %}
-  ja: __COPY__
+  ja: ""
 ---
 texts:
   en: '{% panel style="info", title="TL;DR" %}'
@@ -13,14 +13,17 @@ texts:
 ---
 texts:
   en: Apply Creates and Updates Resources in a cluster through running `kubectl apply` on Resource Config.
-  ja: __COPY__
+  ja: Apply はリソース設定上で `kubectl apply` を実行することによってクラスタ内のリソースを作成・更新します
 ---
 texts:
   en: >-
     Apply manages complexity such as ordering of operations and merging user defined and cluster defined state.
 
     {% endpanel %}
-  ja: __COPY__
+  ja: >-
+    Apply は、オペレーションの順序や、ユーザーが定義した状態とクラスタが定義した状態をマージするといった複雑性を管理します
+
+    {% endpanel %}
 ---
 texts:
   en: Apply
@@ -28,44 +31,44 @@ texts:
 ---
 texts:
   en: Motivation
-  ja: __COPY__
+  ja: 動機
 ---
 texts:
   en: Apply is a command that will update a Kubernetes cluster to match state defined locally in files.
-  ja: __COPY__
+  ja: Apply は Kubernetes クラスタをローカルのファイルで定義された状態に一致させるよう更新するコマンドです。
 ---
 texts:
   en: Fully declarative - don't need to specify create or update - just manage files
-  ja: __COPY__
+  ja: 完全な宣言性 - 作成や更新を指示する必要はなく、ファイルを管理するだけです
 ---
 texts:
   en: Merges user owned state (e.g. Service `selector`) with state owned by the cluster (e.g. Service `clusterIp`)
-  ja: __COPY__
+  ja: ユーザーが所有する状態 (たとえば Service `selector`) をクラスタが所有する状態 (たとえば Service `clusterIp`) にマージします
 ---
 texts:
   en: Definitions
-  ja: __COPY__
+  ja: 定義
 ---
 texts:
   en: "**Resources**: *Objects* in a cluster - e.g. Deployments, Services, etc."
-  ja: __COPY__
+  ja: "**リソース**: クラスタ内の*オブジェクト* - たとえば Deployment、Service など"
 ---
 texts:
   en: >-
     **Resource Config**: *Files* declaring the desired state for Resources - e.g. deployment.yaml.
       Resources are created and updated using Apply with these files.
-  ja: __COPY__
+  ja: "**リソース設定**: リソースの望ましい状態を宣言した*ファイル* - たとえば deployment.yaml。リソースはこれらのファイルと Apply を使って作成・更新されます"
 ---
 texts:
   en: >-
     *kubectl apply* Creates and Updates Resources through local or remote files.  This may be through
 
     either raw Resource Config or *kustomization.yaml*.
-  ja: __COPY__
+  ja: "`kubectl apply` はローカルまたはリモートのファイルを通じてリソースを作成・更新します。これは生のリソース設定でも `kustomization.yaml` を使っても行えます。"
 ---
 texts:
   en: Usage
-  ja: __COPY__
+  ja: 使い方
 ---
 texts:
   en: "{% method %}"
@@ -78,7 +81,7 @@ texts:
     to run Apply against a `kustomization.yaml` using `-k`.  The `kustomization.yaml` allows users to define
 
     configuration that cuts across many Resources (e.g. namespace).
-  ja: __COPY__
+  ja: Apply はリソース設定ファイルに対して、あるいは `-f` オプションでディレクトリを指定して直接実行することもできますが、お勧めは `-k` オプションを使って `kustomization.yaml` に対して Apply を実行することです。`kustomization.yaml` を使うと多くのリソースを横断した設定 (たとえば名前空間) を定義できます。
 ---
 texts:
   en: '{% sample lang="yaml" %}'
@@ -95,7 +98,10 @@ texts:
     Users run Apply on directories containing `kustomization.yaml` files using `-k` or on raw
 
     ResourceConfig files using `-f`.
-  ja: __COPY__
+  ja: >-
+    {% method %}
+
+    Apply コマンドは `kustomization.yaml` ファイルを含むディレクトリに `-k` オプションで実行するか、または生のリソース設定ファイルに対して `-f` オプションで実行します。
 ---
 texts:
   en: >-
@@ -104,39 +110,44 @@ texts:
     A single Resource Config file may declare multiple Resources separated by `\n---\n`.
 
     {% endpanel %}
-  ja: __COPY__
+  ja: >-
+    {% panel style="info", title="マルチリソースの設定" %}
+
+    一つのリソース設定ファイルを `\n---\n` で分割すると、複数のリソースを宣言できます。
+
+    {% endpanel %}
 ---
 texts:
   en: CRUD Operations
-  ja: __COPY__
+  ja: CRUD 操作
 ---
 texts:
   en: Creating Resources
-  ja: __COPY__
+  ja: リソースの作成
 ---
 texts:
   en: Any Resources that do not exist and are declared in Resource Config when Apply is run will be Created.
-  ja: __COPY__
+  ja: リソース設定に宣言されているがまだ存在しないリソースは、Apply 実行時に作成されます。
 ---
 texts:
   en: Updating Resources
-  ja: __COPY__
+  ja: リソースの更新
 ---
 texts:
   en: Any Resources that already exist and are declared in Resource Config when Apply is run may be Updated.
-  ja: __COPY__
+  ja: リソース設定に宣言されていてすでに存在するリソースは Apply 実行時に更新されることがあります。
 ---
 texts:
   en: "**Added Fields**"
-  ja: __COPY__
+  ja: "**追加のフィールド**"
 ---
 texts:
   en: Any fields that have been added to the Resource Config will be set on the Resource.
-  ja: __COPY__
+  ja: リソース設定に追加されたフィールドはリソースにセットされます
 ---
 texts:
   en: "**Updated Fields** "
-  ja: __COPY__
+  ja: "**更新されたフィールド**"
 ---
 texts:
   en: >-
@@ -145,48 +156,51 @@ texts:
     in the Resource will be updated by merging the Resource Config into the live Resource.  See [merging](field_merge_semantics.md)
 
     for more details.
-  ja: __COPY__
+  ja: ローカルのリソース設定に指定されたフィールドの値がリソース内の値と異なる場合、リソース設定を稼働中のリソースにマージすることによって更新されます。詳細は [merging](field_merge_semantics.md) を確認してください。
 ---
 texts:
   en: "**Deleted Fields**"
-  ja: __COPY__
+  ja: 削除されたフィールド
 ---
 texts:
   en: >-
     Fields that were in the Resource Config the last time Apply was run, will be deleted from the Resource, and
 
     return to their default values.
-  ja: __COPY__
+  ja: 前回の Apply 実行時にリソース設定に存在したが削除されたフィールドは、リソースから削除され、デフォルト値に戻されます。
 ---
 texts:
   en: "**Unmanaged Fields**"
-  ja: __COPY__
+  ja: "**管理されていないフィールド**"
 ---
 texts:
   en: Fields that were not specified in the Resource Config but are set on the Resource will be left unmodified.
-  ja: __COPY__
+  ja: リソース設定に指定されていないがリソースにセットされているフィールドは、修正されずにそのまま残されます。
 ---
 texts:
   en: Deleting Resources
-  ja: __COPY__
+  ja: リソースの削除
 ---
 texts:
   en: Declarative deletion of Resources does not yet exist in a usable form, but is under development.
-  ja: __COPY__
+  ja: リソースの宣言的な削除はまだ使用に適した形では存在しませんが、現在開発中です。
 ---
 texts:
   en: >-
     {% panel style="info", title="Continuously Applying The Hard Way" %}
 
     In some cases, it may be useful to automatically Apply changes when ever the Resource Config is changed.
-  ja: __COPY__
+  ja: >-
+    {% panel style="info", title="地道な継続的 Apply" %}
+
+    時には、リソース設定が変更されたら自動的に変更を Apply するのが便利な場合もあります。
 ---
 texts:
   en: >-
     This example uses the unix `watch` command to periodically invoke Apply against a target.
 
     `watch -n 60 kubectl apply -k https://github.com/myorg/myrepo`
-  ja: __COPY__
+  ja: たとえば Apply を定期的に実行するために UNIX の `watch` コマンドを使います。`watch -n 60 kubectl apply -k https://github.com/myorg/myrepo`
 ---
 texts:
   en: "{% endpanel %}"
@@ -194,18 +208,18 @@ texts:
 ---
 texts:
   en: Resource Creation Ordering
-  ja: __COPY__
+  ja: リソース作成の順序
 ---
 texts:
   en: >-
     Certain Resource Types may be dependent on other Resource Types being created first.  e.g. Namespaced
 
     Resources on the Namespaces, RoleBindings on Roles, CustomResources on the CRDs, etc.
-  ja: __COPY__
+  ja: あるリソースタイプが、先に作成される他のリソースタイプに依存することがあります。たとえば、名前空間上のリソース、Role 上の RoleBinding、CRD 上の CustomResource などです。
 ---
 texts:
   en: >-
     When used with a `kustomization.yaml`, Apply sorts the Resources by Resource type to ensure Resources
 
     with these dependencies are created in the correct order.
-  ja: __COPY__
+  ja: "`kustomization.yaml` を使うと、Apply は上記のような依存関係をもつリソースが正しい順序で作成されるように、リソースタイプによってリソースをソートします。"
