@@ -5,7 +5,7 @@ texts:
     **Provide feedback at the [survey](https://www.surveymonkey.com/r/CLQBQHR)**
 
     {% endpanel %}
-  ja: __COPY__
+  ja: ""
 ---
 texts:
   en: '{% panel style="info", title="TL;DR" %}'
@@ -13,22 +13,25 @@ texts:
 ---
 texts:
   en: Apply manages Applications through files defining Kubernetes Resources (i.e. Resource Config)
-  ja: __COPY__
+  ja: Apply コマンドは Kubernetes リソースを定義するファイル (すなわちリソース設定) を通じてアプリケーションを管理します
 ---
 texts:
   en: >-
     Kustomize is used to author Resource Config
 
     {% endpanel %}
-  ja: __COPY__
+  ja: >-
+    Kustomize はリソース設定の作成に使います
+
+    {% endpanel %}
 ---
 texts:
   en: Declarative Application Management
-  ja: __COPY__
+  ja: 宣言的なアプリケーション管理
 ---
 texts:
   en: This section covers how to declaratively manage Workloads and Applications.
-  ja: __COPY__
+  ja: この章では、宣言的にワークロードとアプリケーションを管理する方法を説明します。
 ---
 texts:
   en: >-
@@ -37,15 +40,15 @@ texts:
     typically checked into source control, and allow cluster state changes to be reviewed before they
 
     are audited and applied.
-  ja: __COPY__
+  ja: クラスタ内のワークロードは**リソース設定 (Resource Config) **と呼ばれるファイルを通じて設定できます。これらのファイルは通常、バージョン管理の下に置かれ、クラスタの状態を検査・適用する前に変更をレビューできるようにします。
 ---
 texts:
   en: There are 2 components to Application Management.
-  ja: __COPY__
+  ja: アプリケーション管理は二つのコンポーネントから構成されます。
 ---
 texts:
   en: Client Component
-  ja: __COPY__
+  ja: クライアントコンポーネント
 ---
 texts:
   en: >-
@@ -56,38 +59,38 @@ texts:
     composing and overlaying Resource Config authored by separate teams
 
     (using the `-k` flag with a `kustomization.yaml`).
-  ja: __COPY__
+  ja: クライアントコンポーネントは、アプリケーションの望ましい状態を定義するリソース設定を書くことからなります。生のリソース設定ファイル群を書くこともありますが、別々のチームが書いたリソース設定をまとめ上げることもあります (`kustomization.yaml` を使うには `-k` フラグを使用します)。
 ---
 texts:
   en: "Kustomize offers low-level tooling for simplifying the authoring of Resource Config.  It provides:"
-  ja: __COPY__
+  ja: Kustomize はリソース設定を書く作業を簡単にするため、低レベルのツールを提供しています。
 ---
 texts:
   en: "**Generating Resource Config** from other canonical sources - e.g. ConfigMaps, Secrets"
-  ja: __COPY__
+  ja: "**リソース設定の生成**。たとえば ConfigMap や Secret を基準となる他のソースから生成する"
 ---
 texts:
   en: "**Reusing and Composing one or more collections of Resource Config**"
-  ja: __COPY__
+  ja: "**一つ以上のリソース設定のファイル群を再利用・構成する**"
 ---
 texts:
   en: "**Customizing Resource Config**"
-  ja: __COPY__
+  ja: "**リソース設定をカスタマイズする**"
 ---
 texts:
   en: "**Setting cross-cutting fields** - e.g. namespace, labels, annotations, name-prefixes, etc"
-  ja: __COPY__
+  ja: "**横断的にフィールドを設定する - たとえば名前空間、ラベル、annotation、名前のプレフィックスなど**"
 ---
 texts:
   en: >-
     **Example:** One user may define a Base for an application,  while another user may customize
 
     a specific instance of the Base.
-  ja: __COPY__
+  ja: "**例:** 一人がアプリケーションのベースを定義し、別の人がベースの特定のインスタンスをカスタマイズできます。"
 ---
 texts:
   en: Server Component
-  ja: __COPY__
+  ja: サーバーコンポーネント
 ---
 texts:
   en: >-
@@ -98,15 +101,15 @@ texts:
     state on the Resource - e.g. *defaulting unspecified fields, filling in IP addresses, autoscaling
 
     replica count, etc.*
-  ja: __COPY__
+  ja: サーバーコンポーネントは、書かれたリソース設定をクラスタに適用することからなります。適用が実行されると、Kubernetes クラスタはリソースを作成・更新することになりますが、リソース上の望ましい状態を追加で設定します。たとえば、**指定されていないフィールドをデフォルト値で埋め、IP アドレスを入力し、レプリカ数をオートスケールさせるといったことです。**
 ---
 texts:
   en: >-
     Note that the process of Application Management is a collaborative one between users and the
 
     Kubernetes system itself - where each may contribute to defining the desired state.
-  ja: __COPY__
+  ja: 留意点ですが、アプリケーション管理はユーザーと Kubernetes システム自身とが協力して行うプロセスです。望ましい状態を定義するためにお互いに貢献し合います。
 ---
 texts:
   en: "**Example**: An Autoscaler Controller in the cluster may set the scale field on a Deployment managed by a user."
-  ja: __COPY__
+  ja: "**例:** クラスタ内の Autoscaler コントローラは Deployment のフィールドにユーザーが管理するスケールフィールドを設定することができます。"
