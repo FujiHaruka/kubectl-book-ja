@@ -7,3 +7,6 @@ documents:
     targets:
       ja: book
     locale: locale
+options:
+  lineIgnorePatterns:
+    - "^{% \\w+ %}$"
