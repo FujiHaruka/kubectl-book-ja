@@ -74,10 +74,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    {% sample lang="yaml" %}
-
-    **Input:** The kustomization.yaml file and overlay
+  en: "**Input:** The kustomization.yaml file and overlay"
   ja: __COPY__
 ---
 texts:
@@ -122,8 +119,5 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    {% sample lang="yaml" %}
-
-    **Input:** The kustomization.yaml file
+  en: "**Input:** The kustomization.yaml file"
   ja: __COPY__

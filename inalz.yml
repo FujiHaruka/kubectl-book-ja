@@ -10,3 +10,4 @@ documents:
 options:
   lineIgnorePatterns:
     - "^{% \\w+ %}$"
+    - '^{% sample lang="yaml" %}$'

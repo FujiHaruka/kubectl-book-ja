@@ -294,10 +294,6 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: '{% sample lang="yaml" %}'
-  ja: __COPY__
----
-texts:
   en: Print the `metadata.name` field for the first Deployment in the list.
   ja: __COPY__
 ---

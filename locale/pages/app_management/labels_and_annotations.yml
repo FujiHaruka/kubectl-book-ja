@@ -11,39 +11,39 @@ texts:
 ---
 texts:
   en: Set Labels for all Resources declared within a Project with `commonLables`
-  ja: __COPY__
+  ja: プロジェクト内で宣言されたすべてのリソースにラベルを設定するには `commonLables` を使用します
 ---
 texts:
   en: Set Annotations for all Resources declared within a Project with `commonAnnotations`
-  ja: __COPY__
+  ja: プロジェクト内で宣言されたすべてのリソースにアノテーションを設定するには `commonAnnotations` を使用します
 ---
 texts:
   en: Setting Labels and Annotations
-  ja: __COPY__
+  ja: ラベルおアノテーションを設定する
 ---
 texts:
   en: Motivation
-  ja: __COPY__
+  ja: 動機
 ---
 texts:
   en: Users may want to define a common set of labels or annotations for all the Resource in a project.
-  ja: __COPY__
+  ja: プロジェクト内のすべてのリソースに共通のラベルやアノテーションを定義したくなることがあります。
 ---
 texts:
   en: Identify the Resources within a project by querying their labels.
-  ja: __COPY__
+  ja: リソースに付けられたラベルを検索することでプロジェクト内のリソースを識別する
 ---
 texts:
   en: Set metadata for all Resources within a project (e.g. environment=test).
-  ja: __COPY__
+  ja: プロジェクト内のすべてのリソースにメタデータを設定する (たとえば environment=test)
 ---
 texts:
   en: Copy or Fork an existing Project and add or change labels and annotations.
-  ja: __COPY__
+  ja: 既存のプロジェクトをコピーまたはフォークして、ラベルとアノテーションを追加または変更する
 ---
 texts:
   en: See [Bases and Variations](../app_customization/bases_and_variants.md) for more details on Copying Projects.
-  ja: __COPY__
+  ja: プロジェクトのコピーについての詳細は [Bases and Variations](../app_customization/bases_and_variants.md) を確認してください。
 ---
 texts:
   en: '{% panel style="info", title="Reference" %}'
@@ -59,24 +59,21 @@ texts:
 ---
 texts:
   en: Setting Labels for all Resources
-  ja: __COPY__
+  ja: すべてのリソースにラベルを設定する
 ---
 texts:
   en: "**Example:** Add the labels declared in `commonLabels` to all Resources in the project."
-  ja: __COPY__
+  ja: "**例:** プロジェクト内のすべてのリソースに `commonLabels` に宣言されたラベルを追加する"
 ---
 texts:
   en: >-
     **Important:** Once set, commonLabels should not be changed so as not to change the Selectors for Services
 
     or Workloads.
-  ja: __COPY__
+  ja: "**重要:** 一度設定した commonLabels は変更すべきではありません。Service やワークロードのセレクタを変更しないためです。"
 ---
 texts:
-  en: >-
-    {% sample lang="yaml" %}
-
-    **Input:** The kustomization.yaml and deployment.yaml files
+  en: "**Input:** The kustomization.yaml and deployment.yaml files"
   ja: __COPY__
 ---
 texts:

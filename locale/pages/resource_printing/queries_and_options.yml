@@ -30,10 +30,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    Get all Resources provided by the `kustomization.yaml` in project/.
-
-    {% sample lang="yaml" %}
+  en: Get all Resources provided by the `kustomization.yaml` in project/.
   ja: __COPY__
 ---
 texts:
@@ -41,10 +38,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    Get all Resources present in the Resource Config for a directory.
-
-    {% sample lang="yaml" %}
+  en: Get all Resources present in the Resource Config for a directory.
   ja: __COPY__
 ---
 texts:
@@ -60,10 +54,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    The Singular, Plural, Short Name also apply to *Types with Name* and *Types with Selectors*.
-
-    {% sample lang="yaml" %}
+  en: The Singular, Plural, Short Name also apply to *Types with Name* and *Types with Selectors*.
   ja: __COPY__
 ---
 texts:
@@ -72,10 +63,6 @@ texts:
 ---
 texts:
   en: The Group and Version for the Resource are explicit.
-  ja: __COPY__
----
-texts:
-  en: '{% sample lang="yaml" %}'
   ja: __COPY__
 ---
 texts:
@@ -91,10 +78,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    Get **all** Resources in a namespace **matching a label select** for a given type.
-
-    {% sample lang="yaml" %}
+  en: Get **all** Resources in a namespace **matching a label select** for a given type.
   ja: __COPY__
 ---
 texts:

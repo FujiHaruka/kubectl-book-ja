@@ -44,10 +44,6 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: '{% sample lang="yaml" %}'
-  ja: __COPY__
----
-texts:
   en: >-
     {% panel style="info", title="Get vs Describe" %}
 

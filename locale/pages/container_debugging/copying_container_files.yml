@@ -53,10 +53,6 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: '{% sample lang="yaml" %}'
-  ja: __COPY__
----
-texts:
   en: Remote to Local
   ja: __COPY__
 ---

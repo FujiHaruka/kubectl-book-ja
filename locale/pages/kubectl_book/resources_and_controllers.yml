@@ -152,14 +152,9 @@ texts:
   ja: ユーザーがリソース設定を書くときには Status フィールドは省略します。
 ---
 texts:
-  en: >-
-    **Example Deployment Resource Config**
-
-    {% sample lang="yaml" %}
+  en: "**Example Deployment Resource Config**"
   ja: >-
     **Deployment のリソース設定の例**
-
-    {% sample lang="yaml" %}
 ---
 texts:
   en: >-
@@ -373,8 +368,7 @@ texts:
     In some cases a Pod may contain multiple Containers forming a single instance of an Application.  These
 
     containers may coordinate with one another through shared network (IP) and storage.
-  ja: >-
-    場合によっては Pod は複数のコンテナを含み、それがアプリケーションの一つのインスタンスを形成しているかもしれません。Pod 内のコンテナはネットワーク (IP) とストレージを共有することによって協働します。
+  ja: 場合によっては Pod は複数のコンテナを含み、それがアプリケーションの一つのインスタンスを形成しているかもしれません。Pod 内のコンテナはネットワーク (IP) とストレージを共有することによって協働します。
 ---
 texts:
   en: Workloads

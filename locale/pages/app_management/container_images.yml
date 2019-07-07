@@ -158,13 +158,8 @@ texts:
   ja: Apply は `nginx` イメージがタグ `1.8.0` をもつように設定します (たとえば `nginx:1.8.0`)。そして、イメージ名を `nginx-special` に変更します。これは **name** にマッチする**すべての**イメージについて名前とタグをセットします。
 ---
 texts:
-  en: >-
-    {% sample lang="yaml" %}
-
-    **Input:** The kustomization.yaml and deployment.yaml files
+  en: "**Input:** The kustomization.yaml and deployment.yaml files"
   ja: >-
-    {% sample lang="yaml" %}
-
     **入力:** kustomization.yaml ファイルと deployment.yaml ファイル
 ---
 texts:
@@ -176,24 +171,18 @@ texts:
   ja: 名前の設定
 ---
 texts:
-  en: >-
-    The name for an image may be set by specifying `newName` and the name of the old container image.
-
-    {% sample lang="yaml" %}
+  en: The name for an image may be set by specifying `newName` and the name of the old container image.
   ja: >-
     イメージの名前は `newName` と古いコンテナイメージ名を指定することで設定できます。
-
-    {% sample lang="yaml" %}
 ---
 texts:
   en: Setting a Tag
   ja: タグの設定
 ---
+meta:
+  outdated: true
 texts:
-  en: >-
-    The tag for an image may be set by specifying `newTag` and the name of the container image.
-
-    {% sample lang="yaml" %}
+  en: The tag for an image may be set by specifying `newTag` and the name of the container image.
   ja: >-
     イメージのタグは `newTag` とコンテナイメージ名を指定することで設定できます。
 
@@ -204,14 +193,9 @@ texts:
   ja: ダイジェストの設定
 ---
 texts:
-  en: >-
-    The digest for an image may be set by specifying `digest` and the name of the container image.
-
-    {% sample lang="yaml" %}
+  en: The digest for an image may be set by specifying `digest` and the name of the container image.
   ja: >-
     イメージのダイジェストは `digest` とコンテナイメージ名を指定することで設定できます。
-
-    {% sample lang="yaml" %}
 ---
 texts:
   en: Setting a Tag from the latest commit SHA
@@ -238,10 +222,6 @@ texts:
 texts:
   en: "**Example:** Set the latest git commit SHA as the image tag for `foo` images."
   ja: "**例:** 最新の git commit SHA を `foo` イメージのイメージタグに設定する"
----
-texts:
-  en: '{% sample lang="yaml" %}'
-  ja: __COPY__
 ---
 texts:
   en: Setting a Tag from an Environment Variable

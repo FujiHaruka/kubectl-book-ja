@@ -142,10 +142,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    {% sample lang="yaml" %}
-
-    **Input:** The kustomization.yaml file
+  en: "**Input:** The kustomization.yaml file"
   ja: __COPY__
 ---
 texts:

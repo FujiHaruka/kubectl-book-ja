@@ -30,10 +30,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    Listen on ports 5000 and 6000 locally, forwarding data to/from ports 5000 and 6000 in the pod
-
-    {% sample lang="yaml" %}
+  en: Listen on ports 5000 and 6000 locally, forwarding data to/from ports 5000 and 6000 in the pod
   ja: __COPY__
 ---
 texts:
@@ -45,8 +42,6 @@ texts:
     Listen on ports 5000 and 6000 locally, forwarding data to/from ports 5000 and 6000 in a pod selected by the
 
     deployment
-
-    {% sample lang="yaml" %}
   ja: __COPY__
 ---
 texts:
@@ -54,10 +49,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    Listen on port 8888 locally, forwarding to 5000 in the pod
-
-    {% sample lang="yaml" %}
+  en: Listen on port 8888 locally, forwarding to 5000 in the pod
   ja: __COPY__
 ---
 texts:
@@ -65,8 +57,5 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    Listen on a random port locally, forwarding to 5000 in the pod
-
-    {% sample lang="yaml" %}
+  en: Listen on a random port locally, forwarding to 5000 in the pod
   ja: __COPY__

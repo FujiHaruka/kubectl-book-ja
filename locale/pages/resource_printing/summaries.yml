@@ -63,10 +63,6 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: '{% sample lang="yaml" %}'
-  ja: __COPY__
----
-texts:
   en: Wide
   ja: __COPY__
 ---
@@ -91,10 +87,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    Print out specific labels each as their own columns
-
-    {% sample lang="yaml" %}
+  en: Print out specific labels each as their own columns
   ja: __COPY__
 ---
 texts:
@@ -102,10 +95,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    Print out all labels on each Resource in a single column (last).
-
-    {% sample lang="yaml" %}
+  en: Print out all labels on each Resource in a single column (last).
   ja: __COPY__
 ---
 texts:

@@ -283,10 +283,6 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: '{% sample lang="yaml" %}'
-  ja: __COPY__
----
-texts:
   en: >-
     {% panel style="warning", title="Applying Environment + Cluster" %}
 

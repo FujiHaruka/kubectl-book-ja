@@ -90,13 +90,8 @@ texts:
   ja: "**例:** 名前空間で区切りたいリソースに対し `kustomization.yaml` の中に `namespace` を設定する"
 ---
 texts:
-  en: >-
-    {% sample lang="yaml" %}
-
-    **Input:** The kustomization.yaml and deployment.yaml files
+  en: "**Input:** The kustomization.yaml and deployment.yaml files"
   ja: >-
-    {% sample lang="yaml" %}
-
     **入力:** kustomization.yaml ファイルと deployment.yaml ファイル
 ---
 texts:

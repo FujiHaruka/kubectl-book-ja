@@ -72,10 +72,6 @@ texts:
   ja: Apply はリソース設定ファイルに対して、あるいは `-f` オプションでディレクトリを指定して直接実行することもできますが、お勧めは `-k` オプションを使って `kustomization.yaml` に対して Apply を実行することです。`kustomization.yaml` を使うと多くのリソースを横断した設定 (たとえば名前空間) を定義できます。
 ---
 texts:
-  en: '{% sample lang="yaml" %}'
-  ja: __COPY__
----
-texts:
   en: >-
     Users run Apply on directories containing `kustomization.yaml` files using `-k` or on raw
 

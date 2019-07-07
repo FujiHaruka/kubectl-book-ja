@@ -85,10 +85,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    {% sample lang="yaml" %}
-
-    **Input:** The kustomization.yaml, deployment.yaml and service.yaml files
+  en: "**Input:** The kustomization.yaml, deployment.yaml and service.yaml files"
   ja: __COPY__
 ---
 texts:

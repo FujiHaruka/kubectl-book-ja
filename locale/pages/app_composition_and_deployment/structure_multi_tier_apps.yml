@@ -131,10 +131,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    {% sample lang="yaml" %}
-
-    **Generic Base Layer:**
+  en: "**Generic Base Layer:**"
   ja: __COPY__
 ---
 texts:
@@ -214,10 +211,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    {% sample lang="yaml" %}
-
-    **Applied:**
+  en: "**Applied:**"
   ja: __COPY__
 ---
 texts:

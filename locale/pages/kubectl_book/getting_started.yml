@@ -49,10 +49,6 @@ texts:
   ja: "**注意**: Deployment とは Pod レプリカを管理するリソースです。(Pod はコンテナを実行します)"
 ---
 texts:
-  en: '{% sample lang="yaml" %}'
-  ja: __COPY__
----
-texts:
   en: Print detailed information about the kube-dns Deployment in the kube-system namespace.
   ja: 名前空間 kube-system にある kube-dns という名前の Deployment について詳細を表示します。
 ---

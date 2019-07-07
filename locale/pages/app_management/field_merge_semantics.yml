@@ -118,8 +118,6 @@ texts:
     Resource.  This allows it to compare the last Resource Config it Applied to the current Resource
 
     Config and identify fields that have been deleted.
-
-    {% sample lang="yaml" %}
   ja: __COPY__
 ---
 texts:
@@ -141,10 +139,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    Fields will be added to the Last Applied Resource Config
-
-    {% sample lang="yaml" %}
+  en: Fields will be added to the Last Applied Resource Config
   ja: __COPY__
 ---
 texts:
@@ -158,10 +153,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    Fields will be updated in the Last Applied Resource Config
-
-    {% sample lang="yaml" %}
+  en: Fields will be updated in the Last Applied Resource Config
   ja: __COPY__
 ---
 texts:
@@ -182,10 +174,6 @@ texts:
 ---
 texts:
   en: Fields will be removed from the Last Applied Resource Config
-  ja: __COPY__
----
-texts:
-  en: '{% sample lang="yaml" %}'
   ja: __COPY__
 ---
 texts:

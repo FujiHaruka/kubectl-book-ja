@@ -35,7 +35,3 @@ texts:
 
     editing it through a local file.
   ja: __COPY__
----
-texts:
-  en: '{% sample lang="yaml" %}'
-  ja: __COPY__
