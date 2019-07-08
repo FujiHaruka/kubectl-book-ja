@@ -19,7 +19,7 @@ texts:
 ---
 texts:
   en: Setting Labels and Annotations
-  ja: ラベルおアノテーションを設定する
+  ja: ラベルとアノテーションを設定する
 ---
 texts:
   en: Motivation
@@ -74,11 +74,11 @@ texts:
 ---
 texts:
   en: "**Input:** The kustomization.yaml and deployment.yaml files"
-  ja: __COPY__
+  ja: "**入力:** kustomization.yaml ファイルと deployment.yaml ファイル"
 ---
 texts:
   en: "**Applied:** The Resource that is Applied to the cluster"
-  ja: __COPY__
+  ja: "**適用:** クラスタに適用されるリソース"
 ---
 texts:
   en: >-
@@ -89,14 +89,17 @@ texts:
     labels.  e.g. the selectors for Services in the project will be updated to include the commonLabels
 
     *in addition* to the other labels.
-  ja: __COPY__
+  ja: >-
+    {% panel style="warning", title="ラベルをセレクタに伝播する" %}
+
+    各リソースに付けられたラベルを更新するのに加えて、セレクタもそのラベルを対象とするように更新されます。たとえば、プロジェクト内の Service を取得するセレクタは、他のラベル**に加えて** commonLabels を含むように更新されます。
 ---
 texts:
   en: >-
     **Note:** Once set, commonLabels should not be changed so as not to change the Selectors for Services
 
     or Workloads.
-  ja: __COPY__
+  ja: "**Note:** 一度 commonLabels を設定したら、変更しないべきです。Service やワークロードを取得するセレクタを変更しないためです。"
 ---
 texts:
   en: >-
@@ -105,23 +108,26 @@ texts:
     The k8s.io documentation defines a set of [Common Labeling Conventions](https://kubernetes.io/docs/concepts/overview/working-with-objects/common-labels/)
 
     that may be applied to Applications.
-  ja: __COPY__
+  ja: >-
+    {% panel style="success", title="共通のラベル" %}
+
+    k8s.io ドキュメントではアプリケーションに適用可能な[共通ラベルの規則](https://kubernetes.io/docs/concepts/overview/working-with-objects/common-labels/)を定義しています。
 ---
 texts:
   en: "**Note:** commonLabels should only be set for **immutable** labels, since they will be applied to Selectors."
-  ja: __COPY__
+  ja: "**注意:** commonLabels は**不変の**ラベルにだけ設定されるべきです。セレクタに適用されるからです。"
 ---
 texts:
   en: Labeling Workload Resources makes it simpler to query Pods - e.g. for the purpose of getting their logs.
-  ja: __COPY__
+  ja: ワークロードリソースにラベル付けすることは、Pod へのクエリを単純にします - たとえば、Pod のログを取得する目的のために。
 ---
 texts:
   en: Setting Annotations for all Resources
-  ja: __COPY__
+  ja: すべてのリソースにアノテーションを設定する
 ---
 texts:
   en: "**Example:** Add the annotations declared in `commonAnnotations` to all Resources in the project."
-  ja: __COPY__
+  ja: "**例:** プロジェクト内のすべてのリソースに `commonAnnotations` で宣言されたアノテーションを追加する"
 ---
 texts:
   en: >-
@@ -130,4 +136,7 @@ texts:
     In addition to updating the annotations for each Resource, any fields that contain ObjectMeta
 
     (e.g. PodTemplate) will also have the annotations added.
-  ja: __COPY__
+  ja: >-
+    {% panel style="info", title="アノテーションの伝播" %}
+
+    各リソースのアノテーションを更新するのに加えて、ObjectMeta を含むすべてのフィールド (たとえば PodTemplate) にもアノテーションが追加されます。
