@@ -209,43 +209,43 @@ texts:
 ---
 texts:
   en: Field Merge Semantics
-  ja: __COPY__
+  ja: フィールドのマージの意味論
 ---
 texts:
   en: Merging Primitives
-  ja: __COPY__
+  ja: プリミティブのマージ
 ---
 texts:
   en: Primitive fields are merged by replacing the current value with the new value.
-  ja: __COPY__
+  ja: プリミティブのフィールドは現在の値を新しい値に置換することでマージします
 ---
 texts:
   en: "**Field Creation:** Add the primitive field"
-  ja: __COPY__
+  ja: "**フィールドの作成:** プリミティブのフィールドを追加"
 ---
 texts:
   en: "**Field Update:** Change the primitive field value"
-  ja: __COPY__
+  ja: "**フィールドの更新:** プリミティブのフィールドの値を変更"
 ---
 texts:
   en: "**Field Deletion:** Delete the primitive field"
-  ja: __COPY__
+  ja: "**フィールドの削除:** プリミティブのフィールドを削除"
 ---
 texts:
   en: Field in Resource Config
-  ja: __COPY__
+  ja: リソース設定内のフィールド
 ---
 texts:
   en: Field in Resource
-  ja: __COPY__
+  ja: リソース内のフィールド
 ---
 texts:
   en: Field in Last Applied
-  ja: __COPY__
+  ja: 前回適用されたフィールド
 ---
 texts:
   en: Action
-  ja: __COPY__
+  ja: アクション
 ---
 texts:
   en: Yes
@@ -257,7 +257,7 @@ texts:
 ---
 texts:
   en: Set live to the Resource Config value.
-  ja: __COPY__
+  ja: 稼働中のリソースにリソース設定の値をセット
 ---
 texts:
   en: No
@@ -265,93 +265,93 @@ texts:
 ---
 texts:
   en: Remove from Resource.
-  ja: __COPY__
+  ja: リソースから削除
 ---
 texts:
   en: Do nothing.
-  ja: __COPY__
+  ja: 何もしない
 ---
 texts:
   en: Merging Objects
-  ja: __COPY__
+  ja: オブジェクトのマージ
 ---
 texts:
   en: >-
     Objects fields are updated by merging the sub-fields recursively (by field name) until a primitive field is found or
 
     the field is added / deleted.
-  ja: __COPY__
+  ja: オブジェクトのフィールドは下位のフィールドを (フィールド名で) 再帰的にマージすることによって更新します。マージは末端でプリミティブのフィールドが見つかるか、フィールドを追加 / 削除するまで続きます。
 ---
 texts:
   en: "**Field Creation:** Add the object field"
-  ja: __COPY__
+  ja: "**フィールドの作成:** オブジェクトのフィールドを追加"
 ---
 texts:
   en: "**Field Update:** Recursively compare object sub-field values and merge them"
-  ja: __COPY__
+  ja: "**フィールドの更新:** 再帰的にオブジェクトの下位のフィールドを見て値を比較し、マージする"
 ---
 texts:
   en: "**Field Deletion:** Delete the object field"
-  ja: __COPY__
+  ja: "**フィールドの削除:** オブジェクトのフィールドを削除"
 ---
 texts:
   en: "**Merge Table:** For each field merge Resource Config and Resource values with the same name"
-  ja: __COPY__
+  ja: "**テーブルのマージ:** 各フィールドに対してリソース設定と同名のリソースの値をマージ"
 ---
 texts:
   en: Recursively merge the Resource Config and Resource values.
-  ja: __COPY__
+  ja: 再帰的にリソース設定とリソースの値をマージする
 ---
 texts:
   en: Remove field from Resource.
-  ja: __COPY__
+  ja: リソースからフィールドを削除する
 ---
 texts:
   en: Merging Maps
-  ja: __COPY__
+  ja: マップのマージ
 ---
 texts:
   en: >-
     Map fields are updated by merging the elements (by key) until a primitive field is found or the value is
 
     added / deleted.
-  ja: __COPY__
+  ja: マップフィールドは要素を (キーで) マージします。マージは末端でプリミティブフィールドが見つかるか、値が追加 / 削除されるまで続きます。
 ---
 texts:
   en: "**Field Creation:** Add the map field"
-  ja: __COPY__
+  ja: "**フィールドの削除:** マップフィールドを追加"
 ---
 texts:
   en: "**Field Update:** Recursively compare map values by key and merge them"
-  ja: __COPY__
+  ja: "**フィールドの更新:** 再帰的にマップの値をキーで比較し、マージする"
 ---
 texts:
   en: "**Field Deletion:** Delete the map field"
-  ja: __COPY__
+  ja: "**フィールドの削除:** マップフィールドを削除"
 ---
 texts:
   en: "**Merge Table:** For each map element merge Resource Config and Resource values with the same key"
-  ja: __COPY__
+  ja: "**テーブルのマージ:** 各マップの要素に対してリソース設定と同キーのリソースの値をマージ"
 ---
 texts:
   en: Key in Resource Config
-  ja: __COPY__
+  ja: リソース設定内のキー
 ---
 texts:
   en: Key   in Resource
-  ja: __COPY__
+  ja: リソース内のキー
 ---
 texts:
   en: Key in Last Applied
-  ja: __COPY__
+  ja: 前回適用されたリソース設定内のキー
 ---
 texts:
   en: Remove map element from Resource.
-  ja: __COPY__
+  ja: リソースから要素を削除
 ---
 texts:
   en: Merging Lists of Primitives
-  ja: __COPY__
+  ja: プリミティブのリストのマージ
 ---
 texts:
   en: >-
