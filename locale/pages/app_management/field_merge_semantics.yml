@@ -11,49 +11,52 @@ texts:
 ---
 texts:
   en: Fields set and deleted from Resource Config are merged into Resources by Apply
-  ja: __COPY__
+  ja: リソース設定から追加また削除されたフィールドは Apply を実行することでリソースにマージされます
 ---
 texts:
   en: If a Resource already exists, Apply updates the Resources by merging the local Resource Config into the remote Resources
-  ja: __COPY__
+  ja: すでにリソースが存在していれば、Apply を実行するとリソースが更新され、ローカルにあるリソース設定がリモートのリソースにマージされます
 ---
 texts:
   en: Fields removed from the Resource Config will be deleted from the remote Resource
-  ja: __COPY__
+  ja: リソース設定から除かれたフィールドは、リモートのリソースから削除されます
 ---
 texts:
   en: Merging Fields
-  ja: __COPY__
+  ja: フィールドのマージ
 ---
 texts:
   en: >-
     {% panel style="warning", title="Advanced Section" %}
 
     This chapter contains advanced material that readers may want to skip and come back to later.
-  ja: __COPY__
+  ja: >-
+    {% panel style="warning", title="高度な内容" %}
+
+    この章には高度な内容が含まれているので、読み飛ばして後で戻っても構いません。
 ---
 texts:
   en: When are fields merged?
-  ja: __COPY__
+  ja: フィールドはいつマージされるか？
 ---
 texts:
   en: >-
     This page describes how Resource Config is merged with Resources or other Resource Config.  This
 
     may occur when:
-  ja: __COPY__
+  ja: このページでは、リソース設定がどのようにリソースとマージされるか、あるいはどのように他のリソース設定とマージされるか説明します。マージされるタイミングは以下です。
 ---
 texts:
   en: "Applying Resource Config updates to the live Resources in the cluster "
-  ja: __COPY__
+  ja: "リソース設定の更新をクラスタ内で稼働中のリソースに適用する"
 ---
 texts:
   en: Defining Patches in the `kustomization.yaml` which are overlayed on `resources` and [bases](../app_customization/bases_and_variants.md)
-  ja: __COPY__
+  ja: "`kustomization.yaml` の中で `resources` と [bases](../app_customization/bases_and_variants.md) の上にパッチを定義する"
 ---
 texts:
   en: Applying Resource Config Updates
-  ja: __COPY__
+  ja: リソース設定の更新を適用する
 ---
 texts:
   en: >-
@@ -62,11 +65,12 @@ texts:
     into the live Resource**.  This retains values which may be set by the control plane - such as `replicas` values
 
     set by auto scalers
-  ja: __COPY__
+  ja: Apply は新しいリソース設定を使ってリソースを置換するのではなく、**新しいリソース設定を稼働中のリソースにマージします**。そのために
+  制御プレーンによって設定されうる値、たとえばオートスケーラーにより設定される `replicas` の値などを保持します。
 ---
 texts:
   en: Defining Patches
-  ja: __COPY__
+  ja: パッチを定義する
 ---
 texts:
   en: >-
@@ -75,15 +79,16 @@ texts:
     defined in other Resource Config** with the same Group/Version/Kind/Namespace/Name.
 
     This is used to alter values defined on Resource Config without having to fork it.
-  ja: __COPY__
+  ja: >-
+    `patches` は疎なリソース設定で、**他のリソース設定の中で定義された値を上書きするフィールドのサブセットを含んでいます**。上書き対象となるリソースは、同じグループ / バージョン / Kind / 名前空間をもつものです。これはリソース設定をフォークせずに、リソース設定で定義された値を変更するために使用されます。
 ---
 texts:
   en: Motivation (Apply)
-  ja: __COPY__
+  ja: 動機 (Apply)
 ---
 texts:
   en: This page describes the semantics for merging Resource Config.
-  ja: __COPY__
+  ja: このページではリソース設定をマージするための意味論を説明します。
 ---
 texts:
   en: >-
@@ -94,7 +99,7 @@ texts:
     and `clusterIp` fields, are owned exclusively by Controllers.  Fields, such as the `name`
 
     and `namespace` fields, are owned exclusively by the human user managing the Resource.
-  ja: __COPY__
+  ja: "リソースフィールドの所有権は、人間の手で書かれた宣言的なリソース設定と、クラスタ内で実行されるコントローラが設定した値との間で共有されます。`status` や `clusterIp` のようないくつかのフィールドは、コントローラが排他的に所有します。`namespace` などのフィールドは、リソースを管理する人間が排他的に所有します。"
 ---
 texts:
   en: >-
@@ -105,11 +110,11 @@ texts:
     to a default value by the apiserver, or continuously adjusted by a Controller such as
 
     and HorizontalPodAutoscaler.
-  ja: __COPY__
+  ja: "`replicas` のような他のフィールドは、人間が所有することもありますし、apiserver やコントローラが所有することもあります。たとえば、`replicas` はユーザーが排他的に設定することもできますが、apiserver が暗黙的にデフォルト値を設定することもあり、あるいは HorizontalPodAutoscaler のようなコントローラが継続的に調整することもあります。"
 ---
 texts:
   en: Last Applied Resource Config
-  ja: __COPY__
+  ja: 前回適用されたリソース設定
 ---
 texts:
   en: >-
@@ -118,63 +123,64 @@ texts:
     Resource.  This allows it to compare the last Resource Config it Applied to the current Resource
 
     Config and identify fields that have been deleted.
-  ja: __COPY__
+  ja: Apply はリソースを作成または更新するときに、適用されたリソース設定をリソース上のアノテーションに書き込みます。これによって前回適用されたリソース設定と今回のリソース設定を比較することができ、削除されたフィールドを特定できます。
 ---
 texts:
   en: Merging Resources
-  ja: __COPY__
+  ja: リソースをマージする
 ---
 texts:
   en: "Following are the merge semantics for Resources:"
-  ja: __COPY__
+  ja: 以下はリソースのマージの意味論です。
 ---
 texts:
   en: "**Adding Fields:**"
-  ja: __COPY__
+  ja: フィールドの追加
 ---
 texts:
   en: >-
     Fields present in the Resource Config that are missing from the Resource will be added to the
       Resource.
-  ja: __COPY__
+  ja: >-
+    リソース設定に存在しているがリソースに欠落しているフィールドは、リソースに追加されます。
 ---
 texts:
   en: Fields will be added to the Last Applied Resource Config
-  ja: __COPY__
+  ja: フィールドは前回適用されたリソース設定に追加されます
 ---
 texts:
   en: "**Updating Fields**"
-  ja: __COPY__
+  ja: "**フィールドの更新**"
 ---
 texts:
   en: >-
     Fields present in the Resource Config that are also present in the Resource will be merged recursively
       until a primitive field is updated, or a field is added / deleted.
-  ja: __COPY__
+  ja: リソース設定にもリソースにも存在しているフィールドは、再帰的にマージされ、末端のプリミティブなフィールドが更新されるか、またはフィールドが追加 / 削除されます。
 ---
 texts:
   en: Fields will be updated in the Last Applied Resource Config
-  ja: __COPY__
+  ja: フィールドは前回適用されたリソース設定の中で更新されます
 ---
 texts:
   en: "**Deleting Fields**"
-  ja: __COPY__
+  ja: "**フィールドの削除**"
 ---
 texts:
   en: >-
     Fields present in the **Last Applied Resource Config** that have been removed from the Resource Config
       will be deleted from the Resource.
-  ja: __COPY__
+  ja: "**前回適用されたリソース設定**に存在するが現在のリソース設定で除かれたフィールドは、リソースから削除されます"
 ---
 texts:
   en: >-
     Fields set to *null* in the Resource Config that are present in the Resource Config will be deleted from the
       Resource.
-  ja: __COPY__
+  ja: リソース設定で **null** 値で存在しているフィールドはリソースから削除されます
 ---
 texts:
   en: Fields will be removed from the Last Applied Resource Config
-  ja: __COPY__
+  ja: フィールドは前回適用されたリソース設定から除かれます
 ---
 texts:
   en: >-
@@ -189,14 +195,17 @@ texts:
     and autoscaler), the user must first remove it from the last Applied Resource Config stored by the
 
     cluster.
-  ja: __COPY__
+  ja: >-
+    {% panel style="danger", title="リソース設定からフィールドを削除する" %}
+
+    リソース設定から単にフィールドを除くだけでは所有権がクラスタに移ることは**ありません**。そのかわりにリソースからフィールドを削除します。もしフィールドがリソース設定の中にセットされ、ユーザーが所有権を放棄したい (たとえば `replicas` をリソース設定から除いてオートスケーラーを使う) と思ったら、ユーザーは最初に、クラスタに保存されている前回適用されたリソース設定からフィールドを削除しなければなりません。
 ---
 texts:
   en: >-
     This can be performed using `kubectl apply edit-last-applied` to delete the `replicas` field from
 
     the **Last Applied Resource Config**, and then deleting it from the **Resource Config.**
-  ja: __COPY__
+  ja: これを実行するには、`kubectl apply edit-last-applied` コマンドを使い、**前回適用されたリソース設定**から `replicas` を削除し、それから **リソース設定**からも削除します。
 ---
 texts:
   en: Field Merge Semantics
