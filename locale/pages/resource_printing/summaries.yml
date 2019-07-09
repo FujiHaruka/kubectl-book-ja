@@ -11,19 +11,19 @@ texts:
 ---
 texts:
   en: Get a Summary of Resources Running in the Cluster
-  ja: __COPY__
+  ja: クラスタ内で実行中のリソースについて要約を取得する
 ---
 texts:
   en: Summarizing Resources
-  ja: __COPY__
+  ja: リソースを要約する
 ---
 texts:
   en: Motivation
-  ja: __COPY__
+  ja: 動機
 ---
 texts:
   en: Quickly summarizing a collection of Resources and their state.
-  ja: __COPY__
+  ja: リソースとその状態を簡単に要約します。
 ---
 texts:
   en: >-
@@ -32,7 +32,7 @@ texts:
     state when developing applications or triaging issues.  The **columnar view gives a compact
 
     summary of the most relevant information** for a collection of Resources.
-  ja: __COPY__
+  ja: リソースの状態を表形式で要約するのは、アプリケーションの開発時や問題の優先度を分類するときにクラスタの状態を表示する最も一般的な方法です。多くのリソースがある中で、**表形式の表示は最も関連する情報の要約をコンパクトにまとめます**。
 ---
 texts:
   en: Get
@@ -45,22 +45,22 @@ texts:
     this chapter will query for Resources by providing Get the *Resource Type* as an argument.
 
     For more query options see [Queries and Options](queries_and_options.md).
-  ja: __COPY__
+  ja: "`kubectl get` はリソースをクラスタから読み込み、出力としてフォーマットします。この章の例では、引数に**リソースタイプ**を指定して get することでリソースを検索します。"
 ---
 texts:
   en: Default
-  ja: __COPY__
+  ja: デフォルト
 ---
 texts:
   en: If no output format is specified, Get will print a default set of columns.
-  ja: __COPY__
+  ja: 出力フォーマットが指定されなければ、get はデフォルトの列を表示します。
 ---
 texts:
   en: >-
     **Note:** Some columns *may* not directly map to fields on the Resource, but instead may
 
     be a summary of fields.
-  ja: __COPY__
+  ja: "**注意:** いくつかの列ではリソース上のフィールドを直接表示せずに、フィールドの要約を表示することがあります。"
 ---
 texts:
   en: Wide
@@ -68,47 +68,47 @@ texts:
 ---
 texts:
   en: Print the default columns plus some additional columns.
-  ja: __COPY__
+  ja: デフォルトの列に追加でいつくかの列を表示します。
 ---
 texts:
   en: Custom Columns
-  ja: __COPY__
+  ja: カスタム列
 ---
 texts:
   en: Print out specific fields as Columns.
-  ja: __COPY__
+  ja: 特定のフィールドを列に指定して表示します。
 ---
 texts:
   en: "**Note:** Custom Columns can also be read from a file using `-o custom-columns-file`."
-  ja: __COPY__
+  ja: "**注意:** カスタム列は `-o custom-columns-file` を使ってファイルから読み取ることもできます。"
 ---
 texts:
   en: Labels
-  ja: __COPY__
+  ja: ラベル
 ---
 texts:
   en: Print out specific labels each as their own columns
-  ja: __COPY__
+  ja: 特定のラベルを表の列にして表示します。
 ---
 texts:
   en: Show Labels
-  ja: __COPY__
+  ja: ラベルの表示
 ---
 texts:
   en: Print out all labels on each Resource in a single column (last).
-  ja: __COPY__
+  ja: 各リソースのすべてのラベルを一つの列に表示します (最後の列になります)。
 ---
 texts:
   en: Show Kind
-  ja: __COPY__
+  ja: 種類の表示
 ---
 texts:
   en: Print out the Group.Kind as part of the Name column.
-  ja: __COPY__
+  ja: Name 列の一部として Group.Kind を表示します。
 ---
 texts:
   en: >-
     **Note:** This can be useful if the user did not specify the group in the command and
 
     they want to know which API is being used.
-  ja: __COPY__
+  ja: "**注意:** これはユーザーがグループをコマンド内で指定せず、どの API が使われているかを知りたいときに便利かもしれません。"
