@@ -156,7 +156,7 @@ texts:
   en: >-
     Fields present in the Resource Config that are also present in the Resource will be merged recursively
       until a primitive field is updated, or a field is added / deleted.
-  ja: リソース設定にもリソースにも存在しているフィールドは、再帰的にマージされ、末端のプリミティブなフィールドが更新されるか、またはフィールドが追加 / 削除されます。
+  ja: リソース設定にもリソースにも存在しているフィールドは、再帰的にマージされ、末端のプリミティブ値のフィールドが更新されるか、またはフィールドが追加 / 削除されます。
 ---
 texts:
   en: Fields will be updated in the Last Applied Resource Config
@@ -213,23 +213,23 @@ texts:
 ---
 texts:
   en: Merging Primitives
-  ja: プリミティブのマージ
+  ja: プリミティブ値のマージ
 ---
 texts:
   en: Primitive fields are merged by replacing the current value with the new value.
-  ja: プリミティブのフィールドは現在の値を新しい値に置換することでマージします
+  ja: プリミティブ値のフィールドは現在の値を新しい値に置換することでマージします
 ---
 texts:
   en: "**Field Creation:** Add the primitive field"
-  ja: "**フィールドの作成:** プリミティブのフィールドを追加"
+  ja: "**フィールドの作成:** プリミティブ値のフィールドを追加"
 ---
 texts:
   en: "**Field Update:** Change the primitive field value"
-  ja: "**フィールドの更新:** プリミティブのフィールドの値を変更"
+  ja: "**フィールドの更新:** プリミティブ値のフィールドの値を変更"
 ---
 texts:
   en: "**Field Deletion:** Delete the primitive field"
-  ja: "**フィールドの削除:** プリミティブのフィールドを削除"
+  ja: "**フィールドの削除:** プリミティブ値のフィールドを削除"
 ---
 texts:
   en: Field in Resource Config
@@ -280,7 +280,7 @@ texts:
     Objects fields are updated by merging the sub-fields recursively (by field name) until a primitive field is found or
 
     the field is added / deleted.
-  ja: オブジェクトのフィールドは下位のフィールドを (フィールド名で) 再帰的にマージすることによって更新します。マージは末端でプリミティブのフィールドが見つかるか、フィールドを追加 / 削除するまで続きます。
+  ja: オブジェクトのフィールドは下位のフィールドを (フィールド名で) 再帰的にマージすることによって更新します。マージは末端でプリミティブ値のフィールドが見つかるか、フィールドを追加 / 削除するまで続きます。
 ---
 texts:
   en: "**Field Creation:** Add the object field"
@@ -315,7 +315,7 @@ texts:
     Map fields are updated by merging the elements (by key) until a primitive field is found or the value is
 
     added / deleted.
-  ja: マップフィールドは要素を (キーで) マージします。マージは末端でプリミティブフィールドが見つかるか、値が追加 / 削除されるまで続きます。
+  ja: マップフィールドは要素を (キーで) マージします。マージは末端でプリミティブ値のフィールドが見つかるか、値が追加 / 削除されるまで続きます。
 ---
 texts:
   en: "**Field Creation:** Add the map field"
@@ -351,61 +351,61 @@ texts:
 ---
 texts:
   en: Merging Lists of Primitives
-  ja: プリミティブのリストのマージ
+  ja: プリミティブ値のリストのマージ
 ---
 texts:
   en: >-
     Lists of primitives will be merged if they have a `patch strategy: merge` on the field otherwise they will
 
     be replaced.  [Finalizer list example](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.12/#objectmeta-v1-meta)
-  ja: __COPY__
+  ja: "プリミティブ値のリストは、フィールドに `patch strategy: merge` が設定されていればマージされ、そうでなければ置換されます。 [Finalizer list example](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.12/#objectmeta-v1-meta)"
 ---
 texts:
   en: "**Merge Strategy:**"
-  ja: __COPY__
+  ja: "**マージ戦略**"
 ---
 texts:
   en: Merged primitive lists behave like ordered sets
-  ja: __COPY__
+  ja: プリミティブ値のリストのマージは ordered set の挙動と似ています
 ---
 texts:
   en: Replace primitive lists are replaced when merged
-  ja: __COPY__
+  ja: プリミティブ値のリストの置換はマージ時に置換されます
 ---
 texts:
   en: >-
     **Ordering:** Uses the ordering specified in the Resource Config.  Elements not specified in the Resource Config
 
     do not have ordering guarantees with respect to the elements in the Resource Config.
-  ja: __COPY__
+  ja: "**順序付け:** リソース設定の中で定義された順序を使用します。リソース設定に定義されていない要素は、リソース設定内の要素に関して順序の保証はありません。"
 ---
 texts:
   en: "**Merge Table:** For each list element merge Resource Config and Resource element with the same value"
-  ja: __COPY__
+  ja: "**マージテーブル:** 各リストの要素はリソース設定とリソースの要素を同じ値でマージします"
 ---
 texts:
   en: Element in Resource Config
-  ja: __COPY__
+  ja: リソース設定の要素
 ---
 texts:
   en: Element in Resource
-  ja: __COPY__
+  ja: リソースの要素
 ---
 texts:
   en: Element in Last Applied
-  ja: __COPY__
+  ja: 前回適用されたリソース設定の要素
 ---
 texts:
   en: Do nothing
-  ja: __COPY__
+  ja: 何もしない
 ---
 texts:
   en: Add to list.
-  ja: __COPY__
+  ja: リストに追加する
 ---
 texts:
   en: Remove from list.
-  ja: __COPY__
+  ja: リストから除く
 ---
 texts:
   en: >-
@@ -414,18 +414,18 @@ texts:
     The `patch merge key` is defined in the [Kubernetes API](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.12/#podspec-v1-core)
 
     on the field.
-  ja: __COPY__
+  ja: "このマージ戦略は patch merge key を使ってリスト内のコンテナ要素を識別し、マージします。`patch merge key` はフィールド上の [Kubernetes API](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.12/#podspec-v1-core) で定義されています。"
 ---
 texts:
   en: Merging Lists of Objects
-  ja: __COPY__
+  ja: オブジェクトのリストのマージ
 ---
 texts:
   en: >-
     **Merge Strategy:** Lists of primitives may be merged or replaced.  Lists are merged if the list has a `patch strategy` of *merge*
 
     and a `patch merge key` on the list field.  [Container list example](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.12/#podspec-v1-core).
-  ja: __COPY__
+  ja: "**マージ戦略:** プリミティブ値のリストはマージされるか置換されるかします。リストの `patch strategy` が **merge** でリストフィールドに `patch merge key` があるとき、リストはマージされます。 [Container list example](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.12/#podspec-v1-core)"
 ---
 texts:
   en: >-
@@ -436,21 +436,21 @@ texts:
     Instead an object field is used as a synthetic *key/value* for merging elements.  This fields is the
 
     `patch merge key`.  List elements with the same patch merge key will be merged when lists are merged.
-  ja: __COPY__
+  ja: "**マージキー:** `patch merge key` はリスト内の同じ要素を識別するために使用されます。 map の要素 (キーによるキー) やオブジェクトのフィールド (フィールド名によるキー) と違って、リストは各要素を区別するビルトインの識別子がありません (インデックスは同一性を定義しません)。オブジェクトのフィールドの代わりに、マージする要素に対して人工のキー / バリューとして使われます。このフィールドは `patch merge key` です。同じ patch merge key をもつ要素はリストがマージされるときにマージされます。"
 ---
 texts:
   en: >-
     **Ordering:** Uses the ordering specified in the Resource Config.  Elements not specified in the Resource Config
 
     do not have ordering guarantees.
-  ja: __COPY__
+  ja: "**順序:** リソース設定の中で定義された順序を使用します。リソース設定の中で定義されていない要素は順序が保証されません。"
 ---
 texts:
   en: >-
     **Merge Table:** For each list element merge Resource Config and Resource element where the elements have the same
 
     value for the `patch merge key`
-  ja: __COPY__
+  ja: "**マージテーブル:** 各リストの要素に対してリソース設定とリソースの要素をマージしますが、`patch merge key` の値が同じ要素をマージします。"
 ---
 texts:
   en: >-
@@ -461,16 +461,19 @@ texts:
     change any values in the Resource Config set by either `kubectl edit` or `kubectl set`.
 
     To ignore values set by `kubectl edit` or `kubectl set`:
-  ja: __COPY__
+  ja: >-
+    {% panel style="info", title="Edit と Set" %}
+
+    `kubectl edit` と `kubectl set` は前回適用されたリソース設定を無視しますが、Apply は、`kubectl edit` や `kubectl set` でセットされたリソース設定の値を変更します。`kubectl edit` や `kubectl set` でセットされた値を無視するには、以下のようにします。
 ---
 texts:
   en: Use `kubectl apply edit-last-applied` to remove the value from the Last Applied (if it is present)
-  ja: __COPY__
+  ja: "`kubectl apply edit-last-applied` を使って前回適用されたリソース設定から (もし存在すれば) 値を削除します"
 ---
 texts:
   en: Remove the field from the Resource Config
-  ja: __COPY__
+  ja: リソース設定からフィールドを削除します
 ---
 texts:
   en: This is the same technique for retaining values set by cluster components such as autoscalers.
-  ja: __COPY__
+  ja: これはオートスケーラーなどのクラスタコンポーネントによってセットされた値を保持するのと同じテクニックです。
