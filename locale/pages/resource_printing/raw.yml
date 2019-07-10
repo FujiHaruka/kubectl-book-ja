@@ -11,19 +11,19 @@ texts:
 ---
 texts:
   en: Get or List Raw Resources in a cluster as Yaml or Json
-  ja: __COPY__
+  ja: クラスタ内の生のリソースを YAML や JSON として取得、リスト表示します
 ---
 texts:
   en: Print Raw Resource
-  ja: __COPY__
+  ja: 生のリソースを表示する
 ---
 texts:
   en: Motivation
-  ja: __COPY__
+  ja: 動機
 ---
 texts:
   en: Inspecting or Debugging Resources.
-  ja: __COPY__
+  ja: リソースの調査やデバッグのためです。
 ---
 texts:
   en: >-
@@ -32,23 +32,23 @@ texts:
     are shown in the summarized views**.  Users can learn much more about a Resource by
 
     viewing the Raw Resource as Yaml or Json.  The Raw Resource will contain:
-  ja: __COPY__
+  ja: apiserver により etcd に保存された Kubernetes リソースは、**要約表示で表示されるよりも多くのフィールドを持っています**。生のリソースを YAML や JSON で表示することで、より多くの情報を知ることができます。生のリソースには以下が含まれます。
 ---
 texts:
   en: fields specified by the **user** in the Resource Config (e.g. `metadata.name`)
-  ja: __COPY__
+  ja: "リソース内で**ユーザー**が指定したフィールド (例: `metadata.name`)"
 ---
 texts:
   en: metadata fields owned by the **apiserver** (e.g. `metadata.creationTimestamp`)
-  ja: __COPY__
+  ja: "**apiserver** が所有するメタデータ (例: `metadata.creationTimestamp`)"
 ---
 texts:
   en: fields defaulted by the **apiserver** (e.g. `spec..imagePullPolicy`)
-  ja: __COPY__
+  ja: "**apiserver** によりデフォルト値が設定されたフィールド (例: `spec.imagePullPolicy`)"
 ---
 texts:
   en: fields set by **Controllers** (e.g. `spec.clusterIp`, `status`)
-  ja: __COPY__
+  ja: "**コントローラ**により設定されたフィールド (例: `spec.clusterIp`、`status`)"
 ---
 texts:
   en: Get
@@ -61,7 +61,8 @@ texts:
     this chapter will query for Resources by providing Get the *Resource Type* as an argument.
 
     For more query options see [Queries and Options](queries_and_options.md).
-  ja: __COPY__
+  ja: >-
+    `kubectl get` はクラスタからリソースを読み込み、出力としてフォーマットします。この章の例では、引数に**リソースタイプ**を与えることでリソースを検索します。検索のオプションの詳細は[クエリとオプション](queries_and_options.md)を確認してください。
 ---
 texts:
   en: YAML
@@ -69,7 +70,7 @@ texts:
 ---
 texts:
   en: Print the Raw Resource formatting it as YAML.
-  ja: __COPY__
+  ja: 生のリソースを YAML 形式で表示します。
 ---
 texts:
   en: JSON
@@ -77,4 +78,4 @@ texts:
 ---
 texts:
   en: Print the Raw Resource formatting it as JSON.
-  ja: __COPY__
+  ja: 生のリソースを JSON 形式で出力します。
