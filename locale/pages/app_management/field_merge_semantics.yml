@@ -65,8 +65,7 @@ texts:
     into the live Resource**.  This retains values which may be set by the control plane - such as `replicas` values
 
     set by auto scalers
-  ja: Apply は新しいリソース設定を使ってリソースを置換するのではなく、**新しいリソース設定を稼働中のリソースにマージします**。そのために
-  制御プレーンによって設定されうる値、たとえばオートスケーラーにより設定される `replicas` の値などを保持します。
+  ja: "Apply は新しいリソース設定を使ってリソースを置換するのではなく、**新しいリソース設定を稼働中のリソースにマージします**。そのために制御プレーンによって設定されうる値、たとえばオートスケーラーにより設定される `replicas` の値などを保持します。"
 ---
 texts:
   en: Defining Patches

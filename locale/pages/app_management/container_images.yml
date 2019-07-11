@@ -179,14 +179,9 @@ texts:
   en: Setting a Tag
   ja: タグの設定
 ---
-meta:
-  outdated: true
 texts:
   en: The tag for an image may be set by specifying `newTag` and the name of the container image.
-  ja: >-
-    イメージのタグは `newTag` とコンテナイメージ名を指定することで設定できます。
-
-    {% sample lang="yaml" %}
+  ja: イメージのタグは `newTag` とコンテナイメージ名を指定することで設定できます。
 ---
 texts:
   en: Setting a Digest
