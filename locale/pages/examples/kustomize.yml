@@ -18,9 +18,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-2
-     {% method %}
-    This file declares the customization provided by the kustomize program.
+  en: This file declares the customization provided by the kustomize program.
   ja: __COPY__
 ---
 texts:
@@ -43,8 +41,4 @@ texts:
 ---
 texts:
   en: ' {% sample lang="yaml" %}'
-  ja: __COPY__
----
-texts:
-  en: " {% endmethod %}"
   ja: __COPY__

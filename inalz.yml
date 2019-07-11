@@ -9,5 +9,5 @@ documents:
     locale: locale
 options:
   lineIgnorePatterns:
-    - "^{% \\w+ %}$"
+    - "^\\s*{% \\w+ %}\\s*$"
     - '^{% sample lang="yaml" %}$'

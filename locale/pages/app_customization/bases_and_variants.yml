@@ -59,9 +59,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    [bases](../reference/kustomize.md#bases)
-     {% endpanel %}
+  en: "[bases](../reference/kustomize.md#bases)"
   ja: __COPY__
 ---
 texts:

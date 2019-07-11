@@ -41,9 +41,7 @@ texts:
   ja: __COPY__
 ---
 texts:
-  en: >-
-    [vars](../reference/kustomize.md#var)
-     {% endpanel %} 
+  en: "[vars](../reference/kustomize.md#var)"
   ja: __COPY__
 ---
 texts:
