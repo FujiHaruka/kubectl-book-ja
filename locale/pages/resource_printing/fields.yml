@@ -11,31 +11,31 @@ texts:
 ---
 texts:
   en: Format and print specific fields from Resources
-  ja: __COPY__
+  ja: リソースの特定のフィールドをフォーマットして表示します
 ---
 texts:
   en: Use when scripting with Get
-  ja: __COPY__
+  ja: get コマンドでスクリプトを書くときに使います
 ---
 texts:
   en: Print Resource Fields
-  ja: __COPY__
+  ja: リソースのフィールドを表示する
 ---
 texts:
   en: Motivation
-  ja: __COPY__
+  ja: 動機
 ---
 texts:
   en: Kubectl Get is able to pull out fields from Resources it queries and format them as output.
-  ja: __COPY__
+  ja: Kubectl の get コマンドは検索したリソースからフィールドを抽出し、フォーマットして出力することができます。
 ---
 texts:
   en: This may be **useful for scripting or gathering data** about Resources from a Kubernetes cluster.
-  ja: __COPY__
+  ja: これは Kubernetes クラスタからリソースについてのデータを収集したり処理するスクリプトを書くときに便利です。
 ---
 texts:
   en: Get
-  ja: __COPY__
+  ja: 取得
 ---
 texts:
   en: >-
@@ -46,11 +46,12 @@ texts:
     Version and Group as an argument.
 
     For more query options see [Queries and Options](queries_and_options.md).
-  ja: __COPY__
+  ja: >-
+    `kubectl get` コマンドはクラスタからリソースを読み込み、フォーマットして出力します。この章の例では、リソースを検索するためにコマンドの引数に**リソースタイプ**をバージョンとグループ名付きで与えます。検索オプションの詳細は [Queries and Options](queries_and_options.md) をご覧ください。
 ---
 texts:
   en: Kubectl can format and print specific fields from Resources using Json Path.
-  ja: __COPY__
+  ja: リソースから特定のフィールドをフォーマットして表示するには JSON パスを使うことができます。
 ---
 texts:
   en: >-
@@ -59,7 +60,10 @@ texts:
     By default, if no API group or version is specified, kubectl will use the group and version preferred by
 
     the apiserver.
-  ja: __COPY__
+  ja: >-
+    {% panel style="warning", title="スクリプトの落とし穴" %}
+
+    デフォルトでは、API グループやバージョンを指定しなければ、apiserver が選んだグループとバージョンが使用されます。
 ---
 texts:
   en: >-
@@ -68,66 +72,67 @@ texts:
     API Group and Version when emitting fields from `kubectl get` to make sure the command does not break
 
     in future releases.
-  ja: __COPY__
+  ja: >-
+    **リソースの構造は API グループとバージョンによって変わる可能性があるため**、`kubectl get` からフィールドを出力するときには将来のリリースでコマンドが壊れないことを保証するために、API グループとバージョンを指定することを**推奨します**。
 ---
 texts:
   en: >-
     Failure to do this may result in the different API group / version being used after a cluster upgrade, and
 
     this group / version may have changed the representation of fields.
-  ja: __COPY__
+  ja: これを省略すると、異なる API グループ / バージョンがクラスタのアップグレード後に使われ、その API グループ / バージョンがフィールドの表現を変更してしまうかもしれません。
 ---
 texts:
   en: JSON Path
-  ja: __COPY__
+  ja: JSON パス
 ---
 texts:
   en: Print the fields from the JSON Path
-  ja: __COPY__
+  ja: JSON パスからフィールドを表示します
 ---
 texts:
   en: "**Note:**  JSON Path can also be read from a file using `-o custom-columns-file`."
-  ja: __COPY__
+  ja: "**注意:** JSON パスはファイルから読み込むこともでき、そのためには `-o custom-columns-file` を使用します。"
 ---
 texts:
   en: "JSON Path template is composed of JSONPath expressions enclosed by {}. In addition to the original JSONPath syntax, several capabilities are added:"
-  ja: __COPY__
+  ja: JSON パステンプレートは {} で囲まれた JSONPath 記法で構成されます。もともとの JSONPath 構文に加えて、いつくかの拡張が追加されています。
 ---
 texts:
   en: The `$` operator is optional (the expression starts from the root object by default).
-  ja: __COPY__
+  ja: "`$` 演算子はオプショナルです (デフォルトではルートオブジェクトから式が始まります)"
 ---
 texts:
   en: Use "" to quote text inside JSONPath expressions.
-  ja: __COPY__
+  ja: 'JSONPath 式の中ではテキストの引用符に "" を使います'
 ---
 texts:
   en: Use range operator to iterate lists.
-  ja: __COPY__
+  ja: リストをイテレートするには range 演算子を使います
 ---
 texts:
   en: Use negative slice indices to step backwards through a list. Negative indices do not “wrap around” a list. They are valid as long as -index + listLength >= 0.
-  ja: __COPY__
+  ja: スライスのインデックスの負数を使うとリストを後ろから逆方向に進みます。負のインデックスはリストを「包み込み」ません。負のインデックスが有効な範囲は -index + listLength >= 0 です。
 ---
 texts:
   en: JSON Path Symbols Table
-  ja: __COPY__
+  ja: JSON パスの記号一覧
 ---
 texts:
   en: Function
-  ja: __COPY__
+  ja: 機能
 ---
 texts:
   en: Description
-  ja: __COPY__
+  ja: 説明
 ---
 texts:
   en: Example
-  ja: __COPY__
+  ja: 例
 ---
 texts:
   en: Result
-  ja: __COPY__
+  ja: 結果
 ---
 texts:
   en: text
@@ -135,15 +140,15 @@ texts:
 ---
 texts:
   en: the plain text
-  ja: __COPY__
+  ja: プレーンテキスト
 ---
 texts:
   en: kind is {.kind}
-  ja: __COPY__
+  ja: 種類は {.kind}
 ---
 texts:
   en: kind is List
-  ja: __COPY__
+  ja: 種類は List
 ---
 texts:
   en: "@"
@@ -151,7 +156,7 @@ texts:
 ---
 texts:
   en: the current object
-  ja: __COPY__
+  ja: 現在のオブジェクト
 ---
 texts:
   en: "{@}"
@@ -159,7 +164,7 @@ texts:
 ---
 texts:
   en: the same as input
-  ja: __COPY__
+  ja: 入力と同じ
 ---
 texts:
   en: . or []
@@ -167,7 +172,7 @@ texts:
 ---
 texts:
   en: child operator
-  ja: __COPY__
+  ja: 子演算子
 ---
 texts:
   en: "{.kind} or {[‘kind’]}"
@@ -183,7 +188,7 @@ texts:
 ---
 texts:
   en: recursive descent
-  ja: __COPY__
+  ja: 再帰的降下
 ---
 texts:
   en: "{..name}"
@@ -199,7 +204,7 @@ texts:
 ---
 texts:
   en: wildcard. Get all objects
-  ja: __COPY__
+  ja: ワイルドカード。全オブジェクトを取得
 ---
 texts:
   en: "{.items[*].metadata.name}"
@@ -231,7 +236,7 @@ texts:
 ---
 texts:
   en: union operator
-  ja: __COPY__
+  ja: ユニオン演算子
 ---
 texts:
   en: "{.items[*][‘metadata.name’, ‘status.capacity’]}"
@@ -247,7 +252,7 @@ texts:
 ---
 texts:
   en: filter
-  ja: __COPY__
+  ja: フィルター
 ---
 texts:
   en: "{.users[?(@.name==“e2e”)].user.password}"
@@ -263,7 +268,7 @@ texts:
 ---
 texts:
   en: iterate list
-  ja: __COPY__
+  ja: リストのイテレート
 ---
 texts:
   en: "{range .items[*]}[{.metadata.name}, {.status.capacity}] {end}"
@@ -291,27 +296,27 @@ texts:
 ---
 texts:
   en: Print the JSON representation of the first Deployment in the list on a single line.
-  ja: __COPY__
+  ja: リスト中の最初の Deployment を一行の JSON 表現で表示します。
 ---
 texts:
   en: Print the `metadata.name` field for the first Deployment in the list.
-  ja: __COPY__
+  ja: "リスト中の 最初の Deployment の `metadata.name` フィールドを表示します。"
 ---
 texts:
   en: For each Deployment, print its `metadata.name` field and a newline afterward.
-  ja: __COPY__
+  ja: 各 Deployment ごとに、その `metadata.name` フィールドを改行区切りで表示します。
 ---
 texts:
   en: For each Deployment, print its `metadata.name` and `.status.availableReplicas`.
-  ja: __COPY__
+  ja: 各 Deployment ごとに、その `metadata.name` と `.status.availableReplicas` を表示します
 ---
 texts:
   en: Print the list of Deployments as single line.
-  ja: __COPY__
+  ja: Deployment のリストを一行で表示します。
 ---
 texts:
   en: Print each Deployment on a new line.
-  ja: __COPY__
+  ja: 各 Deployment を改行区切りで表示します。
 ---
 texts:
   en: >-
@@ -320,8 +325,13 @@ texts:
     On Windows, you must double quote any JSONPath template that contains spaces (not single quote as shown above for bash).
 
     This in turn means that you must use a single quote or escaped double quote around any literals in the template.
-  ja: __COPY__
+  ja: >-
+    {% panel style="info", title="リテラル構文" %}
+
+    リテラル構文では、スペースを含む JSONPath テンプレートは (上の bash で示したシングルクォートではなく) ダブルクォートで囲います。
+
+    これは、テンプレート内のリテラルを囲む引用符にはシングルクォートを使うか、エスケープしたダブルクォートを使う必要があることを意味します。
 ---
 texts:
   en: "For example:"
-  ja: __COPY__
+  ja: "例:"
