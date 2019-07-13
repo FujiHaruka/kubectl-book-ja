@@ -11,37 +11,37 @@ texts:
 ---
 texts:
   en: Print verbose debug information about a Resource
-  ja: __COPY__
+  ja: リソースに関する詳細なデバッグ情報を表示します
 ---
 texts:
   en: Describe Resources
-  ja: __COPY__
+  ja: リソースの describe
 ---
 texts:
   en: Motivation
-  ja: __COPY__
+  ja: 動機
 ---
 texts:
   en: >-
     Describe is a **higher level printing operation that may aggregate data from other sources** in addition
 
     to the Resource being queried (e.g. Events).
-  ja: __COPY__
+  ja: describe は、検索されたリソースの情報に加えて**他のソース (たとえば Evnet) からも情報を集めて表示することのできる高レベルの操作**です。
 ---
 texts:
   en: >-
     Describe pulls out the most important information about a Resource from the Resource itself and related
 
     Resources, and formats and prints this information on multiple lines.
-  ja: __COPY__
+  ja: describe は対象のリソースとそれに関連するリソースから、リソースに関する最も重要な情報を引き出し、その情報を複数行にフォーマットし、表示します。
 ---
 texts:
   en: Aggregates data from related Resources
-  ja: __COPY__
+  ja: 関連するリソースからデータを集めます
 ---
 texts:
   en: Formats Verbose Output for debugging
-  ja: __COPY__
+  ja: デバッグ用に詳細な出力をフォーマットします
 ---
 texts:
   en: >-
@@ -50,11 +50,14 @@ texts:
     When Describing a Resource, it may aggregate information from several other Resources.  For instance Describing
 
     a Node will aggregate Pod Resources to print the Node utilization.
-  ja: __COPY__
+  ja: >-
+    {% panel style="info", title="Get vs Describe" %}
+
+    リソースを describe するとき、他のリソースからも情報を集めます。たとえば、Node を describe すると Pod リソースの情報を集め、Node の中での使用率を表示します。
 ---
 texts:
   en: >-
     When Getting a Resource, it will only print information available from reading that Resource.  While Get may aggregate
 
     data from the the *fields* of that Resource, it won't look at fields from other Resources.
-  ja: __COPY__
+  ja: リソースを get するときはそのリソースから読み取れる情報だけが表示されます。get はリソースの**フィールド**からデータを集めますが、他のリソースのフィールドは見ません。
