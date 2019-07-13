@@ -11,27 +11,27 @@ texts:
 ---
 texts:
   en: Print information about the Cluster and Client versions
-  ja: __COPY__
+  ja: クラスタとクライアントのバージョン情報を表示します
 ---
 texts:
   en: Print information about the Control Plane
-  ja: __COPY__
+  ja: 制御プレインに関する情報を表示します
 ---
 texts:
   en: Print information about Nodes
-  ja: __COPY__
+  ja: Node に関する情報を表示します
 ---
 texts:
   en: Print information about APIs
-  ja: __COPY__
+  ja: API に関する情報を表示します
 ---
 texts:
   en: Cluster Info
-  ja: __COPY__
+  ja: クラスタの情報
 ---
 texts:
   en: Motivation
-  ja: __COPY__
+  ja: 動機
 ---
 texts:
   en: >-
@@ -40,11 +40,11 @@ texts:
     than just the workloads running in it.  This can be useful for debugging
 
     unexpected behavior.
-  ja: __COPY__
+  ja: Kubernetes クラスタ上で実行するワークロードだけでなく、クラスタ自体について学ぶ必要があるかもしれません。そうしておくと、期待される挙動をデバッグするのに役立ちます。
 ---
 texts:
   en: Versions
-  ja: __COPY__
+  ja: バージョン
 ---
 texts:
   en: >-
@@ -53,29 +53,29 @@ texts:
     the client version may not be present for clients built locally from
 
     source.
-  ja: __COPY__
+  ja: "`kubectl version` はクライアントとサーバーのバージョンを表示します。なお、クライアントをローカルでソースからビルドした場合には、クライアントのバージョンは表示されないこともあります。"
 ---
 texts:
   en: >-
-    {% panel style="warning", title="Version Skew" %}
+    {% panel style="warning", title="バージョンのずれ" %}
 
     Kubectl supports +/-1 version skew with the Kubernetes cluster.  Kubectl
 
     versions that are more than 1 version ahead of or behind the cluster are
 
     not guaranteed to be compatible.
-  ja: __COPY__
+  ja: Kubectl は Kubernetes クラスタに関して +/-1 のバージョン違いをサポートします。Kubectl のバージョンがクラスタのバージョンと 1 よりも大きく進んでいる、あるいは遅れていると、互換性が保証されません。
 ---
 texts:
   en: Control Plane and Addons
-  ja: __COPY__
+  ja: 制御プレインとアドオン
 ---
 texts:
   en: >-
     The `kubectl cluster-info` prints information about the control plane and
 
     add-ons.
-  ja: __COPY__
+  ja: "`kubectl cluster-info` は制御プレインとアドオンに関する情報を表示します。"
 ---
 texts:
   en: >-
@@ -84,22 +84,25 @@ texts:
     The URLs printed by `cluster-info` can be access at `127.0.0.1:8001` by
 
     running `kubectl proxy`. 
-  ja: __COPY__
+  ja: >-
+    {% panel style="info", title="Kube Proxy" %}
+
+    `cluster-info` によって表示される URL は `kubectl proxy` を実行することで `127.0.0.1:8001` からアクセスできるようになります。
 ---
 texts:
   en: Nodes
-  ja: __COPY__
+  ja: Node
 ---
 texts:
   en: >-
     The `kubectl top node` and `kubectl top pod` print information about the
 
     top nodes and pods.
-  ja: __COPY__
+  ja: "`kubectl top node` と `kubectl top pod` はトップの node と pod に関する情報を表示します。"
 ---
 texts:
   en: APIs
-  ja: __COPY__
+  ja: API
 ---
 texts:
   en: >-
@@ -108,19 +111,20 @@ texts:
     about the available Kubernetes APIs.  This information is read from the
 
     Discovery Service.
-  ja: __COPY__
+  ja: >-
+    `kubectl api-versions` と `kubectl api-resources` は利用可能な Kubernetes API に関する情報を表示します。この情報はディスカバリーサービスから読み込まれます。
 ---
 texts:
   en: Print the Resource Types available in the cluster.
-  ja: __COPY__
+  ja: クラスタ内で利用可能なリソースタイプを表示します。
 ---
 texts:
   en: Print the API versions available in the cluster.
-  ja: __COPY__
+  ja: クラスタ内で利用可能な API のバージョンを表示します。
 ---
 texts:
   en: >-
-    {% panel style="info", title="Discovery" %}
+    {% panel style="info", title="ディスカバリー" %}
 
     The discovery information can be viewed at `127.0.0.1:8001/` by running
 
@@ -129,11 +133,14 @@ texts:
     `/api/v1` or `apis/<group>/<version>`, depending on the API group -
 
     e.g. `127.0.0.1:8001/apis/apps/v1`
-  ja: __COPY__
+  ja: >-
+    {% panel style="info", title="Discovery" %}
+
+    ディスカバリーの情報は `kubectl proxy` コマンドを実行することで `127.0.0.1:8001/` から閲覧できます。特定の API のディスカバリーは `/api/v1` 下や `apis/<group>/<version>` で見られます。これは API グループに依存します。たとえば、`127.0.0.1:8001/apis/apps/v1` などになります。
 ---
 texts:
   en: >-
     The `kubectl explain` command can be used to print metadata about specific
 
     Resource types.  This is useful for learning about the type.
-  ja: __COPY__
+  ja: "`kubectl explain` コマンドは特定のリソースタイプに関するメタデータを表示するのに使用できます。これはリソースタイプの情報を知るのに便利です。"
