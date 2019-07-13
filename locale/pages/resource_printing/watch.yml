@@ -34,13 +34,13 @@ texts:
 ---
 texts:
   en: >-
-    {% panel style="danger", title="watch のタイムアウト" %}
+    {% panel style="danger", title="Watch Timeouts" %}
 
     Watch **timesout after 5 minutes**, after which kubectl will re-establish the watch and print the
 
     resources.
   ja: >-
-    {% panel style="danger", title="Watch Timeouts" %}
+    {% panel style="danger", title="watch のタイムアウト" %}
 
     watch は kubectl が監視プロセスを再確立し、リソースを表示してから **5 分でタイムアウトします**。
 ---

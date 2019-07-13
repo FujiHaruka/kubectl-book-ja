@@ -57,14 +57,17 @@ texts:
 ---
 texts:
   en: >-
-    {% panel style="warning", title="バージョンのずれ" %}
+    {% panel style="warning", title="Version Skew" %}
 
     Kubectl supports +/-1 version skew with the Kubernetes cluster.  Kubectl
 
     versions that are more than 1 version ahead of or behind the cluster are
 
     not guaranteed to be compatible.
-  ja: Kubectl は Kubernetes クラスタに関して +/-1 のバージョン違いをサポートします。Kubectl のバージョンがクラスタのバージョンと 1 よりも大きく進んでいる、あるいは遅れていると、互換性が保証されません。
+  ja: >-
+    {% panel style="warning", title="バージョンのずれ %}
+
+    Kubectl は Kubernetes クラスタに関して +/-1 のバージョン違いをサポートします。Kubectl のバージョンがクラスタのバージョンと 1 よりも大きく進んでいる、あるいは遅れていると、互換性が保証されません。
 ---
 texts:
   en: Control Plane and Addons
@@ -111,8 +114,7 @@ texts:
     about the available Kubernetes APIs.  This information is read from the
 
     Discovery Service.
-  ja: >-
-    `kubectl api-versions` と `kubectl api-resources` は利用可能な Kubernetes API に関する情報を表示します。この情報はディスカバリーサービスから読み込まれます。
+  ja: "`kubectl api-versions` と `kubectl api-resources` は利用可能な Kubernetes API に関する情報を表示します。この情報はディスカバリーサービスから読み込まれます。"
 ---
 texts:
   en: Print the Resource Types available in the cluster.
@@ -124,7 +126,7 @@ texts:
 ---
 texts:
   en: >-
-    {% panel style="info", title="ディスカバリー" %}
+    {% panel style="info", title="Discovery" %}
 
     The discovery information can be viewed at `127.0.0.1:8001/` by running
 
