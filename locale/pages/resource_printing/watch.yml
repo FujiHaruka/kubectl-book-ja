@@ -11,39 +11,42 @@ texts:
 ---
 texts:
   en: Continuously Watch and print Resources as they change
-  ja: __COPY__
+  ja: 継続的にリソースを監視し、変更を検知して表示します
 ---
 texts:
   en: Watching Resources for changes
-  ja: __COPY__
+  ja: リソースの変更を監視
 ---
 texts:
   en: Motivation
-  ja: __COPY__
+  ja: 動機
 ---
 texts:
   en: Print Resources as they are updated.
-  ja: __COPY__
+  ja: リソースが更新されるたびにリソースを表示します。
 ---
 texts:
   en: >-
     It is possible to have `kubectl get` **continuously watch for changes to objects**, and print the objects
 
     when they are changed or when the watch is reestablished.
-  ja: __COPY__
+  ja: "`kubectl get` に**オブジェクトの変更を継続的に監視させ**、リソースが変更されたとき、または監視プロセスが再確立されたときにオブジェクトを表示させることができます。"
 ---
 texts:
   en: >-
-    {% panel style="danger", title="Watch Timeouts" %}
+    {% panel style="danger", title="watch のタイムアウト" %}
 
     Watch **timesout after 5 minutes**, after which kubectl will re-establish the watch and print the
 
     resources.
-  ja: __COPY__
+  ja: >-
+    {% panel style="danger", title="Watch Timeouts" %}
+
+    watch は kubectl が監視プロセスを再確立し、リソースを表示してから **5 分でタイムアウトします**。
 ---
 texts:
   en: >-
     It is possible to have `kubectl get` continuously watch for changes to objects **without fetching them first**
 
     using the `--watch-only` flag.
-  ja: __COPY__
+  ja: "`kubectl get` にオブジェクトの変更を継続的に監視させるときに、`--watch-only` フラグを使うと**最初のリソース取得を行わずに**監視させることができます。"
