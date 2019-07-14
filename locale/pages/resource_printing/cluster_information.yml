@@ -65,7 +65,7 @@ texts:
 
     not guaranteed to be compatible.
   ja: >-
-    {% panel style="warning", title="バージョンのずれ %}
+    {% panel style="warning", title="バージョンのずれ" %}
 
     Kubectl は Kubernetes クラスタに関して +/-1 のバージョン違いをサポートします。Kubectl のバージョンがクラスタのバージョンと 1 よりも大きく進んでいる、あるいは遅れていると、互換性が保証されません。
 ---

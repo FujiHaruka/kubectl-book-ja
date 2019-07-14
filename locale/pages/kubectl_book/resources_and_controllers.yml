@@ -11,15 +11,15 @@ texts:
 ---
 texts:
   en: A Kubernetes API has 2 parts - a Resource Type and a Controller
-  ja: Kubernetes API は 2 つの部分からなります - リソースタイプとコントローラ
+  ja: Kubernetes API はリソースタイプとコントローラという 2 つの部分からなる
 ---
 texts:
   en: Resources are objects declared as json or yaml and written to a cluster
-  ja: リソースは json や yaml で宣言されたオブジェクトで、クラスタに書き込まれます
+  ja: リソースは JSON や YAML で宣言されたオブジェクトで、クラスタに書き込まれる
 ---
 texts:
   en: Controllers asynchronously actuate Resources after they are stored
-  ja: コントローラはリソースが保存された後、非同期にリソースを作動させます
+  ja: コントローラはリソースが書き込まれてから、非同期にリソースを作動させる
 ---
 texts:
   en: Kubernetes Resources and Controllers Overview
@@ -30,7 +30,7 @@ texts:
     This section provides background on the Kubernetes Resource model.  This information
 
     is also available at the [kubernetes.io](https://kubernetes.io/docs/home/) docs site.
-  ja: この章では Kubernetes リソースモデルの背景を説明します。ここに書かれていることは [kubernetes.io](https://kubernetes.io/docs/home/) のドキュメントでも確認できます。
+  ja: この章では、Kubernetes リソースモデルの背景を説明します。ここに書かれていることは [kubernetes.io](https://kubernetes.io/docs/home/) のドキュメントでも確認できます。
 ---
 texts:
   en: "For more information on Kubernetes Resources see: [kubernetes.io Concepts](https://kubernetes.io/docs/concepts/)."
@@ -45,15 +45,15 @@ texts:
     Instances of Kubernetes objects (e.g. Deployment, Services, Namespaces, etc)
 
     are called **Resources**.
-  ja: Kubernetes オブジェクト (Deployment、Service、名前空間など) のインスタンスは**リソース**と呼ばれます。
+  ja: Kubernetes オブジェクト (Deployment、Service、名前空間など) のインスタンスを**リソース**と呼びます。
 ---
 texts:
   en: Resources which run containers are referred to as **Workloads**.
-  ja: コンテナを実行するリソースは特にワークロードといいます。
+  ja: 特に、コンテナを実行するリソースは、**ワークロード**といいます。
 ---
 texts:
   en: "Examples of Workloads:"
-  ja: ワークロードの例。
+  ja: 以下がワークロードの例です。
 ---
 texts:
   en: "[Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)"
@@ -80,14 +80,14 @@ texts:
     **Users work with Resource APIs by declaring them in files which are then Applied to a Kubernetes
 
     cluster.  These declarative files are called Resource Config.**
-  ja: "**リソース API を使うには、まずリソースをファイルで宣言し、それから Kubernetes クラスタに適用します。これらの宣言的なファイルはリソース設定と呼ばれます。**"
+  ja: "**リソース API の機能を使うには、まずリソースをファイル内で宣言し、次に Kubernetes クラスタに Apply します。ここで記述される宣言的なファイルをリソース設定と呼びます。**"
 ---
 texts:
   en: >-
     Resource Config is *Applied* (declarative Create/Update/Delete) to a Kubernetes cluster using
 
     tools such as Kubectl, and then actuated by a *Controller*.
-  ja: リソース設定は、Kubectl のようなツールを使って Kubernetes クラスタに (宣言的な作成・更新・削除を) 適用され、それから**コントローラ**が作動させます。
+  ja: リソース設定は、Kubectl のようなツールを通じて Kubernetes クラスタに (宣言的な作成・更新・削除を) **Apply** され、そのあとで**コントローラ**がリソース設定を反映させます。
 ---
 texts:
   en: "Resources are uniquely identified:"
@@ -95,7 +95,7 @@ texts:
 ---
 texts:
   en: "**apiVersion** (API Type Group and Version)"
-  ja: "**apiVersion** (API タイプのグループとバージョン)"
+  ja: "**apiVersion** (API タイプグループとバージョン)"
 ---
 texts:
   en: "**kind** (API Type Name)"
@@ -121,7 +121,7 @@ texts:
   ja: >-
     {% panel style="warning", title="デフォルトの名前空間" %}
 
-    リソース設定で名前空間が省略されると **default** という名前空間が使用されます。ほとんどの場合、アプリケーションには明示的に名前空間を指定すべきです。名前空間は `kustomization.yaml` に記述します。
+    リソース設定で名前空間が省略されると **default** という名前空間が使用されますが、アプリケーションには名前空間を必ず明示的に指定すべきと言って差し支えありません。名前空間は `kustomization.yaml` に記述します。
 ---
 texts:
   en: Resources Structure
@@ -137,15 +137,15 @@ texts:
 ---
 texts:
   en: "**ObjectMeta:** Resource **name** and **namespace** + other metadata (labels, annotations, etc)."
-  ja: "**ObjectMeta:** リソースの**名前**と**名前空間** + 他のメタデータ (ラベル、アノテーションなど)"
+  ja: "**ObjectMeta:** リソースの**名前**、**名前空間** + 他のメタデータ (ラベル、アノテーションなど)"
 ---
 texts:
   en: "**Spec:** the desired state of the Resource - intended state the user provides to the cluster."
-  ja: "**Spec:** リソースの望ましい状態 - こうなってほしいという状態をクラスタに教える"
+  ja: "**Spec:** リソースの望ましい状態 - ユーザーがクラスタに教えるあるべき状態"
 ---
 texts:
   en: "**Status:** the observed state of the object - recorded state the cluster provides to the user."
-  ja: "**Status:** オブジェクトの現在の状態 - 現在の状態をクラスタが観測・記録して、教えてくれる"
+  ja: "**Status:** 観測された現在のオブジェクトの状態 - クラスタがユーザーに教える記録された状態"
 ---
 texts:
   en: Resource Config written by the user omits the Status field.
@@ -186,7 +186,7 @@ texts:
     Controllers then make changes to the cluster to fulfill the intent specified by the user
 
     (e.g. in Resource Config) or automation (e.g. changes from Autoscalers).
-  ja: コントローラはユーザーが (たとえばリソース設定の中で) 決めた意図通りの仕様や (たとえば Autoscaler による) 自動化の要求を満たすようクラスタを変更します。
+  ja: コントローラはユーザーが (たとえばリソース設定の中で) 決めた意図通りの仕様や (たとえば Autoscaler による) 自動化の要求を満たすようにクラスタを変更します。
 ---
 texts:
   en: >-
@@ -197,7 +197,7 @@ texts:
     to find exists.  The Controller will see that the ReplicaSet does not exist and will
 
     create one.
-  ja: "**例**: Deployment が作成されると、Deployment コントローラは Deployment が存在することを理解し、対応する ReplicaSet が期待どおりに存在するかどうか検証します。ReplicaSet が存在しなければ作成します。"
+  ja: "**例**: Deployment が作成されると、Deployment コントローラは Deployment が存在することを確認し、対応する ReplicaSet が期待どおりに存在するかどうか検証します。ReplicaSet が存在しなければ作成します。"
 ---
 texts:
   en: >-
@@ -215,7 +215,7 @@ texts:
   ja: >-
     {% panel style="warning", title="非同期な動作" %}
 
-    コントローラは非同期に実行されるため、コンテナイメージが壊れているとか Pod がスケジュール不能であるとかといった問題は CRUD のレスポンスでは顕在化しません。何かツールを作る場合には、コントローラの動作が完了するまでシステムの状態の監視を簡単にできるようにすべきです。リソースの変更が完了して、望ましい状態とコントローラが観測した状態とが一致したら、リソースは**安定状態にある**なとみなされます。
+    コントローラは非同期に実行されるため、コンテナイメージが壊れているとか Pod がスケジュール不能であるとかといった問題は CRUD のレスポンスでは顕在化しません。何かツールを作るときには、コントローラの動作が完了するまでシステムの状態の監視を簡単にできるようにすべきです。リソースの変更が完了して、望ましい状態とコントローラが観測した状態とが一致したら、リソースは**安定状態にある**とみなされます。
 ---
 texts:
   en: Controller Structure
@@ -237,7 +237,7 @@ texts:
     **Controllers *do not* Reconcile events, rather they Reconcile the expected
 
     cluster state to the observed cluster state at the time Reconcile is run.**
-  ja: "**コントローラは、イベントから受けた情報でクラスタを調停するの*ではなく*、調停の実行時にクラスタを観測し、現在のクラスタの状態を期待されるクラスタの状態に一致させます。**"
+  ja: "**コントローラは、イベントから受けた情報によってクラスタを調停するの*ではなく*、調停の実行時にクラスタを観測し、現在のクラスタの状態を期待されるクラスタの状態に一致させます。**"
 ---
 texts:
   en: Deployment Controller creates/deletes ReplicaSets
@@ -274,7 +274,7 @@ texts:
 ---
 texts:
   en: Deployment Controller watches Deployments + ReplicaSets (+ Pods)
-  ja: Deployment コントローラは Deployment と ReplicaSet (と Pod) を監視します。
+  ja: Deployment コントローラは Deployment と ReplicaSet (と Pod) を監視します
 ---
 texts:
   en: ReplicaSet Controller watches ReplicaSets + Pods
@@ -450,7 +450,7 @@ texts:
 ---
 texts:
   en: '{% panel style="info", title="Internal vs External Services" %}'
-  ja: '{% panel style="info", title="内部 Service vs 外部 Services" %}'
+  ja: '{% panel style="info", title="内部サービス vs 外部サービス" %}'
 ---
 texts:
   en: >-

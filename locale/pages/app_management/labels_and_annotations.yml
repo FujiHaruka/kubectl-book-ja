@@ -11,11 +11,11 @@ texts:
 ---
 texts:
   en: Set Labels for all Resources declared within a Project with `commonLables`
-  ja: プロジェクト内で宣言されたすべてのリソースにラベルを設定するには `commonLables` を使用します
+  ja: プロジェクト内で宣言されたすべてのリソースにラベルを設定するには `commonLables` を使用する
 ---
 texts:
   en: Set Annotations for all Resources declared within a Project with `commonAnnotations`
-  ja: プロジェクト内で宣言されたすべてのリソースにアノテーションを設定するには `commonAnnotations` を使用します
+  ja: プロジェクト内で宣言されたすべてのリソースにアノテーションを設定するには `commonAnnotations` を使用する
 ---
 texts:
   en: Setting Labels and Annotations
@@ -35,7 +35,7 @@ texts:
 ---
 texts:
   en: Set metadata for all Resources within a project (e.g. environment=test).
-  ja: プロジェクト内のすべてのリソースにメタデータを設定する (たとえば environment=test)
+  ja: プロジェクト内のすべてのリソースにメタデータを設定する (たとえば `environment=test`)
 ---
 texts:
   en: Copy or Fork an existing Project and add or change labels and annotations.
@@ -43,7 +43,7 @@ texts:
 ---
 texts:
   en: See [Bases and Variations](../app_customization/bases_and_variants.md) for more details on Copying Projects.
-  ja: プロジェクトのコピーについての詳細は [Bases and Variations](../app_customization/bases_and_variants.md) を確認してください。
+  ja: プロジェクトのコピーについて詳細は [Bases and Variations](../app_customization/bases_and_variants.md) を確認してください。
 ---
 texts:
   en: '{% panel style="info", title="Reference" %}'
@@ -90,16 +90,16 @@ texts:
 
     *in addition* to the other labels.
   ja: >-
-    {% panel style="warning", title="ラベルをセレクタに伝播する" %}
+    {% panel style="warning", title="ラベルのセレクタへの伝播" %}
 
-    各リソースに付けられたラベルを更新するのに加えて、セレクタもそのラベルを対象とするように更新されます。たとえば、プロジェクト内の Service を取得するセレクタは、他のラベル**に加えて** commonLabels を含むように更新されます。
+    各リソースに付けられたラベルを更新すると、セレクタもそのラベルを対象とするように更新されます。たとえば、プロジェクト内の Service を取得するセレクタは、他のラベル**に加えて** commonLabels を含むように更新されます。
 ---
 texts:
   en: >-
     **Note:** Once set, commonLabels should not be changed so as not to change the Selectors for Services
 
     or Workloads.
-  ja: "**Note:** 一度 commonLabels を設定したら、変更しないべきです。Service やワークロードを取得するセレクタを変更しないためです。"
+  ja: "**注意:** 一度 commonLabels を設定したら、変更すべきではありません。Service やワークロードを取得するセレクタを変更しないためです。"
 ---
 texts:
   en: >-
@@ -119,7 +119,7 @@ texts:
 ---
 texts:
   en: Labeling Workload Resources makes it simpler to query Pods - e.g. for the purpose of getting their logs.
-  ja: ワークロードリソースにラベル付けすることは、Pod へのクエリを単純にします - たとえば、Pod のログを取得する目的のために。
+  ja: ワークロードリソースにラベル付けすることは、Pod へのクエリを単純にします - たとえば、Pod のログを取得する目的でラベルを付けます。
 ---
 texts:
   en: Setting Annotations for all Resources
@@ -139,4 +139,4 @@ texts:
   ja: >-
     {% panel style="info", title="アノテーションの伝播" %}
 
-    各リソースのアノテーションを更新するのに加えて、ObjectMeta を含むすべてのフィールド (たとえば PodTemplate) にもアノテーションが追加されます。
+    各リソースのアノテーションを更新すると、ObjectMeta を含むすべてのフィールド (たとえば PodTemplate) にもアノテーションが追加されます。

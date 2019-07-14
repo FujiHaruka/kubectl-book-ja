@@ -30,7 +30,7 @@ texts:
     This section provides a brief overview of the most basic Kubectl commands, which are
 
     described in more detail in later chapters.
-  ja: この章では、Kubectl の基本的なコマンドを概説しますが、各コマンドの詳細は後の章で説明します。
+  ja: この章では、Kubectl の基本的なコマンドを概説しますが、各コマンドの詳細は以降の章で説明します。
 ---
 texts:
   en: For more background on the Kubernetes APIs themselves, see the docs at [k8s.io](k8s.io).

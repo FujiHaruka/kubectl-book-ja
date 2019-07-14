@@ -11,19 +11,19 @@ texts:
 ---
 texts:
   en: Set the Namespace for all Resources within a Project with `namespace`
-  ja: プロジェクト内のすべてのリソースに対して名前空間を設定するには `namespace` を使います
+  ja: プロジェクト内のすべてのリソースに対して名前空間を設定するには `namespace` を使う
 ---
 texts:
   en: Prefix the Names of all Resources within a Project with `namePrefix`
-  ja: プロジェクト内のすべてのリソースに対して名前の接頭辞を付けるには `namePrefix` を使います
+  ja: プロジェクト内のすべてのリソースに対して名前の接頭辞を付けるには `namePrefix` を使う
 ---
 texts:
   en: Suffix the Names of all Resources within a Project with `nameSuffix`
-  ja: プロジェクト内のすべてのリソースに対して名前の接尾辞を付けるには `nameSuffix` を使います
+  ja: プロジェクト内のすべてのリソースに対して名前の接尾辞を付けるには `nameSuffix` を使う
 ---
 texts:
   en: Setting Namespaces and Names
-  ja: 名前空間と名前の設定
+  ja: 名前空間と命名の設定
 ---
 texts:
   en: Motivation
@@ -34,7 +34,7 @@ texts:
     It may be useful to enforce consistency across the namespace and names of all Resources within
 
     a Project.
-  ja: プロジェクト内のすべてのリソースに対して名前空間と名前に一貫性を強制するのが便利な場合があります。
+  ja: プロジェクト内のすべてのリソースに対して名前空間と命名に一貫性を強制すると便利な場合があります。
 ---
 texts:
   en: Ensure all Resources are in the correct Namespace
@@ -83,7 +83,7 @@ texts:
     This sets the namespace for both generated Resources (e.g. ConfigMaps and Secrets) and non-generated
 
     Resources.
-  ja: リソース設定の中で宣言されたすべてのリソースの名前空間は `namespace` で設定できます。これにより設定される名前空間は、生成されたリソース (たとえば ConfigMap と Secret) にも生成されたのでないリソースにも適用されます。
+  ja: リソース設定の中で宣言されたすべてのリソースの名前空間は `namespace` で設定できます。これにより設定される名前空間は、生成されたリソース (たとえば ConfigMap と Secret) にもそうでないリソースにも適用されます。
 ---
 texts:
   en: "**Example:** Set the `namespace` specified in the `kustomization.yaml` on the namespaced Resources."
@@ -133,14 +133,14 @@ texts:
   ja: >-
     {% panel style="info", title="参照先オブジェクトへの名前の伝播" %}
 
-    Deployment と StatefulSet のようなリソースは、Pod 定義の中で ConfigMap や Secret といった他のリソースに参照をもつことがあります。
+    Deployment や StatefulSet といったリソースは、Pod 定義内で ConfigMap や Secret といった他のリソースに参照をもつことがあります。
 ---
 texts:
   en: >-
     This sets a name prefix or suffix for both generated Resources (e.g. ConfigMaps 
 
     and Secrets) and non-generated Resources.
-  ja: これによって、生成されたリソース (たとえば ConfigMap と Secret) にも生成されたのでないリソースにも名前の接頭辞や接尾辞が設定されます。
+  ja: これによって、生成されたリソース (たとえば ConfigMap と Secret) にもそうでないリソースにも名前の接頭辞や接尾辞が設定されます。
 ---
 texts:
   en: >-
@@ -163,7 +163,7 @@ texts:
   ja: >-
     {% panel style="info", title="参照" %}
 
-    Apply は `namePrefix` を、プロジェクト内のリソースが他のリソースによって参照されている場所ならどこでも、伝播させます。それは以下を含みます。
+    Apply は `namePrefix` を、プロジェクト内のリソースが他のリソースによって参照されている場所ならどこへでも、伝播させます。それは以下を含みます。
 ---
 texts:
   en: Service references from StatefulSets

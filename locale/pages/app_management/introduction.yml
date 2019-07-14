@@ -11,11 +11,11 @@ texts:
 ---
 texts:
   en: Apply manages Applications through files defining Kubernetes Resources (i.e. Resource Config)
-  ja: Apply コマンドは Kubernetes リソースを定義するファイル (すなわちリソース設定) を通じてアプリケーションを管理します
+  ja: Apply コマンドは Kubernetes リソースを定義するファイル (リソース設定) を通じてアプリケーションを管理する
 ---
 texts:
   en: Kustomize is used to author Resource Config
-  ja: Kustomize はリソース設定の作成に使います
+  ja: Kustomize はリソース設定を書くために使われる
 ---
 texts:
   en: Declarative Application Management
@@ -23,7 +23,7 @@ texts:
 ---
 texts:
   en: This section covers how to declaratively manage Workloads and Applications.
-  ja: この章では、宣言的にワークロードとアプリケーションを管理する方法を説明します。
+  ja: この章では、ワークロードとアプリケーションを宣言的に管理する方法を説明します。
 ---
 texts:
   en: >-
@@ -32,7 +32,7 @@ texts:
     typically checked into source control, and allow cluster state changes to be reviewed before they
 
     are audited and applied.
-  ja: クラスタ内のワークロードは**リソース設定 (Resource Config) **と呼ばれるファイルを通じて設定できます。これらのファイルは通常、バージョン管理の下に置かれ、クラスタの状態を検査・適用する前に変更をレビューできるようにします。
+  ja: クラスタ内のワークロードは**リソース設定 (Resource Config) **と呼ばれるファイルを通じて設定できます。これらのファイルは通常、バージョン管理の下に置かれ、クラスタの状態を検査・適用する前に設定の変更をレビューできるようにします。
 ---
 texts:
   en: There are 2 components to Application Management.
@@ -51,7 +51,7 @@ texts:
     composing and overlaying Resource Config authored by separate teams
 
     (using the `-k` flag with a `kustomization.yaml`).
-  ja: クライアントコンポーネントは、アプリケーションの望ましい状態を定義するリソース設定を書くことからなります。生のリソース設定ファイル群を書くこともありますが、別々のチームが書いたリソース設定をまとめ上げることもあります (`kustomization.yaml` を使うには `-k` フラグを使用します)。
+  ja: クライアントコンポーネントは、アプリケーションの望ましい状態を定義するリソース設定を書くことからなります。生のリソース設定ファイル群を書くこともありますが、別々のチームが書いたリソース設定をまとめ上げることもあります (`kustomization.yaml` を使うには `-k` フラグを使用)。
 ---
 texts:
   en: "Kustomize offers low-level tooling for simplifying the authoring of Resource Config.  It provides:"
@@ -78,7 +78,7 @@ texts:
     **Example:** One user may define a Base for an application,  while another user may customize
 
     a specific instance of the Base.
-  ja: "**例:** 一人がアプリケーションのベースを定義し、別の人がベースの特定のインスタンスをカスタマイズできます。"
+  ja: "**例:** 一人がアプリケーションのベース (Base) を定義し、別の人がベースの特定のインスタンスをカスタマイズするというやり方が可能です。"
 ---
 texts:
   en: Server Component
@@ -93,14 +93,14 @@ texts:
     state on the Resource - e.g. *defaulting unspecified fields, filling in IP addresses, autoscaling
 
     replica count, etc.*
-  ja: サーバーコンポーネントは、書かれたリソース設定をクラスタに適用することからなります。適用が実行されると、Kubernetes クラスタはリソースを作成・更新することになりますが、リソース上の望ましい状態を追加で設定します。たとえば、**指定されていないフィールドをデフォルト値で埋め、IP アドレスを入力し、レプリカ数をオートスケールさせるといったことです。**
+  ja: サーバーコンポーネントは、書かれたリソース設定をクラスタに適用することからなります。Apply が実行されると、Kubernetes クラスタはリソースを作成・更新することになりますが、リソース設定ファイルには書かれていないリソース上の望ましい状態を追加します。たとえば、**指定されていないフィールドをデフォルト値で埋め、IP アドレスを入力し、レプリカ数をオートスケールさせるといったことです。**
 ---
 texts:
   en: >-
     Note that the process of Application Management is a collaborative one between users and the
 
     Kubernetes system itself - where each may contribute to defining the desired state.
-  ja: 留意点ですが、アプリケーション管理はユーザーと Kubernetes システム自身とが協力して行うプロセスです。望ましい状態を定義するためにお互いに貢献し合います。
+  ja: 留意点として、アプリケーション管理はユーザーと Kubernetes システム自身とが協調するプロセスです。望ましい状態を定義するため、互いに貢献し合います。
 ---
 texts:
   en: "**Example**: An Autoscaler Controller in the cluster may set the scale field on a Deployment managed by a user."

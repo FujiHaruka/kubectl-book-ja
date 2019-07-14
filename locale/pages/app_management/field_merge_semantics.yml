@@ -11,15 +11,15 @@ texts:
 ---
 texts:
   en: Fields set and deleted from Resource Config are merged into Resources by Apply
-  ja: リソース設定から追加また削除されたフィールドは Apply を実行することでリソースにマージされます
+  ja: リソース設定から追加また削除されたフィールドは Apply を実行することでリソースにマージされる
 ---
 texts:
   en: If a Resource already exists, Apply updates the Resources by merging the local Resource Config into the remote Resources
-  ja: すでにリソースが存在していれば、Apply を実行するとリソースが更新され、ローカルにあるリソース設定がリモートのリソースにマージされます
+  ja: すでにリソースが存在していれば、Apply を実行するとリソースが更新され、ローカルにあるリソース設定がリモートのリソースにマージされる
 ---
 texts:
   en: Fields removed from the Resource Config will be deleted from the remote Resource
-  ja: リソース設定から除かれたフィールドは、リモートのリソースから削除されます
+  ja: リソース設定から除かれたフィールドは、リモートのリソースから削除される
 ---
 texts:
   en: Merging Fields
@@ -33,18 +33,18 @@ texts:
   ja: >-
     {% panel style="warning", title="高度な内容" %}
 
-    この章には高度な内容が含まれているので、読み飛ばして後で戻っても構いません。
+    この章には高度な内容が含まれるため、読み飛ばして後から戻っても構いません。
 ---
 texts:
   en: When are fields merged?
-  ja: フィールドはいつマージされるか？
+  ja: フィールドはマージされるのはいつか？
 ---
 texts:
   en: >-
     This page describes how Resource Config is merged with Resources or other Resource Config.  This
 
     may occur when:
-  ja: このページでは、リソース設定がどのようにリソースとマージされるか、あるいはどのように他のリソース設定とマージされるか説明します。マージされるタイミングは以下です。
+  ja: このページでは、リソース設定がどのようにリソースとマージされるか、あるいはどのように他のリソース設定とマージされるかを説明します。マージされるタイミングは以下です。
 ---
 texts:
   en: "Applying Resource Config updates to the live Resources in the cluster "
@@ -52,7 +52,7 @@ texts:
 ---
 texts:
   en: Defining Patches in the `kustomization.yaml` which are overlayed on `resources` and [bases](../app_customization/bases_and_variants.md)
-  ja: "`kustomization.yaml` の中で `resources` と [bases](../app_customization/bases_and_variants.md) の上にパッチを定義する"
+  ja: "`kustomization.yaml` の中で `resources` および [bases](../app_customization/bases_and_variants.md) 上にパッチを定義する"
 ---
 texts:
   en: Applying Resource Config Updates
@@ -65,7 +65,7 @@ texts:
     into the live Resource**.  This retains values which may be set by the control plane - such as `replicas` values
 
     set by auto scalers
-  ja: "Apply は新しいリソース設定を使ってリソースを置換するのではなく、**新しいリソース設定を稼働中のリソースにマージします**。そのために制御プレーンによって設定されうる値、たとえばオートスケーラーにより設定される `replicas` の値などを保持します。"
+  ja: "Apply は新しいリソース設定を使ってリソースを置換するのではなく、**新しいリソース設定を稼働中のリソースにマージします**。そのために制御プレーンによって設定されうる値、たとえば autoscaler により設定される `replicas` の値などを保持します。"
 ---
 texts:
   en: Defining Patches
@@ -79,7 +79,7 @@ texts:
 
     This is used to alter values defined on Resource Config without having to fork it.
   ja: >-
-    `patches` は疎なリソース設定で、**他のリソース設定の中で定義された値を上書きするフィールドのサブセットを含んでいます**。上書き対象となるリソースは、同じグループ / バージョン / Kind / 名前空間をもつものです。これはリソース設定をフォークせずに、リソース設定で定義された値を変更するために使用されます。
+    `patches` は疎なリソース設定で、**他のリソース設定の中で定義された値を上書きするフィールドのサブセットを含みます**。上書き対象となるリソースは、同じグループ / バージョン / Kind / 名前空間をもつものです。これはリソース設定をフォークせずに、リソース設定で定義された値を変更するために使用されます。
 ---
 texts:
   en: Motivation (Apply)
@@ -130,7 +130,7 @@ texts:
 ---
 texts:
   en: "Following are the merge semantics for Resources:"
-  ja: 以下はリソースのマージの意味論です。
+  ja: 以下はリソースをマージするときの意味論です。
 ---
 texts:
   en: "**Adding Fields:**"
@@ -141,11 +141,11 @@ texts:
     Fields present in the Resource Config that are missing from the Resource will be added to the
       Resource.
   ja: >-
-    リソース設定に存在しているがリソースに欠落しているフィールドは、リソースに追加されます。
+    リソース設定に存在しているがリソースに欠落しているフィールドは、リソースに追加される
 ---
 texts:
   en: Fields will be added to the Last Applied Resource Config
-  ja: フィールドは前回適用されたリソース設定に追加されます
+  ja: フィールドは前回適用されたリソース設定に追加される
 ---
 texts:
   en: "**Updating Fields**"
@@ -155,11 +155,11 @@ texts:
   en: >-
     Fields present in the Resource Config that are also present in the Resource will be merged recursively
       until a primitive field is updated, or a field is added / deleted.
-  ja: リソース設定にもリソースにも存在しているフィールドは、再帰的にマージされ、末端のプリミティブ値のフィールドが更新されるか、またはフィールドが追加 / 削除されます。
+  ja: リソース設定にもリソースにも存在しているフィールドは、再帰的にマージされ、末端のプリミティブ値のフィールドが更新されるか、またはフィールドが追加 / 削除される
 ---
 texts:
   en: Fields will be updated in the Last Applied Resource Config
-  ja: フィールドは前回適用されたリソース設定の中で更新されます
+  ja: フィールドは前回適用されたリソース設定の中で更新される
 ---
 texts:
   en: "**Deleting Fields**"
@@ -169,17 +169,17 @@ texts:
   en: >-
     Fields present in the **Last Applied Resource Config** that have been removed from the Resource Config
       will be deleted from the Resource.
-  ja: "**前回適用されたリソース設定**に存在するが現在のリソース設定で除かれたフィールドは、リソースから削除されます"
+  ja: "**前回適用されたリソース設定**に存在するが現在のリソース設定で除かれたフィールドは、リソースから削除される"
 ---
 texts:
   en: >-
     Fields set to *null* in the Resource Config that are present in the Resource Config will be deleted from the
       Resource.
-  ja: リソース設定で **null** 値で存在しているフィールドはリソースから削除されます
+  ja: リソース設定で **null** 値で存在しているフィールドはリソースから削除される
 ---
 texts:
   en: Fields will be removed from the Last Applied Resource Config
-  ja: フィールドは前回適用されたリソース設定から除かれます
+  ja: フィールドは前回適用されたリソース設定から除かれる
 ---
 texts:
   en: >-
@@ -197,14 +197,14 @@ texts:
   ja: >-
     {% panel style="danger", title="リソース設定からフィールドを削除する" %}
 
-    リソース設定から単にフィールドを除くだけでは所有権がクラスタに移ることは**ありません**。そのかわりにリソースからフィールドを削除します。もしフィールドがリソース設定の中にセットされ、ユーザーが所有権を放棄したい (たとえば `replicas` をリソース設定から除いてオートスケーラーを使う) と思ったら、ユーザーは最初に、クラスタに保存されている前回適用されたリソース設定からフィールドを削除しなければなりません。
+    リソース設定から単にフィールドを除くだけでは所有権がクラスタに移ることは**ありません**。そうではなくリソースからフィールドを削除します。もしフィールドがリソース設定の中に設定され、ユーザーが所有権を放棄したい (たとえば `replicas` をリソース設定から除いて autoscaler に頼る) と思ったら、最初に、クラスタに保存されている前回適用されたリソース設定からフィールドを削除しなければなりません。
 ---
 texts:
   en: >-
     This can be performed using `kubectl apply edit-last-applied` to delete the `replicas` field from
 
     the **Last Applied Resource Config**, and then deleting it from the **Resource Config.**
-  ja: これを実行するには、`kubectl apply edit-last-applied` コマンドを使い、**前回適用されたリソース設定**から `replicas` を削除し、それから **リソース設定**からも削除します。
+  ja: これを実行するには、`kubectl apply edit-last-applied` コマンドを使い、**前回適用されたリソース設定**から `replicas` を削除し、次に**リソース設定**からも削除します。
 ---
 texts:
   en: Field Merge Semantics
@@ -216,7 +216,7 @@ texts:
 ---
 texts:
   en: Primitive fields are merged by replacing the current value with the new value.
-  ja: プリミティブ値のフィールドは現在の値を新しい値に置換することでマージします
+  ja: プリミティブ値のフィールドは現在の値を新しい値に置換することでマージします。
 ---
 texts:
   en: "**Field Creation:** Add the primitive field"
@@ -475,4 +475,4 @@ texts:
 ---
 texts:
   en: This is the same technique for retaining values set by cluster components such as autoscalers.
-  ja: これはオートスケーラーなどのクラスタコンポーネントによってセットされた値を保持するのと同じテクニックです。
+  ja: これは autoscaler のようなクラスタコンポーネントによって設定された値を保持するのと同じテクニックです。

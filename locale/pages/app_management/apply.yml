@@ -11,11 +11,11 @@ texts:
 ---
 texts:
   en: Apply Creates and Updates Resources in a cluster through running `kubectl apply` on Resource Config.
-  ja: Apply はリソース設定上で `kubectl apply` を実行することによってクラスタ内のリソースを作成・更新します
+  ja: Apply はリソース設定上で `kubectl apply` を実行することによってクラスタ内のリソースを作成・更新する
 ---
 texts:
   en: Apply manages complexity such as ordering of operations and merging user defined and cluster defined state.
-  ja: Apply は、オペレーションの順序や、ユーザーが定義した状態とクラスタが定義した状態をマージするといった複雑性を管理します
+  ja: Apply は、オペレーションの順序や、ユーザーが定義した状態とクラスタが定義した状態をマージするといった複雑性を管理する
 ---
 texts:
   en: Apply
@@ -43,20 +43,20 @@ texts:
 ---
 texts:
   en: "**Resources**: *Objects* in a cluster - e.g. Deployments, Services, etc."
-  ja: "**リソース**: クラスタ内の*オブジェクト* - たとえば Deployment、Service など"
+  ja: "**リソース (Resource)**: クラスタ内の*オブジェクト* - たとえば Deployment、Service など"
 ---
 texts:
   en: >-
     **Resource Config**: *Files* declaring the desired state for Resources - e.g. deployment.yaml.
       Resources are created and updated using Apply with these files.
-  ja: "**リソース設定**: リソースの望ましい状態を宣言した*ファイル* - たとえば deployment.yaml。リソースはこれらのファイルと Apply を使って作成・更新されます"
+  ja: "**リソース設定 (Resource Config)**: リソースの望ましい状態を宣言した*ファイル* - たとえば deployment.yaml。リソースはこれらのファイルと Apply を使って作成・更新される"
 ---
 texts:
   en: >-
     *kubectl apply* Creates and Updates Resources through local or remote files.  This may be through
 
     either raw Resource Config or *kustomization.yaml*.
-  ja: "`kubectl apply` はローカルまたはリモートのファイルを通じてリソースを作成・更新します。これは生のリソース設定でも `kustomization.yaml` を使っても行えます。"
+  ja: "`kubectl apply` はローカルまたはリモートのファイルを通じてリソースを作成・更新します。これは生のリソース設定でもできますが、 `kustomization.yaml` を使うこともできます。"
 ---
 texts:
   en: Usage
@@ -106,7 +106,7 @@ texts:
 ---
 texts:
   en: Any Resources that already exist and are declared in Resource Config when Apply is run may be Updated.
-  ja: リソース設定に宣言されていてすでに存在するリソースは Apply 実行時に更新されることがあります。
+  ja: リソース設定に宣言されていて、すでに存在するリソースは、Apply 実行時に更新されることがあります。
 ---
 texts:
   en: "**Added Fields**"
@@ -114,7 +114,7 @@ texts:
 ---
 texts:
   en: Any fields that have been added to the Resource Config will be set on the Resource.
-  ja: リソース設定に追加されたフィールドはリソースにセットされます
+  ja: リソース設定に追加されたフィールドはリソースに追加されます。
 ---
 texts:
   en: "**Updated Fields** "
@@ -131,7 +131,7 @@ texts:
 ---
 texts:
   en: "**Deleted Fields**"
-  ja: 削除されたフィールド
+  ja: "**削除されたフィールド**"
 ---
 texts:
   en: >-
@@ -154,7 +154,7 @@ texts:
 ---
 texts:
   en: Declarative deletion of Resources does not yet exist in a usable form, but is under development.
-  ja: リソースの宣言的な削除はまだ使用に適した形では存在しませんが、現在開発中です。
+  ja: リソースの宣言的な削除は、まだ利用に適した形では存在しません。現在開発中です。
 ---
 texts:
   en: >-
@@ -189,4 +189,4 @@ texts:
     When used with a `kustomization.yaml`, Apply sorts the Resources by Resource type to ensure Resources
 
     with these dependencies are created in the correct order.
-  ja: "`kustomization.yaml` を使うと、Apply は上記のような依存関係をもつリソースが正しい順序で作成されるように、リソースタイプによってリソースをソートします。"
+  ja: "`kustomization.yaml` を使うと、Apply は上記のような依存関係をもつリソースが正しい順序で作成されるように、リソースタイプによってリソースを並び替えます。"
