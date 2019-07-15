@@ -225,6 +225,14 @@ texts:
   ja: __COPY__
 ---
 texts:
+  en: "**Input:** The kustomization.yaml file"
+  ja: __COPY__
+---
+texts:
+  en: "**Applied:** The Resources that are Applied to the cluster"
+  ja: __COPY__
+---
+texts:
   en: >-
     {% panel style="info", title="More Info" %}
 

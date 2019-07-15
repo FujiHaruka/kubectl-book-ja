@@ -71,6 +71,13 @@ texts:
   ja: デフォルトの列に追加でいつくかの列を表示します。
 ---
 texts:
+  en: >-
+    **Note:** Some columns *may* not directly map to fields on the Resource, but instead may
+
+    be a summary of fields.
+  ja: __COPY__
+---
+texts:
   en: Custom Columns
   ja: カスタム列
 ---

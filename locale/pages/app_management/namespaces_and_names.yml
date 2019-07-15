@@ -91,8 +91,7 @@ texts:
 ---
 texts:
   en: "**Input:** The kustomization.yaml and deployment.yaml files"
-  ja: >-
-    **入力:** kustomization.yaml ファイルと deployment.yaml ファイル
+  ja: "**入力:** kustomization.yaml ファイルと deployment.yaml ファイル"
 ---
 texts:
   en: "**Applied:** The Resource that is Applied to the cluster"
@@ -124,6 +123,14 @@ texts:
   ja: "**例:** すべてのリソースの名前に接頭辞を付ける"
 ---
 texts:
+  en: "**Input:** The kustomization.yaml and deployment.yaml files"
+  ja: __COPY__
+---
+texts:
+  en: "**Applied:** The Resource that is Applied to the cluster"
+  ja: __COPY__
+---
+texts:
   en: >-
     {% panel style="info", title="Propagation of the Name to Object References" %}
 
@@ -150,8 +157,20 @@ texts:
   ja: 適用された namePrefix や nameSuffix は更新されたリソースを参照しているリソースに伝播します - たとえば Secret と ConfigMap への参照は namePrefix と nameSuffix と共に更新されます。
 ---
 texts:
+  en: "**Example:** Prefix the names of all Resources."
+  ja: __COPY__
+---
+texts:
   en: This will update the ConfigMap reference in the Deployment to have the `foo` prefix.
   ja: これは Deployment の中で参照されている ConfigMap が `foo` という接頭辞をもつよう更新します。
+---
+texts:
+  en: "**Input:** The kustomization.yaml and deployment.yaml files"
+  ja: __COPY__
+---
+texts:
+  en: "**Applied:** The Resource that is Applied to the cluster"
+  ja: __COPY__
 ---
 texts:
   en: >-

@@ -105,6 +105,10 @@ texts:
   ja: __COPY__
 ---
 texts:
+  en: "**Use Case:**"
+  ja: __COPY__
+---
+texts:
   en: Run multiple instances of the same Base.
   ja: __COPY__
 ---
@@ -114,6 +118,18 @@ texts:
 ---
 texts:
   en: Customize the Name of all Resources in the Base by adding `namePrefix` or `nameSuffix` in Variants.
+  ja: __COPY__
+---
+texts:
+  en: "**Input:** The kustomization.yaml file"
+  ja: __COPY__
+---
+texts:
+  en: "**Base:**"
+  ja: __COPY__
+---
+texts:
+  en: "**Applied:** The Resource that is Applied to the cluster"
   ja: __COPY__
 ---
 texts:
@@ -138,6 +154,10 @@ texts:
   ja: __COPY__
 ---
 texts:
+  en: "**Use Case:**"
+  ja: __COPY__
+---
+texts:
   en: Create Label or Annotation conventions for different Environments (test, dev, staging, canary, prod).
   ja: __COPY__
 ---
@@ -146,4 +166,16 @@ texts:
     Customize the Labels and Annotations of all Resources in the Base by adding a
 
     `commonLabels` or `commonAnnotations` in the variants.
+  ja: __COPY__
+---
+texts:
+  en: "**Input:** The kustomization.yaml file"
+  ja: __COPY__
+---
+texts:
+  en: "**Base:**"
+  ja: __COPY__
+---
+texts:
+  en: "**Applied:** The Resource that is Applied to the cluster"
   ja: __COPY__

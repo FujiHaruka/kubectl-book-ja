@@ -272,6 +272,10 @@ texts:
   ja: __COPY__
 ---
 texts:
+  en: "*v2* rolled out to Staging"
+  ja: __COPY__
+---
+texts:
   en: Merge *v2* Tag -> Staging Branch
   ja: __COPY__
 ---
@@ -394,6 +398,10 @@ texts:
   ja: __COPY__
 ---
 texts:
+  en: Live Prod App version is *v1*
+  ja: __COPY__
+---
+texts:
   en: Changes are introduced to Base Branch Config
   ja: __COPY__
 ---
@@ -446,6 +454,27 @@ texts:
     **Note:** New changes committed to the Base for "v3" did not make the rollback from
 
     "v2" -> "v1" more challenging, as they had not been merged into the Prod Branch.
+  ja: __COPY__
+---
+texts:
+  en: Diagram
+  ja: __COPY__
+---
+texts:
+  en: "{% sequence width=1000 %}"
+  ja: __COPY__
+---
+texts:
+  en: >-
+    participant Base Branch as BB
+
+    participant Staging Branch as SB
+
+    participant Staging Clusters as SC
+
+    participant Prod Branch as PB
+
+    participant Prod Clusters as PC
   ja: __COPY__
 ---
 texts:

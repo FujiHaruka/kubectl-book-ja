@@ -31,7 +31,7 @@ texts:
 ---
 texts:
   en: Get all Resources provided by the `kustomization.yaml` in project/.
-  ja: "project/ 内の `kustomization.yaml` で提供されているすべてのリソースを取得します。"
+  ja: project/ 内の `kustomization.yaml` で提供されているすべてのリソースを取得します。
 ---
 texts:
   en: Resource Config By Dir
@@ -60,6 +60,10 @@ texts:
 texts:
   en: Resource Types with Group / Version
   ja: グループ / バージョン付きのリソースタイプ
+---
+texts:
+  en: Get **all** Resources in a namespace for a given type.
+  ja: __COPY__
 ---
 texts:
   en: The Group and Version for the Resource are explicit.

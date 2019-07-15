@@ -61,6 +61,14 @@ texts:
   ja: __COPY__
 ---
 texts:
+  en: Local file format is `<path>`
+  ja: __COPY__
+---
+texts:
+  en: Remote file format is `<pod-name>:<path>`
+  ja: __COPY__
+---
+texts:
   en: Specify the Container
   ja: __COPY__
 ---

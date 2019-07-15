@@ -89,6 +89,13 @@ texts:
   ja: __COPY__
 ---
 texts:
+  en: >-
+    **Note:** In this example the `kustomization.yaml` exists in a directory whose name matches
+
+    the name of the context.
+  ja: __COPY__
+---
+texts:
   en: Targeting a Cluster via Kubeconfig
   ja: __COPY__
 ---

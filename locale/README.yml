@@ -108,6 +108,10 @@ texts:
   ja: コンテナの相互作用
 ---
 texts:
+  en: Debugging
+  ja: __COPY__
+---
+texts:
   en: Exec, Attach, Cp, Logs
   ja: Exec、Attach、Cp、Logs
 ---
@@ -195,6 +199,10 @@ texts:
 texts:
   en: Copying files from Containers in the cluster to a user's filesystem
   ja: クラスタ内のコンテナにあるファイルをユーザーのファイルシステムにコピーする
+---
+texts:
+  en: Cluster Management
+  ja: __COPY__
 ---
 texts:
   en: >-

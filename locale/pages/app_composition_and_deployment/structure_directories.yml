@@ -311,6 +311,23 @@ texts:
   ja: __COPY__
 ---
 texts:
+  en: "{% sequence width=1000 %}"
+  ja: __COPY__
+---
+texts:
+  en: >-
+    participant Config in Git as B
+
+    participant Test Cluster as TC
+
+    participant Staging Cluster as SC
+
+    participant US West Prod Cluster as WC
+
+    participant US East Prod Cluster as EC
+  ja: __COPY__
+---
+texts:
   en: >-
     Note over B: Bob modifies bases/ with change B
 
