@@ -11,51 +11,51 @@ texts:
 ---
 texts:
   en: "Port Forward local connections to Pods running in a cluster "
-  ja: __COPY__
+  ja: "ローカルの接続をクラスタ内で実行中の Pod にポートフォワードする"
 ---
 texts:
   en: Port Forward
-  ja: __COPY__
+  ja: ポートフォワード
 ---
 texts:
   en: Motivation
-  ja: __COPY__
+  ja: 動機
 ---
 texts:
   en: Connect to ports of Pods running a cluster by port forwarding local ports.
-  ja: __COPY__
+  ja: ローカルのポートをポートフォワードすることで、クラスタ内で実行中の Pod のポートに接続します。
 ---
 texts:
   en: Forward Multiple Ports
-  ja: __COPY__
+  ja: 複数のポートをフォワードする
 ---
 texts:
   en: Listen on ports 5000 and 6000 locally, forwarding data to/from ports 5000 and 6000 in the pod
-  ja: __COPY__
+  ja: ローカルの 5000 番、6000 番ポートをリッスンし、Pod 内の 5000 番、6000 番ポートに / ポートからデータをフォワードします。
 ---
 texts:
   en: Pod in a Workload
-  ja: __COPY__
+  ja: ワークロード内の Pod
 ---
 texts:
   en: >-
     Listen on ports 5000 and 6000 locally, forwarding data to/from ports 5000 and 6000 in a pod selected by the
 
     deployment
-  ja: __COPY__
+  ja: ローカルの 5000 番、6000 番ポートをリッスンし、Deployment に選択された Pod 内の  5000 番、6000 番ポートに / ポートからデータをフォワードします。
 ---
 texts:
   en: Different Local and Remote Ports
-  ja: __COPY__
+  ja: ローカルとリモートのポート番号が異なる場合
 ---
 texts:
   en: Listen on port 8888 locally, forwarding to 5000 in the pod
-  ja: __COPY__
+  ja: ローカルで 8888 番ポートをリッスンし、Pod 内の 5000 番ポートにフォワードします。
 ---
 texts:
   en: Random Local Port
-  ja: __COPY__
+  ja: ローカルのポート番号をランダムに割り当てる
 ---
 texts:
   en: Listen on a random port locally, forwarding to 5000 in the pod
-  ja: __COPY__
+  ja: ローカルのランダムなポート番号をリッスンし、Pod 内の 5000 番ポートにフォワードします。
