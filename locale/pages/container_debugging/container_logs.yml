@@ -11,27 +11,27 @@ texts:
 ---
 texts:
   en: Print the Logs of a Container in a cluster
-  ja: __COPY__
+  ja: クラスタ内のコンテナのログを表示する
 ---
 texts:
   en: Summarizing Resources
-  ja: __COPY__
+  ja: リソース情報の要約
 ---
 texts:
   en: Motivation
-  ja: __COPY__
+  ja: 動機
 ---
 texts:
   en: Debugging Workloads by printing out the Logs of containers in a cluster.
-  ja: __COPY__
+  ja: クラスタ内のコンテナのログを表示することで、ワークロードをデバッグします。
 ---
 texts:
   en: Print Logs for a Container in a Pod
-  ja: __COPY__
+  ja: Pod 内のコンテナのログを表示
 ---
 texts:
   en: Print the logs for a Pod running a single Container
-  ja: __COPY__
+  ja: 単一のコンテナを実行している Pod のためにログを表示します。
 ---
 texts:
   en: >-
@@ -42,15 +42,18 @@ texts:
     exits, use the `-p` flag to look at the **logs from containers that have
 
     exited**.  e.g. `kubectl logs -p -c ruby web-1`
-  ja: __COPY__
+  ja: >-
+    {% panel style="success", title="クラッシュし続けるコンテナ" %}
+
+    もしコンテナがクラッシュをループしていて、コンテナ終了後にそのログを表示したい場合には、`-p` フラグを付けると**終了したコンテナのログを見ることができます**。例: `kubectl logs -p -c ruby web-1`
 ---
 texts:
   en: Print Logs for all Pods for a Workload
-  ja: __COPY__
+  ja: ワークロードのためにすべての Pod のログを表示
 ---
 texts:
   en: Print the logs for all Pods for a Workload
-  ja: __COPY__
+  ja: ワークロードのためにすべての Pod のログを表示します。
 ---
 texts:
   en: >-
@@ -63,74 +66,79 @@ texts:
     label selector is `app=nginx` usie `-l "app=nginx"` to print logs
 
     for all the Pods from that Workload.
-  ja: __COPY__
+  ja: >-
+    {% panel style="success", title="Workloads Logs" %}
+
+    **ワークロードの管理下にあるすべてのコンテナ**のログを表示するには、`-l` フラグにワークロードのラベルセレクタを渡します。
+    たとえば、ワークロードのラベルセレクタが `app=nginx` だとすると、`-l "app=nginx"` を指定すると、そのワークロードのすべての Pod のログを表示できます。
 ---
 texts:
   en: Follow Logs for a Container
-  ja: __COPY__
+  ja: コンテナのログを表示し続ける
 ---
 texts:
   en: Stream logs from a container.
-  ja: __COPY__
+  ja: コンテナからログをストリームとして表示します。
 ---
 texts:
   en: Printing Logs for a Container that has exited
-  ja: __COPY__
+  ja: 終了したコンテナのログを表示
 ---
 texts:
   en: >-
     Print the logs for the previously running container.  This is useful for printing containers that have
 
     crashed or are crash looping.
-  ja: __COPY__
+  ja: >-
+    過去に実行したコンテナのログを表示します。これはクラッシュしたコンテナやクラッシュがループしているコンテナのログを表示するのに便利です。
 ---
 texts:
   en: Selecting a Container in a Pod
-  ja: __COPY__
+  ja: Pod 内のコンテナを選択する
 ---
 texts:
   en: >-
     Print the logs from a specific container within a Pod.  This is necessary for Pods running multiple
 
     containers.
-  ja: __COPY__
+  ja: Pod 内の特定のコンテナのログを表示します。これは Pod が複数のコンテナを実行していると必要になります。
 ---
 texts:
   en: Printing Logs After a Time
-  ja: __COPY__
+  ja: ある日時以後のログを表示
 ---
 texts:
   en: Print the logs that occurred after an absolute time.
-  ja: __COPY__
+  ja: ある絶対時間以後に出力されたログを表示します。
 ---
 texts:
   en: Printing Logs Since a Time
-  ja: __COPY__
+  ja: ある時間から現在までのログを表示
 ---
 texts:
   en: Print the logs that are newer than a duration.
-  ja: __COPY__
+  ja: ある時間から現在までのログを表示します。
 ---
 texts:
   en: "Examples:"
-  ja: __COPY__
+  ja: "例:"
 ---
 texts:
   en: "0s: 0 seconds"
-  ja: __COPY__
+  ja: "0s: 0 秒"
 ---
 texts:
   en: "1m: 1 minute"
-  ja: __COPY__
+  ja: "1m: 1 分"
 ---
 texts:
   en: "2h: 2 hours"
-  ja: __COPY__
+  ja: "2h: 2 時間"
 ---
 texts:
   en: Include Timestamps
-  ja: __COPY__
+  ja: タイムスタンプを含める
 ---
 texts:
   en: Include timestamps in the log lines
-  ja: __COPY__
+  ja: ログの出力行にタイムスタンプを含めます。
