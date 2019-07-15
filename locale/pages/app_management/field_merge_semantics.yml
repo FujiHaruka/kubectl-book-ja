@@ -258,7 +258,7 @@ texts:
 ---
 texts:
   en: Set live to the Resource Config value.
-  ja: 稼働中のリソースにリソース設定の値をセット
+  ja: 稼働中のリソースにリソース設定の値を設定
 ---
 texts:
   en: Yes
@@ -274,7 +274,7 @@ texts:
 ---
 texts:
   en: Set live to the Resource Config value.
-  ja: __COPY__
+  ja: 稼働中のリソースにリソース設定の値を設定
 ---
 texts:
   en: No
@@ -337,19 +337,19 @@ texts:
 ---
 texts:
   en: Field in Resource Config
-  ja: __COPY__
+  ja: リソース設定内のフィールド
 ---
 texts:
   en: Field in Resource
-  ja: __COPY__
+  ja: リソース内のフィールド
 ---
 texts:
   en: Field in Last Applied
-  ja: __COPY__
+  ja: 前回適用されたフィールド
 ---
 texts:
   en: Action
-  ja: __COPY__
+  ja: アクション
 ---
 texts:
   en: Yes
@@ -381,7 +381,7 @@ texts:
 ---
 texts:
   en: Set live to the Resource Config value.
-  ja: __COPY__
+  ja: 稼働中のリソースにリソース設定の値を設定
 ---
 texts:
   en: No
@@ -413,7 +413,7 @@ texts:
 ---
 texts:
   en: Do nothing.
-  ja: __COPY__
+  ja: 何もしない
 ---
 texts:
   en: Merging Maps
@@ -456,7 +456,7 @@ texts:
 ---
 texts:
   en: Action
-  ja: __COPY__
+  ja: アクション
 ---
 texts:
   en: Yes
@@ -472,7 +472,7 @@ texts:
 ---
 texts:
   en: Recursively merge the Resource Config and Resource values.
-  ja: __COPY__
+  ja: 再帰的にリソース設定とリソースの値をマージする
 ---
 texts:
   en: Yes
@@ -488,7 +488,7 @@ texts:
 ---
 texts:
   en: Set live to the Resource Config value.
-  ja: __COPY__
+  ja: 稼働中のリソースにリソース設定の値を設定
 ---
 texts:
   en: No
@@ -520,7 +520,7 @@ texts:
 ---
 texts:
   en: Do nothing.
-  ja: __COPY__
+  ja: 何もしない
 ---
 texts:
   en: Merging Lists of Primitives
@@ -570,7 +570,7 @@ texts:
 ---
 texts:
   en: Action
-  ja: __COPY__
+  ja: アクション
 ---
 texts:
   en: Yes
@@ -602,7 +602,7 @@ texts:
 ---
 texts:
   en: Add to list.
-  ja: リストに追加する
+  ja: リストに追加
 ---
 texts:
   en: No
@@ -634,7 +634,7 @@ texts:
 ---
 texts:
   en: Do nothing.
-  ja: __COPY__
+  ja: 何もしない
 ---
 texts:
   en: >-
@@ -683,19 +683,19 @@ texts:
 ---
 texts:
   en: Element in Resource Config
-  ja: __COPY__
+  ja: リソース設定の要素
 ---
 texts:
   en: Element in Resource
-  ja: __COPY__
+  ja: リソースの要素
 ---
 texts:
   en: Element in Last Applied
-  ja: __COPY__
+  ja: 前回適用されたリソース設定の要素
 ---
 texts:
   en: Action
-  ja: __COPY__
+  ja: アクション
 ---
 texts:
   en: Yes
@@ -711,7 +711,7 @@ texts:
 ---
 texts:
   en: Recursively merge the Resource Config and Resource values.
-  ja: __COPY__
+  ja: 再帰的にリソース設定とリソースの値をマージする
 ---
 texts:
   en: Yes
@@ -727,7 +727,7 @@ texts:
 ---
 texts:
   en: Add to list.
-  ja: __COPY__
+  ja: リストに追加
 ---
 texts:
   en: No
@@ -743,7 +743,7 @@ texts:
 ---
 texts:
   en: Remove from list.
-  ja: __COPY__
+  ja: リストから除く
 ---
 texts:
   en: No
@@ -759,7 +759,7 @@ texts:
 ---
 texts:
   en: Do nothing.
-  ja: __COPY__
+  ja: 何もしない
 ---
 texts:
   en: >-
@@ -768,7 +768,7 @@ texts:
     The `patch merge key` is defined in the [Kubernetes API](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.12/#podspec-v1-core)
 
     on the field.
-  ja: __COPY__
+  ja: このマージ戦略は patch merge key を使ってリスト内のコンテナ要素を識別し、マージします。`patch merge key` はフィールド上の [Kubernetes API](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.12/#podspec-v1-core) で定義されています。
 ---
 texts:
   en: >-

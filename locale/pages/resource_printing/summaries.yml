@@ -75,7 +75,7 @@ texts:
     **Note:** Some columns *may* not directly map to fields on the Resource, but instead may
 
     be a summary of fields.
-  ja: __COPY__
+  ja: "**注意:** いくつかの列ではリソース上のフィールドを直接表示せずに、フィールドの要約を表示することがあります。"
 ---
 texts:
   en: Custom Columns

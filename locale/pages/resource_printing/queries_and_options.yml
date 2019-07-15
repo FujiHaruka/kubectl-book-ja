@@ -63,7 +63,7 @@ texts:
 ---
 texts:
   en: Get **all** Resources in a namespace for a given type.
-  ja: __COPY__
+  ja: 名前空間内にある与えられたタイプの**すべての**リソースを取得します。
 ---
 texts:
   en: The Group and Version for the Resource are explicit.

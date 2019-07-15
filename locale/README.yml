@@ -109,7 +109,7 @@ texts:
 ---
 texts:
   en: Debugging
-  ja: __COPY__
+  ja: デバッグ
 ---
 texts:
   en: Exec, Attach, Cp, Logs
@@ -202,7 +202,7 @@ texts:
 ---
 texts:
   en: Cluster Management
-  ja: __COPY__
+  ja: クラスタの管理
 ---
 texts:
   en: >-

@@ -124,11 +124,11 @@ texts:
 ---
 texts:
   en: "**Input:** The kustomization.yaml and deployment.yaml files"
-  ja: __COPY__
+  ja: "**入力:** kustomization.yaml ファイルと deployment.yaml ファイル"
 ---
 texts:
   en: "**Applied:** The Resource that is Applied to the cluster"
-  ja: __COPY__
+  ja: "**適用:** クラスタに適用されるリソース"
 ---
 texts:
   en: >-
@@ -158,7 +158,7 @@ texts:
 ---
 texts:
   en: "**Example:** Prefix the names of all Resources."
-  ja: __COPY__
+  ja: "**例:** すべてのリソースの名前に接頭辞を付ける"
 ---
 texts:
   en: This will update the ConfigMap reference in the Deployment to have the `foo` prefix.
@@ -166,11 +166,11 @@ texts:
 ---
 texts:
   en: "**Input:** The kustomization.yaml and deployment.yaml files"
-  ja: __COPY__
+  ja: "**入力:** kustomization.yaml ファイルと deployment.yaml ファイル"
 ---
 texts:
   en: "**Applied:** The Resource that is Applied to the cluster"
-  ja: __COPY__
+  ja: "**適用:** クラスタに適用されるリソース"
 ---
 texts:
   en: >-
