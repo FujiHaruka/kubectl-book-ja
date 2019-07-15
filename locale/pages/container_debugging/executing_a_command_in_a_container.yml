@@ -11,46 +11,49 @@ texts:
 ---
 texts:
   en: Execute a Command in a Container
-  ja: __COPY__
+  ja: コンテナの中でコマンドを実行する
 ---
 texts:
   en: Get a Shell in a Container
-  ja: __COPY__
+  ja: コンテナの中でシェルを取得する
 ---
 texts:
   en: Executing Commands
-  ja: __COPY__
+  ja: コマンドの実行
 ---
 texts:
   en: Motivation
-  ja: __COPY__
+  ja: 動機
 ---
 texts:
   en: >-
     Debugging Workloads by running commands within the Container.  Commands may be a Shell with
 
     a tty.
-  ja: __COPY__
+  ja: コンテナの内部でコマンドを実行することで、ワークロードをデバッグします。コマンドは tty 経由のシェルも可能です。
 ---
 texts:
   en: Exec Command
-  ja: __COPY__
+  ja: コマンドの実行
 ---
 texts:
   en: Run a command in a Container in the cluster by specifying the **Pod name**.
-  ja: __COPY__
+  ja: クラスタ内のコンテナの中でコマンドを実行するには、**Pod 名**を指定します。
 ---
 texts:
   en: Exec Shell
-  ja: __COPY__
+  ja: シェルの実行
 ---
 texts:
   en: To get a Shell in a Container, use the `-t -i` options to get a tty and attach STDIN.
-  ja: __COPY__
+  ja: コンテナの中でシェルを取得するには、`-t -i` オプションを使って tty を取得し STDIN にアタッチします。
 ---
 texts:
   en: >-
-    {% panel style="info", title="Specifying the Container" %}
+    {% panel style="info", title="コンテナの指定" %}
 
     For Pods running multiple Containers, the Container should be specified with `-c <container-name>`.
-  ja: __COPY__
+  ja: >-
+    {% panel style="info", title="Specifying the Container" %}
+
+    複数のコンテナを実行する Pod に対しては、シェルを実行するコンテナを `-c <container-name>` で指定すべきです。
