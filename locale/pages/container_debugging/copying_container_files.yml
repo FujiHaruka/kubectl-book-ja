@@ -11,70 +11,73 @@ texts:
 ---
 texts:
   en: Copy files to and from Containers in a cluster
-  ja: __COPY__
+  ja: クラスタ内のコンテナに / コンテナからファイルをコピーする
 ---
 texts:
   en: Copying Container Files
-  ja: __COPY__
+  ja: コンテナのファイルをコピー
 ---
 texts:
   en: Motivation
-  ja: __COPY__
+  ja: 動機
 ---
 texts:
   en: Copying files from Containers in a cluster to a local filesystem
-  ja: __COPY__
+  ja: クラスタ内のコンテナからローカルのファイルシステムにファイルをコピーする
 ---
 texts:
   en: Copying files from a local filesystem to Containers in a cluster
-  ja: __COPY__
+  ja: ローカルのファイルシステムからクラスタ内のコンテナにファイルをコピーする
 ---
 texts:
   en: >-
     {% panel style="warning", title="Install Tar" %}
 
     Copy requires that *tar* be installed in the container image.
-  ja: __COPY__
+  ja: >-
+    {% panel style="warning", title="Tar のインストール" %}
+
+    コピーするには、コンテナイメージ内に **tar** のインストールが必要です。
 ---
 texts:
   en: Local to Remote
-  ja: __COPY__
+  ja: ローカルからリモートへ
 ---
 texts:
   en: Copy a local file to a remote Pod in a cluster.
-  ja: __COPY__
+  ja: ローカルのファイルをリモートにあるクラスタ内の Pod にコピーします。
 ---
 texts:
   en: Local file format is `<path>`
-  ja: __COPY__
+  ja: ローカルファイルの形式は `<path>`
 ---
 texts:
   en: Remote file format is `<pod-name>:<path>`
-  ja: __COPY__
+  ja: リモートファイルの形式は `<pod-name>:<path>`
 ---
 texts:
   en: Remote to Local
-  ja: __COPY__
+  ja: リモートからローカルへ
 ---
 texts:
   en: Copy a remote file from a Pod to a local file.
-  ja: __COPY__
+  ja: Pod からリモートのファイルをローカルのファイルにコピーします。
 ---
 texts:
   en: Local file format is `<path>`
-  ja: __COPY__
+  ja: ローカルファイルの形式は `<path>`
 ---
 texts:
   en: Remote file format is `<pod-name>:<path>`
-  ja: __COPY__
+  ja: リモートファイルの形式は `<pod-name>:<path>`
 ---
 texts:
   en: Specify the Container
-  ja: __COPY__
+  ja: コンテナを指定
 ---
 texts:
   en: Specify the Container within a Pod running multiple containers.
-  ja: __COPY__
+  ja: 複数コンテナを実行している Pod 内で特定のコンテナを指定します。
 ---
 texts:
   en: "`-c <container-name>`"
@@ -82,11 +85,11 @@ texts:
 ---
 texts:
   en: Namespaces
-  ja: __COPY__
+  ja: 名前空間
 ---
 texts:
   en: Set the Pod namespace by prefixing the Pod name with `<namespace>/` .
-  ja: __COPY__
+  ja: Pod の名前空間を指定するには、Pod 名に `<namespace>/` というプレフィックスを付けます。
 ---
 texts:
   en: "`<pod-namespace>/<pod-name>:<path>`"
