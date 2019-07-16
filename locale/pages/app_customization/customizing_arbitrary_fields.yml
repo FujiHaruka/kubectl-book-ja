@@ -11,15 +11,15 @@ texts:
 ---
 texts:
   en: Customize arbitrary fields from arbitrary Resources in a Base.
-  ja: __COPY__
+  ja: Base の任意のリソースから任意のフィールドをカスタマイズする
 ---
 texts:
   en: Customizing Resource Fields
-  ja: __COPY__
+  ja: リソースのフィールドをカスタマイズする
 ---
 texts:
   en: Motivation
-  ja: __COPY__
+  ja: 動機
 ---
 texts:
   en: >-
@@ -28,7 +28,7 @@ texts:
     as resource reservations for Pods, replicas on Deployments, etc.  Overlays and patches can
 
     be used by Variants to specify fields values which will override the Base field values.
-  ja: __COPY__
+  ja: ユーザーが Base から**任意のフィールドを修正**したくなることがよくあります。たとえば Pod のリソース割り当て予約や Deployment のレプリカ数といったフィールドです。Overlay や patch を使うと、バリエーションで Base のフィールドを上書きするようフィールドの値を指定できます。
 ---
 texts:
   en: '{% panel style="info", title="Reference" %}'
@@ -44,7 +44,7 @@ texts:
 ---
 texts:
   en: Customizing Arbitrary Fields with Overlays
-  ja: __COPY__
+  ja: Overlay によって任意のフィールドをカスタマイズする
 ---
 texts:
   en: >-
@@ -55,7 +55,10 @@ texts:
     allow arbitrary customizations to be performed without requiring a base to expose
 
     the customization as a template.
-  ja: __COPY__
+  ja: >-
+    Base が提供するリソースに対して Overlay を与えると任意の**フィールドを追加、変更、削除**できます。
+
+    **Overlay は疎なリソース定義であり*、これを使うと Base にカスタマイズをテンプレートとして公開させることなく任意のカスタマイズを実行できます。
 ---
 texts:
   en: >-
@@ -64,18 +67,22 @@ texts:
     well as any fields that should be set on the base Resource.  Overlays are applied using
 
     *StrategicMergePatch*.
-  ja: __COPY__
+  ja: >-
+    Overlay にはリソースを指定するために**グループ、バージョン、種類、名前**を書く必要があります。
+
+    そこに、Base リソースに設定する任意のフィールドを記述します。Overlay は **StrategicMergePatch** を使って適用されます。
 ---
 texts:
   en: >-
     **Use Case:** Different Environments (test, dev, staging, canary, prod) require fields such as
 
     replicas or resources to be overridden.
-  ja: __COPY__
+  ja: >-
+    **ユースケース:** 複数の環境 (test、dev、staging、canary、prod) で、replicas や resources といったフィールドを上書きします。
 ---
 texts:
   en: "**Input:** The kustomization.yaml file and overlay"
-  ja: __COPY__
+  ja: "**入力:** kustomization.yaml ファイルと overlay"
 ---
 texts:
   en: "**Base:**"
@@ -83,7 +90,7 @@ texts:
 ---
 texts:
   en: "**Applied:** The Resource that is Applied to the cluster"
-  ja: __COPY__
+  ja: "**適用:** クラスタに適用されるリソース"
 ---
 texts:
   en: >-
@@ -94,25 +101,29 @@ texts:
     is that there is no *Last Applied Resource Config* when merging overlays, so fields may only be deleted
 
     if they are explicitly set to nil.
-  ja: __COPY__
+  ja: >-
+    {% panel style="info", title="Overlay のマージ意味論" %}
+
+    Overlay はクラスタにリソース構成を Apply するのと同じ[マージの意味論](../app_management/field_merge_semantics.md)を持ちます。一点違うのは、Overlay をマージする際には**前回適用されたリソース構成**はありません。そのため、そのため、フィールドが明示的に nil に設定されると、フィールドがただ削除されるという結果になります。
 ---
 texts:
   en: Customizing Arbitrary Fields with JsonPatch
-  ja: __COPY__
+  ja: JsonPath による任意のフィールドのカスタマイズ
 ---
 texts:
   en: >-
     Arbitrary fields may be added, changed, or deleted by supplying *JSON Patches* against the
 
     Resources provided by the base.
-  ja: __COPY__
+  ja: Base が提供するリソースに対して、**JSON Patch** を与えることで任意のフィールドを追加、変更、削除できます。
 ---
 texts:
   en: >-
     **Use Case:** Different Environments (test, dev, staging, canary, prod) require fields such as
 
     replicas or resources to be overridden.
-  ja: __COPY__
+  ja: >-
+    **ユースケース:** 複数の環境 (test、dev、staging、canary、prod) で、replicas や resources といったフィールドを上書きします。
 ---
 texts:
   en: >-
@@ -123,12 +134,13 @@ texts:
     specified in addition to the Patch.  Patches offer a number of powerful imperative operations
 
     for modifying the base Resources.
-  ja: __COPY__
+  ja: >-
+    JSON Patch は [RFC 6902](https://tools.ietf.org/html/rfc6902) で定められ、リソースに適用されるパッチとなります。Patch はリソースを指定するために、Patch 本体に加えて**グループ、バージョン、種類、名前**が必要です。Patch は Base のリソースを修正するために多くのパワフルな命令的操作を提供します。
 ---
 texts:
   en: "**Input:** The kustomization.yaml file"
-  ja: __COPY__
+  ja: "**入力:** kustomization.yaml ファイル"
 ---
 texts:
   en: "**Applied:** The Resource that is Applied to the cluster"
-  ja: __COPY__
+  ja: "**適用:** クラスタに適用されるリソース"
