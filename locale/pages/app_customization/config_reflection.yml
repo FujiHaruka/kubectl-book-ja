@@ -11,15 +11,15 @@ texts:
 ---
 texts:
   en: Inject the values of other Resource Config fields into Pod Env Vars and Command Args with `vars`.
-  ja: __COPY__
+  ja: 他のリソース構成のフィールドを `vars` によって Pod の環境変数とコマンドの引数に注入する
 ---
 texts:
   en: Config Reflection
-  ja: __COPY__
+  ja: 構成の反映
 ---
 texts:
   en: Motivation
-  ja: __COPY__
+  ja: 動機
 ---
 texts:
   en: >-
@@ -34,7 +34,12 @@ texts:
     `kustomization.yaml` file (e.g. by setting a `namePrefix`), the value will be propagated
 
     to where it is referenced in the PodSpec.
-  ja: __COPY__
+  ja: >-
+    Pod 内で実行されるアプリケーションがアプリケーションのコンテキストや設定について知りたくなることがあります。たとえば、**Pod はプロジェクト内で定義されている Service 名をコマンド引数からとっているかもしれません**。
+    
+    Service の値を PodSpec の中に直接ハードコーディングするのではなく、**`vars` エントリを使って Service の値を参照**することができます。
+
+    その値が `kustomization.yaml` によって (たとえば `namePrefix` を設定して) 更新されたり変形されたりすると、PodSpec の中で参照されているところまで値が伝播します。
 ---
 texts:
   en: '{% panel style="info", title="Reference" %}'
@@ -53,42 +58,42 @@ texts:
     The `vars` section contains variable references to Resource Config fields within the project.  They require
 
     the following to be defined:
-  ja: __COPY__
+  ja: "`vars` セクションはプロジェクト内のリソース構成のフィールドに参照を持つ変数を含みます。以下を定義する必要があります。"
 ---
 texts:
   en: Resource Kind
-  ja: __COPY__
+  ja: リソースの種類
 ---
 texts:
   en: Resource Version
-  ja: __COPY__
+  ja: リソースのバージョン
 ---
 texts:
   en: Resource name
-  ja: __COPY__
+  ja: リソース名
 ---
 texts:
   en: Field path
-  ja: __COPY__
+  ja: フィールドのパス
 ---
 texts:
   en: "**Example:** Set the Pod command argument to the value of a Service name."
-  ja: __COPY__
+  ja: "**例:** Pod のコマンドライン引数を Service 名の値に設定する。"
 ---
 texts:
   en: >-
     Apply will resolve `$(BACKEND_SERVICE_NAME)` to a value using the object reference
 
     specified in `vars`.
-  ja: __COPY__
+  ja: Apply 時に `$(BACKEND_SERVICE_NAME)` は `vars` で指定されたオブジェクトの参照を使った値に解決されます。
 ---
 texts:
   en: "**Input:** The kustomization.yaml, deployment.yaml and service.yaml files"
-  ja: __COPY__
+  ja: "**入力:** kustomization.yaml、deployment.yaml、service.yaml ファイル"
 ---
 texts:
   en: "**Applied:** The Resources that are Applied to the cluster"
-  ja: __COPY__
+  ja: "**適用:** クラスタに適用されるリソース"
 ---
 texts:
   en: >-
@@ -99,4 +104,7 @@ texts:
     **not** intended as a general templating mechanism.  Overriding values should be done with
 
     patches instead of variables.  See [Bases and Variations](bases_and_variants.md).
-  ja: __COPY__
+  ja: >-
+    {% panel style="warning", title="変数の参照" %}
+
+    変数はリソース構成を Pod に注入するためのものであり、他の用途に向いていません。変数は一般的なテンプレート機構として使う**べきではありません**。値の上書きは変数ではなく patch で行うべきです。[Bases and Variations] を参考にしてください。
