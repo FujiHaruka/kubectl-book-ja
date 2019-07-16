@@ -11,11 +11,11 @@ texts:
 ---
 texts:
   en: Apply manages Applications through files defining Kubernetes Resources (i.e. Resource Config)
-  ja: Apply コマンドは Kubernetes リソースを定義するファイル (リソース設定) を通じてアプリケーションを管理する
+  ja: Apply コマンドは Kubernetes リソースを定義するファイル (リソース構成) を通じてアプリケーションを管理する
 ---
 texts:
   en: Kustomize is used to author Resource Config
-  ja: Kustomize はリソース設定を書くために使われる
+  ja: Kustomize はリソース構成を書くために使われる
 ---
 texts:
   en: Declarative Application Management
@@ -32,7 +32,7 @@ texts:
     typically checked into source control, and allow cluster state changes to be reviewed before they
 
     are audited and applied.
-  ja: クラスタ内のワークロードは**リソース設定 (Resource Config) **と呼ばれるファイルを通じて設定できます。これらのファイルは通常、バージョン管理の下に置かれ、クラスタの状態を検査・適用する前に設定の変更をレビューできるようにします。
+  ja: クラスタ内のワークロードは**リソース構成 (Resource Config) **と呼ばれるファイルを通じて設定できます。これらのファイルは通常、バージョン管理の下に置かれ、クラスタの状態を検査・適用する前に設定の変更をレビューできるようにします。
 ---
 texts:
   en: There are 2 components to Application Management.
@@ -51,23 +51,23 @@ texts:
     composing and overlaying Resource Config authored by separate teams
 
     (using the `-k` flag with a `kustomization.yaml`).
-  ja: クライアントコンポーネントは、アプリケーションの望ましい状態を定義するリソース設定を書くことからなります。生のリソース設定ファイル群を書くこともありますが、別々のチームが書いたリソース設定をまとめ上げることもあります (`kustomization.yaml` を使うには `-k` フラグを使用)。
+  ja: クライアントコンポーネントは、アプリケーションの望ましい状態を定義するリソース構成を書くことからなります。生のリソース構成ファイル群を書くこともありますが、別々のチームが書いたリソース構成をまとめ上げることもあります (`kustomization.yaml` を使うには `-k` フラグを使用)。
 ---
 texts:
   en: "Kustomize offers low-level tooling for simplifying the authoring of Resource Config.  It provides:"
-  ja: Kustomize はリソース設定を書く作業を簡単にするため、低レベルのツールを提供しています。
+  ja: Kustomize はリソース構成を書く作業を簡単にするため、低レベルのツールを提供しています。
 ---
 texts:
   en: "**Generating Resource Config** from other canonical sources - e.g. ConfigMaps, Secrets"
-  ja: "**リソース設定の生成**。たとえば ConfigMap や Secret を基準となる他のソースから生成する"
+  ja: "**リソース構成の生成**。たとえば ConfigMap や Secret を基準となる他のソースから生成する"
 ---
 texts:
   en: "**Reusing and Composing one or more collections of Resource Config**"
-  ja: "**一つ以上のリソース設定のファイル群を再利用・構成する**"
+  ja: "**一つ以上のリソース構成のファイル群を再利用・構成する**"
 ---
 texts:
   en: "**Customizing Resource Config**"
-  ja: "**リソース設定をカスタマイズする**"
+  ja: "**リソース構成をカスタマイズする**"
 ---
 texts:
   en: "**Setting cross-cutting fields** - e.g. namespace, labels, annotations, name-prefixes, etc"
@@ -93,7 +93,7 @@ texts:
     state on the Resource - e.g. *defaulting unspecified fields, filling in IP addresses, autoscaling
 
     replica count, etc.*
-  ja: サーバーコンポーネントは、書かれたリソース設定をクラスタに適用することからなります。Apply が実行されると、Kubernetes クラスタはリソースを作成・更新することになりますが、リソース設定ファイルには書かれていないリソース上の望ましい状態を追加します。たとえば、**指定されていないフィールドをデフォルト値で埋め、IP アドレスを入力し、レプリカ数をオートスケールさせるといったことです。**
+  ja: サーバーコンポーネントは、書かれたリソース構成をクラスタに適用することからなります。Apply が実行されると、Kubernetes クラスタはリソースを作成・更新することになりますが、リソース構成ファイルには書かれていないリソース上の望ましい状態を追加します。たとえば、**指定されていないフィールドをデフォルト値で埋め、IP アドレスを入力し、レプリカ数をオートスケールさせるといったことです。**
 ---
 texts:
   en: >-

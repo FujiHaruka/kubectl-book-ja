@@ -80,14 +80,14 @@ texts:
     **Users work with Resource APIs by declaring them in files which are then Applied to a Kubernetes
 
     cluster.  These declarative files are called Resource Config.**
-  ja: "**リソース API の機能を使うには、まずリソースをファイル内で宣言し、次に Kubernetes クラスタに Apply します。ここで記述される宣言的なファイルをリソース設定と呼びます。**"
+  ja: "**リソース API の機能を使うには、まずリソースをファイル内で宣言し、次に Kubernetes クラスタに Apply します。ここで記述される宣言的なファイルをリソース構成と呼びます。**"
 ---
 texts:
   en: >-
     Resource Config is *Applied* (declarative Create/Update/Delete) to a Kubernetes cluster using
 
     tools such as Kubectl, and then actuated by a *Controller*.
-  ja: リソース設定は、Kubectl のようなツールを通じて Kubernetes クラスタに (宣言的な作成・更新・削除を) **Apply** され、そのあとで**コントローラ**がリソース設定を反映させます。
+  ja: リソース構成は、Kubectl のようなツールを通じて Kubernetes クラスタに (宣言的な作成・更新・削除を) **Apply** され、そのあとで**コントローラ**がリソース構成を反映させます。
 ---
 texts:
   en: "Resources are uniquely identified:"
@@ -121,7 +121,7 @@ texts:
   ja: >-
     {% panel style="warning", title="デフォルトの名前空間" %}
 
-    リソース設定で名前空間が省略されると **default** という名前空間が使用されますが、アプリケーションには名前空間を必ず明示的に指定すべきと言って差し支えありません。名前空間は `kustomization.yaml` に記述します。
+    リソース構成で名前空間が省略されると **default** という名前空間が使用されますが、アプリケーションには名前空間を必ず明示的に指定すべきと言って差し支えありません。名前空間は `kustomization.yaml` に記述します。
 ---
 texts:
   en: Resources Structure
@@ -149,12 +149,12 @@ texts:
 ---
 texts:
   en: Resource Config written by the user omits the Status field.
-  ja: ユーザーがリソース設定を書くときには Status フィールドは省略します。
+  ja: ユーザーがリソース構成を書くときには Status フィールドは省略します。
 ---
 texts:
   en: "**Example Deployment Resource Config**"
   ja: >-
-    **Deployment のリソース設定の例**
+    **Deployment のリソース構成の例**
 ---
 texts:
   en: >-
@@ -186,7 +186,7 @@ texts:
     Controllers then make changes to the cluster to fulfill the intent specified by the user
 
     (e.g. in Resource Config) or automation (e.g. changes from Autoscalers).
-  ja: コントローラはユーザーが (たとえばリソース設定の中で) 決めた意図通りの仕様や (たとえば Autoscaler による) 自動化の要求を満たすようにクラスタを変更します。
+  ja: コントローラはユーザーが (たとえばリソース構成の中で) 決めた意図通りの仕様や (たとえば Autoscaler による) 自動化の要求を満たすようにクラスタを変更します。
 ---
 texts:
   en: >-

@@ -27,7 +27,7 @@ texts:
 ---
 texts:
   en: Resource Config By `kustomization.yaml`
-  ja: "`kustomization.yaml` によるリソース設定"
+  ja: "`kustomization.yaml` によるリソース構成"
 ---
 texts:
   en: Get all Resources provided by the `kustomization.yaml` in project/.
@@ -35,11 +35,11 @@ texts:
 ---
 texts:
   en: Resource Config By Dir
-  ja: ディレクトリによるリソース設定
+  ja: ディレクトリによるリソース構成
 ---
 texts:
   en: Get all Resources present in the Resource Config for a directory.
-  ja: ディレクトリのリソース設定内にあるすべてのリソースを取得します。
+  ja: ディレクトリのリソース構成内にあるすべてのリソースを取得します。
 ---
 texts:
   en: Resource Types

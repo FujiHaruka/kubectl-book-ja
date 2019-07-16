@@ -83,7 +83,7 @@ texts:
     This sets the namespace for both generated Resources (e.g. ConfigMaps and Secrets) and non-generated
 
     Resources.
-  ja: リソース設定の中で宣言されたすべてのリソースの名前空間は `namespace` で設定できます。これにより設定される名前空間は、生成されたリソース (たとえば ConfigMap と Secret) にもそうでないリソースにも適用されます。
+  ja: リソース構成の中で宣言されたすべてのリソースの名前空間は `namespace` で設定できます。これにより設定される名前空間は、生成されたリソース (たとえば ConfigMap と Secret) にもそうでないリソースにも適用されます。
 ---
 texts:
   en: "**Example:** Set the `namespace` specified in the `kustomization.yaml` on the namespaced Resources."

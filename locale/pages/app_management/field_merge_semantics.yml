@@ -11,15 +11,15 @@ texts:
 ---
 texts:
   en: Fields set and deleted from Resource Config are merged into Resources by Apply
-  ja: リソース設定から追加また削除されたフィールドは Apply を実行することでリソースにマージされる
+  ja: リソース構成から追加また削除されたフィールドは Apply を実行することでリソースにマージされる
 ---
 texts:
   en: If a Resource already exists, Apply updates the Resources by merging the local Resource Config into the remote Resources
-  ja: すでにリソースが存在していれば、Apply を実行するとリソースが更新され、ローカルにあるリソース設定がリモートのリソースにマージされる
+  ja: すでにリソースが存在していれば、Apply を実行するとリソースが更新され、ローカルにあるリソース構成がリモートのリソースにマージされる
 ---
 texts:
   en: Fields removed from the Resource Config will be deleted from the remote Resource
-  ja: リソース設定から除かれたフィールドは、リモートのリソースから削除される
+  ja: リソース構成から除かれたフィールドは、リモートのリソースから削除される
 ---
 texts:
   en: Merging Fields
@@ -44,11 +44,11 @@ texts:
     This page describes how Resource Config is merged with Resources or other Resource Config.  This
 
     may occur when:
-  ja: このページでは、リソース設定がどのようにリソースとマージされるか、あるいはどのように他のリソース設定とマージされるかを説明します。マージされるタイミングは以下です。
+  ja: このページでは、リソース構成がどのようにリソースとマージされるか、あるいはどのように他のリソース構成とマージされるかを説明します。マージされるタイミングは以下です。
 ---
 texts:
   en: "Applying Resource Config updates to the live Resources in the cluster "
-  ja: リソース設定の更新をクラスタ内で稼働中のリソースに適用する
+  ja: リソース構成の更新をクラスタ内で稼働中のリソースに適用する
 ---
 texts:
   en: Defining Patches in the `kustomization.yaml` which are overlayed on `resources` and [bases](../app_customization/bases_and_variants.md)
@@ -56,7 +56,7 @@ texts:
 ---
 texts:
   en: Applying Resource Config Updates
-  ja: リソース設定の更新を適用する
+  ja: リソース構成の更新を適用する
 ---
 texts:
   en: >-
@@ -65,7 +65,7 @@ texts:
     into the live Resource**.  This retains values which may be set by the control plane - such as `replicas` values
 
     set by auto scalers
-  ja: Apply は新しいリソース設定を使ってリソースを置換するのではなく、**新しいリソース設定を稼働中のリソースにマージします**。そのために制御プレーンによって設定されうる値、たとえば autoscaler により設定される `replicas` の値などを保持します。
+  ja: Apply は新しいリソース構成を使ってリソースを置換するのではなく、**新しいリソース構成を稼働中のリソースにマージします**。そのために制御プレーンによって設定されうる値、たとえば autoscaler により設定される `replicas` の値などを保持します。
 ---
 texts:
   en: Defining Patches
@@ -78,7 +78,7 @@ texts:
     defined in other Resource Config** with the same Group/Version/Kind/Namespace/Name.
 
     This is used to alter values defined on Resource Config without having to fork it.
-  ja: "`patches` は疎なリソース設定で、**他のリソース設定の中で定義された値を上書きするフィールドのサブセットを含みます**。上書き対象となるリソースは、同じグループ / バージョン / Kind / 名前空間をもつものです。これはリソース設定をフォークせずに、リソース設定で定義された値を変更するために使用されます。"
+  ja: "`patches` は疎なリソース構成で、**他のリソース構成の中で定義された値を上書きするフィールドのサブセットを含みます**。上書き対象となるリソースは、同じグループ / バージョン / Kind / 名前空間をもつものです。これはリソース構成をフォークせずに、リソース構成で定義された値を変更するために使用されます。"
 ---
 texts:
   en: Motivation (Apply)
@@ -86,7 +86,7 @@ texts:
 ---
 texts:
   en: This page describes the semantics for merging Resource Config.
-  ja: このページではリソース設定をマージするための意味論を説明します。
+  ja: このページではリソース構成をマージするための意味論を説明します。
 ---
 texts:
   en: >-
@@ -97,7 +97,7 @@ texts:
     and `clusterIp` fields, are owned exclusively by Controllers.  Fields, such as the `name`
 
     and `namespace` fields, are owned exclusively by the human user managing the Resource.
-  ja: リソースフィールドの所有権は、人間の手で書かれた宣言的なリソース設定と、クラスタ内で実行されるコントローラが設定した値との間で共有されます。`status` や `clusterIp` のようないくつかのフィールドは、コントローラが排他的に所有します。`namespace` などのフィールドは、リソースを管理する人間が排他的に所有します。
+  ja: リソースフィールドの所有権は、人間の手で書かれた宣言的なリソース構成と、クラスタ内で実行されるコントローラが設定した値との間で共有されます。`status` や `clusterIp` のようないくつかのフィールドは、コントローラが排他的に所有します。`namespace` などのフィールドは、リソースを管理する人間が排他的に所有します。
 ---
 texts:
   en: >-
@@ -112,7 +112,7 @@ texts:
 ---
 texts:
   en: Last Applied Resource Config
-  ja: 前回適用されたリソース設定
+  ja: 前回適用されたリソース構成
 ---
 texts:
   en: >-
@@ -121,7 +121,7 @@ texts:
     Resource.  This allows it to compare the last Resource Config it Applied to the current Resource
 
     Config and identify fields that have been deleted.
-  ja: Apply はリソースを作成または更新するときに、適用されたリソース設定をリソース上のアノテーションに書き込みます。これによって前回適用されたリソース設定と今回のリソース設定を比較することができ、削除されたフィールドを特定できます。
+  ja: Apply はリソースを作成または更新するときに、適用されたリソース構成をリソース上のアノテーションに書き込みます。これによって前回適用されたリソース構成と今回のリソース構成を比較することができ、削除されたフィールドを特定できます。
 ---
 texts:
   en: Merging Resources
@@ -139,11 +139,11 @@ texts:
   en: >-
     Fields present in the Resource Config that are missing from the Resource will be added to the
       Resource.
-  ja: リソース設定に存在しているがリソースに欠落しているフィールドは、リソースに追加される
+  ja: リソース構成に存在しているがリソースに欠落しているフィールドは、リソースに追加される
 ---
 texts:
   en: Fields will be added to the Last Applied Resource Config
-  ja: フィールドは前回適用されたリソース設定に追加される
+  ja: フィールドは前回適用されたリソース構成に追加される
 ---
 texts:
   en: "**Updating Fields**"
@@ -153,11 +153,11 @@ texts:
   en: >-
     Fields present in the Resource Config that are also present in the Resource will be merged recursively
       until a primitive field is updated, or a field is added / deleted.
-  ja: リソース設定にもリソースにも存在しているフィールドは、再帰的にマージされ、末端のプリミティブ値のフィールドが更新されるか、またはフィールドが追加 / 削除される
+  ja: リソース構成にもリソースにも存在しているフィールドは、再帰的にマージされ、末端のプリミティブ値のフィールドが更新されるか、またはフィールドが追加 / 削除される
 ---
 texts:
   en: Fields will be updated in the Last Applied Resource Config
-  ja: フィールドは前回適用されたリソース設定の中で更新される
+  ja: フィールドは前回適用されたリソース構成の中で更新される
 ---
 texts:
   en: "**Deleting Fields**"
@@ -167,17 +167,17 @@ texts:
   en: >-
     Fields present in the **Last Applied Resource Config** that have been removed from the Resource Config
       will be deleted from the Resource.
-  ja: "**前回適用されたリソース設定**に存在するが現在のリソース設定で除かれたフィールドは、リソースから削除される"
+  ja: "**前回適用されたリソース構成**に存在するが現在のリソース構成で除かれたフィールドは、リソースから削除される"
 ---
 texts:
   en: >-
     Fields set to *null* in the Resource Config that are present in the Resource Config will be deleted from the
       Resource.
-  ja: リソース設定で **null** 値で存在しているフィールドはリソースから削除される
+  ja: リソース構成で **null** 値で存在しているフィールドはリソースから削除される
 ---
 texts:
   en: Fields will be removed from the Last Applied Resource Config
-  ja: フィールドは前回適用されたリソース設定から除かれる
+  ja: フィールドは前回適用されたリソース構成から除かれる
 ---
 texts:
   en: >-
@@ -193,16 +193,16 @@ texts:
 
     cluster.
   ja: >-
-    {% panel style="danger", title="リソース設定からフィールドを削除する" %}
+    {% panel style="danger", title="リソース構成からフィールドを削除する" %}
 
-    リソース設定から単にフィールドを除くだけでは所有権がクラスタに移ることは**ありません**。そうではなくリソースからフィールドを削除します。もしフィールドがリソース設定の中に設定され、ユーザーが所有権を放棄したい (たとえば `replicas` をリソース設定から除いて autoscaler に頼る) と思ったら、最初に、クラスタに保存されている前回適用されたリソース設定からフィールドを削除しなければなりません。
+    リソース構成から単にフィールドを除くだけでは所有権がクラスタに移ることは**ありません**。そうではなくリソースからフィールドを削除します。もしフィールドがリソース構成の中に設定され、ユーザーが所有権を放棄したい (たとえば `replicas` をリソース構成から除いて autoscaler に頼る) と思ったら、最初に、クラスタに保存されている前回適用されたリソース構成からフィールドを削除しなければなりません。
 ---
 texts:
   en: >-
     This can be performed using `kubectl apply edit-last-applied` to delete the `replicas` field from
 
     the **Last Applied Resource Config**, and then deleting it from the **Resource Config.**
-  ja: これを実行するには、`kubectl apply edit-last-applied` コマンドを使い、**前回適用されたリソース設定**から `replicas` を削除し、次に**リソース設定**からも削除します。
+  ja: これを実行するには、`kubectl apply edit-last-applied` コマンドを使い、**前回適用されたリソース構成**から `replicas` を削除し、次に**リソース構成**からも削除します。
 ---
 texts:
   en: Field Merge Semantics
@@ -230,7 +230,7 @@ texts:
 ---
 texts:
   en: Field in Resource Config
-  ja: リソース設定内のフィールド
+  ja: リソース構成内のフィールド
 ---
 texts:
   en: Field in Resource
@@ -258,7 +258,7 @@ texts:
 ---
 texts:
   en: Set live to the Resource Config value.
-  ja: 稼働中のリソースにリソース設定の値を設定
+  ja: 稼働中のリソースにリソース構成の値を設定
 ---
 texts:
   en: Yes
@@ -274,7 +274,7 @@ texts:
 ---
 texts:
   en: Set live to the Resource Config value.
-  ja: 稼働中のリソースにリソース設定の値を設定
+  ja: 稼働中のリソースにリソース構成の値を設定
 ---
 texts:
   en: No
@@ -333,11 +333,11 @@ texts:
 ---
 texts:
   en: "**Merge Table:** For each field merge Resource Config and Resource values with the same name"
-  ja: "**テーブルのマージ:** 各フィールドに対してリソース設定と同名のリソースの値をマージ"
+  ja: "**テーブルのマージ:** 各フィールドに対してリソース構成と同名のリソースの値をマージ"
 ---
 texts:
   en: Field in Resource Config
-  ja: リソース設定内のフィールド
+  ja: リソース構成内のフィールド
 ---
 texts:
   en: Field in Resource
@@ -365,7 +365,7 @@ texts:
 ---
 texts:
   en: Recursively merge the Resource Config and Resource values.
-  ja: 再帰的にリソース設定とリソースの値をマージする
+  ja: 再帰的にリソース構成とリソースの値をマージする
 ---
 texts:
   en: Yes
@@ -381,7 +381,7 @@ texts:
 ---
 texts:
   en: Set live to the Resource Config value.
-  ja: 稼働中のリソースにリソース設定の値を設定
+  ja: 稼働中のリソースにリソース構成の値を設定
 ---
 texts:
   en: No
@@ -440,11 +440,11 @@ texts:
 ---
 texts:
   en: "**Merge Table:** For each map element merge Resource Config and Resource values with the same key"
-  ja: "**テーブルのマージ:** 各マップの要素に対してリソース設定と同キーのリソースの値をマージ"
+  ja: "**テーブルのマージ:** 各マップの要素に対してリソース構成と同キーのリソースの値をマージ"
 ---
 texts:
   en: Key in Resource Config
-  ja: リソース設定内のキー
+  ja: リソース構成内のキー
 ---
 texts:
   en: Key   in Resource
@@ -452,7 +452,7 @@ texts:
 ---
 texts:
   en: Key in Last Applied
-  ja: 前回適用されたリソース設定内のキー
+  ja: 前回適用されたリソース構成内のキー
 ---
 texts:
   en: Action
@@ -472,7 +472,7 @@ texts:
 ---
 texts:
   en: Recursively merge the Resource Config and Resource values.
-  ja: 再帰的にリソース設定とリソースの値をマージする
+  ja: 再帰的にリソース構成とリソースの値をマージする
 ---
 texts:
   en: Yes
@@ -488,7 +488,7 @@ texts:
 ---
 texts:
   en: Set live to the Resource Config value.
-  ja: 稼働中のリソースにリソース設定の値を設定
+  ja: 稼働中のリソースにリソース構成の値を設定
 ---
 texts:
   en: No
@@ -550,15 +550,15 @@ texts:
     **Ordering:** Uses the ordering specified in the Resource Config.  Elements not specified in the Resource Config
 
     do not have ordering guarantees with respect to the elements in the Resource Config.
-  ja: "**順序付け:** リソース設定の中で定義された順序を使用します。リソース設定に定義されていない要素は、リソース設定内の要素に関して順序の保証はありません。"
+  ja: "**順序付け:** リソース構成の中で定義された順序を使用します。リソース構成に定義されていない要素は、リソース構成内の要素に関して順序の保証はありません。"
 ---
 texts:
   en: "**Merge Table:** For each list element merge Resource Config and Resource element with the same value"
-  ja: "**マージテーブル:** 各リストの要素はリソース設定とリソースの要素を同じ値でマージします"
+  ja: "**マージテーブル:** 各リストの要素はリソース構成とリソースの要素を同じ値でマージします"
 ---
 texts:
   en: Element in Resource Config
-  ja: リソース設定の要素
+  ja: リソース構成の要素
 ---
 texts:
   en: Element in Resource
@@ -566,7 +566,7 @@ texts:
 ---
 texts:
   en: Element in Last Applied
-  ja: 前回適用されたリソース設定の要素
+  ja: 前回適用されたリソース構成の要素
 ---
 texts:
   en: Action
@@ -672,18 +672,18 @@ texts:
     **Ordering:** Uses the ordering specified in the Resource Config.  Elements not specified in the Resource Config
 
     do not have ordering guarantees.
-  ja: "**順序:** リソース設定の中で定義された順序を使用します。リソース設定の中で定義されていない要素は順序が保証されません。"
+  ja: "**順序:** リソース構成の中で定義された順序を使用します。リソース構成の中で定義されていない要素は順序が保証されません。"
 ---
 texts:
   en: >-
     **Merge Table:** For each list element merge Resource Config and Resource element where the elements have the same
 
     value for the `patch merge key`
-  ja: "**マージテーブル:** 各リストの要素に対してリソース設定とリソースの要素をマージしますが、`patch merge key` の値が同じ要素をマージします。"
+  ja: "**マージテーブル:** 各リストの要素に対してリソース構成とリソースの要素をマージしますが、`patch merge key` の値が同じ要素をマージします。"
 ---
 texts:
   en: Element in Resource Config
-  ja: リソース設定の要素
+  ja: リソース構成の要素
 ---
 texts:
   en: Element in Resource
@@ -691,7 +691,7 @@ texts:
 ---
 texts:
   en: Element in Last Applied
-  ja: 前回適用されたリソース設定の要素
+  ja: 前回適用されたリソース構成の要素
 ---
 texts:
   en: Action
@@ -711,7 +711,7 @@ texts:
 ---
 texts:
   en: Recursively merge the Resource Config and Resource values.
-  ja: 再帰的にリソース設定とリソースの値をマージする
+  ja: 再帰的にリソース構成とリソースの値をマージする
 ---
 texts:
   en: Yes
@@ -782,15 +782,15 @@ texts:
   ja: >-
     {% panel style="info", title="Edit と Set" %}
 
-    `kubectl edit` と `kubectl set` は前回適用されたリソース設定を無視しますが、Apply は、`kubectl edit` や `kubectl set` でセットされたリソース設定の値を変更します。`kubectl edit` や `kubectl set` でセットされた値を無視するには、以下のようにします。
+    `kubectl edit` と `kubectl set` は前回適用されたリソース構成を無視しますが、Apply は、`kubectl edit` や `kubectl set` でセットされたリソース構成の値を変更します。`kubectl edit` や `kubectl set` でセットされた値を無視するには、以下のようにします。
 ---
 texts:
   en: Use `kubectl apply edit-last-applied` to remove the value from the Last Applied (if it is present)
-  ja: "`kubectl apply edit-last-applied` を使って前回適用されたリソース設定から (もし存在すれば) 値を削除します"
+  ja: "`kubectl apply edit-last-applied` を使って前回適用されたリソース構成から (もし存在すれば) 値を削除します"
 ---
 texts:
   en: Remove the field from the Resource Config
-  ja: リソース設定からフィールドを削除します
+  ja: リソース構成からフィールドを削除します
 ---
 texts:
   en: This is the same technique for retaining values set by cluster components such as autoscalers.

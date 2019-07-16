@@ -77,7 +77,7 @@ texts:
 ---
 texts:
   en: Declaratively manage Kubernetes Workloads using Resource Config
-  ja: リソース設定を使い Kubernetes ワークロードを宣言的に管理する
+  ja: リソース構成を使い Kubernetes ワークロードを宣言的に管理する
 ---
 texts:
   en: Imperative Resource Management
@@ -140,7 +140,7 @@ texts:
     This command reads a local (or remote) file structure and modifies cluster state to
 
     reflect the declared intent.
-  ja: リソースを管理する方法は、リソース設定と呼ばれる宣言的なファイルを置き、Kubectl **Apply** コマンドで管理するのが推奨方法です。このコマンドはローカル (またはリモート) にあるファイル群を読み込み、そこに宣言された望ましい状態に合わせてクラスタの状態を変更します。
+  ja: リソースを管理する方法は、リソース構成と呼ばれる宣言的なファイルを置き、Kubectl **Apply** コマンドで管理するのが推奨方法です。このコマンドはローカル (またはリモート) にあるファイル群を読み込み、そこに宣言された望ましい状態に合わせてクラスタの状態を変更します。
 ---
 texts:
   en: >-
@@ -222,7 +222,7 @@ texts:
     the cluster *imperatively* with a shell-like workflow.  Kubectl offers porcelain commands for
 
     generating and modifying Resources.
-  ja: リソース設定のファイルを書くのは**開発**時には冗長にすぎると感じる人がいるかもしれません。そういうときには、シェルのようなワークフローでクラスタを**命令的**に扱いたくなります。Kubectl はリソースを生成・変更するためのユーザーフレンドリーなコマンドを提供しています。
+  ja: リソース構成のファイルを書くのは**開発**時には冗長にすぎると感じる人がいるかもしれません。そういうときには、シェルのようなワークフローでクラスタを**命令的**に扱いたくなります。Kubectl はリソースを生成・変更するためのユーザーフレンドリーなコマンドを提供しています。
 ---
 texts:
   en: Generating + creating Resources such as Deployments, StatefulSets, Services, ConfigMaps, etc

@@ -7,7 +7,7 @@ texts:
 ---
 texts:
   en: Introduction
-  ja: __COPY__
+  ja: はじめに
 ---
 texts:
   en: >-
@@ -16,7 +16,10 @@ texts:
     shared across teams.  Apply kustomizations allow the authoring of Resource Config to
 
     be a collaboration across teams.
-  ja: __COPY__
+  ja: >-
+    このセクションでは、複数のチームで構成を共有してプロジェクトやアプリケーションを構築する方法を説明します。
+
+
 ---
 texts:
   en: "Kustomizations facilitate:"
