@@ -19,24 +19,24 @@ texts:
   ja: >-
     このセクションでは、複数のチームで構成を共有してプロジェクトやアプリケーションを構築する方法を説明します。
 
-
+    kustomization を適用することで、複数のチームで共同作業でリソース構成を書くことができるようになります。
 ---
 texts:
   en: "Kustomizations facilitate:"
-  ja: __COPY__
+  ja: kustomization は以下の作業を容易にします。
 ---
 texts:
   en: Developing Variations of Resource Config for multiple Environments with different configurations
-  ja: __COPY__
+  ja: 異なる設定を持つ複数の環境のためにリソース構成のバリエーションの開発
 ---
 texts:
   en: Developing Variations of Resource Config for multiple Clusters with different configurations
-  ja: __COPY__
+  ja: 異なる設定を持つ複数のクラスタのためにリソース構成のバリエーションの開発
 ---
 texts:
   en: Developing and Publishing Ready-Made Resource Config for users to extend and customize
-  ja: __COPY__
+  ja: ユーザーが拡張・カスタマイズすることのできる既製のリソース構成の開発および公開
 ---
 texts:
   en: Composing Resource Config from multiple sources
-  ja: __COPY__
+  ja: 複数のソースからリソース構成を組み合わせる
