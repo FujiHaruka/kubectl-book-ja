@@ -29,19 +29,19 @@ texts:
 ---
 texts:
   en: Use **directory hierarchy to structure Resource Config**
-  ja: __COPY__
+  ja: ディレクトリの階層を分けることでリソース構成を構造化する
 ---
 texts:
   en: Separate directories for separate Environment and Cluster [Config Variants](../app_customization/bases_and_variants.md)
-  ja: __COPY__
+  ja: 環境とクラスタの[構成バリエーション](../app_customization/bases_and_variants.md)を分離するためにディレクトリを分離する
 ---
 texts:
   en: Directory Structure Based Layout
-  ja: __COPY__
+  ja: ディレクトリ構造をベースとしたレイアウト
 ---
 texts:
   en: Motivation
-  ja: __COPY__
+  ja: 動機
 ---
 texts:
   en: >-
@@ -50,7 +50,10 @@ texts:
     While this chapter is focused on conventions when using Directories, Branches and
 
     Repositories should be used with Directories as needed.
-  ja: __COPY__
+  ja: >-
+    {% panel style="success", title="どの方法が正しいのですか？" %}
+
+    この章ではディレクトリを使った方法を扱いますが、必要に応じてブランチとリポジトリを使う方法も併用してください。
 ---
 texts:
   en: >-
@@ -59,27 +62,30 @@ texts:
     The techniques and conventions in this Chapter work regardless of whether or not the Resource Config
 
     exists in the same Repository as the source code that is being deployed.
-  ja: __COPY__
+  ja: >-
+    {% panel style="info", title="構成専用のレポジトリ or モノレポ" %}
+
+    この章で説明する方法は、デプロイするソースコードと同じリポジトリにリソース構成を置いても、別のリポジトリに切り分けても、どちらでも実行できます。
 ---
 texts:
   en: Directory Structure
-  ja: __COPY__
+  ja: ディレクトリ構想
 ---
 texts:
   en: Dir Type
-  ja: __COPY__
+  ja: ディレクトリのタイプ
 ---
 texts:
   en: Deployed to a Cluster
-  ja: __COPY__
+  ja: クラスタへのデプロイ
 ---
 texts:
   en: Contains
-  ja: __COPY__
+  ja: 内容
 ---
 texts:
   en: Example Names
-  ja: __COPY__
+  ja: ディレクトリ名の例
 ---
 texts:
   en: Base
@@ -87,11 +93,11 @@ texts:
 ---
 texts:
   en: "**No** - Used as base"
-  ja: __COPY__
+  ja: "**No** - Base として使用"
 ---
 texts:
   en: Shared Config.
-  ja: __COPY__
+  ja: 共有の構成
 ---
 texts:
   en: "`base/`"
@@ -99,15 +105,15 @@ texts:
 ---
 texts:
   en: Env
-  ja: __COPY__
+  ja: 環境
 ---
 texts:
   en: "**No** - Contains other dirs"
-  ja: __COPY__
+  ja: "**No** - 他のディレクトリを含む"
 ---
 texts:
   en: Base and Cluster dirs.
-  ja: __COPY__
+  ja: "Base とクラスタのディレクトリ"
 ---
 texts:
   en: "`test/`, `staging/`, `prod/`"
@@ -115,15 +121,15 @@ texts:
 ---
 texts:
   en: Cluster
-  ja: __COPY__
+  ja: クラスタ
 ---
 texts:
   en: "**Yes** - Manually or Continuously"
-  ja: __COPY__
+  ja: "**Yes** - 手動 or 継続的"
 ---
 texts:
   en: Deployable Config.
-  ja: __COPY__
+  ja: デプロイ可能な構成
 ---
 texts:
   en: "`us-west1`, `us-east1`, `us-central1`"
@@ -131,66 +137,66 @@ texts:
 ---
 texts:
   en: Bases
-  ja: __COPY__
+  ja: Base
 ---
 texts:
   en: A Kustomize Base (e.g. `bases:`) provides shared Config that is customized by some consuming `kustomization.yaml`.
-  ja: __COPY__
+  ja: Kustomize Base (例えば `bases:`) は `kustomization.yaml` をいくらか利用することでカスタマイズされた共有の構成を提供します。
 ---
 texts:
   en: >-
     The directory structure outlined in this chapter organizes Bases into a hierarchy as:
 
     `app-bases/environment-bases/cluster`
-  ja: __COPY__
+  ja: "この章で概説されるディレクトリ構造は Base を `app-bases/environment-bases/cluster` として階層化します。"
 ---
 texts:
   en: Workflow Example
-  ja: __COPY__
+  ja: ワークフローの例
 ---
 texts:
   en: Changes made to *env/cluster/* roll out to **only that specific env-cluster**
-  ja: __COPY__
+  ja: "*env/cluster/* に対して行われた変更は、**特定の環境-クラスタにのみ**ロールアウトされる"
 ---
 texts:
   en: Changes made to *env>/bases/* roll out to **all clusters for that env**
-  ja: __COPY__
+  ja: "*env>/bases/* に対して行われた変更は、**その環境のすべてのクラスタ**にロールアウトされる"
 ---
 texts:
   en: Changes made to *bases/* roll out to **all clusters in all envs**
-  ja: __COPY__
+  ja: "*bases/* に対して行われた変更は、**すべての環境のすべてのクラスタ**にロールアウトされる"
 ---
 texts:
   en: Diagram
-  ja: __COPY__
+  ja: 図
 ---
 texts:
   en: Scenario
-  ja: __COPY__
+  ja: シナリオ
 ---
 texts:
   en: Alice modifies prod/us-west1 with change A
-  ja: __COPY__
+  ja: アリスは prod/us-west1 に変更 A を行う
 ---
 texts:
   en: Change gets pushed to prod us-west1 cluster by continuous deployment
-  ja: __COPY__
+  ja: 変更は継続的デプロイメントによって prod 環境の us-west1 クラスタにプッシュされる
 ---
 texts:
   en: Alice modifies prod/bases with change B
-  ja: __COPY__
+  ja: アリスは prod/bases に変更 B を行う
 ---
 texts:
   en: Change gets pushed to all prod clusters by continuous deployment
-  ja: __COPY__
+  ja: 変更は継続的デプロイメントによって prod 環境のすべてのクラスタにプッシュされる
 ---
 texts:
   en: Alice modifies bases with change C
-  ja: __COPY__
+  ja: アリスは bases に変更 C を行う
 ---
 texts:
   en: Change gets pushed to all clusters by continuous deployment
-  ja: __COPY__
+  ja: 変更は継続的デプロイメントによってすべてのクラスタにプッシュされる
 ---
 texts:
   en: "{% sequence width=1000 %}"
@@ -240,35 +246,35 @@ texts:
 ---
 texts:
   en: "Techniques:"
-  ja: __COPY__
+  ja: "テクニック:"
 ---
 texts:
   en: Each Layer adds a [namePrefix](../app_management/namespaces_and_names.md#setting-a-name-prefix-or-suffix-for-all-resources) and [commonLabels](../app_management/labels_and_annotations.md#setting-labels-for-all-resources).
-  ja: __COPY__
+  ja: 各レイヤーには [namePrefix](../app_management/namespaces_and_names.md#setting-a-name-prefix-or-suffix-for-all-resources) と [commonLabels](../app_management/labels_and_annotations.md#setting-labels-for-all-resources) を追加する
 ---
 texts:
   en: Each Layer adds labels and annotations.
-  ja: __COPY__
+  ja: 各レイヤーにはラベルとアノテーションを追加する
 ---
 texts:
   en: Each deployable target sets a [namespace](../app_management/namespaces_and_names.md#setting-the-namespace-for-all-resources).
-  ja: __COPY__
+  ja: デプロイ可能な各対象は[名前空間](../app_management/namespaces_and_names.md#setting-the-namespace-for-all-resources)には設定する
 ---
 texts:
   en: "Override [Pod Environment Variables and Arguments](../app_customization/customizing_pod_templates.md) using `configMapGenerator`s with `behavior: merge`."
-  ja: __COPY__
+  ja: "[Pod の環境変数と引数](../app_customization/customizing_pod_templates.md)を `configMapGenerator` の `behavior: merge` を使って上書きする"
 ---
 texts:
   en: Perform Last-mile customizations with [patches / overlays](../app_customization/customizing_arbitrary_fields.md)
-  ja: __COPY__
+  ja: "カスタマイズの最後の微調整は [patch / overlay](../app_customization/customizing_arbitrary_fields.md) で行う"
 ---
 texts:
   en: "Structure:"
-  ja: __COPY__
+  ja: "構造:"
 ---
 texts:
   en: Put reusable bases under `*/bases/`
-  ja: __COPY__
+  ja: "再利用可能な base は `*/bases/` 下に置く"
 ---
 texts:
   en: "`<project-name>/bases/`"
@@ -280,7 +286,7 @@ texts:
 ---
 texts:
   en: Put deployable targets under `<project-name>/<environment>/<cluster>/`
-  ja: __COPY__
+  ja: デプロイ可能な対象は `<project-name>/<environment>/<cluster>/` 下に置く
 ---
 texts:
   en: >-
@@ -291,11 +297,14 @@ texts:
     Apply to determine the cluster context.  To Apply a specific cluster, add that cluster to the 
 
     kubectl config`, and specify the corresponding context when running Apply.
-  ja: __COPY__
+  ja: >-
+    {% panel style="warning", title="環境 + クラスタの Apply" %}
+
+    ディレクトリ構造にはクラスタがパスに含まれますが、これは Apply 時にクラスタのコンテキストを決定するために使われはしません。特定のクラスタを Apply するには、そのクラスタを kubectl 設定に追加し、Apply 実行時に対応するコンテキストを指定します。
 ---
 texts:
   en: For more information see [Multi-Cluster](accessing_multiple_clusters.md).
-  ja: __COPY__
+  ja: 詳細は[マルチクラスタ](accessing_multiple_clusters.md)を参照。
 ---
 texts:
   en: >-
@@ -304,11 +313,14 @@ texts:
     Some git hosting services provide the concept of *Code Owners* for providing a finer grain permissions model.
 
     *Code Owners* may be used to provide separate permissions for separate environments - e.g. dev, test, prod.
-  ja: __COPY__
+  ja: >-
+    {% panel style="success", title="Code Owners" %}
+
+    git のホスティングサービスには、きめ細かい権限モデルを提供っするために**コードオーナー**を設定できるものがあります。コードオーナーは分離された各環境 (たとえば dev、test、prod) のために権限を分離するためにも利用できます。
 ---
 texts:
   en: Rollback Diagram
-  ja: __COPY__
+  ja: ロールバックの図
 ---
 texts:
   en: "{% sequence width=1000 %}"
