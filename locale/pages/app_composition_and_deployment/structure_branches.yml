@@ -28,50 +28,53 @@ texts:
     {% panel style="info", title="TL;DR" %}
 
     Decouple changes to Config to be deployed to separate Environments.
-  ja: __COPY__
+  ja: >-
+    {% panel style="info", title="TL;DR" %}
+
+    分離された環境にデプロイするために構成の変更を切り離す
 ---
 texts:
   en: Branch Structure Based Layout
-  ja: __COPY__
+  ja: ブランチ構造をベースとしたレイアウト
 ---
 texts:
   en: Motivation
-  ja: __COPY__
+  ja: 動機
 ---
 texts:
   en: >-
     **Why use branches?** Decouple changes that are rolled out with releases (e.g. new flags) from changes that are
 
     rolled out in response to production events (e.g. resource tuning).
-  ja: __COPY__
+  ja: "**なせブランチを使うか**。リリース時にロールアウトされる変更 (たとえば新しいフラグ) を、本番環境のイベントに対するレスポンスでロールアウトされる変更から分離するためです。"
 ---
 texts:
   en: Branch Structure
-  ja: __COPY__
+  ja: ブランチ構造
 ---
 texts:
   en: The convention shown here should be changed and adapted as needed.
-  ja: __COPY__
+  ja: ここで説明する方法は必要に応じて変更また応用してください。
 ---
 texts:
   en: Branch Type Name
-  ja: __COPY__
+  ja: ブランチのタイプ
 ---
 texts:
   en: Deployed to a Cluster
-  ja: __COPY__
+  ja: クラスタにデプロイするか
 ---
 texts:
   en: Purpose
-  ja: __COPY__
+  ja: 目的
 ---
 texts:
   en: Example Config Change
-  ja: __COPY__
+  ja: 構成の変更例
 ---
 texts:
   en: Example Branch Name
-  ja: __COPY__
+  ja: ブランチ名の例
 ---
 texts:
   en: Base
@@ -79,15 +82,15 @@ texts:
 ---
 texts:
   en: "**No**.  Merged into other Branches only."
-  ja: __COPY__
+  ja: "**No** - 他のブランチからマージされるだけ"
 ---
 texts:
   en: Changes that should be rolled out as part of a release.
-  ja: __COPY__
+  ja: リリースの一部としてロールアウトされるべき変更
 ---
 texts:
   en: Add *pubsub topic* flag
-  ja: __COPY__
+  ja: "*pubsub topic* フラグを加える"
 ---
 texts:
   en: "`master`, `release-1.14`, `i1026`"
@@ -99,15 +102,15 @@ texts:
 ---
 texts:
   en: "**Yes**. - Manually or Continuously."
-  ja: __COPY__
+  ja: "**Yes** - 手動 or 継続的"
 ---
 texts:
   en: Base + Changes required to respond to "production" events (or dev, staging, etc).
-  ja: __COPY__
+  ja: Base と、"production" (または dev、staging など) のイベントに対する反応として要求される変更
 ---
 texts:
   en: Increase *memory resources* - e.g. for crashing Containers
-  ja: __COPY__
+  ja: "**メモリリソース**の増量 - たとえばコンテナのクラッシュにより"
 ---
 texts:
   en: "`deploy-test`, `deploy-staging`, `deploy-prod`"
@@ -115,63 +118,63 @@ texts:
 ---
 texts:
   en: Use with techniques described in [Directories](structure_directories.md) and [Branches](structure_branches.md)
-  ja: __COPY__
+  ja: [ディレクトリ](structure_directories.md)と[ブランチ](structure_branches.md)で説明されているテクニックを使用します。
 ---
 texts:
   en: Workflow Example
-  ja: __COPY__
+  ja: ワークフロー例
 ---
 texts:
   en: Diagram
-  ja: __COPY__
+  ja: 図
 ---
 texts:
   en: Scenario
-  ja: __COPY__
+  ja: シナリオ
 ---
 texts:
   en: Live Prod App version is *v1*
-  ja: __COPY__
+  ja: Live Prod App のバージョンは *v1*
 ---
 texts:
   en: "*v2* changes committed to Base Branch Config"
-  ja: __COPY__
+  ja: "*v2* の変更が Base ブランチの構成にコミットされる"
 ---
 texts:
   en: "*v2* rolled out to Staging"
-  ja: __COPY__
+  ja: "*v2* が Staging にロールアウトされる"
 ---
 texts:
   en: Deployed by continuous deployment
-  ja: __COPY__
+  ja: 継続的デプロイメントによりデプロイされる
 ---
 texts:
   en: Live Prod App requires change to *v1* (unrelated to *v2*)
-  ja: __COPY__
+  ja: Live Prod App が *v1* への変更を (*v2* とは無関係に) 要求する
 ---
 texts:
   en: Change memory resources in Prod
-  ja: __COPY__
+  ja: Prod のメモリリソースを変更
 ---
 texts:
   en: Prod Branch Config Updated at *v1*
-  ja: __COPY__
+  ja: Prod ブランチの構成を *v1* のまま更新
 ---
 texts:
   en: Deployed immediately by continuous deployment
-  ja: __COPY__
+  ja: 継続的デプロイメントによりただちにデプロイされる
 ---
 texts:
   en: "*v2* changes rolled out separately"
-  ja: __COPY__
+  ja: "*v2* の変更が別でロールアウトされる"
 ---
 texts:
   en: Tag on Base Branch merged into Prod Branch
-  ja: __COPY__
+  ja: Base ブランチのタグが Prod ブランチにマージされる
 ---
 texts:
   en: Prod Branch continuously deployed
-  ja: __COPY__
+  ja: Prod ブランチが継続的デプロイされる
 ---
 texts:
   en: "{% sequence width=1000 %}"
@@ -233,232 +236,234 @@ texts:
 ---
 texts:
   en: Description
-  ja: __COPY__
+  ja: 詳細
 ---
 texts:
   en: "**Note:** Starting version of Application is *v1*"
-  ja: __COPY__
+  ja: "**注意:** アプリケーションのバージョンは *v1* から始まります"
 ---
 texts:
   en: Developer Bob introduces new app flag for release with *v2*
-  ja: __COPY__
+  ja: 開発者のボブは *v2* リリースで使用する新しいアプリのフラグを導入する
 ---
 texts:
   en: e.g. PubSub topic name
-  ja: __COPY__
+  ja: "例: PubSub のトピック名"
 ---
 texts:
   en: Bob updates the Base Config with the new flag
-  ja: __COPY__
+  ja: ボブは Base 構成を更新して新しいフラグを取り入れる
 ---
 texts:
   en: Add staging topic for Staging (e.g. `staging-topic`)
-  ja: __COPY__
+  ja: Staging 環境用のトピック (`staging-topic`) を追加する
 ---
 texts:
   en: Add prod topic for Prod (e.g. `prod-topic`)
-  ja: __COPY__
+  ja: Prod 環境用のトピック (`prod-topic`) を追加する
 ---
 texts:
   en: Flag should be rolled out with *v2* release
-  ja: __COPY__
+  ja: フラグは *v2* リリースでロールアウトする
 ---
 texts:
   en: "*v2* is cut"
-  ja: __COPY__
+  ja: "*v2* が切られる"
 ---
 texts:
   en: Base tagged with *v2* tag
-  ja: __COPY__
+  ja: Base ブランチが *v2* タグでタグ付けされる
 ---
 texts:
   en: "*v2* rolled out to Staging"
-  ja: __COPY__
+  ja: "*v2* が Staging にロールアウトされる"
 ---
 texts:
   en: Merge *v2* Tag -> Staging Branch
-  ja: __COPY__
+  ja: "*v2* タグ -> Staring ブランチにマージ"
 ---
 texts:
   en: Deploy Staging Branch to Staging Clusters
-  ja: __COPY__
+  ja: Staging ブランチを Staging クラスタにデプロイ
 ---
 texts:
   en: SRE Alice identifies issue in Prod (at *v1*)
-  ja: __COPY__
+  ja: 運用担当のアリスが (*v1* の) Prod 環境で問題を発見する
 ---
 texts:
   en: Fix is to increase memory of containers
-  ja: __COPY__
+  ja: コンテナのメモリを増量することで修正する
 ---
 texts:
   en: Alice updates the Prod branch Config by increasing memory resources
-  ja: __COPY__
+  ja: アリスは Prod ブランチの構成を更新し、メモリリリースを増量する
 ---
 texts:
   en: Changes go directly into Prod Branch without going into Base
-  ja: __COPY__
+  ja: 変更は直接 Prod ブランチに行い、Base ブランチを経由しない
 ---
 texts:
   en: "*v1* changes rolled out to Prod (*v1++*)"
-  ja: __COPY__
+  ja: "*v1* の変更が Prod にロールアウトされる (*v1++*)"
 ---
 texts:
   en: Include Alice's changes, but not Bob's
-  ja: __COPY__
+  ja: アリスの変更を含むが、ボブの変更は含まない
 ---
 texts:
   en: "*v2* rolled out to Prod"
-  ja: __COPY__
+  ja: "*v2* が Prod にロールアウトされる"
 ---
 texts:
   en: Merge *v2* Tag -> Prod Branch
-  ja: __COPY__
+  ja: "*v2* タグ -> Prod ブランチにマージ"
 ---
 texts:
   en: Deploy Prod Branch to Prod Clusters
-  ja: __COPY__
+  ja: Prod ブランチを Prod クラスタにデプロイ
 ---
 texts:
   en: "Techniques:"
-  ja: __COPY__
+  ja: "テクニック:"
 ---
 texts:
   en: >-
     Add new required flags and environment variables to the Resource Config in the Base branch at the
       time they are added to the code.
-  ja: __COPY__
+  ja: >-
+    新しく要求されたフラグと環境変数をコードに追加するとき、Base ブランチのリリース構成に追加する
 ---
 texts:
   en: Will be rolled out when the code is rolled out.
-  ja: __COPY__
+  ja: コードがロールアウトされると構成もロールアウトされるため
 ---
 texts:
   en: Adjust flags and configuration to the Resource Config in the Deploy branch in the deploy directory.
-  ja: __COPY__
+  ja: フラグと設定は、デプロイブランチのデプロイディレクトリにあるリソース構成に合わせて調整する
 ---
 texts:
   en: Will be rolled out immediately independent of versions.
-  ja: __COPY__
+  ja: 独立したバージョンがただちにロールアウトされる
 ---
 texts:
   en: Merge code from the Base branch to the Deploy branches to perform a Rollout.
-  ja: __COPY__
+  ja: Base ブランチからデプロイブランチにマージし、ロールアウトを実行する
 ---
 texts:
   en: Directory and Branch Layout
-  ja: __COPY__
+  ja: ディレクトリとブランチのレイアウト
 ---
 texts:
   en: "Structure:"
-  ja: __COPY__
+  ja: "構造:"
 ---
 texts:
   en: Base branch (e.g. `master`, `app-version`, etc) for Config changes tied to releases.
-  ja: __COPY__
+  ja: 構成の変更を受ける Base ブランチ (`master`、`app-version` など) はリリースに結びつく
 ---
 texts:
   en: Looks like [Directories](structure_directories.md)
-  ja: __COPY__
+  ja: [ディレクトリ](structure_directories.md)と同様
 ---
 texts:
   en: Separate Deploy branches for separate Environments (e.g. `deploy-<env>`).
-  ja: __COPY__
+  ja: 環境ごとにデプロイブランチを分離する (`deploy-<env>` など)
 ---
 texts:
   en: A new **Directory in each branch with will contain overlay customizations** - e.g. `deploy-<env>`.
-  ja: __COPY__
+  ja: 各ブランチに伴う新しいディレクトリは overlay カスタマイズを含む - `deploy-<env>` など
 ---
 texts:
   en: "**Base Branch:** `master`"
-  ja: __COPY__
+  ja: "**Base ブランチ:** `master`"
 ---
 texts:
   en: "**Deploy Branches:**"
-  ja: __COPY__
+  ja: "**デプロイブランチ:**"
 ---
 texts:
   en: "Prod Branch: `deploy-prod`"
-  ja: __COPY__
+  ja: "Prod ブランチ: `deploy-prod`"
 ---
 texts:
   en: "Staging Branch: `deploy-staging`"
-  ja: __COPY__
+  ja: "Staging ブランチ: `deploy-staging`"
 ---
 texts:
   en: "Test Branch: `deploy-test`"
-  ja: __COPY__
+  ja: "Test ブランチ: `deploy-test`"
 ---
 texts:
   en: Rollback Workflow Example
-  ja: __COPY__
+  ja: ロールバックのワークフロー例
 ---
 texts:
   en: "Summary of rollback workflow with Branches:"
-  ja: __COPY__
+  ja: "ブランチで運用するときのロールバックのワークフロー例の概要:"
 ---
 texts:
   en: Live Prod App version is *v1*
-  ja: __COPY__
+  ja: 動作中の Prod アプリは *v1*
 ---
 texts:
   en: Changes are introduced to Base Branch Config
-  ja: __COPY__
+  ja: 変更が Base ブランチの構成に取り入れられる
 ---
 texts:
   en: To be released with version *v2*
-  ja: __COPY__
+  ja: "バージョン *v2* としてリリースされる"
 ---
 texts:
   en: Release *v2* is cut to be rolled out
-  ja: __COPY__
+  ja: リリース *v2* が切られ、ロールアウトされる
 ---
 texts:
   en: Tag Base *v2* and build artifacts (e.g. images)
-  ja: __COPY__
+  ja: Base のタグ *v2* が切られ、アーティファクト (イメージなど) がビルドされる
 ---
 texts:
   en: Changes are introduced into the Base Branch Confiug
-  ja: __COPY__
+  ja: 変更が Base ブランチの構成に取り入れられる
 ---
 texts:
   en: To be released with version *v3*
-  ja: __COPY__
+  ja: "バージョン *v3* としてリリースされる"
 ---
 texts:
   en: "*v2* is pushed to Prod (eventually)"
-  ja: __COPY__
+  ja: "*v2* が (ついに) Prod にプッシュされる"
 ---
 texts:
   en: "*v2* Tag merged into Prod Branch"
-  ja: __COPY__
+  ja: "*v2* タグを Prod ブランチにマージ"
 ---
 texts:
   en: "*v2* has issues in Prod and must be rolled back"
-  ja: __COPY__
+  ja: "Prod で *v2* に問題が見つかり、ロールバックしなければならなくなる"
 ---
 texts:
   en: "*v2* changes are rolled back in new commit to Prod Branch"
-  ja: __COPY__
+  ja: "*v2* の変更が新しいコミットとして Prod ブランチに行われ、ロールバックされる"
 ---
 texts:
   en: Base Branch is unaffected
-  ja: __COPY__
+  ja: Base ブランチは影響を受けない
 ---
 texts:
   en: Fix introduced in *v3*
-  ja: __COPY__
+  ja: "修正が *v3* に取り入れられる"
 ---
 texts:
   en: >-
     **Note:** New changes committed to the Base for "v3" did not make the rollback from
 
     "v2" -> "v1" more challenging, as they had not been merged into the Prod Branch.
-  ja: __COPY__
+  ja: >-
+    **注意:** "v3" で Base に新しい変更がコミットされた場合、"v2" から "v1" へのロールバックがより難しくなるということはありません。"v3" の変更は Prod ブランチにマージされていないからです。
 ---
 texts:
   en: Diagram
-  ja: __COPY__
+  ja: 図
 ---
 texts:
   en: "{% sequence width=1000 %}"
