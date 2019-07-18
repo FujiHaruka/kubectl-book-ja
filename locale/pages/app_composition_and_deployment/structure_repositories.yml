@@ -28,39 +28,39 @@ texts:
     {% panel style="info", title="TL;DR" %}
 
     Decouple changes to Config owned by separate Teams.
-  ja: __COPY__
+  ja: 別々のチームが所有しているリソース構成への変更を切り離す
 ---
 texts:
   en: Repository Structure Based Layout
-  ja: __COPY__
+  ja: リポジトリ構造をベースとしたレイアウト
 ---
 texts:
   en: Motivation
-  ja: __COPY__
+  ja: 動機
 ---
 texts:
   en: "**Isolation between teams** managing separate Environments"
-  ja: __COPY__
+  ja: "**別々の環境を管理するチーム間で分離する**"
 ---
 texts:
   en: Permissions
-  ja: __COPY__
+  ja: 権限
 ---
 texts:
   en: "**Fine grain control** over"
-  ja: __COPY__
+  ja: "きめ細かい制御"
 ---
 texts:
   en: PRs
-  ja: __COPY__
+  ja: PR
 ---
 texts:
   en: Issues
-  ja: __COPY__
+  ja: Issue
 ---
 texts:
   en: Projects
-  ja: __COPY__
+  ja: Project
 ---
 texts:
   en: Automation
@@ -68,27 +68,27 @@ texts:
 ---
 texts:
   en: Directory Structure
-  ja: __COPY__
+  ja: ディレクトリ構造
 ---
 texts:
   en: Resource Config
-  ja: __COPY__
+  ja: リソース構成
 ---
 texts:
   en: Repo Type
-  ja: __COPY__
+  ja: リポジトリのタイプ
 ---
 texts:
   en: Deployed to a Cluster
-  ja: __COPY__
+  ja: クラスタへのデプロイ
 ---
 texts:
   en: Contains
-  ja: __COPY__
+  ja: 内容
 ---
 texts:
   en: Example Names
-  ja: __COPY__
+  ja: 名前の例
 ---
 texts:
   en: Base
@@ -96,11 +96,11 @@ texts:
 ---
 texts:
   en: "**No** - Used as Base"
-  ja: __COPY__
+  ja: "**No** - Base として使用"
 ---
 texts:
   en: Config shared with other teams.
-  ja: __COPY__
+  ja: 他チームと共有する構成
 ---
 texts:
   en: "`platform`"
@@ -112,11 +112,11 @@ texts:
 ---
 texts:
   en: "**Yes** - Manually or Continuously"
-  ja: __COPY__
+  ja: "**Yes** - 手動 or 継続的"
 ---
 texts:
   en: Deployable Config.
-  ja: __COPY__
+  ja: デプロイ可能な構成
 ---
 texts:
   en: "`guest-book`"
@@ -124,47 +124,47 @@ texts:
 ---
 texts:
   en: Use with techniques described in [Directories](structure_directories.md) and [Branches](structure_branches.md)
-  ja: __COPY__
+  ja: "[ディレクトリ](structure_directories.md)と[ブランチ](structure_branches.md)で説明されているテクニックを使用します。"
 ---
 texts:
   en: Workflow Example
-  ja: __COPY__
+  ja: ワークフロー例
 ---
 texts:
   en: Alice on the Java Platform team updates the Java Base used by other teams
-  ja: __COPY__
+  ja: Java プラットフォームチームに所属するアリスが他チームが使用する Java Base を更新する
 ---
 texts:
   en: Alice creates a Git Tag for the new release
-  ja: __COPY__
+  ja: アリスが新規リリースのために Git タグを作成する
 ---
 texts:
   en: Bob on the GuestBook App team switches to the new Java Base by updating the reference
-  ja: __COPY__
+  ja: GuestBook App チームに所属するボブが新しい Java Base に切り替えるため、参照を更新する
 ---
 texts:
   en: Diagram
-  ja: __COPY__
+  ja: 図
 ---
 texts:
   en: Scenario
-  ja: __COPY__
+  ja: シナリオ
 ---
 texts:
   en: Alice modifies java Base Repo and tags it v2
-  ja: __COPY__
+  ja: アリスが Java Base リポジトリを修正し、v2 タグを作成する
 ---
 texts:
   en: Change doesn't get pushed anywhere yet
-  ja: __COPY__
+  ja: 変更はこの段階ではどこにもプッシュされない
 ---
 texts:
   en: Bob modifies GuestBook App Repo to use v2 of the java Base
-  ja: __COPY__
+  ja: ボブが GuestBook App リポジトリを修正し、Java Base の v2 を使うようにする
 ---
 texts:
   en: Change gets pushed by continuous deployment
-  ja: __COPY__
+  ja: 変更が継続的デプロイメントによりプッシュされる
 ---
 texts:
   en: "{% sequence width=1000 %}"
@@ -200,38 +200,38 @@ texts:
 ---
 texts:
   en: "Structure:"
-  ja: __COPY__
+  ja: "構造:"
 ---
 texts:
   en: Platform teams create Base Repositories for shared Config
-  ja: __COPY__
+  ja: プラットフォームチームが共有の構成のために Base リポジトリを作成する
 ---
 texts:
   en: App teams create App Repositories for their Apps
-  ja: __COPY__
+  ja: App チームが App を開発するために App リポジトリを作成する
 ---
 texts:
   en: Remotely reference the Base Repository
-  ja: __COPY__
+  ja: Base リポジトリをリモートに参照
 ---
 texts:
   en: "**Base Repository:** Platform Team"
-  ja: __COPY__
+  ja: "**Base リポジトリ**: プラットフォームチーム"
 ---
 texts:
   en: "**App Repository:** GuestBook Team"
-  ja: __COPY__
+  ja: "**App リポジトリ:** GuestBook チーム"
 ---
 texts:
   en: '{% panel style="info", title="Remote URLs vs Vendoring" %}'
-  ja: __COPY__
+  ja: '{% panel style="info", title="リモート URL vs Vendoring" %}'
 ---
 texts:
   en: Repositories owned and controlled by the same organization may be referenced to by their URL
-  ja: __COPY__
+  ja: 同じ組織が所有・管理しているリポジトリは URL によって参照できます
 ---
 texts:
   en: >-
     Repositories owned or controlled by separate organizations should be vendored and referenced
       by path to the vendor directory.
-  ja: __COPY__
+  ja: 別の組織が所有・管理しているリポジトリは vendor として管理し、vendor ディレクトリへのパスによって参照すべきです
