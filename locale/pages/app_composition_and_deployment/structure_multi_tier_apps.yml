@@ -29,199 +29,199 @@ texts:
 ---
 texts:
   en: The same Base may be used multiple times for different Applications within the same project.
-  ja: __COPY__
+  ja: 同一プロジェクト内で同一の Base を異なるアプリケーションに対して複数回使うことができる
 ---
 texts:
   en: Composition with Shared Bases
-  ja: __COPY__
+  ja: 共有 Base による合成
 ---
 texts:
   en: Motivation
-  ja: __COPY__
+  ja: 動機
 ---
 texts:
   en: "Users may want to reuse the **same base multiple times within the same Apply Project**.  Examples:"
-  ja: __COPY__
+  ja: "**同じ Apply により管理されるプロジェクト内で、同一の Base を複数回**、再利用したくなることがあります。たとえば、"
 ---
 texts:
   en: Define a very generic base (e.g. "Java Application") used by multiple Applications within a Project.
-  ja: __COPY__
+  ja: 非常に汎用的な Base ("Java Application" など) を定義し、一つのプロジェクト内で複数のアプリケーションに使用する
 ---
 texts:
   en: Define multiple Environments (e.g. Staging, Canary, Prod) within a Project.
-  ja: __COPY__
+  ja: 一つのプロジェクト内に複数の環境 (Staging、Canary、Prod) を定義する
 ---
 texts:
   en: Composition With A Shared Base
-  ja: __COPY__
+  ja: 共有 Base による合成
 ---
 texts:
   en: >-
     It is possible to reuse the same base multiple times within the same project by using a 3-tier
 
     structure to compose multiple Variants of the base.
-  ja: __COPY__
+  ja: 同一プロジェクト内で同じ Base を複数回使用するには、3 層構造を使って Base のバリエーションを複数合成します。
 ---
 texts:
   en: Generic Base in a `kustomization.yaml`.
-  ja: __COPY__
+  ja: "`kustomization.yaml` 中の汎用的な Base"
 ---
 texts:
   en: Variants of the Generic Base in multiple `kustomization.yaml`'s.
-  ja: __COPY__
+  ja: "複数の `kustomization.yaml` の汎用的 Base のバリエーション"
 ---
 texts:
   en: Compose Variants as Bases to a single `kustomization.yaml`.
-  ja: __COPY__
+  ja: 複数の Base としてのバリエーションを一つの `kustomization.yaml` に合成する
 ---
 texts:
   en: Each layer may add customizations and resources to the preceding layers.
-  ja: __COPY__
+  ja: 各レイヤーには前段のレイヤーに対するカスタマイズやリソースを追加できます。
 ---
 texts:
   en: "Generic Base Layer: **../base/java**"
-  ja: __COPY__
+  ja: "汎用的な Base レイヤー: **../base/java**"
 ---
 texts:
   en: define the java app base Deployment
-  ja: __COPY__
+  ja: Java アプリケーションの Base となる Deployment を定義
 ---
 texts:
   en: define the java app base Service
-  ja: __COPY__
+  ja: Java アプリケーションの Base となる Service を定義
 ---
 texts:
   en: "Variant Layers: **../app1/ + ../app2/**"
-  ja: __COPY__
+  ja: "バリエーションレイヤー: **../app1/ + ../app2/**"
 ---
 texts:
   en: inherit the generic base
-  ja: __COPY__
+  ja: 汎用的な Base の継承
 ---
 texts:
   en: set a namePrefix
-  ja: __COPY__
+  ja: namePrefix を設定
 ---
 texts:
   en: set labels and selectors
-  ja: __COPY__
+  ja: ラベルとセレクタを設定
 ---
 texts:
   en: overlay an image on the base
-  ja: __COPY__
+  ja: Base 上のイメージを Overlay
 ---
 texts:
   en: set the image tag
-  ja: __COPY__
+  ja: イメージタグを設定
 ---
 texts:
   en: "Composition Layer: **kustomization.yaml**"
-  ja: __COPY__
+  ja: "合成レイヤー: **kustomization.yaml**"
 ---
 texts:
   en: compose the 2 apps as bases
-  ja: __COPY__
+  ja: 2 つのアプリケーションを Base として合成
 ---
 texts:
   en: set the namespace for Resources in the project
-  ja: __COPY__
+  ja: "プロジェクト内のリソースに名前空間を設定"
 ---
 texts:
   en: set a namePrefix for Resources in the project
-  ja: __COPY__
+  ja: プロジェクト内のリソースに namePrefix を設定
 ---
 texts:
   en: "**Generic Base Layer:**"
-  ja: __COPY__
+  ja: "**汎用的 Base レイヤー:**"
 ---
 texts:
   en: "**Variant Layers 1 and 2:**"
-  ja: __COPY__
+  ja: "**バリエーションレイヤー 1 と 2:**"
 ---
 texts:
   en: "**Composition Layer:**"
-  ja: __COPY__
+  ja: "**合成レイヤー:**"
 ---
 texts:
   en: "**Result**:"
-  ja: __COPY__
+  ja: "**結果**:"
 ---
 texts:
   en: 2 Deployments are created
-  ja: __COPY__
+  ja: 2 つの Deployment が作成される
 ---
 texts:
   en: Each Deployment has a different images
-  ja: __COPY__
+  ja: 各 Deployment は異なるイメージをもつ
 ---
 texts:
   en: Each Deployment has different labels / selectors
-  ja: __COPY__
+  ja: 各 Deployment は異なるラベル / セレクタをもつ
 ---
 texts:
   en: Each Deployment has a different name
-  ja: __COPY__
+  ja: 各 Deployment は異なる異なる名前をもつ
 ---
 texts:
   en: 2 Services are created
-  ja: __COPY__
+  ja: 2 つの Service が作成される
 ---
 texts:
   en: Each Service has different selectors, matching the corresponding Deployment
-  ja: __COPY__
+  ja: 各 Service は異なるセレクタをもち、別々の Deployment にマッチする
 ---
 texts:
   en: All Resource names share the same prefix
-  ja: __COPY__
+  ja: すべてのリソース名は同じプレフィックスを共有する
 ---
 texts:
   en: All Resources share the same namespace
-  ja: __COPY__
+  ja: すべてのリソースは同じ名前空間を共有する
 ---
 texts:
   en: "**Summary**"
-  ja: __COPY__
+  ja: "**要約**"
 ---
 texts:
   en: Most of the complexity lives in the shared common base
-  ja: __COPY__
+  ja: ほとんどの複雑性は共有の Base に押し込められる
 ---
 texts:
   en: Cross Team or Cross Org conventions can be canonized in the common base
-  ja: __COPY__
+  ja: チーム間、組織間の慣習は共通 Base に基準がある
 ---
 texts:
   en: Variations of the Base are much simpler and can modify pieces bespoke to the Variation - e.g. images, args, etc
-  ja: __COPY__
+  ja: Base のバリエーションは互いに非常に似ており、バリエーション用におあつらえの部品に修正できる - イメージ、引数など
 ---
 texts:
   en: Variations may be Composed to form a Project where project-wide conventions are applied
-  ja: __COPY__
+  ja: バリエーションは合成され、プロジェクトワイドな慣習が適用される一つのプロジェクトを形成する
 ---
 texts:
   en: "**Benefits**"
-  ja: __COPY__
+  ja: "**利点**"
 ---
 texts:
   en: Reduced maintenance through propagating updates to Base downstream
-  ja: __COPY__
+  ja: 変更を下流の Base に伝播させることによってメンテナンスの労力を減らす
 ---
 texts:
   en: Reduced complexity in Variations through separation of concerns
-  ja: __COPY__
+  ja: 関心の分離によってバリエーションの複雑を減らす
 ---
 texts:
   en: "**Applied:**"
-  ja: __COPY__
+  ja: "**適用:**"
 ---
 texts:
   en: '{% panel style="info", title="Use Cases" %}'
-  ja: __COPY__
+  ja: '{% panel style="info", title="ユースケース" %}'
 ---
 texts:
   en: Defining Generic Per-Application Archetype Bases
-  ja: __COPY__
+  ja: アプリケーションごとの汎用的な Archetype Base を定義する
 ---
 texts:
   en: Composing multiple Projects pushed together into a meta-Project
-  ja: __COPY__
+  ja: メタプロジェクトに一緒にプッシュされる複数のプロジェクトを合成する
