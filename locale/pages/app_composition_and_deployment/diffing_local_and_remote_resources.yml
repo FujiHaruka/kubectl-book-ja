@@ -11,34 +11,34 @@ texts:
 ---
 texts:
   en: View diff of changes before they are Applied to the cluster
-  ja: __COPY__
+  ja: 変更の差分をクラスタに Apply される前に確認する
 ---
 texts:
   en: Diffing Local and Cluster State
-  ja: __COPY__
+  ja: ローカルの状態とクラスタの状態の差分
 ---
 texts:
   en: Motivation
-  ja: __COPY__
+  ja: 動機
 ---
 texts:
   en: The ability to view what changes will be made before applying them to a cluster can be useful.
-  ja: __COPY__
+  ja: 変更があったときにクラスタに適用される前にどんな変更があったのかを確認できると便利です。
 ---
 texts:
   en: Generating a Diff
-  ja: __COPY__
+  ja: 差分の生成
 ---
 texts:
   en: >-
     Use the `diff` program in a user's path to display a diff of the changes that will be
 
     made by Apply.
-  ja: __COPY__
+  ja: "ユーザーのパス内で `diff` プログラムを実行すると、Apply により作られる変更の差分を表示します。"
 ---
 texts:
   en: Setting the Diff Program
-  ja: __COPY__
+  ja: Diff プログラムの設定
 ---
 texts:
   en: >-
@@ -47,4 +47,4 @@ texts:
     By default, the "diff" command available in your path will be run with "-u" (unified) and "-N"
 
     (treat new files as empty) options.
-  ja: __COPY__
+  ja: '環境変数 `KUBECTL_EXTERNAL_DIFF` を設定すると自分の diff コマンドを選択できます。デフォルトでは、パス内で利用可能な "diff" コマンドが "-u" (unified) と "-N" (treat new files as empty) オプションで実行されます。'
