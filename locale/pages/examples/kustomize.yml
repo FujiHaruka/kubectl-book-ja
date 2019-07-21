@@ -11,33 +11,33 @@ texts:
 ---
 texts:
   en: Examples for `kustomization.yaml`
-  ja: __COPY__
+  ja: "`kustomization.yaml` の例"
 ---
 texts:
   en: Kustomization.yaml Examples
-  ja: __COPY__
+  ja: kustomization.yaml の例
 ---
 texts:
   en: This file declares the customization provided by the kustomize program.
-  ja: __COPY__
+  ja: 以下のファイルは kustomize プログラムが提供するカスタマイズを宣言しています。
 ---
 texts:
   en: >-
     Since customization is, by definition, _custom_, there are no default
 
     values that should be copied from this file or that are recommended.
-  ja: __COPY__
+  ja: カスタマイズは **custom** の定義からわかるとおり、このファイルからコピーされるべき、またはお勧めのデフォルト値がありません。
 ---
 texts:
   en: >-
     In practice, fields with no value should simply be  omitted from kustomization.yaml
 
     to reduce the content visible in configuration reviews.
-  ja: __COPY__
+  ja: 実用上は、値のないフィールドは単に kustomization.yaml から省略すれば十分です。構成のレビューで見えるコンテンツを減らすために。
 ---
 texts:
   en: Example copied from the [kustomize repo](https://github.com/kubernetes-sigs/kustomize/blob/master/docs/kustomization.yaml)
-  ja: __COPY__
+  ja: 例は [kustomize repo](https://github.com/kubernetes-sigs/kustomize/blob/master/docs/kustomization.yaml) からのコピーです。
 ---
 texts:
   en: ' {% sample lang="yaml" %}'
