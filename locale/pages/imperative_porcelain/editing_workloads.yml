@@ -11,19 +11,19 @@ texts:
 ---
 texts:
   en: Edit a live Resource in an editor
-  ja: __COPY__
+  ja: 稼働中の Resource をエディタで編集する
 ---
 texts:
   en: Editing Resources
-  ja: __COPY__
+  ja: リソースの編集
 ---
 texts:
   en: Motivation
-  ja: __COPY__
+  ja: 動機
 ---
 texts:
   en: Directly modify a Resource in the cluster by opening its Config in an editor.
-  ja: __COPY__
+  ja: クラスタ内のリソースを直接修正するために、構成をエディタで開きます。
 ---
 texts:
   en: Edit
@@ -34,4 +34,5 @@ texts:
     Edit allows a user to directly edit a Resource in a cluster rather than
 
     editing it through a local file.
-  ja: __COPY__
+  ja: >-
+    Edit を使うと、ローカルのファイルを介さずにクラスタ内のリソースを直接編集できます。
