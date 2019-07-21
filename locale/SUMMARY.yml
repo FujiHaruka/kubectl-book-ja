@@ -1,26 +1,26 @@
 texts:
   en: Resource Management With Kubectl
-  ja: __COPY__
+  ja: Kubectl によるリソース管理
 ---
 texts:
   en: Background Information
-  ja: __COPY__
+  ja: 予備知識
 ---
 texts:
   en: "[Getting Started with Kubectl](pages/kubectl_book/getting_started.md)"
-  ja: __COPY__
+  ja: "[Kubectl をはじめる](pages/kubectl_book/getting_started.md)"
 ---
 texts:
   en: "[Resources + Controllers Overview](pages/kubectl_book/resources_and_controllers.md)"
-  ja: __COPY__
+  ja: "[リソースとコントローラの概説](pages/kubectl_book/resources_and_controllers.md)"
 ---
 texts:
   en: App Management
-  ja: __COPY__
+  ja: アプリ管理
 ---
 texts:
   en: "[Introduction](pages/app_management/introduction.md)"
-  ja: __COPY__
+  ja: "[はじめに](pages/app_management/introduction.md)"
 ---
 texts:
   en: "[Apply](pages/app_management/apply.md)"
@@ -28,39 +28,39 @@ texts:
 ---
 texts:
   en: "[Secrets and ConfigMaps](pages/app_management/secrets_and_configmaps.md)"
-  ja: __COPY__
+  ja: "[Secrets と ConfigMaps](pages/app_management/secrets_and_configmaps.md)"
 ---
 texts:
   en: "[Container Images](pages/app_management/container_images.md)      "
-  ja: __COPY__
+  ja: "[コンテナイメージ](pages/app_management/container_images.md)"
 ---
 texts:
   en: "[Namespaces and Names](pages/app_management/namespaces_and_names.md)"
-  ja: __COPY__
+  ja: "[名前空間と名前](pages/app_management/namespaces_and_names.md)"
 ---
 texts:
   en: "[Labels and Annotations](pages/app_management/labels_and_annotations.md)"
-  ja: __COPY__
+  ja: "[ラベルとアノテーション](pages/app_management/labels_and_annotations.md)"
 ---
 texts:
   en: "[Field Merge Semantics](pages/app_management/field_merge_semantics.md)"
-  ja: __COPY__
+  ja: "[フィールドのマージについての意味論](pages/app_management/field_merge_semantics.md)"
 ---
 texts:
   en: Resource Printing
-  ja: __COPY__
+  ja: リソースの表示
 ---
 texts:
   en: "[Summaries](pages/resource_printing/summaries.md)"
-  ja: __COPY__
+  ja: "[概要](pages/resource_printing/summaries.md)"
 ---
 texts:
   en: "[Raw](pages/resource_printing/raw.md)"
-  ja: __COPY__
+  ja: "[生のリソース](pages/resource_printing/raw.md)"
 ---
 texts:
   en: "[Fields](pages/resource_printing/fields.md)"
-  ja: __COPY__
+  ja: "[フィールド](pages/resource_printing/fields.md)"
 ---
 texts:
   en: "[Describe](pages/resource_printing/describe.md)"
@@ -68,107 +68,107 @@ texts:
 ---
 texts:
   en: "[Queries and Options](pages/resource_printing/queries_and_options.md)"
-  ja: __COPY__
+  ja:  "[クエリとオプション](pages/resource_printing/queries_and_options.md)"
 ---
 texts:
   en: "[Watch](pages/resource_printing/watch.md)"
-  ja: __COPY__
+  ja: "[監視](pages/resource_printing/watch.md)"
 ---
 texts:
   en: "[Cluster Information](pages/resource_printing/cluster_information.md)"
-  ja: __COPY__
+  ja: "[クラスタ情報](pages/resource_printing/cluster_information.md)"
 ---
 texts:
   en: Container Debugging
-  ja: __COPY__
+  ja: コンテナのデバッグ
 ---
 texts:
   en: "[Container Logs](pages/container_debugging/container_logs.md)"
-  ja: __COPY__
+  ja: "[コンテナのログ](pages/container_debugging/container_logs.md)"
 ---
 texts:
   en: "[Copying Container Files](pages/container_debugging/copying_container_files.md)"
-  ja: __COPY__
+  ja: "[コンテナのファイルコピー](pages/container_debugging/copying_container_files.md)"
 ---
 texts:
   en: "[Executing a Command in a Container](pages/container_debugging/executing_a_command_in_a_container.md)"
-  ja: __COPY__
+  ja: "[コンテナにコマンドを実行](pages/container_debugging/executing_a_command_in_a_container.md)"
 ---
 texts:
   en: "[Port Forward to Pods](pages/container_debugging/port_forward_to_pods.md)"
-  ja: __COPY__
+  ja: "[Pod へのポートフォワード](pages/container_debugging/port_forward_to_pods.md)"
 ---
 texts:
   en: "[Proxying Traffic to Services](pages/container_debugging/proxying_traffic_to_services.md)"
-  ja: __COPY__
+  ja: "[Service へのトラフィックをプロキシする](pages/container_debugging/proxying_traffic_to_services.md)"
 ---
 texts:
   en: App Customization
-  ja: __COPY__
+  ja: アプリのカスタマイズ
 ---
 texts:
   en: "[Introduction](pages/app_customization/introduction.md)"
-  ja: __COPY__
+  ja: "[はじめに](pages/app_customization/introduction.md)"
 ---
 texts:
   en: "[Bases and Variations](pages/app_customization/bases_and_variants.md)"
-  ja: __COPY__
+  ja: "[Base とバリエーション](pages/app_customization/bases_and_variants.md)"
 ---
 texts:
   en: "[Customizing Pod Templates](pages/app_customization/customizing_pod_templates.md)"
-  ja: __COPY__
+  ja: "[Pod Template のカスタマイズ](pages/app_customization/customizing_pod_templates.md)"
 ---
 texts:
   en: "[Customizing Arbitrary Fields](pages/app_customization/customizing_arbitrary_fields.md)"
-  ja: __COPY__
+  ja: "[任意のフィールドのカスタマイズ](pages/app_customization/customizing_arbitrary_fields.md)"
 ---
 texts:
   en: "[Config Reflection](pages/app_customization/config_reflection.md)"
-  ja: __COPY__
+  ja: "[構成の反映](pages/app_customization/config_reflection.md)"
 ---
 texts:
   en: App Structure
-  ja: __COPY__
+  ja: アプリの構造化
 ---
 texts:
   en: "[Introduction](pages/app_composition_and_deployment/structure_introduction.md)"
-  ja: __COPY__
+  ja: "[はじめに](pages/app_composition_and_deployment/structure_introduction.md)"
 ---
 texts:
   en: "[Directory Layout](pages/app_composition_and_deployment/structure_directories.md)"
-  ja: __COPY__
+  ja: "[ディレクトリによるレイアウト](pages/app_composition_and_deployment/structure_directories.md)"
 ---
 texts:
   en: "[Branches Layout](pages/app_composition_and_deployment/structure_branches.md)"
-  ja: __COPY__
+  ja: "[ブランチによるレイアウト](pages/app_composition_and_deployment/structure_branches.md)"
 ---
 texts:
   en: "[Repository Layout](pages/app_composition_and_deployment/structure_repositories.md)"
-  ja: __COPY__
+  ja: "[リポジトリによるレイアウト](pages/app_composition_and_deployment/structure_repositories.md)"
 ---
 texts:
   en: "[Shared Base Layout](pages/app_composition_and_deployment/structure_multi_tier_apps.md)"
-  ja: __COPY__
+  ja: "[共有 Base によるレイアウト](pages/app_composition_and_deployment/structure_multi_tier_apps.md)"
 ---
 texts:
   en: App Deployment
-  ja: __COPY__
+  ja: アプリのデプロイ
 ---
 texts:
   en: "[Diffing Local and Remote State](pages/app_composition_and_deployment/diffing_local_and_remote_resources.md)"
-  ja: __COPY__
+  ja: "[ローカルの状態とリモートの状態の差分](pages/app_composition_and_deployment/diffing_local_and_remote_resources.md)"
 ---
 texts:
   en: "[Accessing Multiple Clusters](pages/app_composition_and_deployment/accessing_multiple_clusters.md)"
-  ja: __COPY__
+  ja: "[複数のクラスタにアクセス](pages/app_composition_and_deployment/accessing_multiple_clusters.md)"
 ---
 texts:
   en: "[Publishing Config](pages/app_composition_and_deployment/publishing_bases.md)"
-  ja: __COPY__
+  ja: "[リソース構成の公開](pages/app_composition_and_deployment/publishing_bases.md)"
 ---
 texts:
   en: Reference
-  ja: __COPY__
+  ja: リファレンス
 ---
 texts:
   en: "[kustomization.yaml](pages/reference/kustomize.md)"
@@ -176,7 +176,7 @@ texts:
 ---
 texts:
   en: Examples
-  ja: __COPY__
+  ja: 例
 ---
 texts:
   en: "[kustomization.yaml](pages/examples/kustomize.md)"
@@ -184,20 +184,20 @@ texts:
 ---
 texts:
   en: Miscellaneous Imperative Commands
-  ja: __COPY__
+  ja: 雑多な命令的コマンド
 ---
 texts:
   en: "[Introduction](pages/imperative_porcelain/introduction.md)"
-  ja: __COPY__
+  ja: "[はじめに](pages/imperative_porcelain/introduction.md)"
 ---
 texts:
   en: "[Creating Resources](pages/imperative_porcelain/creating_resources.md)"
-  ja: __COPY__
+  ja: "[リソースの作成](pages/imperative_porcelain/creating_resources.md)"
 ---
 texts:
   en: "[Setting Fields](pages/imperative_porcelain/setting_fields.md)"
-  ja: __COPY__
+  ja: "[フィールドの設定](pages/imperative_porcelain/setting_fields.md)"
 ---
 texts:
   en: "[Editing Workloads](pages/imperative_porcelain/editing_workloads.md)"
-  ja: __COPY__
+  ja: "[ワークロードの編集](pages/imperative_porcelain/editing_workloads.md)"
