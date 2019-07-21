@@ -28,7 +28,10 @@ texts:
     {% panel style="info", title="TL;DR" %}
 
     Decouple changes to Config owned by separate Teams.
-  ja: 別々のチームが所有しているリソース構成への変更を切り離す
+  ja: >-
+    {% panel style="info", title="TL;DR" %}
+
+    別々のチームが所有しているリソース構成への変更を切り離す
 ---
 texts:
   en: Repository Structure Based Layout

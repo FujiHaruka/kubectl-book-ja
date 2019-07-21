@@ -10,7 +10,7 @@ texts:
     See [CONTRIBUTING](https://github.com/kubernetes/kubectl/blob/master/docs/book/CONTRIBUTING.md) for
 
     instructions on filing/fixing issues and adding new content.
-  ja: ""
+  ja: __COPY__
 ---
 texts:
   en: '{% panel style="info", title="TL;DR" %}'
