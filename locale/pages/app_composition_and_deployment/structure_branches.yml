@@ -363,7 +363,7 @@ texts:
 ---
 texts:
   en: Looks like [Directories](structure_directories.md)
-  ja: [ディレクトリ](structure_directories.md)と同様
+  ja: "[ディレクトリ](structure_directories.md)と同様"
 ---
 texts:
   en: Separate Deploy branches for separate Environments (e.g. `deploy-<env>`).
@@ -458,8 +458,7 @@ texts:
     **Note:** New changes committed to the Base for "v3" did not make the rollback from
 
     "v2" -> "v1" more challenging, as they had not been merged into the Prod Branch.
-  ja: >-
-    **注意:** "v3" で Base に新しい変更がコミットされた場合、"v2" から "v1" へのロールバックがより難しくなるということはありません。"v3" の変更は Prod ブランチにマージされていないからです。
+  ja: '**注意:** "v3" で Base に新しい変更がコミットされた場合、"v2" から "v1" へのロールバックがより難しくなるということはありません。"v3" の変更は Prod ブランチにマージされていないからです。'
 ---
 texts:
   en: Diagram

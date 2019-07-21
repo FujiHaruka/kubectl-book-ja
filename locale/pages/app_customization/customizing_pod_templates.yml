@@ -207,7 +207,7 @@ texts:
 ---
 texts:
   en: See [ConfigMaps and Secrets](../app_management/secrets_and_configmaps.md).
-  ja: [ConfigMaps and Secrets](../app_management/secrets_and_configmaps.md) 参照。
+  ja: "[ConfigMaps and Secrets](../app_management/secrets_and_configmaps.md) 参照。"
 ---
 texts:
   en: Customizing Pod Command Arguments

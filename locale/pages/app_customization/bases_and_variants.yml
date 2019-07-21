@@ -36,9 +36,10 @@ texts:
     to **reuse the same Resource Config**.  The Resource Config produced by a `kustomization.yaml` can be
 
     reused across multiple project using the `kustomization.yaml` as a *Base*.
-  ja: ユーザーが**一つのリソース構成を変形して**複数の構成をデプロイしたり、**同じリソース構成を再利用**したりすることはよくあります。
+  ja: >-
+    ユーザーが**一つのリソース構成を変形して**複数の構成をデプロイしたり、**同じリソース構成を再利用**したりすることはよくあります。
   
-  `kustomization.yaml` によって作成されたリソース構成は、`kustomization.yaml` を **Base** として使い、複数のプロジェクトをまたいで再利用することができます。
+    `kustomization.yaml` によって作成されたリソース構成は、`kustomization.yaml` を **Base** として使い、複数のプロジェクトをまたいで再利用することができます。
 ---
 texts:
   en: "Examples:"
