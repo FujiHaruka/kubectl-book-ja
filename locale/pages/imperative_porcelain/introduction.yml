@@ -7,7 +7,7 @@ texts:
 ---
 texts:
   en: Introduction
-  ja: __COPY__
+  ja: はじめに
 ---
 texts:
   en: >-
@@ -18,15 +18,18 @@ texts:
     issues.  These commands are particularly helpful for learning about Kubernetes when coming
 
     from an imperative system.
-  ja: __COPY__
+  ja: >-
+    アプリケーションを宣言的に管理するのが本番環境でのユースケースでは推奨されますが、命令的で porcelain なコマンドは開発や問題のバッグに役立ちます。
+    
+    命令的な操作のシステムから来た人にとっては、これらのコマンドは部分的には Kubernetes の学習に役立つかもしれません。
 ---
 texts:
   en: >-
     **Note:** Some imperative commands can by run with `--dry-run -o yaml` to display the declarative
 
     form.
-  ja: __COPY__
+  ja: "**注意:** いつくかの命令的コマンドは `--dry-run -o yaml` とオプションを付けて実行することで、宣言的な形式を表示できます。"
 ---
 texts:
   en: This section describes imperative commands that will generate or patch Resource Config.
-  ja: __COPY__
+  ja: このセクションではリソース構成を生成または部分的に変更するための命令的コマンドを説明します。
