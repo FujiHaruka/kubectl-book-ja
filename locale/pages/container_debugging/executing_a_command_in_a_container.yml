@@ -50,10 +50,10 @@ texts:
 ---
 texts:
   en: >-
-    {% panel style="info", title="コンテナの指定" %}
+    {% panel style="info", title="Specifying the Container" %}
 
     For Pods running multiple Containers, the Container should be specified with `-c <container-name>`.
   ja: >-
-    {% panel style="info", title="Specifying the Container" %}
+    {% panel style="info", title="コンテナの指定" %}
 
     複数のコンテナを実行する Pod に対しては、シェルを実行するコンテナを `-c <container-name>` で指定すべきです。
