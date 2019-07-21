@@ -3,23 +3,21 @@
 {% endpanel %}
 
 {% panel style="info", title="TL;DR" %}
-- Continuously Watch and print Resources as they change
+
 {% endpanel %}
+- 継続的にリソースを監視し、変更を検知して表示します
 
-# Watching Resources for changes
+# リソースの変更を監視
 
-## Motivation
+## 動機
 
-Print Resources as they are updated.
-
+リソースが更新されるたびにリソースを表示します。
 {% method %}
 
-It is possible to have `kubectl get` **continuously watch for changes to objects**, and print the objects
-when they are changed or when the watch is reestablished.
-
-{% sample lang="yaml" %}
+`kubectl get` に**オブジェクトの変更を継続的に監視させ**、リソースが変更されたとき、または監視プロセスが再確立されたときにオブジェクトを表示させることができます。
 
 ```bash
+{% sample lang="yaml" %}
 kubectl get deployments --watch
 ```
 
@@ -29,23 +27,14 @@ nginx     1         1         1            1           6h
 nginx2    1         1         1            1           21m
 ```
 
+{% panel style="danger", title="watch のタイムアウト" %}
+watch は kubectl が監視プロセスを再確立し、リソースを表示してから **5 分でタイムアウトします**。
 {% endmethod %}
 
-{% panel style="danger", title="Watch Timeouts" %}
-Watch **timesout after 5 minutes**, after which kubectl will re-establish the watch and print the
-resources.
-{% endpanel %}
-
-{% method %}
-
-It is possible to have `kubectl get` continuously watch for changes to objects **without fetching them first**
-using the `--watch-only` flag.
-
-{% sample lang="yaml" %}
+`kubectl get` にオブジェクトの変更を継続的に監視させるときに、`--watch-only` フラグを使うと**最初のリソース取得を行わずに**監視させることができます。
 
 ```bash
+{% endpanel %}
 kubectl get deployments --watch-only
+{% method %}
 ```
-
-{% endmethod %}
-

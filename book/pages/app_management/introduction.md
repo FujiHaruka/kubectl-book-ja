@@ -3,46 +3,36 @@
 {% endpanel %}
 
 {% panel style="info", title="TL;DR" %}
-- Apply manages Applications through files defining Kubernetes Resources (i.e. Resource Config)
-- Kustomize is used to author Resource Config
+
+- Apply コマンドは Kubernetes リソースを定義するファイル (リソース構成) を通じてアプリケーションを管理する
 {% endpanel %}
+- Kustomize はリソース構成を書くために使われる
 
+# 宣言的なアプリケーション管理
 
-# Declarative Application Management
+この章では、ワークロードとアプリケーションを宣言的に管理する方法を説明します。
 
-This section covers how to declaratively manage Workloads and Applications.
+クラスタ内のワークロードは**リソース構成 (Resource Config) **と呼ばれるファイルを通じて設定できます。これらのファイルは通常、バージョン管理の下に置かれ、クラスタの状態を検査・適用する前に設定の変更をレビューできるようにします。
 
-Workloads in a cluster may be configured through files called *Resource Config*.  These files are
-typically checked into source control, and allow cluster state changes to be reviewed before they
-are audited and applied.
+アプリケーション管理は二つのコンポーネントから構成されます。
 
-There are 2 components to Application Management.
+## クライアントコンポーネント
 
-## Client Component
+クライアントコンポーネントは、アプリケーションの望ましい状態を定義するリソース構成を書くことからなります。生のリソース構成ファイル群を書くこともありますが、別々のチームが書いたリソース構成をまとめ上げることもあります (`kustomization.yaml` を使うには `-k` フラグを使用)。
 
-The client component consists of authoring Resource Config which defines the desired state
-of an Application. This may be done as a collection of raw Resource Config files, or by
-composing and overlaying Resource Config authored by separate teams
-(using the `-k` flag with a `kustomization.yaml`).
+Kustomize はリソース構成を書く作業を簡単にするため、低レベルのツールを提供しています。
 
-Kustomize offers low-level tooling for simplifying the authoring of Resource Config.  It provides:
+- **リソース構成の生成**。たとえば ConfigMap や Secret を基準となる他のソースから生成する
+- **一つ以上のリソース構成のファイル群を再利用・構成する**
+- **リソース構成をカスタマイズする**
+- **横断的にフィールドを設定する - たとえば名前空間、ラベル、annotation、名前のプレフィックスなど**
 
-- **Generating Resource Config** from other canonical sources - e.g. ConfigMaps, Secrets
-- **Reusing and Composing one or more collections of Resource Config**
-- **Customizing Resource Config**
-- **Setting cross-cutting fields** - e.g. namespace, labels, annotations, name-prefixes, etc
+**例:** 一人がアプリケーションのベース (Base) を定義し、別の人がベースの特定のインスタンスをカスタマイズするというやり方が可能です。
 
-**Example:** One user may define a Base for an application,  while another user may customize
-a specific instance of the Base.
+## サーバーコンポーネント
 
-## Server Component
+サーバーコンポーネントは、書かれたリソース構成をクラスタに適用することからなります。Apply が実行されると、Kubernetes クラスタはリソースを作成・更新することになりますが、リソース構成ファイルには書かれていないリソース上の望ましい状態を追加します。たとえば、**指定されていないフィールドをデフォルト値で埋め、IP アドレスを入力し、レプリカ数をオートスケールさせるといったことです。**
 
-The server component consists of a human applying the authored Resource Config to the cluster
-to create or update Resources.  Once Applied, the Kubernetes cluster will set additional desired
-state on the Resource - e.g. *defaulting unspecified fields, filling in IP addresses, autoscaling
-replica count, etc.*
+留意点として、アプリケーション管理はユーザーと Kubernetes システム自身とが協調するプロセスです。望ましい状態を定義するため、互いに貢献し合います。
 
-Note that the process of Application Management is a collaborative one between users and the
-Kubernetes system itself - where each may contribute to defining the desired state.
-
-**Example**: An Autoscaler Controller in the cluster may set the scale field on a Deployment managed by a user.
+**例:** クラスタ内の Autoscaler コントローラは Deployment のフィールドにユーザーが管理するスケールフィールドを設定することができます。

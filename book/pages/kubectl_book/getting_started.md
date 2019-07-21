@@ -1,32 +1,34 @@
-
+{% panel style="success", title="Providing Feedback" %}
+**Provide feedback at the [survey](https://www.surveymonkey.com/r/JH35X82)**
+{% endpanel %}
 
 {% panel style="info", title="TL;DR" %}
+
 - リソースの作成
 - リソースの表示
-- コンテナのデバッグ
 {% endpanel %}
+- コンテナをデバッグする
 
 # Kubectl を始める
 
-**注意**: すでに Kubectl に慣れていれば、この章は読み飛ばしても構いません。
+**注意**: すでに Kubectl に慣れていれば、この章は飛ばしても構いません。
 
-この章では、Kubectl の基本的なコマンドを概説しますが、各コマンドの詳細は後の章で説明します。
+この章では、Kubectl の基本的なコマンドを概説しますが、各コマンドの詳細は以降の章で説明します。
 
 Kubernetes API 自体の詳細については、[k8s.io](https://k8s.io) のドキュメントを読んでください。
 
 ## Kubernetes リソースをリスト表示する
 
 {% method %}
+Kubernetes の **Deployment** リソースのうち、kube-system という名前空間にあるものをリスト表示します。
 
-Kubernetes の *Deployment* リソースのうち、kube-system という名前空間にあるものをリスト表示します。
+**注意**: Deployment とは Pod レプリカを管理するリソースです。(Pod はコンテナを実行します)
 
-**注意**: Deployment とは Pod レプリカを管理するリソースです。(Pod がコンテナを実行します)
-
-{% sample lang="yaml" %}
 ```bash
+{% sample lang="yaml" %}
 kubectl get deployments --namespace kube-system
 ```
- 
+
 ```bash
 NAME                     DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
 event-exporter-v0.2.3    1         1         1            1           14d
@@ -38,17 +40,15 @@ l7-default-backend       1         1         1            1           14d
 metrics-server-v0.3.1    1         1         1            1           14d
 ```
 
+名前空間 kube-system にある kube-dns という名前の Deployment について詳細を表示します。
 {% endmethod %}
 
 {% method %}
-
-名前空間 kube-system にある kube-dns という Deployment の詳細を表示します。
-
-{% sample lang="yaml" %}
 ```bash
 kubectl describe deployment kube-dns --namespace kube-system
 ```
-   
+{% sample lang="yaml" %}
+
 ```bash
 Name:                   kube-dns
 Namespace:              kube-system
@@ -59,69 +59,64 @@ Labels:                 addonmanager.kubernetes.io/mode=Reconcile
 Annotations:            deployment.kubernetes.io/revision: 2
 ...
 ```
-{% endmethod %}
 
 ## 設定ファイルからリソースを作成する
 
-{% method %}
+{% endmethod %}
+Kubernetes リソースをリモートにある設定ファイルから作成・更新します。
 
-Kubernetes リソースをリモートにある設定ファイルから作成または更新します。
-
-{% sample lang="yaml" %}
 ```bash
+{% method %}
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/kubectl/master/docs/book/examples/nginx/nginx.yaml
 ```
 
-```bash
-service/nginx created
-deployment.apps/nginx-deployment created
-```
-{% endmethod %}
-
-{% method %}
-
-Kubernetes リソースをローカルにある設定ファイルから作成または更新します。
-
 {% sample lang="yaml" %}
 ```bash
-kubectl apply -f ./examples/nginx/nginx.yaml
-```
-
-```bash
 service/nginx created
 deployment.apps/nginx-deployment created
 ```
-{% endmethod %}
 
+Kubernetes リソースをローカルにある設定ファイルから作成・更新します。
+
+```bash
+{% endmethod %}
+kubectl apply -f ./examples/nginx/nginx.yaml
 {% method %}
+```
+
+```bash
+{% sample lang="yaml" %}
+service/nginx created
+deployment.apps/nginx-deployment created
+```
 
 Apply されたリソースを表示します。
 
-{% sample lang="yaml" %}
 ```bash
 kubectl get -f ./examples/nginx/nginx.yaml --show-labels
+{% endmethod %}
 ```
+{% method %}
 
 ```bash
 NAME            TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)   AGE   LABELS
+{% sample lang="yaml" %}
 service/nginx   ClusterIP   10.59.245.201   <none>        80/TCP    11m   <none>
 
 NAME                               DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE   LABELS
 deployment.apps/nginx-deployment   3         3         3            3           11m   app=nginx
 ```
-{% endmethod %}
 
 ## コマンドから設定を生成する
 
-{% method %}
+Deployment リソースの設定ファイルを生成します。これをクラスタに適用するには、出力をファイルに書き込んでから、`kubectl apply -f <yaml-file>` を実行します。
 
-Deployment リソースの設定ファイルを生成します。これをクラスタに Apply するには、出力をファイルに書き込んでから、`kubectl apply -f <yaml-file>` を実行します。
+**注意:** 生成された設定には削除すべき余計な箇所がありますが、go オブジェクトをシリアライズした結果生じたものです。
+{% endmethod %}
 
-**注意:** 生成された設定には削除すべき余分な箇所がありますが、go オブジェクトをシリアライズした結果生じたものです。
-
-{% sample lang="yaml" %}
 ```bash
 kubectl create deployment nginx --dry-run -o yaml --image nginx
+{% method %}
 ```
 
 ```yaml
@@ -129,6 +124,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   creationTimestamp: null # delete this
+{% sample lang="yaml" %}
   labels:
     app: nginx
   name: nginx
@@ -150,53 +146,42 @@ spec:
         resources: {} # delete this
 status: {} # delete this
 ```
-{% endmethod %}
 
 ## リソースに関連した Pod を見る
 
-{% method %}
+Deployment によって作成された Pod を Pod ラベルで表示します。
 
-Deployment によって作成された Pod を Pod ラベルで表示します
-
-{% sample lang="yaml" %}
 ```bash
 kubectl get pods -l app=nginx
 ```
 
+{% endmethod %}
 ```bash
 NAME                                READY   STATUS    RESTARTS   AGE
 nginx-deployment-5c689d88bb-b2xfk   1/1     Running   0          10m
+{% method %}
 nginx-deployment-5c689d88bb-rx569   1/1     Running   0          10m
 nginx-deployment-5c689d88bb-s7xcv   1/1     Running   0          10m
 ```
-{% endmethod %}
+{% sample lang="yaml" %}
 
 ## コンテナをデバッグする
 
-{% method %}
-
 Deployment が管理するすべての Pod からログを取得します。
-
-{% sample lang="yaml" %}
 
 ```bash
 kubectl logs -l app=nginx
 ```
 
-{% endmethod %}
-
-{% method %}
-
 特定の Pod のコンテナの中に入ってシェルを実行します。
-
-{% sample lang="yaml" %}
+{% endmethod %}
 
 ```bash
 kubectl exec -i -t  nginx-deployment-5c689d88bb-s7xcv bash
+{% method %}
 ```
 
 ```bash
+{% sample lang="yaml" %}
 root@nginx-deployment-5c689d88bb-s7xcv:/#
 ```
-
-{% endmethod %}

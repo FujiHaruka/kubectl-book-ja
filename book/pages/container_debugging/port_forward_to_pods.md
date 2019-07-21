@@ -3,66 +3,61 @@
 {% endpanel %}
 
 {% panel style="info", title="TL;DR" %}
-- Port Forward local connections to Pods running in a cluster 
+
 {% endpanel %}
+- ローカルの接続をクラスタ内で実行中の Pod にポートフォワードする
 
-# Port Forward
+# ポートフォワード
 
-## Motivation
+## 動機
 
-Connect to ports of Pods running a cluster by port forwarding local ports.
-
+ローカルのポートをポートフォワードすることで、クラスタ内で実行中の Pod のポートに接続します。
 {% method %}
-## Forward Multiple Ports
 
-Listen on ports 5000 and 6000 locally, forwarding data to/from ports 5000 and 6000 in the pod
+## 複数のポートをフォワードする
+
 {% sample lang="yaml" %}
+ローカルの 5000 番、6000 番ポートをリッスンし、Pod 内の 5000 番、6000 番ポートに / ポートからデータをフォワードします。
 
 ```bash
 kubectl port-forward pod/mypod 5000 6000
 ```
-
 {% endmethod %}
 
----
+- - -
 
 {% method %}
-## Pod in a Workload
+## ワークロード内の Pod
 
-Listen on ports 5000 and 6000 locally, forwarding data to/from ports 5000 and 6000 in a pod selected by the
-deployment
+ローカルの 5000 番、6000 番ポートをリッスンし、Deployment に選択された Pod 内の  5000 番、6000 番ポートに / ポートからデータをフォワードします。
+
 {% sample lang="yaml" %}
-
 ```bash
 kubectl port-forward deployment/mydeployment 5000 6000
 ```
 
+- - -
 {% endmethod %}
 
----
+## ローカルとリモートのポート番号が異なる場合
 
 {% method %}
-## Different Local and Remote Ports
-
-Listen on port 8888 locally, forwarding to 5000 in the pod
-{% sample lang="yaml" %}
+ローカルで 8888 番ポートをリッスンし、Pod 内の 5000 番ポートにフォワードします。
 
 ```bash
+{% sample lang="yaml" %}
 kubectl port-forward pod/mypod 8888:5000
 ```
 
+- - -
+
 {% endmethod %}
+## ローカルのポート番号をランダムに割り当てる
 
----
-
+ローカルのランダムなポート番号をリッスンし、Pod 内の 5000 番ポートにフォワードします。
 {% method %}
-## Random Local Port
-
-Listen on a random port locally, forwarding to 5000 in the pod
-{% sample lang="yaml" %}
 
 ```bash
 kubectl port-forward pod/mypod :5000
+{% sample lang="yaml" %}
 ```
-
-{% endmethod %}

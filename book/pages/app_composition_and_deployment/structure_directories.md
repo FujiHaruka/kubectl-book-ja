@@ -12,47 +12,44 @@ Also provide feedback on new kubectl docs at the [survey](https://www.surveymonk
 {% endpanel %}
 
 {% panel style="info", title="TL;DR" %}
-- Use **directory hierarchy to structure Resource Config**
-  - Separate directories for separate Environment and Cluster [Config Variants](../app_customization/bases_and_variants.md)
+
+- ディレクトリの階層を分けることでリソース構成を構造化する
+{% endpanel %}
+  - 環境とクラスタの[構成バリエーション](../app_customization/bases_and_variants.md)を分離するためにディレクトリを分離する
+
+# ディレクトリ構造をベースとしたレイアウト
+
+## 動機
+
+{% panel style="success", title="どの方法が正しいのですか？" %}
+この章ではディレクトリを使った方法を扱いますが、必要に応じてブランチとリポジトリを使う方法も併用してください。
 {% endpanel %}
 
-# Directory Structure Based Layout
+{% panel style="info", title="構成専用のレポジトリ or モノレポ" %}
+この章で説明する方法は、デプロイするソースコードと同じリポジトリにリソース構成を置いても、別のリポジトリに切り分けても、どちらでも実行できます。
 
-## Motivation
-
-{% panel style="success", title="Which is right for my organization?" %}
-While this chapter is focused on conventions when using Directories, Branches and
-Repositories should be used with Directories as needed.
 {% endpanel %}
+## ディレクトリ構想
 
-{% panel style="info", title="Config Repo or Mono Repo?" %}
-The techniques and conventions in this Chapter work regardless of whether or not the Resource Config
-exists in the same Repository as the source code that is being deployed.
-{% endpanel %}
+| ディレクトリのタイプ | クラスタへのデプロイ           | 内容                | ディレクトリ名の例                             |
+| ---------- | -------------------- | ----------------- | ------------------------------------- |
+| Base       | **No** - Base として使用  | 共有の構成             | `base/`                               |
+| 環境         | **No** - 他のディレクトリを含む | Base とクラスタのディレクトリ | `test/`, `staging/`, `prod/`          |
+| クラスタ       | **Yes** - 手動 or 継続的  | デプロイ可能な構成         | `us-west1`, `us-east1`, `us-central1` |
 
-## Directory Structure
+### Base
 
-| Dir Type       | Deployed to a Cluster            | Contains | Example Names |
-|----------------|----------------------------------|----------|---------------|
-| Base           | **No** - Used as base | Shared Config. | `base/` |
-| Env            | **No** - Contains other dirs | Base and Cluster dirs.  | `test/`, `staging/`, `prod/` |
-| Cluster        | **Yes** - Manually or Continuously  | Deployable Config. | `us-west1`, `us-east1`, `us-central1` |
+Kustomize Base (例えば `bases:`) は `kustomization.yaml` をいくらか利用することでカスタマイズされた共有の構成を提供します。
 
+この章で概説されるディレクトリ構造は Base を `app-bases/environment-bases/cluster` として階層化します。
 
-### Bases
+## ワークフローの例
 
-A Kustomize Base (e.g. `bases:`) provides shared Config that is customized by some consuming `kustomization.yaml`.
+- *env/cluster/* に対して行われた変更は、**特定の環境-クラスタにのみ**ロールアウトされる
+- *env>/bases/* に対して行われた変更は、**その環境のすべてのクラスタ**にロールアウトされる
+- *bases/* に対して行われた変更は、**すべての環境のすべてのクラスタ**にロールアウトされる
 
-The directory structure outlined in this chapter organizes Bases into a hierarchy as:
-`app-bases/environment-bases/cluster`
- 
-## Workflow Example
-
-- Changes made to *env/cluster/* roll out to **only that specific env-cluster**
-- Changes made to *env>/bases/* roll out to **all clusters for that env**
-- Changes made to *bases/* roll out to **all clusters in all envs**
-
-## Diagram
+## 図
 
 ```mermaid
 graph TD;
@@ -66,14 +63,19 @@ graph TD;
   T("test/bases/ ")---|base|TUW("test/us-west/ ");
 ```
 
-### Scenario
+### シナリオ
 
-1. Alice modifies prod/us-west1 with change A
-  - Change gets pushed to prod us-west1 cluster by continuous deployment
-1. Alice modifies prod/bases with change B
-  - Change gets pushed to all prod clusters by continuous deployment
-1. Alice modifies bases with change C
-  - Change gets pushed to all clusters by continuous deployment
+1. アリスは prod/us-west1 に変更 A を行う
+
+- 変更は継続的デプロイメントによって prod 環境の us-west1 クラスタにプッシュされる
+
+1. アリスは prod/bases に変更 B を行う
+
+- 変更は継続的デプロイメントによって prod 環境のすべてのクラスタにプッシュされる
+
+1. アリスは bases に変更 C を行う
+
+- 変更は継続的デプロイメントによってすべてのクラスタにプッシュされる
 
 {% sequence width=1000 %}
 
@@ -94,29 +96,26 @@ Note over B: Alice modifies bases/ with change C
 B-->EC: C deployed
 B-->TC: C deployed
 B-->WC: C deployed
-B-->SC: C deployed
-
 {% endsequence %}
-
+B-->SC: C deployed
 {% method %}
 
-Techniques:
- 
-- Each Layer adds a [namePrefix](../app_management/namespaces_and_names.md#setting-a-name-prefix-or-suffix-for-all-resources) and [commonLabels](../app_management/labels_and_annotations.md#setting-labels-for-all-resources).
-- Each Layer adds labels and annotations.
-- Each deployable target sets a [namespace](../app_management/namespaces_and_names.md#setting-the-namespace-for-all-resources).
-- Override [Pod Environment Variables and Arguments](../app_customization/customizing_pod_templates.md) using `configMapGenerator`s with `behavior: merge`.
-- Perform Last-mile customizations with [patches / overlays](../app_customization/customizing_arbitrary_fields.md)
+テクニック:
 
-Structure:
+- 各レイヤーには [namePrefix](../app_management/namespaces_and_names.md#setting-a-name-prefix-or-suffix-for-all-resources) と [commonLabels](../app_management/labels_and_annotations.md#setting-labels-for-all-resources) を追加する
+- 各レイヤーにはラベルとアノテーションを追加する
+- デプロイ可能な各対象は[名前空間](../app_management/namespaces_and_names.md#setting-the-namespace-for-all-resources)には設定する
+- [Pod の環境変数と引数](../app_customization/customizing_pod_templates.md)を `configMapGenerator` の `behavior: merge` を使って上書きする
+- カスタマイズの最後の微調整は [patch / overlay](../app_customization/customizing_arbitrary_fields.md) で行う
 
-- Put reusable bases under `*/bases/`
+構造:
+
+- 再利用可能な base は `*/bases/` 下に置く
   - `<project-name>/bases/`
   - `<project-name>/<environment>/bases/`
-- Put deployable targets under `<project-name>/<environment>/<cluster>/`
+- デプロイ可能な対象は `<project-name>/<environment>/<cluster>/` 下に置く
 
 {% sample lang="yaml" %}
-
 ```bash
 tree
 .
@@ -161,25 +160,21 @@ tree
         └── kustomization.yaml # Uses bases: ["../bases"]
 ```
 
+{% panel style="warning", title="環境 + クラスタの Apply" %}
 {% endmethod %}
+ディレクトリ構造にはクラスタがパスに含まれますが、これは Apply 時にクラスタのコンテキストを決定するために使われはしません。特定のクラスタを Apply するには、そのクラスタを kubectl 設定に追加し、Apply 実行時に対応するコンテキストを指定します。
 
-{% panel style="warning", title="Applying Environment + Cluster" %}
-Though the directory structure contains the cluster in the path, this won't be used by
-Apply to determine the cluster context.  To Apply a specific cluster, add that cluster to the 
-kubectl config`, and specify the corresponding context when running Apply.
-
-For more information see [Multi-Cluster](accessing_multiple_clusters.md).
-{% endpanel %}
+詳細は[マルチクラスタ](accessing_multiple_clusters.md)を参照。
 
 {% panel style="success", title="Code Owners" %}
-Some git hosting services provide the concept of *Code Owners* for providing a finer grain permissions model.
-*Code Owners* may be used to provide separate permissions for separate environments - e.g. dev, test, prod.
-{% endpanel %}
+git のホスティングサービスには、きめ細かい権限モデルを提供っするために**コードオーナー**を設定できるものがあります。コードオーナーは分離された各環境 (たとえば dev、test、prod) のために権限を分離するためにも利用できます。
 
-## Rollback Diagram
+{% endpanel %}
+## ロールバックの図
 
 {% sequence width=1000 %}
 
+{% endpanel %}
 participant Config in Git as B
 participant Test Cluster as TC
 participant Staging Cluster as SC
@@ -198,6 +193,3 @@ B-->TC: A deployed
 B-->EC: A deployed
 Note over B,EC: Prod Outage resolved
 B-->SC: A deployed
-
-
-{% endsequence %}

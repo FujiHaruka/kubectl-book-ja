@@ -11,48 +11,49 @@ GitHub repository.
 Also provide feedback on new kubectl docs at the [survey](https://www.surveymonkey.com/r/JH35X82)
 {% endpanel %}
 
+別々のチームが所有しているリソース構成への変更を切り離す
 
-{% panel style="info", title="TL;DR" %}
-Decouple changes to Config owned by separate Teams.
+# リポジトリ構造をベースとしたレイアウト
 {% endpanel %}
 
-# Repository Structure Based Layout
+## 動機
 
-## Motivation
-
-- **Isolation between teams** managing separate Environments
-  - Permissions
-- **Fine grain control** over
-  - PRs
-  - Issues
-  - Projects
+- **別々の環境を管理するチーム間で分離する**
+  - 権限
+- きめ細かい制御
+  - PR
+  - Issue
+  - Project
   - Automation
 
-## Directory Structure
+## ディレクトリ構造
 
-### Resource Config
+### リソース構成
 
-| Repo Type       | Deployed to a Cluster              | Contains | Example Names |
-|-----------------|------------------------------------|----------|---------------|
-| Base            | **No** - Used as Base              | Config shared with other teams. | `platform` |
-| App             | **Yes** - Manually or Continuously | Deployable Config. | `guest-book` |
+| リポジトリのタイプ | クラスタへのデプロイ          | 内容          | 名前の例         |
+| --------- | ------------------- | ----------- | ------------ |
+| Base      | **No** - Base として使用 | 他チームと共有する構成 | `platform`   |
+| App       | **Yes** - 手動 or 継続的 | デプロイ可能な構成   | `guest-book` |
 
-Use with techniques described in [Directories](structure_directories.md) and [Branches](structure_branches.md)
+[ディレクトリ](structure_directories.md)と[ブランチ](structure_branches.md)で説明されているテクニックを使用します。
 
-## Workflow Example
+## ワークフロー例
 
-1. Alice on the Java Platform team updates the Java Base used by other teams
-1. Alice creates a Git Tag for the new release
-1. Bob on the GuestBook App team switches to the new Java Base by updating the reference
+1. Java プラットフォームチームに所属するアリスが他チームが使用する Java Base を更新する
+2. アリスが新規リリースのために Git タグを作成する
+3. GuestBook App チームに所属するボブが新しい Java Base に切り替えるため、参照を更新する
 
-## Diagram
+## 図
 
-### Scenario
+### シナリオ
 
-1. Alice modifies java Base Repo and tags it v2
-  - Change doesn't get pushed anywhere yet
-1. Bob modifies GuestBook App Repo to use v2 of the java Base
-  - Change gets pushed by continuous deployment
+1. アリスが Java Base リポジトリを修正し、v2 タグを作成する
+
+- 変更はこの段階ではどこにもプッシュされない
+
+1. ボブが GuestBook App リポジトリを修正し、Java Base の v2 を使うようにする
+
+- 変更が継続的デプロイメントによりプッシュされる
 
 {% sequence width=1000 %}
 
@@ -68,21 +69,17 @@ Note over AR: Uses java Base v1
 BR-->AR: Bob updates to reference Base v2
 Note over AR: Uses java Base v2
 AR-->C: java Base v2 changes deployed
-
 {% endsequence %}
 
-
+構造:
 {% method %}
 
 {% sample lang="yaml" %}
+- プラットフォームチームが共有の構成のために Base リポジトリを作成する
+- App チームが App を開発するために App リポジトリを作成する
+  - Base リポジトリをリモートに参照
 
-Structure:
-
-- Platform teams create Base Repositories for shared Config
-- App teams create App Repositories for their Apps
-  - Remotely reference the Base Repository
-
-**Base Repository:** Platform Team
+**Base リポジトリ**: プラットフォームチーム
 
 ```bash
 tree
@@ -96,7 +93,7 @@ tree
 └── python # Python Bases
 ```
 
-**App Repository:** GuestBook Team
+**App リポジトリ:** GuestBook チーム
 
 ```bash
 tree
@@ -111,11 +108,8 @@ tree
     └── ...
 ```
 
+{% panel style="info", title="リモート URL vs Vendoring" %}
+
+- 同じ組織が所有・管理しているリポジトリは URL によって参照できます
 {% endmethod %}
-
-{% panel style="info", title="Remote URLs vs Vendoring" %}
-- Repositories owned and controlled by the same organization may be referenced to by their URL
-- Repositories owned or controlled by separate organizations should be vendored and referenced
-  by path to the vendor directory.
-{% endpanel %}
-
+- 別の組織が所有・管理しているリポジトリは vendor として管理し、vendor ディレクトリへのパスによって参照すべきです

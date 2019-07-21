@@ -3,42 +3,37 @@
 {% endpanel %}
 
 {% panel style="info", title="TL;DR" %}
-- Get or List Raw Resources in a cluster as Yaml or Json
+
 {% endpanel %}
+- クラスタ内の生のリソースを YAML や JSON として取得、リスト表示します
 
-# Print Raw Resource
+# 生のリソースを表示する
 
-## Motivation
+## 動機
 
-Inspecting or Debugging Resources.
+リソースの調査やデバッグのためです。
 
-The Kubernetes Resources stored in etcd by the apiserver have **many more fields than
-are shown in the summarized views**.  Users can learn much more about a Resource by
-viewing the Raw Resource as Yaml or Json.  The Raw Resource will contain:
+apiserver により etcd に保存された Kubernetes リソースは、**要約表示で表示されるよりも多くのフィールドを持っています**。生のリソースを YAML や JSON で表示することで、より多くの情報を知ることができます。生のリソースには以下が含まれます。
 
-- fields specified by the **user** in the Resource Config (e.g. `metadata.name`)
-- metadata fields owned by the **apiserver** (e.g. `metadata.creationTimestamp`)
-- fields defaulted by the **apiserver** (e.g. `spec..imagePullPolicy`)
-- fields set by **Controllers** (e.g. `spec.clusterIp`, `status`)
+- リソース内で**ユーザー**が指定したフィールド (例: `metadata.name`)
+- **apiserver** が所有するメタデータ (例: `metadata.creationTimestamp`)
+- **apiserver** によりデフォルト値が設定されたフィールド (例: `spec.imagePullPolicy`)
+- **コントローラ**により設定されたフィールド (例: `spec.clusterIp`、`status`)
 
 ## Get
 
-The `kubectl get` reads Resources from the cluster and formats them as output.  The examples in
-this chapter will query for Resources by providing Get the *Resource Type* as an argument.
-For more query options see [Queries and Options](queries_and_options.md).
-
-{% method %}
+`kubectl get` はクラスタからリソースを読み込み、出力としてフォーマットします。この章の例では、引数に**リソースタイプ**を与えることでリソースを検索します。検索のオプションの詳細は[クエリとオプション](queries_and_options.md)を確認してください。
 
 ### YAML
 
-Print the Raw Resource formatting it as YAML.
-
-{% sample lang="yaml" %}
+生のリソースを YAML 形式で表示します。
+{% method %}
 
 ```bash
 kubectl get deployments -o yaml
 ```
 
+{% sample lang="yaml" %}
 ```yaml
 apiVersion: v1
 items:
@@ -111,25 +106,22 @@ metadata:
   selfLink: ""
 ```
 
-{% endmethod %}
-
----
-
-{% method %}
+- - -
 
 ### JSON
 
-Print the Raw Resource formatting it as JSON.
-
-{% sample lang="yaml" %}
+生のリソースを JSON 形式で出力します。
+{% endmethod %}
 
 ```bash
 kubectl get deployments -o json
+{% method %}
 ```
 
 ```json
 {
     "apiVersion": "v1",
+{% sample lang="yaml" %}
     "items": [
         {
             "apiVersion": "extensions/v1beta1",
@@ -225,5 +217,3 @@ kubectl get deployments -o json
     }
 }
 ```
-
-{% endmethod %}

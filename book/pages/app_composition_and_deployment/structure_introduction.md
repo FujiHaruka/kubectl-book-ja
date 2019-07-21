@@ -3,41 +3,37 @@
 {% endpanel %}
 
 {% panel style="info", title="TL;DR" %}
-- Resource Config is stored in one or more git repositories
-- Directory hierarchy, git branches and git repositories may be used for loose coupling
+
+- リソース構成は一つ以上の git リポジトリに保管される
 {% endpanel %}
+- 疎結合に保つために、ディレクトリの階層構造、git ブランチ、git リポジトリが使用できる
 
+# リソース構成の構造
 
-# Resource Config Structure
+このセクションの各章では、git を使ってリソース構成を構造化する方法を説明します。
 
-The chapters in this section cover how to structure Resource Config using git.
+はじめにディレクトリの階層構造を使った単純なアプローチに慣れてから、ブランチやリポジトリを使った構造化を行うこともできます。
 
-Users may start with a pure Directory Hierarchy approach, and later include Branches
-and / or Repositories as part of the structure.
+## 背景
 
-## Background
+用語:
 
-Terms:
+- **Base:** 複数のプロジェクトにインポートできるように**共通部分をくくり出した共有のリソース構成**
+- **Overlay とカスタマイズ:** 共有のリソース構成を特定のアプリケーション、環境、目的に合わせて修正すること
 
-- *Bases:* provide **common or shared Resource Config to be factored out** that can be
-  imported into multiple projects.
-- *Overlays and Customizations:* tailor **common or shared Resource Config to be modified** to
-  a specific application, environment or purpose.
+| テクニック                              | 分離する変更      | 用途                       | ワークフロー                      |
+| ---------------------------------- | ----------- | ------------------------ | --------------------------- |
+| [ディレクトリ](structure_directories.md) | NA          | 基本的な構造                   | 変更はただちにグローバルに伝播される          |
+| [ブランチ](structure_branches.md)      | **環境をまたぐ**  | 環境をまたぐ変更を促進する            | 線形な段階で変更が促進される              |
+| [リポジトリ](structure_repositories.md) | **チームをまたぐ** | チームをまたいで共有する構成をまたいで変更を取得 | 変更は使用者が pull する (アップグレードなど) |
 
-| Technique                                   | Decouple Changes            | Used For                                           | Workflow |
-|---------------------------------------------|-----------------------------|----------------------------------------------------|----------|
-| [Directories](structure_directories.md)     | NA                          | Foundational structure.    | Changes are immediately propagated globally.  |
-| [Branches](structure_branches.md)           | *Across Environments*       | Promoting changes across Environments. | Changes are promoted across linear stages. |
-| [Repositories](structure_repositories.md)   | *Across Teams*              | Fetching changes across config shared across Teams. | Changes are pulled by consumers (like upgrades). |
+コンセプト:
 
-Concepts:
-
-- Resource Config may be initially structured using only Directory Hierarchy for organization.
-  - Use Bases with Overlays / Customizations for factoring across Directories
-- Different Deployment environments for the same app may be loosely coupled
-  - Use separate **Branches for separate environments**.
-  - Use Bases with Overlays / Customization for factoring across Branches
-- Different Teams owning sharing Config may be loosely coupled
-  - Use separate **Repositories for separate teams**.
-  - Use Bases with Overlays / Customization for factoring across Repositories
-
+- リソース構成を組織化するために、最初はディレクトリの階層構造を使った構造化だけを採用してもかまいません。
+  - Overlay / カスタマイズするための Base はディレクトリをまたがって抜き出す
+- 同じアプリケーションの複数のデプロイ環境を疎結合に作ることができます
+  - **環境を分離するためにブランチを分離**する
+  - ブランチをまたがって共通部分を抜き出した Base をもとに Overlay / カスタマイズを行う
+- 複数のチームが共有の構成を疎結合にに使うことができます
+  - **チームを分離するためにリポジトリを分離**する
+  - リポジトリをまたがった共通部分を抜き出した Base をもとに Overlay /カスタマイズを行う

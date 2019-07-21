@@ -3,56 +3,47 @@
 {% endpanel %}
 
 {% panel style="info", title="TL;DR" %}
-- Override or set the Name and Tag for Container Images
+
 {% endpanel %}
+- コンテナイメージの名前とタグを上書きまたは設定する
 
-# Container Images
+# コンテナイメージ
 
-## Motivation
+## 動機
 
-It may be useful to define the tags or digests of container images which are used across many Workloads.
+多くのワークロードを横断して使用されるコンテナイメージにはタグやダイジェストを定義すると便利なことがあります。
 
-Container image tags and digests are used to refer to a specific version or instance of a container
-image - e.g. for the `nginx` container image you might use the tag `1.15.9` or `1.14.2`.
+コンテナイメージのタグおよびダイジェストは、コンテナイメージの特定のバージョンやインスタンスを参照します - たとえば `nginx` コンテナイメージにタグ `1.15.9` や `1.14.9` を使うことができます。
 
-- Update the container image name or tag for multiple Workloads at once
-- Increase visibility of the versions of container images being used within
-  the project
-- Set the image tag from external sources - such as environment variables
-- Copy or Fork an existing Project and change the Image Tag for a container
-- Change the registry used for an image
+- 複数のワークロードで使用するコンテナイメージの名前とタグを一度に更新する
+- プロジェクト内で使用されるコンテナイメージのバージョンの可視性を高める
+- 環境変数といった外部のソースからイメージのタグを設定する
+- 既存のプロジェクトをコピーまたはフォークして、コンテナのためにイメージのタグを変更する
+- イメージを保存するレジストリを変更する
 
-See [Bases and Variations](../app_customization/bases_and_variants.md) for more details on Copying Projects.
+プロジェクトのコピーについて詳細は [Bases and Variations](../app_customization/bases_and_variants.md) を確認してください。
 
 {% panel style="info", title="Reference" %}
+
 - [images](../reference/kustomize.md#images)
 {% endpanel %}
 
 ## images
 
-It is possible to set image tags for container images through
-the `kustomization.yaml` using the `images` field.  When `images` are
-specified, Apply will override the images whose image name matches `name` with a new
-tag.
+`kustomization.yaml` の `images` フィールドを使うとコンテナイメージのイメージタグを設定できます。`images` が指定されると、Apply は `name` に名前がマッチするイメージを新しいタグで上書きします。
 
+| フィールド     | 説明                                                  | フィールドの例                   | 結果の例                               |
+| --------- | --------------------------------------------------- | ------------------------- | ---------------------------------- |
+| `name`    | マッチさせたいイメージ名                                        | `name: nginx`             |                                    |
+| `newTag`  | `name` に名前がマッチするイメージの **tag** および **digest** を上書きする | `newTag: new`             | `nginx:old` -> `nginx:new`         |
+| `newName` | `name` に名前がマッチするイメージの **name** を上書きする               | `newImage: nginx-special` | `nginx:old` -> `nginx-special:old` |
 
-| Field     | Description                                                              | Example Field | Example Result |
-|-----------|--------------------------------------------------------------------------|----------| --- |
-| `name`    | Match images with this image name| `name: nginx`| |
-| `newTag`  | Override the image **tag** or **digest** for images whose image name matches `name`    | `newTag: new` | `nginx:old` -> `nginx:new` |
-| `newName` | Override the image **name** for images whose image name matches `name`   | `newImage: nginx-special` | `nginx:old` -> `nginx-special:old` |
+**例:** `deployment.yaml` 内のコンテナイメージを更新するために `kustomization.yaml` の `images` を更新
+
+Apply を実行すると `nginx` イメージは `1.8.0` タグをもつように設定され (たとえば `nginx:1.8.0`)、イメージ名が `nginx-special` に変更されます。**name** にマッチする**すべての**イメージの名前およびタグが設定されます。
 
 {% method %}
-
-**Example:** Use `images` in the `kustomization.yaml` to update the container
-images in `deployment.yaml`
-
-Apply will set the `nginx` image to have the tag `1.8.0` - e.g. `nginx:1.8.0` and
-change the image name to `nginx-special`.
-This will set the name and tag for *all* images matching the *name*.
-
-{% sample lang="yaml" %}
-**Input:** The kustomization.yaml and deployment.yaml files
+**入力:** kustomization.yaml ファイルと deployment.yaml ファイル
 
 ```yaml
 # kustomization.yaml
@@ -60,6 +51,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 images:
   - name: nginx # match images with this name
+{% sample lang="yaml" %}
     newTag: 1.8.0 # override the tag
     newName: nginx-special # override the name
 resources:
@@ -88,7 +80,7 @@ spec:
         image: nginx
 ```
 
-**Applied:** The Resource that is Applied to the cluster
+**適用:** クラスタに適用されるリソース
 
 ```yaml
 apiVersion: apps/v1
@@ -111,81 +103,75 @@ spec:
       - image: nginx-special:1.8.0
         name: nginx
 ```
-{% endmethod %}
 
+## 名前の設定
 
-## Setting a Name
+イメージ名は `newName` と以前のコンテナイメージ名を指定することで設定できます。
 
-{% method %}
-The name for an image may be set by specifying `newName` and the name of the old container image.
-{% sample lang="yaml" %}
 ```yaml
 # kustomization.yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
+{% endmethod %}
 kind: Kustomization
 images:
   - name: mycontainerregistry/myimage
     newName: differentregistry/myimage
-```
-{% endmethod %}
-
-## Setting a Tag
-
 {% method %}
-The tag for an image may be set by specifying `newTag` and the name of the container image.
+```
 {% sample lang="yaml" %}
+
+## タグの設定
+
+イメージのタグは `newTag` とコンテナイメージ名を指定することで設定できます。
+
 ```yaml
 # kustomization.yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
+{% endmethod %}
 kind: Kustomization
 images:
   - name: mycontainerregistry/myimage
-    newTag: v1
-```
-{% endmethod %}
-
-## Setting a Digest
-
 {% method %}
-The digest for an image may be set by specifying `digest` and the name of the container image.
+    newTag: v1
 {% sample lang="yaml" %}
+```
+
+## ダイジェストの設定
+
+イメージのダイジェストは `digest` とコンテナイメージ名を指定することで設定できます。
+
 ```yaml
 # kustomization.yaml
+{% endmethod %}
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 images:
+{% method %}
   - name: alpine
+{% sample lang="yaml" %}
     digest: sha256:24a0c4b4a4c0eb97a1aabb8e29f18e917d05abfe1b7a7c07857230879ce7d3d3
 ```
+
+## 最新の commit SHA からタグを設定する
+
+よく使われる CI/CD のパターンとして、コンテナイメージにソースコードの git commit SHA でタグ付けするというやり方があります。たとえば、イメージ名が `foo` で、commit が `1bb359ccce344ca5d263cd257958ea035c978fd3` であるソースコードでイメージをビルドすると、そのコンテナイメージは `foo:1bb359ccce344ca5d263cd257958ea035c978fd3` となります。
+
+ビルドしたイメージをプッシュする単純な方法は、[kustomize standalone](https://github.com/kubernetes-sigs/kustomize/) をダウンロードして、`kustomize edit set imagetag` コマンドを実行してタグを更新することです。そうすると手動でイメージタグを更新せずに済みます。
 {% endmethod %}
 
+**例:** 最新の git commit SHA を `foo` イメージのイメージタグに設定
 
-## Setting a Tag from the latest commit SHA
-
-{% method %}
-A common CI/CD pattern is to tag container images with the git commit SHA of source code.  e.g. if
-the image name is `foo` and an image was built for the source code at commit `1bb359ccce344ca5d263cd257958ea035c978fd3`
-then the container image would be `foo:1bb359ccce344ca5d263cd257958ea035c978fd3`.
-
-A simple way to push an image that was just built without manually updating the image tags is to
-download the [kustomize standalone](https://github.com/kubernetes-sigs/kustomize/) tool and run
-`kustomize edit set imagetag` command to update the tags for you.
-
-**Example:** Set the latest git commit SHA as the image tag for `foo` images.
-
-{% sample lang="yaml" %}
 ```bash
+{% method %}
 kustomize edit set imagetag foo:$(git log -n 1 --pretty=format:"%H")
 kubectl apply -f .
 ```
-{% endmethod %}
 
-## Setting a Tag from an Environment Variable
+## タグを環境変数から設定する
 
-{% method %}
-It is also possible to set a Tag from an environment variable using the same technique for setting from a commit SHA.
+commit SHA からタグを設定するのと同じテクニックを使えば、環境変数からタグを設定できます。
 
-**Example:** Set the tag for the `foo` image to the value in the environment variable `FOO_IMAGE_TAG`.
+**例:** `foo` イメージのタグを環境変数 `FOO_IMAGE_TAG` の値で設定
 
 {% sample lang="yaml" %}
 ```bash
@@ -194,9 +180,6 @@ kubectl apply -f .
 ```
 {% endmethod %}
 
-{% panel style="info", title="Committing Image Tag Updates" %}
-The `kustomization.yaml` changes *may* be committed back to git so that they
-can be audited.  When committing the image tag updates that have already
-been pushed by a CI/CD system, be careful not to trigger new builds +
-deployments for these changes.
-{% endpanel %}
+{% panel style="info", title="イメージタグの更新をコミットする" %}
+`kustomization.yaml` の変更は検査できるように git にコミットすることが**可能です**。ただし、すでに CI/CD システムによってプッシュされたイメージタグの更新をコミットするとき、その更新によって新たなビルドとデプロイメントがトリガーしないよう気をつけてください。
+{% method %}

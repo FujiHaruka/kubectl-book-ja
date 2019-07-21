@@ -3,23 +3,22 @@
 {% endpanel %}
 
 {% panel style="info", title="TL;DR" %}
-- Edit a live Resource in an editor
+
 {% endpanel %}
+- 稼働中の Resource をエディタで編集する
 
-# Editing Resources
+# リソースの編集
 
-## Motivation
+## 動機
 
-Directly modify a Resource in the cluster by opening its Config in an editor.
-
+クラスタ内のリソースを直接修正するために、構成をエディタで開きます。
 {% method %}
+
 ## Edit
 
-Edit allows a user to directly edit a Resource in a cluster rather than
-editing it through a local file.
+Edit を使うと、ローカルのファイルを介さずにクラスタ内のリソースを直接編集できます。
 
 {% sample lang="yaml" %}
-
 ```yaml
 # Edit the service named 'docker-registry':
 kubectl edit svc/docker-registry
@@ -39,6 +38,3 @@ kubectl edit job.v1.batch/myjob -o json
 # Edit the deployment 'mydeployment' in YAML and save the modified config in its annotation:
 kubectl edit deployment/mydeployment -o yaml --save-config
 ```
-
-{% endmethod %}
-

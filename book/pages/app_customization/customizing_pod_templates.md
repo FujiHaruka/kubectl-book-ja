@@ -3,45 +3,45 @@
 {% endpanel %}
 
 {% panel style="info", title="TL;DR" %}
-- Override Base Pod and PodTemplate Image **Names** and **Tags**
-- Override Base Pod and PodTemplate Environment Variables and Arguments
+
+- Base の Pod と PodTemplate のイメージの**名前**と**タグ**を上書きする
 {% endpanel %}
+- Base の Pod と PodTemplate の環境変数と引数を上書きする
 
-# Customizing Pods
+# Pod のカスタマイズ
 
-## Motivation
+## 動機
 
-It is common for users to customize their Applications for specific environments.
-Simple customizations to Pod Templates may be through **Images, Environment Variables and
-Command Line Arguments**.
+ユーザーがアプリケーションを特定の環境用にカスタマイズすることがよくあります。
+Pod Template をカスタマイズするシンプルな方法は**イメージ、環境変数、コマンドライン引数**を通じて行うことです。
 
-Common examples include:
+よくある例は以下のようなものです。
 
-- Running **different versions of an Image** for dev, test, canary, production
-- Configuring **different Pod Environment Variables and Arguments** for dev, test, canary, production
+- dev、test、canary、production 環境用に**異なるバージョンのイメージ**を実行する
+- dev、test、canary、production 環境用に**異なる環境変数と引数**を Pod に設定する
 
 {% panel style="info", title="Reference" %}
+
 - [images](../reference/kustomize.md#images)
 - [configMapGenerator](../reference/kustomize.md#configmapgenerator)
-- [secretGenerator](../reference/kustomize.md#secretgenerator)
 {% endpanel %}
+- [secretGenerator](../reference/kustomize.md#secretgenerator)
 
-## Customizing Images
-
+## イメージのカスタマイズ
 {% method %}
-**Use Case:** Different Environments (test, dev, staging, canary, prod) use images with different tags.
 
-Override the name or tag for an `image` field from a [Pod Template](https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/#pod-templates)
-in a base by specifying the `images` field in the `kustomization.yaml`.
+**ユースケース:** 複数の環境 (test、dev、staging、canary、prod) が異なるタグのイメージを使用します。
 
-| Field     | Description                                                              | Example Field | Example Result |
-|-----------|--------------------------------------------------------------------------|----------| --- |
-| `name`    | Match images with this image name| `name: nginx`| |
-| `newTag`  | Override the image **tag** or **digest** for images whose image name matches `name`    | `newTag: new` | `nginx:old` -> `nginx:new` |
-| `newName` | Override the image **name** for images whose image name matches `name`   | `newImage: nginx-special` | `nginx:old` -> `nginx-special:old` |
+Base の [Pod Template](https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/#pod-templates) から `image` フィールドの名前とタグを上書きするには、`kustomization.yaml` の `images` フィールドを指定します。
+
+| フィールド     | 説明                                                   | フィールドの例                   | 結果の例                               |
+| --------- | ---------------------------------------------------- | ------------------------- | ---------------------------------- |
+| `name`    | イメージ名にマッチするイメージ                                      | `name: nginx`             |                                    |
+| `newTag`  | `name` にマッチするイメージ名をもつイメージに対して**タグ**や**ダイジェスト**を上書きする | `newTag: new`             | `nginx:old` -> `nginx:new`         |
+| `newName` | `name` にマッチするイメージ名をもつイメージに対してイメージの**名前**を上書きする       | `newImage: nginx-special` | `nginx:old` -> `nginx-special:old` |
 
 {% sample lang="yaml" %}
-**Input:** The `kustomization.yaml` file
+**入力:** `kustomization.yaml` ファイル
 
 ```yaml
 # kustomization.yaml
@@ -53,7 +53,7 @@ images:
     newName: nginx-pod-2
 ```
 
-**Base:** Resources to be modified by the `kustomization.yaml`
+**Base:** `kustomization.yaml` により修正されるリソース
 
 ```yaml
 # ../base/kustomization.yaml
@@ -83,7 +83,7 @@ spec:
         image: nginx-pod
 ```
 
-**Applied:** The Resource that is Applied to the cluster
+**適用:** クラスタに適用されるリソース
 
 ```yaml
 # Modified Base Resource
@@ -109,30 +109,27 @@ spec:
 ```
 {% endmethod %}
 
+{% panel style="info", title="イメージ名の置換" %}
+`newImage` を使うとイメージ名を別の任意のイメージ名に置換できます。
+たとえば、イメージ名を `webserver` や `database` と呼ぶために、`nginx` や `mysql` イメージ名を置換できます。
 
-{% panel style="info", title="Replacing Images" %}
-`newImage` allows an image name to be replaced with another arbitrary image name.  e.g. you could
-call your image `webserver` or `database` and replace it with `nginx` or `mysql`.
+イメージのカスタマイズに関する詳細は [Container Images](../app_management/container_images.md) をご覧ください。
 
-For more information on customizing images, see [Container Images](../app_management/container_images.md).
 {% endpanel %}
+## Pod の環境変数をカスタマイズする
 
-## Customizing Pod Environment Variables
-
+**ユースケース:** 複数の環境 (test、dev、staging、canary、prod) に異なる環境変数を設定します。
 {% method %}
 
-**Use Case:** Different Environments (test, dev, staging, canary, prod) are configured with
-different Environment Variables.
+Pod の環境変数を上書きします。
 
-Override Pod Environment Variables.
+- Base が Pod 内の ConfigMap データを環境変数として使用
+- 各バリエーションは ConfigMap データを上書きまたは拡張する
 
-- Base uses ConfigMap data in Pods as Environment Variables
-- Each Variant overrides or extends ConfigMap data
-
-{% sample lang="yaml" %}
-**Input:** The kustomization.yaml file
+**入力:** kustomization.yaml ファイル
 
 ```yaml
+{% sample lang="yaml" %}
 # kustomization.yaml
 bases:
 - ../base
@@ -144,7 +141,7 @@ configMapGenerator:
   - special.type=charm # add a value to the base
 ```
 
-**Base: kustomization.yaml and Resources**
+**Base: kustomization.yaml とリソース
 
 ```yaml
 # ../base/kustomization.yaml
@@ -183,7 +180,7 @@ spec:
             name: special-config
 ```
 
-**Applied:** The Resources that are Applied to the cluster
+**適用:** クラスタに適用されるリソース
 
 ```yaml
 # Generated Variant Resource
@@ -220,28 +217,26 @@ spec:
         - configMapRef:
             name: special-config-82tc88cmcg
 ```
+
+[ConfigMaps and Secrets](../app_management/secrets_and_configmaps.md) 参照。
+
 {% endmethod %}
+## Pod のコマンドライン引数をカスタマイズ
 
-See [ConfigMaps and Secrets](../app_management/secrets_and_configmaps.md).
+**ユースケース:** 複数の環境 (test、dev、staging、canary、prod) に異なるコマンドライン引数を与えます。
 
-
-## Customizing Pod Command Arguments
+Pod のコマンド引数を上書きします。
 
 {% method %}
-**Use Case:** Different Environments (test, dev, staging, canary, prod) provide different Commandline
-Arguments to a Pod.
+- Base は ConfigMap データをコマンド引数として使用
+- 各バリエーションは異なる ConfigMap データを定義する
 
-Override Pod Command Arguments.
-
-- Base uses ConfigMap data in Pods as Command Arguments
-- Each Variant defines different ConfigMap data
-
-{% sample lang="yaml" %}
-**Input:** The kustomization.yaml file
+**入力:** kustomization.yaml ファイル
 
 ```yaml
 # kustomization.yaml
 bases:
+{% sample lang="yaml" %}
 - ../base
 configMapGenerator:
 - name: special-config
@@ -299,7 +294,7 @@ spec:
                 key: SPECIAL_TYPE
 ```
 
-**Applied:** The Resources that are Applied to the cluster
+**適用:** クラスタに適用されるリソース
 
 ```yaml
 # Generated Variant Resource
@@ -349,9 +344,5 @@ spec:
               name: special-config-82tc88cmcg
 ```
 
-{% endmethod %}
-
-{% panel style="info", title="More Info" %}
-See [Secrets and ConfigMaps](../app_management/secrets_and_configmaps.md) for more information on ConfigMap and Secret generation.
-{% endpanel %}
-
+{% panel style="info", title="詳細" %}
+ConfigMap と Secret の生成に関する詳細は [Secrets and ConfigMaps](../app_management/secrets_and_configmaps.md) を参照してください。

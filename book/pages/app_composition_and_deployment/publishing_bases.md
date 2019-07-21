@@ -12,40 +12,37 @@ Also provide feedback on new kubectl docs at the [survey](https://www.surveymonk
 {% endpanel %}
 
 {% panel style="info", title="TL;DR" %}
-- Publish a White Box Application as a Base for other users to Kustomize
+
 {% endpanel %}
+- 他のユーザーが Kustomize するためのホワイトボックスなアプリケーションを公開する
 
-# Publishing Bases
+# Base の公開
 
-## Motivation
+## 動機
 
-Users may want to run a common White Box Application without writing the Resource Config
-for the Application from scratch.  Instead they may want to consume ready-made Resource
-Config published specifically for the White Box Application, and add customizations for
-their specific needs.
+アプリケーションを構築するためにリソース構成をスクラッチで書かずに、共通のホワイトボックスなアプリケーションを実行したくなることがあります。そういう場合、公開されている既存のリソース構成を利用し、特定の用途のためにカスタマイズを追加してアプリケーションを構築したくなります。
 
-- Run a White Box Application (e.g. Cassandra, MongoDB) instance from ready-made Resource Config
-- Publish Resource Config to run an Application
+- ホワイトボックスなアプリケーション (たとえば Cassandra、MongoDB) のインスタンスを既存のリソース構成から実行する
+- アプリケーションを実行するためにリソース構成を公開する
 
-## Publishing a White Box Base
+## ホワイトボックスな Base の公開
+
+ホワイトボックスなアプリケーションは URL で公開し、 `kustomization.yaml` の中で Base として利用できます。これは以下の方法で利用できます。
 
 {% method %}
-White Box Applications may be published to a URL and consumed as Bases in an `kustomization.yaml`.  It
-can then be consumed in the following manner.
+**ユースケース:** ホワイトボックスなアプリケーションを GitHub で公開する
 
-**Use Case:** Run a White Box Application published to GitHub.
-
-{% sample lang="yaml" %}
-**Input:** The kustomization.yaml file
+**入力:** kustomization.yaml ファイル
 
 ```yaml
+{% sample lang="yaml" %}
 # kustomization.yaml
 bases:
 # GitHub URL
 - github.com/kubernetes-sigs/kustomize/examples/multibases/dev/?ref=v1.0.6
 ```
 
-**Applied:** The Resource that is Applied to the cluster
+**適用:** クラスタに適用されるリソース
 
 ```yaml
 # Resource comes from the Remote Base
@@ -60,37 +57,28 @@ spec:
   - image: nginx:1.7.9
     name: nginx
 ```
+
+## ホワイトボックスな Base をカスタマイズする
+
 {% endmethod %}
+ホワイトボックスなアプリケーションを [Bases and Variations](../app_customization/bases_and_variants.md) で説明したのと同じ手法でカスタマイズできます。
 
-## Customizing White Box Bases
+## ホワイトボックス Base  のバージョニング
 
-The White Box Application may be customized using the same techniques described in
-[Bases and Variations](../app_customization/bases_and_variants.md).
+ホワイトボックス Base は Git が提供する周知のバージョニング手法を使ってバージョニングできます。
 
-## Versioning White Box Bases
+**タグ:**
 
-White Box Bases may be versioned using the well known versioning techniques provided by Git.
+Base をバージョニングするためにリポジトリにタグを適用し、そのタグを指すよう URL を修正します。`github.com/kubernetes-sigs/kustomize/examples/multibases?ref=v1.0.6`
 
-**Tag:**
+**ブランチ:**
 
-Bases may be versioned by applying a tag to the repo and modifying the url to point to the tag:
-`github.com/kubernetes-sigs/kustomize/examples/multibases?ref=v1.0.6`
+Base をバージョニングするためにブランチを作成し、そのブランチを指すよう URL を修正します。`github.com/Liujingfang1/kustomize/examples/helloWorld?ref=repoUrl2`
 
-**Branch:**
+**コミット:**
 
-Bases may be versioned by creating a branch and modifying the url to point to the branch:
-`github.com/Liujingfang1/kustomize/examples/helloWorld?ref=repoUrl2`
+Base のリポジトリがメンテナによって明示的にバージョニングされていない場合、特定のコミットに Base をピン付けできます。`github.com/Liujingfang1/kustomize/examples/helloWorld?ref=7050a45134e9848fca214ad7e7007e96e5042c03`
 
-**Commit:**
+## ホワイトボックス Base のフォーク
 
-If the White Box Base has not been explicitly versioned by the maintainer, users may pin the
-base to a specific commit:
-`github.com/Liujingfang1/kustomize/examples/helloWorld?ref=7050a45134e9848fca214ad7e7007e96e5042c03`
-
-## Forking a White Box Base
-
-Uses may fork a White Box Base hosted on GitHub by forking the GitHub repo.  This allows the user
-complete control over changes to the Base.  Users should periodically pull changes from the
-upstream repo back into the fork to get bug fixes and optimizations.
-
-
+GitHub にホストされているホワイトボックス Base を GitHub リポジトリをフォークすることによってフォークできます。これによって、Base に対する変更を完全に管理できるようになります。その場合、定期的に upstream リポジトリの変更をフォークに pull し、不具合修正や最適化を取り入れるようにすべきです。

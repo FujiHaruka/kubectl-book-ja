@@ -3,28 +3,28 @@
 {% endpanel %}
 
 {% panel style="info", title="TL;DR" %}
-- Copy files to and from Containers in a cluster
+
 {% endpanel %}
+- クラスタ内のコンテナに / コンテナからファイルをコピーする
 
-# Copying Container Files
+# コンテナのファイルをコピー
 
-## Motivation
+## 動機
 
-- Copying files from Containers in a cluster to a local filesystem
-- Copying files from a local filesystem to Containers in a cluster
+- クラスタ内のコンテナからローカルのファイルシステムにファイルをコピーする
+- ローカルのファイルシステムからクラスタ内のコンテナにファイルをコピーする
 
-{% panel style="warning", title="Install Tar" %}
-Copy requires that *tar* be installed in the container image.
+{% panel style="warning", title="Tar のインストール" %}
 {% endpanel %}
-
+コピーするには、コンテナイメージ内に **tar** のインストールが必要です。
 {% method %}
-## Local to Remote
 
-Copy a local file to a remote Pod in a cluster.
+## ローカルからリモートへ
 
-- Local file format is `<path>`
-- Remote file format is `<pod-name>:<path>`
+ローカルのファイルをリモートにあるクラスタ内の Pod にコピーします。
 
+- ローカルファイルの形式は `<path>`
+- リモートファイルの形式は `<pod-name>:<path>`
 {% sample lang="yaml" %}
 
 ```bash
@@ -32,49 +32,40 @@ kubectl cp /tmp/foo_dir <some-pod>:/tmp/bar_dir
 ```
 
 {% endmethod %}
-
+## リモートからローカルへ
 {% method %}
-## Remote to Local
 
-Copy a remote file from a Pod to a local file.
+Pod からリモートのファイルをローカルのファイルにコピーします。
 
-- Local file format is `<path>`
-- Remote file format is `<pod-name>:<path>`
-
-{% sample lang="yaml" %}
+- ローカルファイルの形式は `<path>`
+- リモートファイルの形式は `<pod-name>:<path>`
 
 ```bash
+{% sample lang="yaml" %}
 kubectl cp /tmp/foo <some-pod>:/tmp/bar
 ```
 
+## コンテナを指定
+
 {% endmethod %}
-
+複数コンテナを実行している Pod 内で特定のコンテナを指定します。
 {% method %}
-## Specify the Container
-
-Specify the Container within a Pod running multiple containers.
 
 - `-c <container-name>`
-
-{% sample lang="yaml" %}
 
 ```bash
 kubectl cp /tmp/foo <some-pod>:/tmp/bar -c <specific-container>
 ```
+{% sample lang="yaml" %}
+
+## 名前空間
+
+Pod の名前空間を指定するには、Pod 名に `<namespace>/` というプレフィックスを付けます。
 
 {% endmethod %}
-
-{% method %}
-## Namespaces
-
-Set the Pod namespace by prefixing the Pod name with `<namespace>/` .
-
 - `<pod-namespace>/<pod-name>:<path>`
-
-{% sample lang="yaml" %}
+{% method %}
 
 ```bash
 kubectl cp /tmp/foo <some-namespace>/<some-pod>:/tmp/bar
 ```
-
-{% endmethod %}

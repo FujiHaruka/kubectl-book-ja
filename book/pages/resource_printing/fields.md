@@ -3,109 +3,92 @@
 {% endpanel %}
 
 {% panel style="info", title="TL;DR" %}
-- Format and print specific fields from Resources
-- Use when scripting with Get
+
+- リソースの特定のフィールドをフォーマットして表示します
+{% endpanel %}
+- get コマンドでスクリプトを書くときに使います
+
+# リソースのフィールドを表示する
+
+## 動機
+
+Kubectl の get コマンドは検索したリソースからフィールドを抽出し、フォーマットして出力することができます。
+
+これは Kubernetes クラスタからリソースについてのデータを収集したり処理するスクリプトを書くときに便利です。
+
+## 取得
+
+`kubectl get` コマンドはクラスタからリソースを読み込み、フォーマットして出力します。この章の例では、リソースを検索するためにコマンドの引数に**リソースタイプ**をバージョンとグループ名付きで与えます。検索オプションの詳細は [Queries and Options](queries_and_options.md) をご覧ください。
+
+リソースから特定のフィールドをフォーマットして表示するには JSON パスを使うことができます。
+
+{% panel style="warning", title="スクリプトの落とし穴" %}
+デフォルトでは、API グループやバージョンを指定しなければ、apiserver が選んだグループとバージョンが使用されます。
+
+**リソースの構造は API グループとバージョンによって変わる可能性があるため**、`kubectl get` からフィールドを出力するときには将来のリリースでコマンドが壊れないことを保証するために、API グループとバージョンを指定することを**推奨します**。
+
+これを省略すると、異なる API グループ / バージョンがクラスタのアップグレード後に使われ、その API グループ / バージョンがフィールドの表現を変更してしまうかもしれません。
+
+### JSON パス
+
+JSON パスからフィールドを表示します
+
+**注意:** JSON パスはファイルから読み込むこともでき、そのためには `-o custom-columns-file` を使用します。
 {% endpanel %}
 
-# Print Resource Fields
+- JSON パステンプレートは {} で囲まれた JSONPath 記法で構成されます。もともとの JSONPath 構文に加えて、いつくかの拡張が追加されています。
+  - `$` 演算子はオプショナルです (デフォルトではルートオブジェクトから式が始まります)
+  - JSONPath 式の中ではテキストの引用符に "" を使います
+  - リストをイテレートするには range 演算子を使います
+  - スライスのインデックスの負数を使うとリストを後ろから逆方向に進みます。負のインデックスはリストを「包み込み」ません。負のインデックスが有効な範囲は -index + listLength >= 0 です。
 
-## Motivation
+### JSON パスの記号一覧
 
-Kubectl Get is able to pull out fields from Resources it queries and format them as output.
+| 機能                | 説明                       | 例                                                             | 結果                                              |
+| ----------------- | ------------------------ | ------------------------------------------------------------- | ----------------------------------------------- |
+| text              | プレーンテキスト                 | 種類は {.kind}                                                   | 種類は List                                        |
+| @                 | 現在のオブジェクト                | {@}                                                           | 入力と同じ                                           |
+| . or []           | 子演算子                     | {.kind} or {[‘kind’]}                                         | List                                            |
+| ..                | 再帰的降下                    | {..name}                                                      | 127.0.0.1 127.0.0.2 myself e2e                  |
+| *                 | ワイルドカード。全オブジェクトを取得       | {.items[*].metadata.name}                                     | [127.0.0.1 127.0.0.2]                           |
+| [start:end :step] | subscript operator       | {.users[0].name}                                              | myself                                          |
+| [,]               | ユニオン演算子                  | {.items[*][‘metadata.name’, ‘status.capacity’]}               | 127.0.0.1 127.0.0.2 map[cpu:4] map[cpu:8]       |
+| ?()               | フィルター                    | {.users[?(@.name==“e2e”)].user.password}                      | secret                                          |
+| range, end        | リストのイテレート                | {range .items[*]}[{.metadata.name}, {.status.capacity}] {end} | [127.0.0.1, map[cpu:4]] [127.0.0.2, map[cpu:8]] |
+| “                 | quote interpreted string | {range .items[*]}{.metadata.name}{’\t’} {end}                 | 127.0.0.1 127.0.0.2                             |
 
-This may be **useful for scripting or gathering data** about Resources from a Kubernetes cluster.
+- - -
 
-## Get
-
-The `kubectl get` reads Resources from the cluster and formats them as output.  The examples in
-this chapter will query for Resources by providing Get the *Resource Type* with the
-Version and Group as an argument.
-For more query options see [Queries and Options](queries_and_options.md).
-
-Kubectl can format and print specific fields from Resources using Json Path.
-
-{% panel style="warning", title="Scripting Pitfalls" %}
-By default, if no API group or version is specified, kubectl will use the group and version preferred by
-the apiserver.
-
-Because the **Resource structure may change between API groups and Versions**, users *should* specify the
-API Group and Version when emitting fields from `kubectl get` to make sure the command does not break
-in future releases.
-
-Failure to do this may result in the different API group / version being used after a cluster upgrade, and
-this group / version may have changed the representation of fields.
-{% endpanel %}
-
-### JSON Path
-
-Print the fields from the JSON Path
-
-**Note:**  JSON Path can also be read from a file using `-o custom-columns-file`.
-
-- JSON Path template is composed of JSONPath expressions enclosed by {}. In addition to the original JSONPath syntax, several capabilities are added:
-  - The `$` operator is optional (the expression starts from the root object by default).
-  - Use "" to quote text inside JSONPath expressions.
-  - Use range operator to iterate lists.
-  - Use negative slice indices to step backwards through a list. Negative indices do not “wrap around” a list. They are valid as long as -index + listLength >= 0.
-
-### JSON Path Symbols Table
-
-| Function	| Description	| Example	| Result |
-|---|---|---|---|
-| text	| the plain text	| kind is {.kind}	| kind is List |
-| @	| the current object	| {@}	| the same as input |
-| . or [] |	child operator	| {.kind} or {[‘kind’]}	| List |
-| ..	| recursive descent	| {..name}	| 127.0.0.1 127.0.0.2 myself e2e |
-| *	| wildcard. Get all objects	| {.items[*].metadata.name}	| [127.0.0.1 127.0.0.2] |
-| [start:end :step]	| subscript operator	| {.users[0].name}	| myself |
-| [,]	| union operator	| {.items[*][‘metadata.name’, ‘status.capacity’]}	|127.0.0.1 127.0.0.2 map[cpu:4] map[cpu:8] |
-| ?()	| filter	| {.users[?(@.name==“e2e”)].user.password}	| secret |
-| range, end	| iterate list	| {range .items[*]}[{.metadata.name}, {.status.capacity}] {end}	| [127.0.0.1, map[cpu:4]] [127.0.0.2, map[cpu:8]] |
-| “	| quote interpreted string	| {range .items[*]}{.metadata.name}{’\t’} {end} |	127.0.0.1 127.0.0.2|
-
----
-
-{% method %}
-
-Print the JSON representation of the first Deployment in the list on a single line.
-
-{% sample lang="yaml" %}
+リスト中の最初の Deployment を一行の JSON 表現で表示します。
 
 ```bash
 kubectl get deployment.v1.apps -o=jsonpath='{.items[0]}{"\n"}'
-
 ```
 
+{% method %}
 ```bash
 map[apiVersion:apps/v1 kind:Deployment...replicas:1 updatedReplicas:1]]
 ```
-{% endmethod %}
-
----
-
-{% method %}
-
-Print the `metadata.name` field for the first Deployment in the list.
-
 {% sample lang="yaml" %}
+
+- - -
+
+リスト中の 最初の Deployment の `metadata.name` フィールドを表示します。
 
 ```bash
 kubectl get deployment.v1.apps -o=jsonpath='{.items[0].metadata.name}{"\n"}'
 ```
 
+{% endmethod %}
 ```bash
 nginx
 ```
-
-{% endmethod %}
-
----
-
 {% method %}
 
-For each Deployment, print its `metadata.name` field and a newline afterward.
+- - -
 
 {% sample lang="yaml" %}
+各 Deployment ごとに、その `metadata.name` フィールドを改行区切りで表示します。
 
 ```bash
 kubectl get deployment.v1.apps -o=jsonpath='{range .items[*]}{.metadata.name}{"\n"}{end}'
@@ -114,74 +97,67 @@ kubectl get deployment.v1.apps -o=jsonpath='{range .items[*]}{.metadata.name}{"\
 ```bash
 nginx
 nginx2
+{% endmethod %}
 ```
 
-{% endmethod %}
-
----
-
+- - -
 {% method %}
 
-For each Deployment, print its `metadata.name` and `.status.availableReplicas`.
+各 Deployment ごとに、その `metadata.name` と `.status.availableReplicas` を表示します
 
 {% sample lang="yaml" %}
-
 ```bash
 kubectl get deployment.v1.apps -o=jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.status.availableReplicas}{"\n"}{end}'
 ```
+
 ```bash
 nginx	1
 nginx2	1
 ```
 
+- - -
 {% endmethod %}
 
----
+Deployment のリストを一行で表示します。
 
 {% method %}
-
-Print the list of Deployments as single line.
-
-{% sample lang="yaml" %}
-
 ```bash
 kubectl get deployment.v1.apps -o=jsonpath='{@}{"\n"}'
 ```
+{% sample lang="yaml" %}
 
 ```bash
 map[kind:List apiVersion:v1 metadata:map[selfLink: resourceVersion:] items:[map[apiVersion:apps/v1 kind:Deployment...replicas:1 updatedReplicas:1]]]]
 ```
 
+- - -
+
+各 Deployment を改行区切りで表示します。
+
 {% endmethod %}
-
----
-
-{% method %}
-
-Print each Deployment on a new line.
-
-{% sample lang="yaml" %}
-
 ```bash
 kubectl get deployment.v1.apps -o=jsonpath='{range .items[*]}{@}{"\n"}{end}'
 ```
+{% method %}
 
 ```bash
 map[kind:Deployment...readyReplicas:1]]
+{% sample lang="yaml" %}
 map[kind:Deployment...readyReplicas:1]]
 ```
+
+- - -
+
+{% panel style="info", title="リテラル構文" %}
+リテラル構文では、スペースを含む JSONPath テンプレートは (上の bash で示したシングルクォートではなく) ダブルクォートで囲います。
+これは、テンプレート内のリテラルを囲む引用符にはシングルクォートを使うか、エスケープしたダブルクォートを使う必要があることを意味します。
 
 {% endmethod %}
-
----
-
-{% panel style="info", title="Literal Syntax" %}
-On Windows, you must double quote any JSONPath template that contains spaces (not single quote as shown above for bash).
-This in turn means that you must use a single quote or escaped double quote around any literals in the template.
-
-For example:
+例:
 
 ```bash
+{% method %}
 C:\> kubectl get pods -o=jsonpath="{range .items[*]}{.metadata.name}{'\t'}{.status.startTime}{'\n'}{end}"
 ```
-{% endpanel %}
+
+{% sample lang="yaml" %}

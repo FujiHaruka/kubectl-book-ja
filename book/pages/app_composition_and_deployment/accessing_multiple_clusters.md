@@ -3,37 +3,33 @@
 {% endpanel %}
 
 {% panel style="info", title="TL;DR" %}
-- Target a cluster for a rollout with the `--context` flag
-- Target a cluster for a rollout with the `--kubeconfig` flag
+
+- `--context` フラグによって、ロールアウトする対象のクラスタを指定する
 {% endpanel %}
+- `--kubeconfig` フラグによって、ロールアウトする対象のクラスタを指定する
 
-# Multi-Cluster Targeting
+# 複数のクラスタを対象にする
 
-## Motivation
+## 動機
 
-It is common for users to need to deploy **different Variants of an Application to different clusters**.
-This can be done by configuring the different Variants using different `kustomization.yaml`'s,
-and targeting each variant using the `--context` or `--kubeconfig` flag.
+**一つのアプリケーションの複数のバリエーションを異なるクラスタ**にデプロイする必要があるという状況はよくあります。これは別々の `kustomization.yaml` のバリエーションを使って、各バリエーションが `--context` フラグや `--kubeconfig` フラグを使って対象となるクラスタを指定することで、別々のバリエーションを構成することでなされます。
 
-**Note:** The examples shown in this chapter store the Resource Config in a directory
-matching the name of the cluster (i.e. as it is referred to be context).
+**注意:** この章の例では、リソース構成を一つのディレクトリに保管し、クラスタ名にマッチするようにします。(つまりディレクトリ名がコンテキスト名になります)
 
+## コンテキストを通じたクラスタの指定
 
-## Targeting a Cluster via Context
+kubeconfig ファイルによって複数のコンテキストを指定できます。各コンテキストには異なるクラスタと権限が含まれます。
 
-The kubeconfig file allows multiple contexts to be specified, each with a different cluster + auth.
+### コンテキストの一覧
 
-### List Contexts
+kubeconfig ファイルにあるコンテキストを一覧表示します
 
-{% method %}
-
-List the contexts in the kubeconfig file
-
-{% sample lang="yaml" %}
 ```sh
+{% method %}
 kubectl config get-contexts
 ```
 
+{% sample lang="yaml" %}
 ```sh
 CURRENT   NAME   CLUSTER   AUTHINFO   NAMESPACE
           us-central1-c  us-central1-c  us-central1-c
@@ -41,21 +37,19 @@ CURRENT   NAME   CLUSTER   AUTHINFO   NAMESPACE
           us-west2-c   us-west2-c   us-west2-c
 ```
 
+### コンテキストを表示
+
+現在のコンテキストに関する情報を表示します
+
 {% endmethod %}
-
-### Print a Context
-
-{% method %}
-
-Print information about the current context
-
-{% sample lang="yaml" %}
 ```sh
 kubectl config --kubeconfig=config-demo view --minify
 ```
+{% method %}
 
 ```yaml
 apiVersion: v1
+{% sample lang="yaml" %}
 clusters:
 - cluster:
     certificate-authority: fake-ca-file
@@ -77,66 +71,44 @@ users:
     client-key: fake-key-file
 ```
 
+### コンテキストフラグの指定
+
+kubeconfig コンテキストをコマンドの一部として指定します。
+
+**注意:** この例では `kustomization.yml` がコンテキスト名とマッチするディレクトリにあります。
+
 {% endmethod %}
-
-### Specify a Context Flag
-
-{% method %}
-
-Specify the kubeconfig context as part of the command.
-
-**Note:** In this example the `kustomization.yaml` exists in a directory whose name matches
-the name of the context.
-
-{% sample lang="yaml" %}
-
 ```sh
 export CLUSTER=us-west2-c; kubectl apply -k ${CLUSTER} --context=${CLUSTER}
 ```
-
-{% endmethod %}
-
-### Switch to use a Context
-
 {% method %}
 
-Switch the current context before running the command.
+### コンテキストの切り替え
 
-**Note:** In this example the `kustomization.yaml` exists in a directory whose name matches
-the name of the context.
+コマンドを実行する前に現在のコンテキストを切り替えます。
 
+**注意:** この例では `kustomization.yml` がコンテキスト名とマッチするディレクトリにあります。
 {% sample lang="yaml" %}
 
 ```sh
 # change the context to us-west2-c
 kubectl config use-context us-west2-c
 # deploy Resources from the ./us-west2-c/kustomization.yaml
+{% endmethod %}
 kubectl apply -k ./us-west2-c
 ```
 
-{% endmethod %}
-
-## Targeting a Cluster via Kubeconfig
-
 {% method %}
+## Kubeconfig によるクラスタの指定
 
-Alternatively, different kubeconfig files may be used for different clusters.  The
-kubeconfig may be specified with the `--kubeconfig` flag.
+別の方法として、異なる kubeconfig ファイルを異なるクラスタのために使うこともできます。kubeconfig は `--kubeconfig` フラグで指定できます。
 
-**Note:** In this example the `kustomization.yaml` exists in a directory whose name matches
-the name of the directory containing the kubeconfig.
+**注意:** この例では `kustomization.yml` が kubeconfig のあるディレクトリ名とマッチするディレクトリにあります。
 
 {% sample lang="yaml" %}
-
 ```sh
 kubectl apply -k ./us-west2-c --kubeconfig /path/to/us-west2-c/config
 ```
 
-{% endmethod %}
-
 {% panel style="info", title="More Info" %}
-For more information on configuring kubeconfig and contexts, see the
-[Configure Access to Multiple Clusters](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/)
-k8s.io document.
-{% endpanel %}
-
+kubeconfig とコンテキストを設定するための詳細は、k8s.io のドキュメント [Configure Access to Multiple Clusters](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/) をご覧ください。

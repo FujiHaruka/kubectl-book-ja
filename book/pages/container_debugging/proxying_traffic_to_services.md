@@ -3,37 +3,33 @@
 {% endpanel %}
 
 {% panel style="info", title="TL;DR" %}
-- Proxy local connections to Services running in the cluster
+
 {% endpanel %}
+- ローカルの接続をクラスタ内で実行中の Service にプロキシする
 
-# Connecting to Services
+# Service への接続
 
-## Motivation
+## 動機
 
-Not all Services running a Kubernetes cluster are exposed externally.  However Services
-only exposed internally to a cluster with a *clusterIp* are accessible through an
-apiserver proxy.
+Kubernetes クラスタ内で実行中のすべての Service が外部に公開されているわけではありません。
+しかし、**clusterIp** を通じてクラスタの内部に向けてのみ公開している Service であっても、apiserver proxy を通じてアクセスできます。
 
-Users may use Proxy to **connect to Kubernetes Services in a cluster that are not
-externally exposed**.
+ユーザーは Proxy を使用すると、**クラスタ内の Kubernetes Service のうち外部に公開されていないものに接続できます**。
 
+**注意:** LoadBalancer タイプや NodePort タイプを実行している Service は、外部に公開することができるため、
+Proxy を通じてアクセスする必要はありません。
 
-**Note:** Services running a type LoadBalancer or type NodePort may be exposed externally and
-accessed without the need for a Proxy.
+## 内部 Service への接続
 
 {% method %}
-## Connecting to an internal Service
+内部 Service への接続には、Proxy コマンドと Service Proxy URL を使います。
 
-Connect to a internal Service using the Proxy command, and the Service Proxy url.
-
-To visit the nginx service go to the Proxy URL at
-`http://127.0.0.1:8001/api/v1/namespaces/default/services/nginx/proxy/`
-
-{% sample lang="yaml" %}
+nginx service にアクセスするには、Proxy URL `http://127.0.0.1:8001/api/v1/namespaces/default/services/nginx/proxy/` を開きます。
 
 ```bash
 kubectl proxy
 
+{% sample lang="yaml" %}
 Starting to serve on 127.0.0.1:8001
 ```
 
@@ -41,24 +37,22 @@ Starting to serve on 127.0.0.1:8001
 curl http://127.0.0.1:8001/api/v1/namespaces/default/services/nginx/proxy/
 ```
 
-{% endmethod %}
-
-{% panel style="info", title="Literal Syntax" %}
-To connect to a Service through a proxy the user must build the Proxy URL.  The Proxy URL format is:
+{% panel style="info", title="リテラル構文" %}
+プロキシを通じて Service に接続するには、ユーザーは Proxy URL を作らなければなりません。Proxy URL の形式は以下です。
 
 `http://<apiserver-address>/api/v1/namespaces/<service-namespace>/services/[https:]<service-name>[:<port-name>]/proxy`
+{% endmethod %}
 
-- The apiserver-address should be the URL printed by the Proxy command
-- The Port is optional if you haven’t specified a name for your port
-- The Protocol is optional if you are using `http`
+- apiserver-address は Proxy コマンドによって表示された URL
+- ポート番号は、ポートに名前を指定していない場合はオプショナル
+- プロトコルは `http` を使う場合はオプショナル
+
+## ビルトインのクラスタサービス
+
+よくあるユースケースとして、クラスタ自体の一部分として実行される Service に接続することが挙げられます。
+ユーザーはこれらの Service とその Proxy URL を `kubectl cluster-info` で表示できます。
 
 {% endpanel %}
-
-## Builtin Cluster Services
-
-A common usecase is to connect to Services running as part of the cluster itself.  A user can print out these
-Services and their Proxy Urls with `kubectl cluster-info`.
-
 ```bash
 kubectl cluster-info
 
@@ -70,8 +64,4 @@ Metrics-server is running at https://104.197.5.247/api/v1/namespaces/kube-system
 ```
 
 {% panel style="info", title="More Info" %}
-For more information on connecting to a cluster, see
-[Accessing Clusters](https://kubernetes.io/docs/tasks/access-application-cluster/access-cluster/).
-{% endpanel %}
-
-
+クラスタに接続することに関して詳細は、[Accessing Clusters](https://kubernetes.io/docs/tasks/access-application-cluster/access-cluster/) を確認してください。

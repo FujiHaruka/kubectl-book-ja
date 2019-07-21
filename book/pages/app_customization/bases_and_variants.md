@@ -3,66 +3,61 @@
 {% endpanel %}
 
 {% panel style="info", title="TL;DR" %}
-- Reuse Resource Config as Bases to `kustomization.yaml`'s.
-- Customize Base for different Environments.
-- Reuse a Base across multiple Projects.
+
+- `kustomization.yaml` の構成を Base としたリソース構成の再利用
+- 複数の環境向けに Base をカスタマイズする
 {% endpanel %}
+- 複数のプロジェクトをまたいだ Base の再利用
 
+# Base とバリエーション
 
+## 動機
 
-# Bases and Variations
+ユーザーが**一つのリソース構成を変形して**複数の構成をデプロイしたり、**同じリソース構成を再利用**したりすることはよくあります。
+`kustomization.yaml` によって作成されたリソース構成は、`kustomization.yaml` を **Base** として使い、複数のプロジェクトをまたいで再利用することができます。
 
-## Motivation
+例。
 
-It is common for users to deploy several **Variants of the same Resource Config**, or for different projects
-to **reuse the same Resource Config**.  The Resource Config produced by a `kustomization.yaml` can be
-reused across multiple project using the `kustomization.yaml` as a *Base*.
-
-Examples:
-
-- a project may be deployed to **dev, test, staging, canary and production environments**,
-  but with variants between the environments.
-- a project may be deployed to **different clusters** that are tuned differently or running
-  different versions of the project.
+- **dev、test、staging、canary、production 環境**にデプロイされるプロジェクトで、各環境で設定が違っている
+- **複数のクラスタ**にデプロイされるプロジェクトで、各クラスタでプロジェクトの設定やバージョンが異なっている
 
 {% panel style="info", title="Reference" %}
- - [bases](../reference/kustomize.md#bases)
+
+- [bases](../reference/kustomize.md#bases)
+
+## Base
+
  {% endpanel %}
+Base は `kustomization.yaml` の中で共有されるリソース構成で、別の `kustomization.yaml` が利用したりカスタマイズしたりします。
 
-## Bases
-
-Bases are shared Resource Config in a `kustomization.yaml` to be used and customized by another `kustomization.yaml`.
-
-Examples of Bases:
+Base の例。
 
 - Common Java Base
-  - Used in multiple Apps (e.g. Guest Book, Calendar, Auth)
+  - 複数のアプリで使用 (ゲストブック、カレンダー、認証など)
 - Common Guest Book App Base
-  - Used in multiple Environments (e.g. Test, Staging, Prod)
+  - 複数の環境で使用 (test、staging、production など)
 - Common Prod Guest Book App Base
-  - Used in multiple clusters (e.g. us-west, us-east, us-canary)
+  - 複数のクラスタで使用 (us-west、us-east、us-canary など)
 
-## Referring to a Base
+## Base への参照
 
-A project can add a Base by adding a path (relative to the `kustomization.yaml`) to **`base` that
-points to a directory** containing another `kustomization.yaml` file.  This will automatically
-add and kustomize all of the Resources from the base project to the current project.
+プロジェクトに Base を追加するには、別の `kustomization.yaml` があるディレクトリのパス (`kustomization.yaml` への相対パス) を **`base`** に追加します。これによって、ベースプロジェクトから現プロジェクトにすべてのリソースが自動的に追加、kustomize されます。
 
-Bases can be:
+Base の取りうる値は以下です。
 
-- Relative paths from the `kustomization.yaml` - e.g. `../base`
-- Urls - e.g. `github.com/kubernetes-sigs/kustomize/examples/multibases?ref=v1.0.6`
+- `kustomization.yaml` からの相対パス - たとえば `..base`
+- URL - たとえば `github.com/kubernetes-sigs/kustomize/examples/multibases?ref=v1.0.6`
 
-### Diagrams
+### 図
 
-Single Base inheritted by single Application
+一つの Base が一つのアプリケーションに継承される
 
 ```mermaid
 graph TD;
   B[B]-->A[A];
 ```
 
-Shared Bases inheritted by different Applications
+共有 Base が異なるアプリケーションに継承される
 
 ```mermaid
 graph TD;
@@ -72,20 +67,19 @@ graph TD;
   B3[B3]-->A2[A2];
 ```
 
+**例:** `kustomization.yaml` を Base として追加する
 
-{% method %}
-**Example:** Add a `kustomization.yaml` as a Base.
-
-{% sample lang="yaml" %}
-**Input:** The kustomization.yaml file
+**入力:** kustomization.yaml ファイル
 
 ```yaml
 # kustomization.yaml
+{% method %}
 bases:
 - ../base
+{% sample lang="yaml" %}
 ```
 
-**Base: kustomization.yaml and Resource Config**
+**Base:** kustomization.yaml とリソース構成
 
 ```yaml
 # ../base/kustomization.yaml
@@ -127,7 +121,7 @@ spec:
         name: config-volume
 ```
 
-**Applied:** The Resource that is Applied to the cluster
+**適用:** クラスタに適用されるリソース
 
 ```yaml
 # Unmodified Generated Base Resource
@@ -166,16 +160,15 @@ spec:
           name: my-java-server-env-vars-k44mhd6h5f
         name: config-volume
 ```
-{% endmethod %}
 
-{% panel style="info", title="Bases in Bases" %}
-Bases themselves may also be Variants and have their own Bases. See [Advanced Composition](../app_composition_and_deployment/structure_multi_tier_apps.md)
-for more information.
-{% endpanel %}
+{% panel style="info", title="Base の中の Base" %}
+Base 自体にもバリエーションとその Base を作れます。
+詳細は [Advanced Composition](../app_composition_and_deployment/structure_multi_tier_apps.md) をご覧ください。
 
 ```mermaid
+{% endmethod %}
 graph TD;
   B1[B1]-->B2[B2];
   B2[B2]-->A[A];
 ```
-
+{% endpanel %}

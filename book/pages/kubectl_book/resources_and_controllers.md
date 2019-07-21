@@ -1,24 +1,27 @@
-
+{% panel style="success", title="Providing Feedback" %}
+**Provide feedback at the [survey](https://www.surveymonkey.com/r/JH35X82)**
+{% endpanel %}
 
 {% panel style="info", title="TL;DR" %}
-- Kubernetes API は 2 つの部分からなります - リソースタイプとコントローラ
-- リソースは json や yaml で宣言されたオブジェクトで、クラスタに書き込まれます
-- コントローラはリソースの保存後に非同期にリソースを動かします
+
+- Kubernetes API はリソースタイプとコントローラという 2 つの部分からなる
+- リソースは JSON や YAML で宣言されたオブジェクトで、クラスタに書き込まれる
 {% endpanel %}
+- コントローラはリソースが書き込まれてから、非同期にリソースを作動させる
 
 # Kubernetes のリソースとコントローラの概要
 
-この章では Kubernetes リソースモデルの背景を説明します。ここに書かれていることは [kubernetes.io](https://kubernetes.io/docs/home/) のドキュメントでも確認できます。
+この章では、Kubernetes リソースモデルの背景を説明します。ここに書かれていることは [kubernetes.io](https://kubernetes.io/docs/home/) のドキュメントでも確認できます。
 
 Kubernetes リソースの詳細は [kubernetes.io コンセプト](https://kubernetes.io/docs/concepts/)をご覧ください。
 
 ## リソース
 
-Kubernetes オブジェクト (Deployment、Service、名前空間など) のインスタンスは**リソース**と呼ばれます。
+Kubernetes オブジェクト (Deployment、Service、名前空間など) のインスタンスを**リソース**と呼びます。
 
-コンテナを実行するリソースは特にワークロードといいます。
+特に、コンテナを実行するリソースは、**ワークロード**といいます。
 
-ワークロードの例。
+以下がワークロードの例です。
 
 - [Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
 - [StatefulSets](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/)
@@ -26,40 +29,37 @@ Kubernetes オブジェクト (Deployment、Service、名前空間など) のイ
 - [CronJobs](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/)
 - [DaemonSets](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) 
 
+**リソース API の機能を使うには、まずリソースをファイル内で宣言し、次に Kubernetes クラスタに Apply します。ここで記述される宣言的なファイルをリソース構成と呼びます。**
 
-**リソース API を使うには、まずリソースをファイルで宣言し、それから Kubernetes クラスタに適用します。これらの宣言的なファイルはリソース設定と呼ばれます。**
+リソース構成は、Kubectl のようなツールを通じて Kubernetes クラスタに (宣言的な作成・更新・削除を) **Apply** され、そのあとで**コントローラ**がリソース構成を反映させます。
 
-リソース設定は、Kubectl のようなツールを使って Kubernetes クラスタに (宣言的な作成・更新・削除を) 適用され、それから**コントローラ**が作動させます。
+リソースは以下の属性によって一意に識別されます。
 
-リソースは一意に識別されます。
-
-- **apiVersion** (API タイプのグループとバージョン)
+- **apiVersion** (API タイプグループとバージョン)
 - **kind** (API タイプの名前)
 - **metadata.namespace** (インスタンスの名前空間)
 - **metadata.name** (インスタンス名)
 
 {% panel style="warning", title="デフォルトの名前空間" %}
-リソース設定で名前空間が省略されると *default* という名前空間が使用されます。ほとんどの場合、アプリケーションには明示的に名前空間を指定すべきです。名前空間は `kustomization.yaml` に記述します。
-{% endpanel %}
-
-{% method %}
+リソース構成で名前空間が省略されると **default** という名前空間が使用されますが、アプリケーションには名前空間を必ず明示的に指定すべきと言って差し支えありません。名前空間は `kustomization.yaml` に記述します。
 
 ### リソースの構造
 
 リソースの構成要素は次の通りです。
 
 **TypeMeta:** リソースタイプの **apiVersion** と**種類**
+{% endpanel %}
 
-**ObjectMeta:** リソースの**名前**と**名前空間** + 他のメタデータ (ラベル、アノテーションなど)
+{% method %}
+**ObjectMeta:** リソースの**名前**、**名前空間** + 他のメタデータ (ラベル、アノテーションなど)
 
-**Spec:** リソースの望ましい状態 - クラスタに対して教えるこうなってほしいという状態
+**Spec:** リソースの望ましい状態 - ユーザーがクラスタに教えるあるべき状態
 
-**Status:** オブジェクトの観測された状態 - クラスタが教えてくれる記録された状態
+**Status:** 観測された現在のオブジェクトの状態 - クラスタがユーザーに教える記録された状態
 
-リソース設定を書くときには Status フィールドは省略します。
+ユーザーがリソース構成を書くときには Status フィールドは省略します。
 
-**Deployment のリソース設定の例**
-{% sample lang="yaml" %}
+**Deployment のリソース構成の例**
 
 ```yaml
 apiVersion: apps/v1
@@ -67,6 +67,7 @@ kind: Deployment
 metadata:
   name: nginx-deployment
   labels:
+{% sample lang="yaml" %}
     app: nginx
 spec:
   replicas: 3
@@ -82,57 +83,56 @@ spec:
       - name: nginx
         image: nginx:1.15.4
 ```
-{% endmethod %}
 
-{% panel style="info", title="Spec and Status" %}
-ConfigMap や Secret のようなリソースには Status がありません。その結果、それらの Spec は暗黙的です (言い換えると spec フィールドがありません)。
-{% endpanel %}
+{% panel style="info", title="Spec と Status" %}
+ConfigMap や Secret のようなリソースには Status がありません。そのため、それらの Spec は暗黙的です (言い換えると spec フィールドがありません)。
 
 ## コントローラ
 
 コントローラは Kubernetes API を作動します。コントローラはシステムの状態を監視し、リソースを望ましい状態にするための変更 (作成、更新、削除) や、システムの変更 (Pod や Node の停止) を検知します。
+{% endmethod %}
 
-コントローラはユーザーが (たとえばリソース設定の中で) 決めた意図通りの仕様や (たとえば Autoscaler による) 自動化の要求を満たすようクラスタを変更ます。
+コントローラはユーザーが (たとえばリソース構成の中で) 決めた意図通りの仕様や (たとえば Autoscaler による) 自動化の要求を満たすようにクラスタを変更します。
 
-**例**: Deployment が作成されると、Deployment コントローラは Deployment が存在することを理解し、対応する ReplicaSet が期待どおりに存在するかどうか検証します。ReplicaSet が存在しなければ作成します。
+**例**: Deployment が作成されると、Deployment コントローラは Deployment が存在することを確認し、対応する ReplicaSet が期待どおりに存在するかどうか検証します。ReplicaSet が存在しなければ作成します。
+{% endpanel %}
 
 {% panel style="warning", title="非同期な動作" %}
-コントローラは非同期に実行されるため、コンテナイメージが壊れているとか Pod がスケジュール不能であるとかといった問題は CRUD のレスポンスでは顕在化しません。何かツールを作る場合には、コントローラの動作が完了するまでシステムの状態を監視しておくことが簡単にできるようにすべきです。変更動作が完了して望ましい状態が現在の状態と一致したら、リソースは**安定状態にある**なとみなされます。
-{% endpanel %}
+コントローラは非同期に実行されるため、コンテナイメージが壊れているとか Pod がスケジュール不能であるとかといった問題は CRUD のレスポンスでは顕在化しません。何かツールを作るときには、コントローラの動作が完了するまでシステムの状態の監視を簡単にできるようにすべきです。リソースの変更が完了して、望ましい状態とコントローラが観測した状態とが一致したら、リソースは**安定状態にある**とみなされます。
 
 ### コントローラの構造
 
 **調停**
 
-コントローラは自身が作成・削除するなどして調停中のリソースとその関連リソースを読み込むことによって、リソースを作動させます。
+コントローラがリソースを作動させるやり方は、リソースとそれに関連して作成・削除するリソースを読み込んで、期待される状態に一致させるというもので、これを「調停」といいます。
 
-**コントローラが実行する調停は、イベントを調停するの*ではなく*、期待されるクラスタの状態を現在のクラスタの状態に調停します。**
+**コントローラは、イベントから受けた情報によってクラスタを調停するの*ではなく*、調停の実行時にクラスタを観測し、現在のクラスタの状態を期待されるクラスタの状態に一致させます。**
 
 1. Deployment コントローラは ReplicaSets を作成・削除します
-1. ReplicaSet コントローラは Pod を作成・削除します
-1. Scheduler (コントローラ) は Node を Pod に書き込みます
-1. Node (コントローラ) は Node 上の Pod に定義されたコンテナを実行します
+2. ReplicaSet コントローラは Pod を作成・削除します
+3. Scheduler (コントローラ) は Node を Pod に書き込みます
+4. Node (コントローラ) は Node 上の Pod に定義されたコンテナを実行します
 
 **監視**
 
-コントローラがリソースを作動させるのは監視用のリソースタイプが書き、それからイベントから調停がトリガーされた**後**です。リソースが作成・更新・削除された後、リソースタイプを監視しているコントローラはリソースが変更されたという通知を受け取り、(この情報のためのイベントに依存することなく) システムの状態を読み込んで何を変更すべきかを理解します。
+コントローラがリソースを作動させるタイミングは、監視用のリソースタイプによってリソースが書き込まれ、それからイベントが調停をトリガーした**後**です。リソースが作成・更新・削除された後、リソースタイプを監視しているコントローラはリソースが更新されたという通知を受け取り、(イベントが持っている更新情報に依存することなく) システムの状態を読み込んで何を更新すべきかを理解します。
 
-- Deployment コントローラは Deployment と ReplicaSet (と Pod) を監視します。
+{% endpanel %}
+- Deployment コントローラは Deployment と ReplicaSet (と Pod) を監視します
 - ReplicaSet コントローラは ReplicaSets と Pod を監視します
 - Scheduler (コントローラ) は Pod を監視します
 - Node (コントローラ) は Pod (と Secret と ConfigMap) を監視します
 
 {% panel style="info", title="レベルベースの調停とエッジベースの調停" %}
-コントローラは個々のイベントに反応せず、調停が実行されるときにシステムの状態を調停するため、**複数の異なるイベントから来る複数の変更が観測されうるし、一緒に調停されるかもしれません。**これは**レベルベース**のシステムと呼ばれます。それと対比して、個々のイベントに対して反応するシステムは**エッジベース**のシステムと呼ばれます。
-{% endpanel %}
+コントローラは個々のイベントに反応せず、調停の実行時にシステムの状態を期待される状態に一致させるため、**さまざまなイベントが変更を通知してきても、まとめて一度にシステムの観測と調停を行うことができます。**これは**レベルベース**のシステムと呼ばれます。これと対比して、個々のイベントに対して反応するシステムは**エッジベース**のシステムと呼ばれます。
 
 ## Kubernetes リソース API の概要
 
 ### Pod
 
-コンテナは [*Pod*](https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/) の中で実行され、Pod はクラスタ内の *Node* 上で実行をスケジュールされます。
+コンテナは [**Pod**](https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/) の中で実行され、Pod の実行はクラスタ内の **Node** 上でスケジュールされます。
 
-Pod はアプリケーションの**単一のレプリカ**を実行し、以下を提供します。
+Pod はアプリケーションの**レプリカを一つ**を実行し、以下を提供します。
 
 - 計算リソース (CPU、メモリ、ディスク)
 - 環境変数
@@ -143,50 +143,50 @@ Pod はアプリケーションの**単一のレプリカ**を実行し、以下
 - 初期化
 
 {% panel style="warning", title="マルチコンテナの Pod" %}
-アプリケーションには複数のレプリカを作るべきです。ワークロード API を使うと Pod レプリカの作成および削除を PodTemplate で管理できます。
+アプリケーションの複数のレプリカを作るにはワークロード API を使うべきです。ワークロード API は Pod レプリカの作成および削除を PodTemplate で管理できます。
 
-場合によっては Pod は複数のコンテナを含み、それがアプリケーションの一つのインスタンスを形成しているかもしれません。これらのコンテナはネットワーク (IP) とストレージを共有することによって協働します。
-{% endpanel %}
+場合によっては Pod は複数のコンテナを含み、それがアプリケーションの一つのインスタンスを形成しているかもしれません。Pod 内のコンテナはネットワーク (IP) とストレージを共有することによって協働します。
 
 ### ワークロード
 
 一般的に Pod は関心ごとに分けられた上位の抽象化によって管理されます。たとえば、レプリケーション、同一性、永続化ストレージ、カスタムスケジュール、ローリングアップデートなどです。
 
 最もよく使われるワークロード API (Pod を管理する API) は以下です。
+{% endpanel %}
 
 - [Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) (ステートレスなアプリケーション)
   - レプリケーション + ロールアウト
 - [StatefulSets](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/) (ステートフルなアプリケーション)
   - レプリケーション + ロールアウト + 永続化ストレージ + 同一性
 - [Jobs](https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/) (バッチ処理)
-  - 実行を完了する
+  - 処理を完了する
 - [CronJobs](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/) (スケジュールされたバッチ処理)
-  - 定期的に実行を完了する
+  - 定期的に処理を完了する
 - [DaemonSets](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) (マシンごと)
   - Node ごとのスケジュール
 
 {% panel style="success", title="API の抽象化レイヤー" %}
 上位のワークロード API は下位のワークロード API を管理できます。Pod を直接管理する必要はありません。(たとえば Deployment は ReplicaSet を管理します)
-{% endpanel %}
 
 ### サービスディスカバリとロードバランシング
 
-サービスディスカバリとロードバランシングは **Service** オブジェクトが管理します。Service は一つの仮想 IP アドレスと DNS 名を提供し、ラベルにマッチする Pod たちにロードバランスされます。
+サービスディスカバリとロードバランシングは **Service** オブジェクトが管理します。Service は一つの仮想 IP アドレスと DNS 名を提供し、ラベルにマッチする Pod にロードバランスされます。
 
-{% panel style="info", title="内部 Service vs 外部 Services" %}
+{% panel style="info", title="内部サービス vs 外部サービス" %}
+
 - [Service リソース](https://kubernetes.io/docs/concepts/services-networking/service/)
-  (L4) は内に向けてはクラスタに、外に向けては HA プロキシを通じて Pod を公開することができます。
-- [Ingress リソース](https://kubernetes.io/docs/concepts/services-networking/ingress/) (L7)
-  は URI エンドポイントを公開し、それを Service に振り分けます。
+    (L4) は内側に対してはクラスタに、外側に対しては HA プロキシを通じて Pod を公開することができます
+- [Ingress Resources](https://kubernetes.io/docs/concepts/services-networking/ingress/) (L7)
 {% endpanel %}
+    は URI エンドポイントを公開し、それを Service に振り分けます
 
 ### Configuration と Secret
 
-共有設定と機密情報は ConfigMap と Secret が提供します。これは環境変数、コマンドライン引数、ファイルを Pod とコンテナが使えるようにルーズに注入します。
+共有設定と機密情報は ConfigMap と Secret が提供します。これらを使用すると環境変数、コマンドライン引数、ファイルを Pod とコンテナに注入し、その中で使えるようになります。そのおかげで Pod とコンテナはそれらの設定に対して依存関係が薄くなります。
 
 {% panel style="info", title="ConfigMap vs Secret" %}
+
 - [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/)
-  は機密でないデータを Pod に提供します。
+    は機密でないデータを Pod に提供します
 - [Secrets](https://kubernetes.io/docs/concepts/configuration/secret/)
-  は機密データを Pod に提供します。
-{% endpanel %}
+    は機密データを Pod に提供します

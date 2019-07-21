@@ -3,26 +3,24 @@
 {% endpanel %}
 
 {% panel style="info", title="TL;DR" %}
-- Print verbose debug information about a Resource
+
 {% endpanel %}
+- リソースに関する詳細なデバッグ情報を表示します
 
-# Describe Resources
+# リソースの describe
 
-## Motivation
-
+## 動機
 {% method %}
-Describe is a **higher level printing operation that may aggregate data from other sources** in addition
-to the Resource being queried (e.g. Events).
 
-Describe pulls out the most important information about a Resource from the Resource itself and related
-Resources, and formats and prints this information on multiple lines.
+describe は、検索されたリソースの情報に加えて**他のソース (たとえば Evnet) からも情報を集めて表示することのできる高レベルの操作**です。
 
-- Aggregates data from related Resources
-- Formats Verbose Output for debugging
+describe は対象のリソースとそれに関連するリソースから、リソースに関する最も重要な情報を引き出し、その情報を複数行にフォーマットし、表示します。
 
-{% sample lang="yaml" %}
+- 関連するリソースからデータを集めます
+- デバッグ用に詳細な出力をフォーマットします
 
 ```bash
+{% sample lang="yaml" %}
 kubectl describe deployments
 ```
 
@@ -57,12 +55,8 @@ NewReplicaSet:   nginx-78f5d695bd (1/1 replicas created)
 Events:          <none>
 ```
 
+{% panel style="info", title="Get vs Describe" %}
+リソースを describe するとき、他のリソースからも情報を集めます。たとえば、Node を describe すると Pod リソースの情報を集め、Node の中での使用率を表示します。
 {% endmethod %}
 
-{% panel style="info", title="Get vs Describe" %}
-When Describing a Resource, it may aggregate information from several other Resources.  For instance Describing
-a Node will aggregate Pod Resources to print the Node utilization.
-
-When Getting a Resource, it will only print information available from reading that Resource.  While Get may aggregate
-data from the the *fields* of that Resource, it won't look at fields from other Resources.
-{% endpanel %}
+リソースを get するときはそのリソースから読み取れる情報だけが表示されます。get はリソースの**フィールド**からデータを集めますが、他のリソースのフィールドは見ません。

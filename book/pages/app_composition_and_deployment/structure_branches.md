@@ -12,44 +12,50 @@ Also provide feedback on new kubectl docs at the [survey](https://www.surveymonk
 {% endpanel %}
 
 {% panel style="info", title="TL;DR" %}
-Decouple changes to Config to be deployed to separate Environments.
+分離された環境にデプロイするために構成の変更を切り離す
 {% endpanel %}
 
-# Branch Structure Based Layout
+# ブランチ構造をベースとしたレイアウト
 
-## Motivation
+## 動機
 
-**Why use branches?** Decouple changes that are rolled out with releases (e.g. new flags) from changes that are
-rolled out in response to production events (e.g. resource tuning).
+**なせブランチを使うか**。リリース時にロールアウトされる変更 (たとえば新しいフラグ) を、本番環境のイベントに対するレスポンスでロールアウトされる変更から分離するためです。
 
-## Branch Structure
+## ブランチ構造
 
-The convention shown here should be changed and adapted as needed.
+ここで説明する方法は必要に応じて変更また応用してください。
 
-| Branch Type Name                                   | Deployed to a Cluster | Purpose  |     Example Config Change        | Example Branch Name |
-|----------------------------------------|----|-----------|--------|----|
-| Base   | **No**.  Merged into other Branches only. | Changes that should be rolled out as part of a release. | Add *pubsub topic* flag | `master`, `release-1.14`, `i1026` |
-| Deploy   | **Yes**. - Manually or Continuously.  | Base + Changes required to respond to "production" events (or dev, staging, etc). | Increase *memory resources* - e.g. for crashing Containers | `deploy-test`, `deploy-staging`, `deploy-prod` |
+| ブランチのタイプ | クラスタにデプロイするか              | 目的                                                             | 構成の変更例                             | ブランチ名の例                                        |
+| -------- | ------------------------- | -------------------------------------------------------------- | ---------------------------------- | ---------------------------------------------- |
+| Base     | **No** - 他のブランチからマージされるだけ | リリースの一部としてロールアウトされるべき変更                                        | *pubsub topic* フラグを加える             | `master`, `release-1.14`, `i1026`              |
+| Deploy   | **Yes** - 手動 or 継続的       | Base と、"production" (または dev、staging など) のイベントに対する反応として要求される変更 | **メモリリソース**の増量 - たとえばコンテナのクラッシュにより | `deploy-test`, `deploy-staging`, `deploy-prod` |
 
-Use with techniques described in [Directories](structure_directories.md) and [Branches](structure_branches.md)
+[ディレクトリ](structure_directories.md)と[ブランチ](structure_branches.md)で説明されているテクニックを使用します。
 
-## Workflow Example
+## ワークフロー例
 
-### Diagram
+### 図
 
-#### Scenario
+#### シナリオ
 
-1. Live Prod App version is *v1*
-1. *v2* changes committed to Base Branch Config
-1. *v2* rolled out to Staging
-  - Deployed by continuous deployment
-1. Live Prod App requires change to *v1* (unrelated to *v2*)
-  - Change memory resources in Prod
-1. Prod Branch Config Updated at *v1*
-  - Deployed immediately by continuous deployment
-1. *v2* changes rolled out separately
- - Tag on Base Branch merged into Prod Branch
- - Prod Branch continuously deployed
+1. Live Prod App のバージョンは *v1*
+2. *v2* の変更が Base ブランチの構成にコミットされる
+3. *v2* が Staging にロールアウトされる
+
+- 継続的デプロイメントによりデプロイされる
+
+1. Live Prod App が *v1* への変更を (*v2* とは無関係に) 要求する
+
+- Prod のメモリリソースを変更
+
+1. Prod ブランチの構成を *v1* のまま更新
+
+- 継続的デプロイメントによりただちにデプロイされる
+
+1. *v2* の変更が別でロールアウトされる
+
+- Base ブランチのタグが Prod ブランチにマージされる
+- Prod ブランチが継続的デプロイされる
 
 {% sequence width=1000 %}
 
@@ -73,62 +79,73 @@ Note left of PB: Alice: App SRE
 Note over PB: Alice fixes Config
 PB-->PC: Alice's changes (only)
 Note over PC: At v1* release
+{% endsequence %}
 Note over BB,PC: Prod Outage resolved
 Note over PB: Alice Releases v2
 BB-->PB: Merge v2
 PB-->PC: Deploy v2
 Note over PC: At v2 release
 
-{% endsequence %}
+### 詳細
 
-### Description
+**注意:** アプリケーションのバージョンは *v1* から始まります
 
-**Note:** Starting version of Application is *v1*
+1. 開発者のボブは *v2* リリースで使用する新しいアプリのフラグを導入する
 
-1. Developer Bob introduces new app flag for release with *v2*
-  - e.g. PubSub topic name
-1. Bob updates the Base Config with the new flag
-  - Add staging topic for Staging (e.g. `staging-topic`)
-  - Add prod topic for Prod (e.g. `prod-topic`)
-  - Flag should be rolled out with *v2* release
-1. *v2* is cut
-  - Base tagged with *v2* tag
-1. *v2* rolled out to Staging
-  - Merge *v2* Tag -> Staging Branch
-  - Deploy Staging Branch to Staging Clusters
-1. SRE Alice identifies issue in Prod (at *v1*)
-  - Fix is to increase memory of containers
-1. Alice updates the Prod branch Config by increasing memory resources
-  - Changes go directly into Prod Branch without going into Base
-1. *v1* changes rolled out to Prod (*v1++*)
-  - Include Alice's changes, but not Bob's
-1. *v2* rolled out to Prod
-  - Merge *v2* Tag -> Prod Branch
-  - Deploy Prod Branch to Prod Clusters
+- 例: PubSub のトピック名
+
+1. ボブは Base 構成を更新して新しいフラグを取り入れる
+
+- Staging 環境用のトピック (`staging-topic`) を追加する
+- Prod 環境用のトピック (`prod-topic`) を追加する
+- フラグは *v2* リリースでロールアウトする
+
+1. *v2* が切られる
+
+- Base ブランチが *v2* タグでタグ付けされる
+
+1. *v2* が Staging にロールアウトされる
 
 {% method %}
+- *v2* タグ -> Staring ブランチにマージ
+- Staging ブランチを Staging クラスタにデプロイ
 
-Techniques:
+1. 運用担当のアリスが (*v1* の) Prod 環境で問題を発見する
 
-- Add new required flags and environment variables to the Resource Config in the Base branch at the
-  time they are added to the code.
-  - Will be rolled out when the code is rolled out.
-- Adjust flags and configuration to the Resource Config in the Deploy branch in the deploy directory.
-  - Will be rolled out immediately independent of versions.
-- Merge code from the Base branch to the Deploy branches to perform a Rollout.
+- コンテナのメモリを増量することで修正する
 
-## Directory and Branch Layout
+1. アリスは Prod ブランチの構成を更新し、メモリリリースを増量する
 
-Structure:
+- 変更は直接 Prod ブランチに行い、Base ブランチを経由しない
 
-- Base branch (e.g. `master`, `app-version`, etc) for Config changes tied to releases.
-  - Looks like [Directories](structure_directories.md)
-- Separate Deploy branches for separate Environments (e.g. `deploy-<env>`).
-  - A new **Directory in each branch with will contain overlay customizations** - e.g. `deploy-<env>`.
+1. *v1* の変更が Prod にロールアウトされる (*v1++*)
 
+- アリスの変更を含むが、ボブの変更は含まない
+
+1. *v2* が Prod にロールアウトされる
+
+- *v2* タグ -> Prod ブランチにマージ
+- Prod ブランチを Prod クラスタにデプロイ
 {% sample lang="yaml" %}
 
-**Base Branch:** `master`
+テクニック:
+
+- 新しく要求されたフラグと環境変数をコードに追加するとき、Base ブランチのリリース構成に追加する
+  - コードがロールアウトされると構成もロールアウトされるため
+- フラグと設定は、デプロイブランチのデプロイディレクトリにあるリソース構成に合わせて調整する
+  - 独立したバージョンがただちにロールアウトされる
+- Base ブランチからデプロイブランチにマージし、ロールアウトを実行する
+
+## ディレクトリとブランチのレイアウト
+
+構造:
+
+- 構成の変更を受ける Base ブランチ (`master`、`app-version` など) はリリースに結びつく
+  - [ディレクトリ](structure_directories.md)と同様
+- 環境ごとにデプロイブランチを分離する (`deploy-<env>` など)
+  - 各ブランチに伴う新しいディレクトリは overlay カスタマイズを含む - `deploy-<env>` など
+
+**Base ブランチ:** `master`
 
 ```bash
 tree
@@ -158,9 +175,9 @@ tree
         └── kustomization.yaml
 ```
 
-**Deploy Branches:**
+**デプロイブランチ:**
 
-Prod Branch: `deploy-prod`
+Prod ブランチ: `deploy-prod`
 
 ```bash
 tree
@@ -182,7 +199,7 @@ tree
     └── ...
 ```
 
-Staging Branch: `deploy-staging`
+Staging ブランチ: `deploy-staging`
 
 ```bash
 tree
@@ -200,7 +217,8 @@ tree
     └── ...
 ```
 
-Test Branch: `deploy-test`
+Test ブランチ: `deploy-test`
+{% endmethod %}
 
 ```bash
 tree
@@ -218,34 +236,43 @@ tree
     └── ...
 ```
 
-{% endmethod %}
+## ロールバックのワークフロー例
 
-## Rollback Workflow Example
+ブランチで運用するときのロールバックのワークフロー例の概要:
 
-Summary of rollback workflow with Branches:
+1. 動作中の Prod アプリは *v1*
+2. 変更が Base ブランチの構成に取り入れられる
 
-1. Live Prod App version is *v1*
-1. Changes are introduced to Base Branch Config
-  - To be released with version *v2*
-1. Release *v2* is cut to be rolled out
-  - Tag Base *v2* and build artifacts (e.g. images)
-1. Changes are introduced into the Base Branch Confiug
-  - To be released with version *v3*
-1. *v2* is pushed to Prod (eventually)
-  - *v2* Tag merged into Prod Branch
-1. *v2* has issues in Prod and must be rolled back
-  - *v2* changes are rolled back in new commit to Prod Branch
-1. Base Branch is unaffected
-  - Fix introduced in *v3*
+- バージョン *v2* としてリリースされる
 
-**Note:** New changes committed to the Base for "v3" did not make the rollback from
-"v2" -> "v1" more challenging, as they had not been merged into the Prod Branch.
+1. リリース *v2* が切られ、ロールアウトされる
 
-### Diagram
+- Base のタグ *v2* が切られ、アーティファクト (イメージなど) がビルドされる
+
+1. 変更が Base ブランチの構成に取り入れられる
+
+- バージョン *v3* としてリリースされる
+
+1. *v2* が (ついに) Prod にプッシュされる
+
+- *v2* タグを Prod ブランチにマージ
+
+1. Prod で *v2* に問題が見つかり、ロールバックしなければならなくなる
+
+- *v2* の変更が新しいコミットとして Prod ブランチに行われ、ロールバックされる
+
+1. Base ブランチは影響を受けない
+
+- 修正が *v3* に取り入れられる
+
+**注意:** "v3" で Base に新しい変更がコミットされた場合、"v2" から "v1" へのロールバックがより難しくなるということはありません。"v3" の変更は Prod ブランチにマージされていないからです。
+
+### 図
 
 {% sequence width=1000 %}
 
 participant Base Branch as BB
+{% endsequence %}
 participant Staging Branch as SB
 participant Staging Clusters as SC
 participant Prod Branch as PB
@@ -271,5 +298,3 @@ Note over PB: Alice rolls back v2 merge commit
 PB-->PC: Deploy v1
 Note over PC: At v1 release
 Note over BB,PC: Prod Outage resolved
-
-{% endsequence %}

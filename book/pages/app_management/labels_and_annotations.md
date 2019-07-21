@@ -3,38 +3,38 @@
 {% endpanel %}
 
 {% panel style="info", title="TL;DR" %}
-- Set Labels for all Resources declared within a Project with `commonLables`
-- Set Annotations for all Resources declared within a Project with `commonAnnotations`
+
+- プロジェクト内で宣言されたすべてのリソースにラベルを設定するには `commonLables` を使用する
 {% endpanel %}
+- プロジェクト内で宣言されたすべてのリソースにアノテーションを設定するには `commonAnnotations` を使用する
 
-# Setting Labels and Annotations
+# ラベルとアノテーションを設定する
 
-## Motivation
+## 動機
 
-Users may want to define a common set of labels or annotations for all the Resource in a project.
+プロジェクト内のすべてのリソースに共通のラベルやアノテーションを定義したくなることがあります。
 
-- Identify the Resources within a project by querying their labels.
-- Set metadata for all Resources within a project (e.g. environment=test).
-- Copy or Fork an existing Project and add or change labels and annotations.
+- リソースに付けられたラベルを検索することでプロジェクト内のリソースを識別する
+- プロジェクト内のすべてのリソースにメタデータを設定する (たとえば `environment=test`)
+- 既存のプロジェクトをコピーまたはフォークして、ラベルとアノテーションを追加または変更する
 
-See [Bases and Variations](../app_customization/bases_and_variants.md) for more details on Copying Projects.
+プロジェクトのコピーについて詳細は [Bases and Variations](../app_customization/bases_and_variants.md) を確認してください。
 
 {% panel style="info", title="Reference" %}
+
+{% endpanel %}
 - [commonLabels](../reference/kustomize.md#commonlabels)
 - [commonAnnotations](../reference/kustomize.md#commonannotations)
-{% endpanel %}
 
-
-## Setting Labels for all Resources
-
+## すべてのリソースにラベルを設定する
 {% method %}
-**Example:** Add the labels declared in `commonLabels` to all Resources in the project.
 
-**Important:** Once set, commonLabels should not be changed so as not to change the Selectors for Services
-or Workloads.
+**例:** プロジェクト内のすべてのリソースに `commonLabels` に宣言されたラベルを追加する
+
+**重要:** 一度設定した commonLabels は変更すべきではありません。Service やワークロードのセレクタを変更しないためです。
 
 {% sample lang="yaml" %}
-**Input:** The kustomization.yaml and deployment.yaml files
+**入力:** kustomization.yaml ファイルと deployment.yaml ファイル
 
 ```yaml
 # kustomization.yaml
@@ -72,7 +72,7 @@ spec:
         image: nginx
 ```
 
-**Applied:** The Resource that is Applied to the cluster
+**適用:** クラスタに適用されるリソース
 
 ```yaml
 apiVersion: apps/v1
@@ -102,36 +102,31 @@ spec:
 ```
 {% endmethod %}
 
-{% panel style="warning", title="Propagating Labels to Selectors" %}
-In addition to updating the labels for each Resource, any selectors will also be updated to target the
-labels.  e.g. the selectors for Services in the project will be updated to include the commonLabels
-*in addition* to the other labels.
+{% panel style="warning", title="ラベルのセレクタへの伝播" %}
+各リソースに付けられたラベルを更新すると、セレクタもそのラベルを対象とするように更新されます。たとえば、プロジェクト内の Service を取得するセレクタは、他のラベル**に加えて** commonLabels を含むように更新されます。
 
-**Note:** Once set, commonLabels should not be changed so as not to change the Selectors for Services
-or Workloads.
+**注意:** 一度 commonLabels を設定したら、変更すべきではありません。Service やワークロードを取得するセレクタを変更しないためです。
+
+{% panel style="success", title="共通のラベル" %}
+k8s.io ドキュメントではアプリケーションに適用可能な[共通ラベルの規則](https://kubernetes.io/docs/concepts/overview/working-with-objects/common-labels/)を定義しています。
 {% endpanel %}
 
-{% panel style="success", title="Common Labels" %}
-The k8s.io documentation defines a set of [Common Labeling Conventions](https://kubernetes.io/docs/concepts/overview/working-with-objects/common-labels/)
-that may be applied to Applications.
+**注意:** commonLabels は**不変の**ラベルにだけ設定されるべきです。セレクタに適用されるからです。
 
-**Note:** commonLabels should only be set for **immutable** labels, since they will be applied to Selectors.
+ワークロードリソースにラベル付けすることは、Pod へのクエリを単純にします - たとえば、Pod のログを取得する目的でラベルを付けます。
 
-Labeling Workload Resources makes it simpler to query Pods - e.g. for the purpose of getting their logs.
+## すべてのリソースにアノテーションを設定する
+
+**例:** プロジェクト内のすべてのリソースに `commonAnnotations` で宣言されたアノテーションを追加する
 {% endpanel %}
 
-
-## Setting Annotations for all Resources
-
-{% method %}
-**Example:** Add the annotations declared in `commonAnnotations` to all Resources in the project.
-
-{% sample lang="yaml" %}
-**Input:** The kustomization.yaml and deployment.yaml files
+**入力:** kustomization.yaml ファイルと deployment.yaml ファイル
 
 ```yaml
+{% method %}
 # kustomization.yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
+{% sample lang="yaml" %}
 kind: Kustomization
 commonAnnotations:
   oncallPager: 800-555-1212
@@ -161,7 +156,7 @@ spec:
         image: nginx
 ```
 
-**Applied:** The Resource that is Applied to the cluster
+**適用:** クラスタに適用されるリソース
 
 ```yaml
 apiVersion: apps/v1
@@ -189,9 +184,6 @@ spec:
       - image: nginx
         name: nginx
 ```
-{% endmethod %}
 
-{% panel style="info", title="Propagating Annotations" %}
-In addition to updating the annotations for each Resource, any fields that contain ObjectMeta
-(e.g. PodTemplate) will also have the annotations added.
-{% endpanel %}
+{% panel style="info", title="アノテーションの伝播" %}
+各リソースのアノテーションを更新すると、ObjectMeta を含むすべてのフィールド (たとえば PodTemplate) にもアノテーションが追加されます。

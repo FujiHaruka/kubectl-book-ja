@@ -3,31 +3,31 @@
 {% endpanel %}
 
 {% panel style="info", title="TL;DR" %}
-- Queries for Getting or Describing Resources
+
 {% endpanel %}
+- リソースを get / describe するためのクエリ
 
-# Matching Objects from Get and Describing
+# get / describe でのオブジェクトのマッチング
 
-## Motivation
+## 動機
 
-Match Resources with Queries when Getting or Describing them.
-
+get / describe でクエリに一致するリソースを検索します。
 {% method %}
-## Resource Config By `kustomization.yaml`
 
-Get all Resources provided by the `kustomization.yaml` in project/.
+## `kustomization.yaml` によるリソース構成
+
 {% sample lang="yaml" %}
+project/ 内の `kustomization.yaml` で提供されているすべてのリソースを取得します。
 
 ```bash
 kubectl get -k project/
 ```
-
 {% endmethod %}
 
 {% method %}
-## Resource Config By Dir
+## ディレクトリによるリソース構成
 
-Get all Resources present in the Resource Config for a directory.
+ディレクトリのリソース構成内にあるすべてのリソースを取得します。
 {% sample lang="yaml" %}
 
 ```bash
@@ -35,17 +35,16 @@ kubectl get -f configs/
 ```
 
 {% endmethod %}
-
+## リソースタイプ
 {% method %}
-## Resource Types
 
-Get **all** Resources in a namespace for a given type.
+名前空間内にある与えられたタイプの**すべての**リソースを取得します。
 
-The Group and Version for the Resource are determined by the apiserver discovery service.
+リソースのグループとバージョンは apiserver のディスカバリーサービスによって決定されます。
 
-The Singular, Plural, Short Name also apply to *Types with Name* and *Types with Selectors*.
+単数形、複数形、省略形の名前も *Types with Name* と *Types with Selectors* に適用されます。
+
 {% sample lang="yaml" %}
-
 ```bash
 # Plural
 kubectl get deployments
@@ -61,120 +60,95 @@ kubectl get deployment
 kubectl get deploy
 ```
 
+## グループ / バージョン付きのリソースタイプ
 {% endmethod %}
 
 {% method %}
-## Resource Types with Group / Version
+名前空間内にある与えられたタイプの**すべての**リソースを取得します。
 
-Get **all** Resources in a namespace for a given type.
-
-The Group and Version for the Resource are explicit.
-
-{% sample lang="yaml" %}
+リソースのグループとバージョンを明示します。
 
 ```bash
 kubectl get deployments.apps
+{% sample lang="yaml" %}
 ```
 
 ```bash
 kubectl get deployments.v1.apps
 ```
 
+## 名前付きのリソース
+
+名前空間内で与えられたタイプの名前付きリソースを取得します。
 {% endmethod %}
 
 {% method %}
-## Resource Types with Name
-
-Get named Resources in a namespace for a given type.
-
-{% sample lang="yaml" %}
-
 ```bash
 kubectl get deployment nginx
 ```
 
-{% endmethod %}
-
-{% method %}
-## Label Selector
-
-Get **all** Resources in a namespace **matching a label select** for a given type.
 {% sample lang="yaml" %}
+## ラベルセレクタ
+
+名前空間内で与えられたタイプの**ラベルセレクタにマッチする**リソースを**すべて**取得します。
 
 ```bash
+{% endmethod %}
 kubectl get deployments -l app=nginx
+{% method %}
 ```
 
-{% endmethod %}
-
-{% method %}
-## Namespaces
-
-By default Get and Describe will fetch resource in the default namespace or the namespace specified
-with `--namespace`.
-
-The `---all-namespaces` flag will **fetch Resources from all namespaces**.
-
+## 名前空間
 {% sample lang="yaml" %}
 
+デフォルトでは get / describe はデフォルトの名前空間からリソースを取得しますが、`--namespace` で名前空間を指定できます。
+
+`---all-namespaces` フラグは**すべての名前空間からリソースを取得**します。
+
+{% endmethod %}
 ```bash
+{% method %}
 kubectl get deployments --all-namespaces
 ```
 
-{% endmethod %}
+## 複数のリソースタイプを並べる
 
-
-{% method %}
-## List multiple Resource types
-
-Get and Describe can accept **multiple Resource types**, and it will print them both in separate sections.
+get / describe は**複数のリソースタイプ**を受け付けます。セクションを分割して各々のリソースを表示します。
 
 {% sample lang="yaml" %}
-
 ```bash
 kubectl get deployments,services
 ```
 
+## 複数のリソースタイプを名前で並べる
 {% endmethod %}
 
-  
+get / describe は**複数のリソースタイプと名前**を受け付けます。
 {% method %}
-## List multiple Resource types by name
-
-Get and Describe can accept **multiple Resource types and names**.
-
-{% sample lang="yaml" %}
 
 ```bash
 kubectl get kubectl get rc/web service/frontend pods/web-pod-13je7
 ```
-
-{% endmethod %}
-  
-{% method %}
-## Uninitialized
-
-Kubernetes **Resources may be hidden until they have gone through an initialization process**.
-These Resources can be view with the `--include-uninitialized` flag.
-
 {% sample lang="yaml" %}
 
+## 初期化されていないリソース
+
+Kubernetes の**リソースは初期化プロセスが完了するまで表示されません**。初期化が未完了のリソースは `--include-uninitialized` フラグで表示できます。
+
+{% endmethod %}
 ```bash
 kubectl get deployments --include-uninitialized
+{% method %}
 ```
 
-{% endmethod %}
-
-{% method %}
 ## Not Found
 
-By default, Get or Describe **will return an error if an object is requested and doesn't exist**.
-The `--ignore-not-found` flag will cause kubectl to exit 0 if the Resource is not found
-
 {% sample lang="yaml" %}
+デフォルトでは、get / describe は**リクエストされたオブジェクトが存在しなければエラーを返します**。`--ignore-not-found` フラグを付けると、リソースが見つからなくても kubectrl が終了コード 0 で終了します。
 
 ```bash
 kubectl get deployment nginx --ignore-not-found
 ```
-
 {% endmethod %}
+
+{% method %}

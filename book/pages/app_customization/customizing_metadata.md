@@ -3,10 +3,11 @@
 {% endpanel %}
 
 {% panel style="info", title="TL;DR" %}
+
 - Customize Base Resource Namespaces
 - Customize Base Resource Names with Prefixes or Suffixes
-- Customize Base Resource Labels or Annotations
 {% endpanel %}
+- Customize Base Resource Labels or Annotations
 
 # Customizing Resource Metadata
 
@@ -21,22 +22,23 @@ Examples:
 - Overriding the Names of Resources by supplying a Prefix or Suffix
 - Overriding Labels and Annotations
 - Running **multiple instances of the same White-Box Base** using the above techniques
- 
- {% panel style="info", title="Reference" %}
- - [namespace](../reference/kustomize.md#namespace)
- - [namePrefix](../reference/kustomize.md#nameprefix)
- - [nameSuffix](../reference/kustomize.md#namesuffix)
- {% endpanel %}
- 
-## Customizing Resource Namespaces
 
+  {% panel style="info", title="Reference" %}
+- [namespace](../reference/kustomize.md#namespace)
+- [namePrefix](../reference/kustomize.md#nameprefix)
+ {% endpanel %}
+- [nameSuffix](../reference/kustomize.md#namesuffix)
+
+## Customizing Resource Namespaces
 {% method %}
+
 **Use Case:**
+
 - Change the Namespace for Resources from Base.
 
+{% sample lang="yaml" %}
 Customize the Namespace of all Resources in the Base by adding `namespace`.
 
-{% sample lang="yaml" %}
 **Input:** The kustomization.yaml file
 
 ```yaml
@@ -101,20 +103,20 @@ spec:
       containers:
       - image: nginx
         name: nginx
+{% endmethod %}
 ```
 
-{% endmethod %}
- 
 ## Customizing Resource Name Prefixes and Suffixes
-
 {% method %}
+
 **Use Case:**
+
 - Run multiple instances of the same Base.
 - Create naming conventions for different Environments (test, dev, staging, canary, prod).
 
+{% sample lang="yaml" %}
 Customize the Name of all Resources in the Base by adding `namePrefix` or `nameSuffix` in Variants.
 
-{% sample lang="yaml" %}
 **Input:** The kustomization.yaml file
 
 ```yaml
@@ -177,9 +179,8 @@ spec:
       containers:
       - image: nginx
         name: nginx
-```
-
 {% endmethod %}
+```
 
 See [Namespaces and Names](../app_management/namespaces_and_names.md).
 
@@ -187,19 +188,20 @@ See [Namespaces and Names](../app_management/namespaces_and_names.md).
 Name Prefix's and Suffix's in Bases will be concatenated with Name Prefix's
 and Suffix's specified in Variants - e.g. if a Base has a Name Prefix of `app-name-`
 and the Variant has a Name Prefix of `test-` the Applied Resources will have
-a Name Prefix of `test-app-name-`.
 {% endpanel %}
+a Name Prefix of `test-app-name-`.
 
 ## Customizing Resource Labels and Annotations
-
 {% method %}
+
 **Use Case:**
+
 - Create Label or Annotation conventions for different Environments (test, dev, staging, canary, prod).
 
 Customize the Labels and Annotations of all Resources in the Base by adding a
+{% sample lang="yaml" %}
 `commonLabels` or `commonAnnotations` in the variants.
 
-{% sample lang="yaml" %}
 **Input:** The kustomization.yaml file
 
 ```yaml
@@ -276,6 +278,5 @@ spec:
       containers:
       - image: nginx
         name: nginx
-```
-
 {% endmethod %}
+```

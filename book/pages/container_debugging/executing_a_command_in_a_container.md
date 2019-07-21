@@ -3,24 +3,23 @@
 {% endpanel %}
 
 {% panel style="info", title="TL;DR" %}
-- Execute a Command in a Container
-- Get a Shell in a Container
+
+- コンテナの中でコマンドを実行する
 {% endpanel %}
+- コンテナの中でシェルを取得する
 
-# Executing Commands
+# コマンドの実行
 
-## Motivation
+## 動機
 
-Debugging Workloads by running commands within the Container.  Commands may be a Shell with
-a tty.
+コンテナの内部でコマンドを実行することで、ワークロードをデバッグします。コマンドは tty 経由のシェルも可能です。
 
 {% method %}
-## Exec Command
+## コマンドの実行
 
-Run a command in a Container in the cluster by specifying the **Pod name**.
+クラスタ内のコンテナの中でコマンドを実行するには、**Pod 名**を指定します。
 
 {% sample lang="yaml" %}
-
 ```bash
 kubectl exec nginx-78f5d695bd-czm8z ls
 ```
@@ -29,17 +28,15 @@ kubectl exec nginx-78f5d695bd-czm8z ls
 bin  boot  dev	etc  home  lib	lib64  media  mnt  opt	proc  root  run  sbin  srv  sys  tmp  usr  var
 ```
 
+## シェルの実行
 {% endmethod %}
 
 {% method %}
-## Exec Shell
-
-To get a Shell in a Container, use the `-t -i` options to get a tty and attach STDIN.
-
-{% sample lang="yaml" %}
+コンテナの中でシェルを取得するには、`-t -i` オプションを使って tty を取得し STDIN にアタッチします。
 
 ```bash
 kubectl exec -t -i nginx-78f5d695bd-czm8z bash
+{% sample lang="yaml" %}
 ```
 
 ```bash
@@ -47,8 +44,7 @@ root@nginx-78f5d695bd-czm8z:/# ls
 bin  boot  dev	etc  home  lib	lib64  media  mnt  opt	proc  root  run  sbin  srv  sys  tmp  usr  var
 ```
 
-{% endmethod %}
+{% panel style="info", title="コンテナの指定" %}
+複数のコンテナを実行する Pod に対しては、シェルを実行するコンテナを `-c <container-name>` で指定すべきです。
 
-{% panel style="info", title="Specifying the Container" %}
-For Pods running multiple Containers, the Container should be specified with `-c <container-name>`.
-{% endpanel %}
+{% endmethod %}

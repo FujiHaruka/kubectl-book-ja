@@ -3,23 +3,23 @@
 {% endpanel %}
 
 {% panel style="info", title="TL;DR" %}
-- Examples for `kustomization.yaml`
+
 {% endpanel %}
+- `kustomization.yaml` の例
 
-# Kustomization.yaml Examples
-
+# kustomization.yaml の例
  {% method %}
-This file declares the customization provided by the kustomize program.
 
-Since customization is, by definition, _custom_, there are no default
-values that should be copied from this file or that are recommended.
+以下のファイルは kustomize プログラムが提供するカスタマイズを宣言しています。
 
-In practice, fields with no value should simply be  omitted from kustomization.yaml
-to reduce the content visible in configuration reviews.
+カスタマイズは **custom** の定義からわかるとおり、このファイルからコピーされるべき、またはお勧めのデフォルト値がありません。
 
-Example copied from the [kustomize repo](https://github.com/kubernetes-sigs/kustomize/blob/master/docs/kustomization.yaml)
- 
+実用上は、値のないフィールドは単に kustomization.yaml から省略すれば十分です。構成のレビューで見えるコンテンツを減らすために。
+
+例は [kustomize repo](https://github.com/kubernetes-sigs/kustomize/blob/master/docs/kustomization.yaml) からのコピーです。
+
  {% sample lang="yaml" %}
+
 ```yaml
 # ----------------------------------------------------
 # apiVersion and kind of Kustomization
@@ -313,5 +313,5 @@ images:
   - name: alpine
     digest: sha256:24a0c4b4a4c0eb97a1aabb8e29f18e917d05abfe1b7a7c07857230879ce7d3d3
 ```
- 
+
  {% endmethod %}

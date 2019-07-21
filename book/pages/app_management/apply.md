@@ -3,46 +3,41 @@
 {% endpanel %}
 
 {% panel style="info", title="TL;DR" %}
-- Apply Creates and Updates Resources in a cluster through running `kubectl apply` on Resource Config.
-- Apply manages complexity such as ordering of operations and merging user defined and cluster defined state.
+
+- Apply はリソース構成上で `kubectl apply` を実行することによってクラスタ内のリソースを作成・更新する
 {% endpanel %}
+- Apply は、オペレーションの順序や、ユーザーが定義した状態とクラスタが定義した状態をマージするといった複雑性を管理する
 
 # Apply
 
-## Motivation
+## 動機
 
-Apply is a command that will update a Kubernetes cluster to match state defined locally in files.
+Apply は Kubernetes クラスタをローカルのファイルで定義された状態に一致させるよう更新するコマンドです。
 
 ```bash
 kubectl apply
 ```
 
-- Fully declarative - don't need to specify create or update - just manage files
-- Merges user owned state (e.g. Service `selector`) with state owned by the cluster (e.g. Service `clusterIp`)
+- 完全な宣言性 - 作成や更新を指示する必要はなく、ファイルを管理するだけです
+- ユーザーが所有する状態 (たとえば Service `selector`) をクラスタが所有する状態 (たとえば Service `clusterIp`) にマージします
 
-## Definitions
+## 定義
 
-- **Resources**: *Objects* in a cluster - e.g. Deployments, Services, etc.
-- **Resource Config**: *Files* declaring the desired state for Resources - e.g. deployment.yaml.
-  Resources are created and updated using Apply with these files.
+- **リソース (Resource)**: クラスタ内の*オブジェクト* - たとえば Deployment、Service など
+- **リソース構成 (Resource Config)**: リソースの望ましい状態を宣言した*ファイル* - たとえば deployment.yaml。リソースはこれらのファイルと Apply を使って作成・更新される
 
-*kubectl apply* Creates and Updates Resources through local or remote files.  This may be through
-either raw Resource Config or *kustomization.yaml*.
+`kubectl apply` はローカルまたはリモートのファイルを通じてリソースを作成・更新します。これは生のリソース構成でもできますが、 `kustomization.yaml` を使うこともできます。
 
-## Usage
+## 使い方
 
+Apply はリソース構成ファイルに対して、あるいは `-f` オプションでディレクトリを指定して直接実行することもできますが、お勧めは `-k` オプションを使って `kustomization.yaml` に対して Apply を実行することです。`kustomization.yaml` を使うと多くのリソースを横断した設定 (たとえば名前空間) を定義できます。
 {% method %}
-
-Though Apply can be run directly against Resource Config files or directories using `-f`, it is recommended
-to run Apply against a `kustomization.yaml` using `-k`.  The `kustomization.yaml` allows users to define
-configuration that cuts across many Resources (e.g. namespace).
-
-{% sample lang="yaml" %}
 
 ```yaml
 # kustomization.yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
+{% sample lang="yaml" %}
 
 # list of Resource Config to be Applied
 resources:
@@ -82,71 +77,61 @@ spec:
         image: nginx:1.15.4
 ```
 
-{% endmethod %}
+Apply コマンドは `kustomization.yaml` ファイルを含むディレクトリに `-k` オプションで実行するか、または生のリソース構成ファイルに対して `-f` オプションで実行します。
 
-{% method %}
-Users run Apply on directories containing `kustomization.yaml` files using `-k` or on raw
-ResourceConfig files using `-f`.
-
-{% sample lang="yaml" %}
 ```bash
 # Apply the Resource Config
 kubectl apply -k .
+{% endmethod %}
 
+{% method %}
 # View the Resources
 kubectl get -k .
 ```
+{% sample lang="yaml" %}
+
+{% panel style="info", title="マルチリソースの設定" %}
+一つのリソース構成ファイルを `\n---\n` で分割すると、複数のリソースを宣言できます。
+
+## CRUD 操作
+
+### リソースの作成
 {% endmethod %}
 
-{% panel style="info", title="Multi-Resource Configs" %}
-A single Resource Config file may declare multiple Resources separated by `\n---\n`.
-{% endpanel %}
-
-## CRUD Operations
-
-### Creating Resources
-
-Any Resources that do not exist and are declared in Resource Config when Apply is run will be Created.
-
-### Updating Resources
-
-Any Resources that already exist and are declared in Resource Config when Apply is run may be Updated.
-
-**Added Fields**
-
-Any fields that have been added to the Resource Config will be set on the Resource.
-
-**Updated Fields** 
- 
-Any fields that contain different values for the fields specified locally in the Resource Config from what is
-in the Resource will be updated by merging the Resource Config into the live Resource.  See [merging](field_merge_semantics.md)
-for more details.
-
-**Deleted Fields**
-
-Fields that were in the Resource Config the last time Apply was run, will be deleted from the Resource, and
-return to their default values.
-
-**Unmanaged Fields**
-
-Fields that were not specified in the Resource Config but are set on the Resource will be left unmodified.
-
-### Deleting Resources
-
-Declarative deletion of Resources does not yet exist in a usable form, but is under development.
-
-{% panel style="info", title="Continuously Applying The Hard Way" %}
-In some cases, it may be useful to automatically Apply changes when ever the Resource Config is changed.
-
-This example uses the unix `watch` command to periodically invoke Apply against a target.
-`watch -n 60 kubectl apply -k https://github.com/myorg/myrepo`
+リソース構成に宣言されているがまだ存在しないリソースは、Apply 実行時に作成されます。
 
 {% endpanel %}
+### リソースの更新
 
-## Resource Creation Ordering
+リソース構成に宣言されていて、すでに存在するリソースは、Apply 実行時に更新されることがあります。
 
-Certain Resource Types may be dependent on other Resource Types being created first.  e.g. Namespaced
-Resources on the Namespaces, RoleBindings on Roles, CustomResources on the CRDs, etc.
+**追加のフィールド**
 
-When used with a `kustomization.yaml`, Apply sorts the Resources by Resource type to ensure Resources
-with these dependencies are created in the correct order.
+リソース構成に追加されたフィールドはリソースに追加されます。
+
+**更新されたフィールド**
+
+ローカルのリソース構成に指定されたフィールドの値がリソース内の値と異なる場合、リソース構成を稼働中のリソースにマージすることによって更新されます。詳細は [merging](field_merge_semantics.md) を確認してください。
+
+**削除されたフィールド**
+
+前回の Apply 実行時にリソース構成に存在したが削除されたフィールドは、リソースから削除され、デフォルト値に戻されます。
+
+**管理されていないフィールド**
+
+リソース構成に指定されていないがリソースにセットされているフィールドは、修正されずにそのまま残されます。
+
+### リソースの削除
+
+リソースの宣言的な削除は、まだ利用に適した形では存在しません。現在開発中です。
+
+{% panel style="info", title="地道な継続的 Apply" %}
+時には、リソース構成が変更されたら自動的に変更を Apply するのが便利な場合もあります。
+
+たとえば Apply を定期的に実行するために UNIX の `watch` コマンドを使います。`watch -n 60 kubectl apply -k https://github.com/myorg/myrepo`
+
+## リソース作成の順序
+
+あるリソースタイプが、先に作成される他のリソースタイプに依存することがあります。たとえば、名前空間上のリソース、Role 上の RoleBinding、CRD 上の CustomResource などです。
+
+`kustomization.yaml` を使うと、Apply は上記のような依存関係をもつリソースが正しい順序で作成されるように、リソースタイプによってリソースを並び替えます。

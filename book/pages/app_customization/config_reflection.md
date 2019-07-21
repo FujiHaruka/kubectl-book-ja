@@ -3,46 +3,42 @@
 {% endpanel %}
 
 {% panel style="info", title="TL;DR" %}
-- Inject the values of other Resource Config fields into Pod Env Vars and Command Args with `vars`.
+
 {% endpanel %}
+- 他のリソース構成のフィールドを `vars` によって Pod の環境変数とコマンドの引数に注入する
 
-# Config Reflection
+# 構成の反映
 
-## Motivation
+## 動機
 
-Applications running in Pods may need to know about Application context or configuration.
-For example, a **Pod may take the name of Service defined in the Project as a command argument**.
-Instead of hard coding the value of the Service directly into the PodSpec, users can **reference
-the Service value using a `vars` entry**.  If the value is updated or transformed by the
-`kustomization.yaml` file (e.g. by setting a `namePrefix`), the value will be propagated
-to where it is referenced in the PodSpec.
+Pod 内で実行されるアプリケーションがアプリケーションのコンテキストや設定について知りたくなることがあります。たとえば、**Pod はプロジェクト内で定義されている Service 名をコマンド引数からとっているかもしれません**。
+Service の値を PodSpec の中に直接ハードコーディングするのではなく、**`vars` エントリを使って Service の値を参照**することができます。
+その値が `kustomization.yaml` によって (たとえば `namePrefix` を設定して) 更新されたり変形されたりすると、PodSpec の中で参照されているところまで値が伝播します。
 
 {% panel style="info", title="Reference" %}
- - [vars](../reference/kustomize.md#var)
- {% endpanel %} 
 
+- [vars](../reference/kustomize.md#var)
+
+ {% endpanel %} 
 ## Vars
 
-The `vars` section contains variable references to Resource Config fields within the project.  They require
-the following to be defined:
+`vars` セクションはプロジェクト内のリソース構成のフィールドに参照を持つ変数を含みます。以下を定義する必要があります。
 
-- Resource Kind
-- Resource Version
-- Resource name
-- Field path
+- リソースの種類
+- リソースのバージョン
+- リソース名
+- フィールドのパス
+
+**例:** Pod のコマンドライン引数を Service 名の値に設定する。
 
 {% method %}
+Apply 時に `$(BACKEND_SERVICE_NAME)` は `vars` で指定されたオブジェクトの参照を使った値に解決されます。
 
-**Example:** Set the Pod command argument to the value of a Service name.
-
-Apply will resolve `$(BACKEND_SERVICE_NAME)` to a value using the object reference
-specified in `vars`.
-
-{% sample lang="yaml" %}
-**Input:** The kustomization.yaml, deployment.yaml and service.yaml files
+**入力:** kustomization.yaml、deployment.yaml、service.yaml ファイル
 
 ```yaml
 # kustomization.yaml
+{% sample lang="yaml" %}
 namePrefix: "test-"
 vars:
   # Name of the variable so it can be referenced
@@ -101,7 +97,7 @@ spec:
         command: ["curl", "$(BACKEND_SERVICE_NAME)"]
 ```
 
-**Applied:** The Resources that are Applied to the cluster
+**適用:** クラスタに適用されるリソース
 
 ```yaml
 apiVersion: v1
@@ -140,10 +136,8 @@ spec:
         image: ubuntu
         name: curl
 ```
-{% endmethod %}
 
-{% panel style="warning", title="Referencing Variables" %}
-Variables are intended only to inject Resource Config into Pods.  They are
-**not** intended as a general templating mechanism.  Overriding values should be done with
-patches instead of variables.  See [Bases and Variations](bases_and_variants.md).
-{% endpanel %}
+{% panel style="warning", title="変数の参照" %}
+変数はリソース構成を Pod に注入するためのものであり、他の用途に向いていません。変数は一般的なテンプレート機構として使う**べきではありません**。値の上書きは変数ではなく patch で行うべきです。[Bases and Variations] を参考にしてください。
+
+{% endmethod %}

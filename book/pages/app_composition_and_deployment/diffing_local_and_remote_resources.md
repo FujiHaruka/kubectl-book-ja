@@ -3,42 +3,32 @@
 {% endpanel %}
 
 {% panel style="info", title="TL;DR" %}
-- View diff of changes before they are Applied to the cluster
+
 {% endpanel %}
+- 変更の差分をクラスタに Apply される前に確認する
 
-# Diffing Local and Cluster State
+# ローカルの状態とクラスタの状態の差分
 
-## Motivation
+## 動機
 
-The ability to view what changes will be made before applying them to a cluster can be useful.
-
+変更があったときにクラスタに適用される前にどんな変更があったのかを確認できると便利です。
 {% method %}
-## Generating a Diff
 
-Use the `diff` program in a user's path to display a diff of the changes that will be
-made by Apply.
+## 差分の生成
+
+ユーザーのパス内で `diff` プログラムを実行すると、Apply により作られる変更の差分を表示します。
 
 {% sample lang="yaml" %}
-
 ```sh
 kubectl diff -k ./dir/
 ```
 
+## Diff プログラムの設定
 {% endmethod %}
 
 {% method %}
-## Setting the Diff Program
-
-The `KUBECTL_EXTERNAL_DIFF` environment variable can be used to select your own diff command.
-By default, the "diff" command available in your path will be run with "-u" (unified) and "-N"
-(treat new files as empty) options.
-
-
-{% sample lang="yaml" %}
+環境変数 `KUBECTL_EXTERNAL_DIFF` を設定すると自分の diff コマンドを選択できます。デフォルトでは、パス内で利用可能な "diff" コマンドが "-u" (unified) と "-N" (treat new files as empty) オプションで実行されます。
 
 ```sh
 export KUBECTL_EXTERNAL_DIFF=meld; kubectl diff -k ./dir/
 ```
-
-{% endmethod %}
-

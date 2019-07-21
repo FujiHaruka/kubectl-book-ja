@@ -3,20 +3,21 @@
 {% endpanel %}
 
 {% panel style="info", title="TL;DR" %}
-- Print the Logs of a Container in a cluster
+
 {% endpanel %}
+- クラスタ内のコンテナのログを表示する
 
-# Summarizing Resources
+# リソース情報の要約
 
-## Motivation
+## 動機
 
-Debugging Workloads by printing out the Logs of containers in a cluster.
-
+クラスタ内のコンテナのログを表示することで、ワークロードをデバッグします。
 {% method %}
-## Print Logs for a Container in a Pod
 
-Print the logs for a Pod running a single Container
+## Pod 内のコンテナのログを表示
+
 {% sample lang="yaml" %}
+単一のコンテナを実行している Pod のためにログを表示します。
 
 ```bash
 kubectl logs echo-c6bc8ccff-nnj52
@@ -26,140 +27,118 @@ kubectl logs echo-c6bc8ccff-nnj52
 hello
 hello
 ```
-
 {% endmethod %}
 
+{% panel style="success", title="クラッシュし続けるコンテナ" %}
+もしコンテナがクラッシュをループしていて、コンテナ終了後にそのログを表示したい場合には、`-p` フラグを付けると**終了したコンテナのログを見ることができます**。例: `kubectl logs -p -c ruby web-1`
 
-{% panel style="success", title="Crash Looping Containers" %}
-If a container is crash looping and you want to print its logs after it
-exits, use the `-p` flag to look at the **logs from containers that have
-exited**.  e.g. `kubectl logs -p -c ruby web-1`
+- - -
+
 {% endpanel %}
+## ワークロードのためにすべての Pod のログを表示
 
----
-
+ワークロードのためにすべての Pod のログを表示します。
 {% method %}
-## Print Logs for all Pods for a Workload
-
-Print the logs for all Pods for a Workload
-{% sample lang="yaml" %}
 
 ```bash
 # Print logs from all containers matching label
+{% sample lang="yaml" %}
 kubectl logs -l app=nginx
 ```
 
-{% endmethod %}
-
 {% panel style="success", title="Workloads Logs" %}
-Print all logs from **all containers for a Workload** by passing the
-Workload label selector to the `-l` flag.  e.g. if your Workload
-label selector is `app=nginx` usie `-l "app=nginx"` to print logs
-for all the Pods from that Workload.
+**ワークロードの管理下にあるすべてのコンテナ**のログを表示するには、`-l` フラグにワークロードのラベルセレクタを渡します。 たとえば、ワークロードのラベルセレクタが `app=nginx` だとすると、`-l "app=nginx"` を指定すると、そのワークロードのすべての Pod のログを表示できます。
+
+{% endmethod %}
+- - -
+
+## コンテナのログを表示し続ける
+
+コンテナからログをストリームとして表示します。
+
 {% endpanel %}
-
----
-
-{% method %}
-## Follow Logs for a Container
-
-Stream logs from a container.
-
-{% sample lang="yaml" %}
-
 ```bash
 # Follow logs from container
 kubectl logs nginx-78f5d695bd-czm8z -f
+{% method %}
 ```
 
-{% endmethod %}
+- - -
 
----
-
-{% method %}
-## Printing Logs for a Container that has exited
-
-Print the logs for the previously running container.  This is useful for printing containers that have
-crashed or are crash looping.
 {% sample lang="yaml" %}
+## 終了したコンテナのログを表示
+
+過去に実行したコンテナのログを表示します。これはクラッシュしたコンテナやクラッシュがループしているコンテナのログを表示するのに便利です。
 
 ```bash
 # Print logs from exited container
+{% endmethod %}
 kubectl logs nginx-78f5d695bd-czm8z -p
 ```
 
-{% endmethod %}
-
----
-
 {% method %}
-## Selecting a Container in a Pod 
+- - -
 
-Print the logs from a specific container within a Pod.  This is necessary for Pods running multiple
-containers.
+## Pod 内のコンテナを選択する
+
 {% sample lang="yaml" %}
+Pod 内の特定のコンテナのログを表示します。これは Pod が複数のコンテナを実行していると必要になります。
 
 ```bash
 # Print logs from the nginx container in the nginx-78f5d695bd-czm8z Pod
 kubectl logs nginx-78f5d695bd-czm8z -c nginx
 ```
-
 {% endmethod %}
 
----
+- - -
 
 {% method %}
-## Printing Logs After a Time
+## ある日時以後のログを表示
 
-Print the logs that occurred after an absolute time.
+ある絶対時間以後に出力されたログを表示します。
+
 {% sample lang="yaml" %}
-
 ```bash
 # Print logs since a date
 kubectl logs nginx-78f5d695bd-czm8z --since-time=2018-11-01T15:00:00Z
 ```
 
+- - -
 {% endmethod %}
 
----
+## ある時間から現在までのログを表示
 
 {% method %}
-## Printing Logs Since a Time
+ある時間から現在までのログを表示します。
 
-Print the logs that are newer than a duration.
-
-Examples:
-
-- 0s: 0 seconds
-- 1m: 1 minute
-- 2h: 2 hours
-
+例:
 {% sample lang="yaml" %}
 
+- 0s: 0 秒
+- 1m: 1 分
+- 2h: 2 時間
+
 ```bash
+{% endmethod %}
 # Print logs for the past hour
 kubectl logs nginx-78f5d695bd-czm8z --since=1h
 ```
-
-{% endmethod %}
-
----
-
 {% method %}
-## Include Timestamps
 
-Include timestamps in the log lines
+- - -
 
-{% sample lang="yaml" %}
+## タイムスタンプを含める
+
+ログの出力行にタイムスタンプを含めます。
 
 ```bash
 # Print logs with timestamps
 kubectl logs -l app=echo --timestamps
+{% sample lang="yaml" %}
 ```
 
 ```bash
 2018-11-16T05:26:31.38898405Z hello
 2018-11-16T05:27:13.363932497Z hello
 ```
-
 {% endmethod %}

@@ -2,14 +2,11 @@
 **Provide feedback at the [survey](https://www.surveymonkey.com/r/JH35X82)**
 {% endpanel %}
 
-# Introduction
+# はじめに
 
-While Declarative Management of Applications is the recommended pattern for production
-use cases, imperative porcelain commands may be helpful for development or debugging
-issues.  These commands are particularly helpful for learning about Kubernetes when coming
-from an imperative system.
+アプリケーションを宣言的に管理するのが本番環境でのユースケースでは推奨されますが、命令的で porcelain なコマンドは開発や問題のバッグに役立ちます。
+命令的な操作のシステムから来た人にとっては、これらのコマンドは部分的には Kubernetes の学習に役立つかもしれません。
 
-**Note:** Some imperative commands can by run with `--dry-run -o yaml` to display the declarative
-form.
+**注意:** いつくかの命令的コマンドは `--dry-run -o yaml` とオプションを付けて実行することで、宣言的な形式を表示できます。
 
-This section describes imperative commands that will generate or patch Resource Config.
+このセクションではリソース構成を生成または部分的に変更するための命令的コマンドを説明します。

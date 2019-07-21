@@ -3,59 +3,53 @@
 {% endpanel %}
 
 {% panel style="info", title="TL;DR" %}
-- Imperatively Create a Resources
+
 {% endpanel %}
+- 命令的にリソースを作成する
 
-# Creating Resources
+# リソースの作成
 
-## Motivation
+## 動機
 
-Create Resources directly from the command line for the purposes of development or debugging.
-Not for production Application Management.
+開発やデバッグの用途でリソースをコマンドラインから直接作成します。本番環境でのアプリケーション管理には向いていません。
 
 {% method %}
 ## Deployment
 
-A Deployment can be created with the `create deployment` command.
+Deployment は `create deployment` コマンドで作成できます。
 
 {% sample lang="yaml" %}
-
 ```bash
 kubectl create deployment my-dep --image=busybox
 ```
 
+{% panel style="success", title="起動とアタッチ" %}
 {% endmethod %}
-
-{% panel style="success", title="Running and Attaching" %}
-It is possible to run a container and immediately attach to it using the `-i -t` flags.  e.g.
+コンテナを起動した直後にアタッチするには `-i -t` フラグを使用します。例:
 `kubectl run -t -i my-dep --image ubuntu -- bash`
+
+## ConfigMap
 {% endpanel %}
 
 {% method %}
-## ConfigMap
+ファイル、ディレクトリ、特定のリテラル値に基づく ConfigMap を作成します。
 
-Create a configmap based on a file, directory, or specified literal value.
+一つの ConfigMap は一つ以上のキーバリュー値をまとめて持つことができます。
 
-A single configmap may package one or more key/value pairs.
+ファイルに基づく ConfigMap を作成するとき、キー名はデフォルトでファイルの basename になり、値はデフォルトでファイルの内容になります。basename が不正なキー名である場合、別のキー名を指定することもできます。
 
-When creating a configmap based on a file, the key will default to the basename of the file, and the value will default
-to the file content.  If the basename is an invalid key, you may specify an alternate key.
-
-When creating a configmap based on a directory, each file whose basename is a valid key in the directory will be
-packaged into the configmap.  Any directory entries except regular files are ignored (e.g. subdirectories, symlinks,
-devices, pipes, etc).
-
-{% sample lang="yaml" %}
+ディレクトリに基づく ConfigMap を作成するとき、ディレクトリ内のファイルの basename がキー名として正当であれば、ConfigMap の中にパッケージにされます。キー名として不正なファイルは虫されます (subdirectories、symlinks、devices、pipes など)。
 
 ```bash
 # Create a new configmap named my-config based on folder bar
 kubectl create configmap my-config --from-file=path/to/bar
 ```
 
+{% sample lang="yaml" %}
 ```bash
 # Create a new configmap named my-config with specified keys instead of file basenames on disk
 kubectl create configmap my-config --from-file=key1=/path/to/bar/file1.txt --from-file=key2=/path/to/bar/file2.txt
-  ```
+```
 
 ```bash
 # Create a new configmap named my-config with key1=config1 and key2=config2
@@ -67,46 +61,37 @@ kubectl create configmap my-config --from-literal=key1=config1 --from-literal=ke
 kubectl create configmap my-config --from-env-file=path/to/bar.env
 ```
 
-{% endmethod %}
-
-{% method %}
 ## Secret
 
-Create a new secret named my-secret with keys for each file in folder bar
-
-{% sample lang="yaml" %}
+my-secret という名前の Secret を新規作成します。bar フォルダの各ファイルがキーになります。
 
 ```bash
 kubectl create secret generic my-secret --from-file=path/to/bar
-```
-
 {% endmethod %}
-
-{% panel style="success", title="Bootstrapping Config" %}
-Imperative commands can be used to bootstrap config by using `--dry-run -o yaml`.
-`kubectl create secret generic my-secret --from-file=path/to/bar --dry-run -o yaml`
-{% endpanel %}
-
+```
 {% method %}
-## Namespace
 
-Create a new namespace named my-namespace
-
+{% panel style="success", title="構成のブートストラップ" %}
+命令的なコマンドは `--dry-run -o yaml` を使用することでリソース構成のブートストラップとして使えます。
+`kubectl create secret generic my-secret --from-file=path/to/bar --dry-run -o yaml`
 {% sample lang="yaml" %}
 
+## 名前空間
+
+my-namespace という名前の名前空間を新規作成します。
+
+{% endmethod %}
 ```bash
 kubectl create namespace my-namespace
 ```
 
-{% endmethod %}
-
-## Auth Resources
-
+{% endpanel %}
+## Auth リソース
 {% method %}
+
 ### ClusterRole
 
-Create a ClusterRole named "foo" with API Group specified.
-
+API Group を指定して "foo" という名前の ClusterRole を作成します。
 {% sample lang="yaml" %}
 
 ```bash
@@ -114,59 +99,50 @@ kubectl create clusterrole foo --verb=get,list,watch --resource=rs.extensions
 ```
 
 {% endmethod %}
-
-{% method %}
 ### ClusterRoleBinding
 
-Create a role binding to give a user cluster admin permissions.
-
-{% sample lang="yaml" %}
+ユーザーにクラスタの管理者権限を与えることのできる Role を作成します。
+{% method %}
 
 ```bash
 kubectl create clusterrolebinding <choose-a-name> --clusterrole=cluster-admin --user=<your-cloud-email-account>
 ```
-
-{% endmethod %}
-
-{% panel style="info", title="Required Admin Permissions" %}
-The cluster-admin role maybe required for creating new RBAC bindings.
-{% endpanel %}
-
-{% method %}
-### Role
-
-Create a Role named "foo" with API Group specified.
-
 {% sample lang="yaml" %}
 
+{% panel style="info", title="要求された管理者権限" %}
+cluster-admin role は新しい RBAC バインディングを作成するために要求されることがあります。
+
+
+{% endmethod %}
+### Role
+{% method %}
+
+API Group を指定した "foo" という名前の Role を作成します。
+
 ```bash
+{% sample lang="yaml" %}
 kubectl create role foo --verb=get,list,watch --resource=rs.extensions
 ```
 
-{% endmethod %}
-
-{% method %}
 ### RoleBinding
 
-Create a RoleBinding for user1, user2, and group1 using the admin ClusterRole.
-
-{% sample lang="yaml" %}
+{% endmethod %}
+user1、user2、group1 が管理者用の ClusterRole を使えるようになるために RoleBinding を作成します
 
 ```bash
+{% endpanel %}
 kubectl create rolebinding admin --clusterrole=admin --user=user1 --user=user2 --group=group1
+{% method %}
 ```
 
-{% endmethod %}
-
-{% method %}
 ### ServiceAccount
 
-Create a new service account named my-service-account
-
 {% sample lang="yaml" %}
+my-service-account という名前の Service Account を新規作成します。
 
 ```bash
 kubectl create serviceaccount my-service-account
 ```
-
 {% endmethod %}
+
+{% method %}

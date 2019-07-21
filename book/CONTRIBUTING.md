@@ -5,15 +5,15 @@
 ### Fixing Issues
 
 1. Open an Issue
-1. Create a PR
-1. Email PR to sig-cli@googlegroups.com with subject `Kubectl Book: Fix Issue <Issue> in <PR>`
-1. Optional: Come to sig-cli meeting to discuss
+2. Create a PR
+3. Email PR to sig-cli@googlegroups.com with subject `Kubectl Book: Fix Issue <Issue> in <PR>`
+4. Optional: Come to sig-cli meeting to discuss
 
 ### Adding New Content
 
 1. Open an Issue with proposed content
-1. Email sig-cli@googlegroups.com with subject `Kubectl Book: Proposed Content <Issue>`
-1. Optional: Come to sig-cli meeting to discuss
+2. Email sig-cli@googlegroups.com with subject `Kubectl Book: Proposed Content <Issue>`
+3. Optional: Come to sig-cli meeting to discuss
 
 ## Editing
 
