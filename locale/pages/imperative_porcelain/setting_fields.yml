@@ -11,22 +11,23 @@ texts:
 ---
 texts:
   en: Imperatively Set fields on Resources
-  ja: __COPY__
+  ja: リソース上のフィールドを命令的に設定する
 ---
 texts:
   en: Creating Resources
-  ja: __COPY__
+  ja: リソースの作成
 ---
 texts:
   en: Motivation
-  ja: __COPY__
+  ja: 動機
 ---
 texts:
   en: >-
     Set fields on Resources directly from the command line for the purposes of development or debugging.
 
     Not for production Application Management.
-  ja: __COPY__
+  ja: >-
+    開発やデバッグの目的でリソース上のフィールドをコマンドラインから直接設定します。本番環境でのアプリケーション管理には向いていません。
 ---
 texts:
   en: Scale
@@ -34,7 +35,7 @@ texts:
 ---
 texts:
   en: The Replicas field on a Resource can be set using the `kubectl scale` command.
-  ja: __COPY__
+  ja: リソース上の Replicas フィールドを設定するには `kubectl scale` コマンドを使用します。
 ---
 texts:
   en: >-
@@ -45,7 +46,12 @@ texts:
     replicas haven't changed from their last known value using the `--current-replicas` flag.
 
     e.g. `kubectl scale --current-replicas=2 --replicas=3 deployment/mysql`
-  ja: __COPY__
+  ja: >-
+    {% panel style="info", title="条件的にスケールを更新する" %}
+
+    replicas を条件的に更新することは可能ですが、replicas が `--current-replicas` フラグを使った前回の既知の値から変更されていない場合に限ります。
+    
+    例: `kubectl scale --current-replicas=2 --replicas=3 deployment/mysql`
 ---
 texts:
   en: Labels
@@ -56,7 +62,7 @@ texts:
     Labels can be set using the `kubectl label` command.  Multiple Resources can
 
     be updated in a single command using the `-l` flag.
-  ja: __COPY__
+  ja: ラベルを設定するには `kubectl label` コマンドを使用します。複数のリソースを一つのコマンドで更新するには `-l` フラグを使用します。
 ---
 texts:
   en: Annotations
@@ -64,7 +70,7 @@ texts:
 ---
 texts:
   en: Annotations can be set using the `kubectl annotate` command.
-  ja: __COPY__
+  ja: アノテーションを設定するには `kubectl annotate` コマンドを使用します。
 ---
 texts:
   en: Patches
@@ -72,4 +78,4 @@ texts:
 ---
 texts:
   en: Arbitrary fields can be set using the `kubectl patch` command.
-  ja: __COPY__
+  ja: 任意のフィールドを設定するには `kubectl patch` コマンドを使用します。
