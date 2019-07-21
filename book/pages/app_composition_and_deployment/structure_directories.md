@@ -1,5 +1,6 @@
 {% panel style="success", title="Providing Feedback" %}
 **Provide feedback at the [survey](https://www.surveymonkey.com/r/JH35X82)**
+
 {% endpanel %}
 
 {% panel style="warning", title="Experimental" %}
@@ -9,13 +10,15 @@ Leave feedback on the conventions by creating an issue in the [kubectl](https://
 GitHub repository.
 
 Also provide feedback on new kubectl docs at the [survey](https://www.surveymonkey.com/r/JH35X82)
+
 {% endpanel %}
 
 {% panel style="info", title="TL;DR" %}
 
 - ディレクトリの階層を分けることでリソース構成を構造化する
-{% endpanel %}
   - 環境とクラスタの[構成バリエーション](../app_customization/bases_and_variants.md)を分離するためにディレクトリを分離する
+
+{% endpanel %}
 
 # ディレクトリ構造をベースとしたレイアウト
 
@@ -23,12 +26,14 @@ Also provide feedback on new kubectl docs at the [survey](https://www.surveymonk
 
 {% panel style="success", title="どの方法が正しいのですか？" %}
 この章ではディレクトリを使った方法を扱いますが、必要に応じてブランチとリポジトリを使う方法も併用してください。
+
 {% endpanel %}
 
 {% panel style="info", title="構成専用のレポジトリ or モノレポ" %}
 この章で説明する方法は、デプロイするソースコードと同じリポジトリにリソース構成を置いても、別のリポジトリに切り分けても、どちらでも実行できます。
 
 {% endpanel %}
+
 ## ディレクトリ構想
 
 | ディレクトリのタイプ | クラスタへのデプロイ           | 内容                | ディレクトリ名の例                             |
@@ -96,8 +101,10 @@ Note over B: Alice modifies bases/ with change C
 B-->EC: C deployed
 B-->TC: C deployed
 B-->WC: C deployed
-{% endsequence %}
 B-->SC: C deployed
+
+{% endsequence %}
+
 {% method %}
 
 テクニック:
@@ -116,6 +123,7 @@ B-->SC: C deployed
 - デプロイ可能な対象は `<project-name>/<environment>/<cluster>/` 下に置く
 
 {% sample lang="yaml" %}
+
 ```bash
 tree
 .
@@ -160,21 +168,24 @@ tree
         └── kustomization.yaml # Uses bases: ["../bases"]
 ```
 
-{% panel style="warning", title="環境 + クラスタの Apply" %}
 {% endmethod %}
+
+{% panel style="warning", title="環境 + クラスタの Apply" %}
 ディレクトリ構造にはクラスタがパスに含まれますが、これは Apply 時にクラスタのコンテキストを決定するために使われはしません。特定のクラスタを Apply するには、そのクラスタを kubectl 設定に追加し、Apply 実行時に対応するコンテキストを指定します。
 
 詳細は[マルチクラスタ](accessing_multiple_clusters.md)を参照。
+
+{% endpanel %}
 
 {% panel style="success", title="Code Owners" %}
 git のホスティングサービスには、きめ細かい権限モデルを提供っするために**コードオーナー**を設定できるものがあります。コードオーナーは分離された各環境 (たとえば dev、test、prod) のために権限を分離するためにも利用できます。
 
 {% endpanel %}
+
 ## ロールバックの図
 
 {% sequence width=1000 %}
 
-{% endpanel %}
 participant Config in Git as B
 participant Test Cluster as TC
 participant Staging Cluster as SC
@@ -193,3 +204,5 @@ B-->TC: A deployed
 B-->EC: A deployed
 Note over B,EC: Prod Outage resolved
 B-->SC: A deployed
+
+{% endsequence %}

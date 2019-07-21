@@ -1,12 +1,14 @@
 {% panel style="success", title="Providing Feedback" %}
 **Provide feedback at the [survey](https://www.surveymonkey.com/r/JH35X82)**
+
 {% endpanel %}
 
 {% panel style="info", title="TL;DR" %}
 
 - リソース構成は一つ以上の git リポジトリに保管される
-{% endpanel %}
 - 疎結合に保つために、ディレクトリの階層構造、git ブランチ、git リポジトリが使用できる
+
+{% endpanel %}
 
 # リソース構成の構造
 

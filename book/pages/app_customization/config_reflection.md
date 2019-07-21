@@ -1,11 +1,13 @@
 {% panel style="success", title="Providing Feedback" %}
 **Provide feedback at the [survey](https://www.surveymonkey.com/r/C855WZW)**
+
 {% endpanel %}
 
 {% panel style="info", title="TL;DR" %}
 
-{% endpanel %}
 - 他のリソース構成のフィールドを `vars` によって Pod の環境変数とコマンドの引数に注入する
+
+{% endpanel %}
 
 # 構成の反映
 
@@ -20,6 +22,7 @@ Service の値を PodSpec の中に直接ハードコーディングするので
 - [vars](../reference/kustomize.md#var)
 
  {% endpanel %} 
+
 ## Vars
 
 `vars` セクションはプロジェクト内のリソース構成のフィールドに参照を持つ変数を含みます。以下を定義する必要があります。
@@ -29,16 +32,18 @@ Service の値を PodSpec の中に直接ハードコーディングするので
 - リソース名
 - フィールドのパス
 
+{% method %}
+
 **例:** Pod のコマンドライン引数を Service 名の値に設定する。
 
-{% method %}
 Apply 時に `$(BACKEND_SERVICE_NAME)` は `vars` で指定されたオブジェクトの参照を使った値に解決されます。
+
+{% sample lang="yaml" %}
 
 **入力:** kustomization.yaml、deployment.yaml、service.yaml ファイル
 
 ```yaml
 # kustomization.yaml
-{% sample lang="yaml" %}
 namePrefix: "test-"
 vars:
   # Name of the variable so it can be referenced
@@ -137,7 +142,9 @@ spec:
         name: curl
 ```
 
+{% endmethod %}
+
 {% panel style="warning", title="変数の参照" %}
 変数はリソース構成を Pod に注入するためのものであり、他の用途に向いていません。変数は一般的なテンプレート機構として使う**べきではありません**。値の上書きは変数ではなく patch で行うべきです。[Bases and Variations] を参考にしてください。
 
-{% endmethod %}
+{% endpanel %}

@@ -1,12 +1,14 @@
 {% panel style="success", title="Providing Feedback" %}
 **Provide feedback at the [survey](https://www.surveymonkey.com/r/CLQBQHR)**
+
 {% endpanel %}
 
 {% panel style="info", title="TL;DR" %}
 
 - Apply はリソース構成上で `kubectl apply` を実行することによってクラスタ内のリソースを作成・更新する
-{% endpanel %}
 - Apply は、オペレーションの順序や、ユーザーが定義した状態とクラスタが定義した状態をマージするといった複雑性を管理する
+
+{% endpanel %}
 
 # Apply
 
@@ -30,14 +32,16 @@ kubectl apply
 
 ## 使い方
 
-Apply はリソース構成ファイルに対して、あるいは `-f` オプションでディレクトリを指定して直接実行することもできますが、お勧めは `-k` オプションを使って `kustomization.yaml` に対して Apply を実行することです。`kustomization.yaml` を使うと多くのリソースを横断した設定 (たとえば名前空間) を定義できます。
 {% method %}
+
+Apply はリソース構成ファイルに対して、あるいは `-f` オプションでディレクトリを指定して直接実行することもできますが、お勧めは `-k` オプションを使って `kustomization.yaml` に対して Apply を実行することです。`kustomization.yaml` を使うと多くのリソースを横断した設定 (たとえば名前空間) を定義できます。
+
+{% sample lang="yaml" %}
 
 ```yaml
 # kustomization.yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-{% sample lang="yaml" %}
 
 # list of Resource Config to be Applied
 resources:
@@ -77,30 +81,35 @@ spec:
         image: nginx:1.15.4
 ```
 
+{% endmethod %}
+
+{% method %}
+
 Apply コマンドは `kustomization.yaml` ファイルを含むディレクトリに `-k` オプションで実行するか、または生のリソース構成ファイルに対して `-f` オプションで実行します。
+
+{% sample lang="yaml" %}
 
 ```bash
 # Apply the Resource Config
 kubectl apply -k .
-{% endmethod %}
 
-{% method %}
 # View the Resources
 kubectl get -k .
 ```
-{% sample lang="yaml" %}
+
+{% endmethod %}
 
 {% panel style="info", title="マルチリソースの設定" %}
 一つのリソース構成ファイルを `\n---\n` で分割すると、複数のリソースを宣言できます。
 
+{% endpanel %}
+
 ## CRUD 操作
 
 ### リソースの作成
-{% endmethod %}
 
 リソース構成に宣言されているがまだ存在しないリソースは、Apply 実行時に作成されます。
 
-{% endpanel %}
 ### リソースの更新
 
 リソース構成に宣言されていて、すでに存在するリソースは、Apply 実行時に更新されることがあります。
@@ -129,6 +138,8 @@ kubectl get -k .
 時には、リソース構成が変更されたら自動的に変更を Apply するのが便利な場合もあります。
 
 たとえば Apply を定期的に実行するために UNIX の `watch` コマンドを使います。`watch -n 60 kubectl apply -k https://github.com/myorg/myrepo`
+
+{% endpanel %}
 
 ## リソース作成の順序
 

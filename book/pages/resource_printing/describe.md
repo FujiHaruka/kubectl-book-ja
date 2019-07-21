@@ -1,15 +1,18 @@
 {% panel style="success", title="Providing Feedback" %}
 **Provide feedback at the [survey](https://www.surveymonkey.com/r/JH35X82)**
+
 {% endpanel %}
 
 {% panel style="info", title="TL;DR" %}
 
-{% endpanel %}
 - リソースに関する詳細なデバッグ情報を表示します
+
+{% endpanel %}
 
 # リソースの describe
 
 ## 動機
+
 {% method %}
 
 describe は、検索されたリソースの情報に加えて**他のソース (たとえば Evnet) からも情報を集めて表示することのできる高レベルの操作**です。
@@ -19,8 +22,9 @@ describe は対象のリソースとそれに関連するリソースから、�
 - 関連するリソースからデータを集めます
 - デバッグ用に詳細な出力をフォーマットします
 
-```bash
 {% sample lang="yaml" %}
+
+```bash
 kubectl describe deployments
 ```
 
@@ -55,8 +59,11 @@ NewReplicaSet:   nginx-78f5d695bd (1/1 replicas created)
 Events:          <none>
 ```
 
-{% panel style="info", title="Get vs Describe" %}
-リソースを describe するとき、他のリソースからも情報を集めます。たとえば、Node を describe すると Pod リソースの情報を集め、Node の中での使用率を表示します。
 {% endmethod %}
 
+{% panel style="info", title="Get vs Describe" %}
+リソースを describe するとき、他のリソースからも情報を集めます。たとえば、Node を describe すると Pod リソースの情報を集め、Node の中での使用率を表示します。
+
 リソースを get するときはそのリソースから読み取れる情報だけが表示されます。get はリソースの**フィールド**からデータを集めますが、他のリソースのフィールドは見ません。
+
+{% endpanel %}

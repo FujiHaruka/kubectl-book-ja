@@ -1,22 +1,25 @@
 {% panel style="success", title="Providing Feedback" %}
 **Provide feedback at the [survey](https://www.surveymonkey.com/r/CLQBQHR)**
+
 {% endpanel %}
 
 {% panel style="info", title="TL;DR" %}
 
 - Secret は `secretGenerator` を使用してファイルとリテラルから生成する
 - ConfigMap は `configMapGenerator` を使用してファイルとリテラルから生成する
-{% endpanel %}
 - Secret と ConfigMap の変更をロールアウトする
+
+{% endpanel %}
 
 # Secret と ConfigMap
 
 {% panel style="info", title="Reference" %}
 
 - [secretGenerators](../reference/kustomize.md#secretgenerator)
-{% endpanel %}
 - [configMapGenerators](../reference/kustomize.md#configmapgenerator)
 - [generatorOptions](../reference/kustomize.md#generatoroptions)
+
+{% endpanel %}
 
 ## 動機
 
@@ -32,12 +35,15 @@ Secret リソースと ConfigMapリソースは、`secretGenerator` と `configM
 
 ### ファイルによる ConfigMap
 
+{% method %}
+
 ConfigMap リソースは Java の `.properties` ファイルのようなファイルから生成されます。ConfigMap をファイルから生成するには、`configMapGenerator` の項目にファイル名を追加してください。
 
 **例:** ファイルに記述された内容をデータ項目として持つ ConfigMap の生成
 
 ConfigMap はファイルの内容から集められたデータ値を持ちます。各ファイルの内容は ConfigMap の中でファイル名をキーとした一つのデータとして現れます。
-{% method %}
+
+{% sample lang="yaml" %}
 
 **入力:** kustomization.yaml ファイル
 
@@ -46,7 +52,6 @@ ConfigMap はファイルの内容から集められたデータ値を持ちま�
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 configMapGenerator:
-{% sample lang="yaml" %}
 - name: my-application-properties
   files:
   - application.properties
@@ -71,29 +76,33 @@ data:
     FOO=Bar
 ```
 
+{% endmethod %}
+
 ### リテラルによる ConfigMap
 
 ConfigMap リソースは `JAVA_HOME=/opt/java/jdk` のようなキーバリューのリテラルからも生成できます。キーバリューのリテラルから ConfigMap リソースを生成するには、`configMapGenerator` 項目を追加して、そこに `literals` のリストを定義してください。
 
 {% panel style="info", title="リテラルの構文" %}
 
-{% endmethod %}
 - キーとバリューは `=` 記号で区切られます (左側がキー)
 - 各リテラルの値は ConfigMap の中でキー名自体をキーとしたデータ項目として現れます。
 
+{% endpanel %}
+
+{% method %}
+
 **例:** リテラルによって生成された 2 つのデータ項目をもつ ConfigMap を生成
+
+{% sample lang="yaml" %}
 
 **入力:** kustomization.yaml ファイル
 
 ```yaml
 # kustomization.yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
-{% endpanel %}
 kind: Kustomization
-{% method %}
 configMapGenerator:
 - name: my-java-server-env-vars
-{% sample lang="yaml" %}
   literals:
   - JAVA_HOME=/opt/java/jdk
   - JAVA_TOOL_OPTIONS=-agentlib:hprof
@@ -113,6 +122,8 @@ data:
   JAVA_TOOL_OPTIONS: -agentlib:hprof
 ```
 
+{% endmethod %}
+
 ### 環境ファイルによる ConfigMap
 
 ConfigMap リソースをキーバリューから生成するにはリテラルを使うのが一つの選択肢ですが、環境ファイルのキーバリューからも生成できます。環境ファイルは一般に `.env` が末尾に付きます。環境ファイルから ConfigMap リソースを生成するには、`configMapGenerator` という項目を加え、そこに `env` 項目 (たとえば `env: config.env`) を追加します。
@@ -120,10 +131,15 @@ ConfigMap リソースをキーバリューから生成するにはリテラル�
 {% panel style="info", title="環境ファイルの構文" %}
 
 - 環境ファイルの中でキーバリューは `=` で区切られます (左側がキー)。
-{% endmethod %}
 - 各行の値は ConfigMap の中でキー名自体をキーとしたデータ項目として現れます。
 
+{% endpanel %}
+
+{% method %}
+
 **例:** 環境ファイルによって生成された 3 つのデータをもつ ConfigMap を作成
+
+{% sample lang="yaml" %}
 
 **入力:** kustomization.yaml ファイル
 
@@ -132,12 +148,9 @@ ConfigMap リソースをキーバリューから生成するにはリテラル�
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 configMapGenerator:
-{% endpanel %}
 - name: tracing-options
-{% method %}
   env: tracing.env
 ```
-{% sample lang="yaml" %}
 
 ```bash
 # tracing.env
@@ -161,8 +174,12 @@ data:
   SAMPLER_PARAMETERS: "0.1"
 ```
 
+{% endmethod %}
+
 {% panel style="success", title="ベースの ConfigMap の値の上書き" %}
 ベース (Base) から生成された ConfigMap は、Variant の ConfigMap 用に別のジェネレータを追加し、`behavior` フィールドを指定することで上書きできます。`behavior` は、`create` (デフォルト値)、`replace` (ベースの ConfigMap を置換)、`merge` (ConfigMap の値を追加または更新) のうちどれか一つの値を取ります (たとえば、`behavior: "merge"`)。ベースの詳しい使い方は [Bases and Variantions](../app_customization/bases_and_variants.md) 参照。
+
+{% endpanel %}
 
 ### ファイルによる Secret
 
@@ -170,15 +187,19 @@ Secret リソースは ConfigMap とほぼ同じように生成できます。�
 
 {% panel style="info", title="Secret の構文" %}
 Secret のタイプは `type` フィールドを使って設定します。
-{% endmethod %}
+
+{% endpanel %}
+
+{% method %}
 
 **例:** ローカルのファイルから `kubernetes.io/tls` という Secret を生成
+
+{% sample lang="yaml" %}
 
 **入力:** kustomization.yaml ファイル
 
 ```yaml
 # kustomization.yaml
-{% endpanel %}
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 secretGenerator:
@@ -187,12 +208,9 @@ secretGenerator:
     - "secret/tls.cert"
     - "secret/tls.key"
   type: "kubernetes.io/tls"
-{% endpanel %}
 ```
-{% method %}
 
 **適用:** クラスタに適用されるリソース
-{% sample lang="yaml" %}
 
 ```yaml
 apiVersion: v1
@@ -207,9 +225,15 @@ data:
   tls.key: LS0tLS1CRUd...0tLQo=
 ```
 
+{% endmethod %}
+
 ### ジェネレータのオプション
 
+{% method %}
+
 `generatorOptions` を使って、生成されるオブジェクトに対して横断的にオプションを指定することもできます。
+
+{% sample lang="yaml" %}
 
 ```yaml
 # kustomization.yaml
@@ -221,23 +245,26 @@ generatorOptions:
     kustomize.generated.resources: somevalue
   # annotations to add to all generated resources
   annotations:
-{% endmethod %}
     kustomize.generated.resource: somevalue
   # disableNameSuffixHash is true disables the default behavior of adding a
   # suffix to the names of generated resources that is a hash of
-{% method %}
   # the resource contents.
   disableNameSuffixHash: true
 ```
-{% sample lang="yaml" %}
+
+{% endmethod %}
 
 ### 名前の接尾辞の伝播
+
+{% method %}
 
 ConfigMap と Secret を参照するワークロードは、生成されたリソースの名前を知る必要がありますが、その名前には接尾辞が含まれています。Apply はこれを自動的に処理してくれます。Apply は生成された ConfigMap と Secret への参照を識別し、更新します。
 
 生成された ConfigMap の名前は `my-java-server-env-vars` のような文字列に、ConfigMap の中身に応じた一意な接尾辞が付きます。中身が変われば名前の接尾辞も変更されるため、新しい ConfigMap が作成されることになり、それを指すようにワークロードが作り変えられます。
 
 PodTemplate volume は ConfigMap をジェネレータの中で指定された名前 (接尾辞を除いた名前) で参照します。Apply は ConfigMap の名前に適用された、接尾辞を含む名前に更新します。
+
+{% sample lang="yaml" %}
 
 **入力:** kustomization.yaml ファイルと deployment.yaml ファイル
 
@@ -248,11 +275,9 @@ kind: Kustomization
 configMapGenerator:
 - name: my-java-server-env-vars
   literals:
-{% endmethod %}
   - JAVA_HOME=/opt/java/jdk
   - JAVA_TOOL_OPTIONS=-agentlib:hprof
 resources:
-{% method %}
 - deployment.yaml
 ```
 
@@ -264,7 +289,6 @@ metadata:
   name: test-deployment
   labels:
     app: test
-{% sample lang="yaml" %}
 spec:
   selector:
     matchLabels:
@@ -331,6 +355,8 @@ spec:
           name: my-java-server-env-vars-k44mhd6h5f
         name: config-volume
 ```
+
+{% endmethod %}
 
 ## ロールアウト
 

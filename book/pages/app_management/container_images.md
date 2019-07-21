@@ -1,11 +1,13 @@
 {% panel style="success", title="Providing Feedback" %}
 **Provide feedback at the [survey](https://www.surveymonkey.com/r/CLQBQHR)**
+
 {% endpanel %}
 
 {% panel style="info", title="TL;DR" %}
 
-{% endpanel %}
 - コンテナイメージの名前とタグを上書きまたは設定する
+
+{% endpanel %}
 
 # コンテナイメージ
 
@@ -26,6 +28,7 @@
 {% panel style="info", title="Reference" %}
 
 - [images](../reference/kustomize.md#images)
+
 {% endpanel %}
 
 ## images
@@ -38,11 +41,14 @@
 | `newTag`  | `name` に名前がマッチするイメージの **tag** および **digest** を上書きする | `newTag: new`             | `nginx:old` -> `nginx:new`         |
 | `newName` | `name` に名前がマッチするイメージの **name** を上書きする               | `newImage: nginx-special` | `nginx:old` -> `nginx-special:old` |
 
+{% method %}
+
 **例:** `deployment.yaml` 内のコンテナイメージを更新するために `kustomization.yaml` の `images` を更新
 
 Apply を実行すると `nginx` イメージは `1.8.0` タグをもつように設定され (たとえば `nginx:1.8.0`)、イメージ名が `nginx-special` に変更されます。**name** にマッチする**すべての**イメージの名前およびタグが設定されます。
 
-{% method %}
+{% sample lang="yaml" %}
+
 **入力:** kustomization.yaml ファイルと deployment.yaml ファイル
 
 ```yaml
@@ -51,7 +57,6 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 images:
   - name: nginx # match images with this name
-{% sample lang="yaml" %}
     newTag: 1.8.0 # override the tag
     newName: nginx-special # override the name
 resources:
@@ -104,82 +109,102 @@ spec:
         name: nginx
 ```
 
+{% endmethod %}
+
 ## 名前の設定
 
+{% method %}
+
 イメージ名は `newName` と以前のコンテナイメージ名を指定することで設定できます。
+
+{% sample lang="yaml" %}
 
 ```yaml
 # kustomization.yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
-{% endmethod %}
 kind: Kustomization
 images:
   - name: mycontainerregistry/myimage
     newName: differentregistry/myimage
-{% method %}
 ```
-{% sample lang="yaml" %}
+
+{% endmethod %}
 
 ## タグの設定
 
+{% method %}
+
 イメージのタグは `newTag` とコンテナイメージ名を指定することで設定できます。
+
+{% sample lang="yaml" %}
 
 ```yaml
 # kustomization.yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
-{% endmethod %}
 kind: Kustomization
 images:
   - name: mycontainerregistry/myimage
-{% method %}
     newTag: v1
-{% sample lang="yaml" %}
 ```
+
+{% endmethod %}
 
 ## ダイジェストの設定
 
+{% method %}
+
 イメージのダイジェストは `digest` とコンテナイメージ名を指定することで設定できます。
+
+{% sample lang="yaml" %}
 
 ```yaml
 # kustomization.yaml
-{% endmethod %}
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 images:
-{% method %}
   - name: alpine
-{% sample lang="yaml" %}
     digest: sha256:24a0c4b4a4c0eb97a1aabb8e29f18e917d05abfe1b7a7c07857230879ce7d3d3
 ```
 
+{% endmethod %}
+
 ## 最新の commit SHA からタグを設定する
+
+{% method %}
 
 よく使われる CI/CD のパターンとして、コンテナイメージにソースコードの git commit SHA でタグ付けするというやり方があります。たとえば、イメージ名が `foo` で、commit が `1bb359ccce344ca5d263cd257958ea035c978fd3` であるソースコードでイメージをビルドすると、そのコンテナイメージは `foo:1bb359ccce344ca5d263cd257958ea035c978fd3` となります。
 
 ビルドしたイメージをプッシュする単純な方法は、[kustomize standalone](https://github.com/kubernetes-sigs/kustomize/) をダウンロードして、`kustomize edit set imagetag` コマンドを実行してタグを更新することです。そうすると手動でイメージタグを更新せずに済みます。
-{% endmethod %}
 
 **例:** 最新の git commit SHA を `foo` イメージのイメージタグに設定
 
+{% sample lang="yaml" %}
+
 ```bash
-{% method %}
 kustomize edit set imagetag foo:$(git log -n 1 --pretty=format:"%H")
 kubectl apply -f .
 ```
 
+{% endmethod %}
+
 ## タグを環境変数から設定する
+
+{% method %}
 
 commit SHA からタグを設定するのと同じテクニックを使えば、環境変数からタグを設定できます。
 
 **例:** `foo` イメージのタグを環境変数 `FOO_IMAGE_TAG` の値で設定
 
 {% sample lang="yaml" %}
+
 ```bash
 kustomize edit set image foo:$FOO_IMAGE_TAG
 kubectl apply -f .
 ```
+
 {% endmethod %}
 
 {% panel style="info", title="イメージタグの更新をコミットする" %}
 `kustomization.yaml` の変更は検査できるように git にコミットすることが**可能です**。ただし、すでに CI/CD システムによってプッシュされたイメージタグの更新をコミットするとき、その更新によって新たなビルドとデプロイメントがトリガーしないよう気をつけてください。
-{% method %}
+
+{% endpanel %}

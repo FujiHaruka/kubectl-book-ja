@@ -1,5 +1,6 @@
 {% panel style="success", title="Providing Feedback" %}
 **Provide feedback at the [survey](https://www.surveymonkey.com/r/JH35X82)**
+
 {% endpanel %}
 
 {% panel style="warning", title="Experimental" %}
@@ -9,12 +10,15 @@ Leave feedback on the conventions by creating an issue in the [kubectl](https://
 GitHub repository.
 
 Also provide feedback on new kubectl docs at the [survey](https://www.surveymonkey.com/r/JH35X82)
+
 {% endpanel %}
 
+{% panel style="info", title="TL;DR" %}
 別々のチームが所有しているリソース構成への変更を切り離す
 
-# リポジトリ構造をベースとしたレイアウト
 {% endpanel %}
+
+# リポジトリ構造をベースとしたレイアウト
 
 ## 動機
 
@@ -69,12 +73,15 @@ Note over AR: Uses java Base v1
 BR-->AR: Bob updates to reference Base v2
 Note over AR: Uses java Base v2
 AR-->C: java Base v2 changes deployed
+
 {% endsequence %}
 
-構造:
 {% method %}
 
 {% sample lang="yaml" %}
+
+構造:
+
 - プラットフォームチームが共有の構成のために Base リポジトリを作成する
 - App チームが App を開発するために App リポジトリを作成する
   - Base リポジトリをリモートに参照
@@ -108,8 +115,11 @@ tree
     └── ...
 ```
 
+{% endmethod %}
+
 {% panel style="info", title="リモート URL vs Vendoring" %}
 
 - 同じ組織が所有・管理しているリポジトリは URL によって参照できます
-{% endmethod %}
 - 別の組織が所有・管理しているリポジトリは vendor として管理し、vendor ディレクトリへのパスによって参照すべきです
+
+{% endpanel %}

@@ -1,11 +1,13 @@
 {% panel style="success", title="Providing Feedback" %}
 **Provide feedback at the [survey](https://www.surveymonkey.com/r/C855WZW)**
+
 {% endpanel %}
 
 {% panel style="info", title="TL;DR" %}
 
-{% endpanel %}
 - Base の任意のリソースから任意のフィールドをカスタマイズする
+
+{% endpanel %}
 
 # リソースのフィールドをカスタマイズする
 
@@ -17,11 +19,13 @@
 
 - [patchesjson6902](../reference/kustomize.md#patchesjson6902)
 - [patchesStrategicMerge](../reference/kustomize.md#patchesstrategicmerge)
+
 {% endpanel %}
 
 ## Overlay によって任意のフィールドをカスタマイズする
 
 {% method %}
+
 Base が提供するリソースに対して Overlay を与えると任意の**フィールドを追加、変更、削除**できます。
 **Overlay は疎なリソース定義であり*、これを使うと Base にカスタマイズをテンプレートとして公開させることなく任意のカスタマイズを実行できます。
 
@@ -30,11 +34,12 @@ Overlay にはリソースを指定するために**グループ、バージョ�
 
 **ユースケース:** 複数の環境 (test、dev、staging、canary、prod) で、replicas や resources といったフィールドを上書きします。
 
+{% sample lang="yaml" %}
+
 **入力:** kustomization.yaml ファイルと overlay
 
 ```yaml
 # kustomization.yaml
-{% sample lang="yaml" %}
 bases:
 - ../base
 patchesStrategicMerge:
@@ -129,21 +134,26 @@ spec:
             cpu: "0.5"
 ```
 
+{% endmethod %}
+
 {% panel style="info", title="Overlay のマージ意味論" %}
 Overlay はクラスタにリソース構成を Apply するのと同じ[マージの意味論](../app_management/field_merge_semantics.md)を持ちます。一点違うのは、Overlay をマージする際には**前回適用されたリソース構成**はありません。そのため、そのため、フィールドが明示的に nil に設定されると、フィールドがただ削除されるという結果になります。
 
+{% endpanel %}
+
 ## JsonPath による任意のフィールドのカスタマイズ
-{% endmethod %}
+
+{% method %}
 
 Base が提供するリソースに対して、**JSON Patch** を与えることで任意のフィールドを追加、変更、削除できます。
 
 **ユースケース:** 複数の環境 (test、dev、staging、canary、prod) で、replicas や resources といったフィールドを上書きします。
 
-{% endpanel %}
 JSON Patch は [RFC 6902](https://tools.ietf.org/html/rfc6902) で定められ、リソースに適用されるパッチとなります。Patch はリソースを指定するために、Patch 本体に加えて**グループ、バージョン、種類、名前**が必要です。Patch は Base のリソースを修正するために多くのパワフルな命令的操作を提供します。
 
+{% sample lang="yaml" %}
+
 **入力:** kustomization.yaml ファイル
-{% method %}
 
 ```yaml
 # kustomization.yaml
@@ -155,7 +165,6 @@ patchesJson6902:
     version: v1
     kind: Deployment
     name: nginx-deployment
-{% sample lang="yaml" %}
   path: patch.yaml
 ```
 
@@ -219,3 +228,5 @@ spec:
       - image: nginx
         name: nginx
 ```
+
+{% endmethod %}

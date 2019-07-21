@@ -1,13 +1,15 @@
 {% panel style="success", title="Providing Feedback" %}
 **Provide feedback at the [survey](https://www.surveymonkey.com/r/CLQBQHR)**
+
 {% endpanel %}
 
 {% panel style="info", title="TL;DR" %}
 
 - プロジェクト内のすべてのリソースに対して名前空間を設定するには `namespace` を使う
 - プロジェクト内のすべてのリソースに対して名前の接頭辞を付けるには `namePrefix` を使う
-{% endpanel %}
 - プロジェクト内のすべてのリソースに対して名前の接尾辞を付けるには `nameSuffix` を使う
+
+{% endpanel %}
 
 # 名前空間と命名の設定
 
@@ -26,6 +28,7 @@
 - [namespace](../reference/kustomize.md#namespace)
 - [namePrefix](../reference/kustomize.md#nameprefix)
 - [nameSuffix](../reference/kustomize.md#namesuffix)
+
 {% endpanel %}
 
 ## すべてのリソースに対して名前空間を設定する
@@ -34,13 +37,15 @@ Reference:
 
 リソース構成の中で宣言されたすべてのリソースの名前空間は `namespace` で設定できます。これにより設定される名前空間は、生成されたリソース (たとえば ConfigMap と Secret) にもそうでないリソースにも適用されます。
 
-**例:** 名前空間で区切りたいリソースに対し `kustomization.yaml` の中に `namespace` を設定する
-
-**入力:** kustomization.yaml ファイルと deployment.yaml ファイル
 {% method %}
 
-```yaml
+**例:** 名前空間で区切りたいリソースに対し `kustomization.yaml` の中に `namespace` を設定する
+
 {% sample lang="yaml" %}
+
+**入力:** kustomization.yaml ファイルと deployment.yaml ファイル
+
+```yaml
 # kustomization.yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
@@ -96,24 +101,28 @@ spec:
         name: nginx
 ```
 
+{% endmethod %}
+
 {% panel style="info", title="名前空間の上書き" %}
 名前空間の設定は、すでにリソースの名前空間が設定されている場合には、上書きされます。
 
-{% endmethod %}
+{% endpanel %}
+
 ## すべてのリソースに対して名前の接頭辞や接尾辞を設定する
 
 すべてのリソースに対して名前の接頭辞や接尾辞を設定するには `namePrefix` や `nameSuffix` を使用します。
-{% endpanel %}
+
+{% method %}
 
 **例:** すべてのリソースの名前に接頭辞を付ける
+
+{% sample lang="yaml" %}
 
 **入力:** kustomization.yaml ファイルと deployment.yaml ファイル
 
 ```yaml
-{% method %}
 # kustomization.yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
-{% sample lang="yaml" %}
 kind: Kustomization
 namePrefix: foo-
 resources:
@@ -166,29 +175,33 @@ spec:
         name: nginx
 ```
 
+{% endmethod %}
+
 {% panel style="info", title="参照先オブジェクトへの名前の伝播" %}
 Deployment や StatefulSet といったリソースは、Pod 定義内で ConfigMap や Secret といった他のリソースに参照をもつことがあります。
 
 これによって、生成されたリソース (たとえば ConfigMap と Secret) にもそうでないリソースにも名前の接頭辞や接尾辞が設定されます。
-{% endmethod %}
 
 適用された namePrefix や nameSuffix は更新されたリソースを参照しているリソースに伝播します - たとえば Secret と ConfigMap への参照は namePrefix と nameSuffix と共に更新されます。
+
+{% endpanel %}
+
+{% method %}
 
 **例:** すべてのリソースの名前に接頭辞を付ける
 
 これは Deployment の中で参照されている ConfigMap が `foo` という接頭辞をもつよう更新します。
 
+{% sample lang="yaml" %}
+
 **入力:** kustomization.yaml ファイルと deployment.yaml ファイル
 
 ```yaml
-{% endpanel %}
 # kustomization.yaml
-{% method %}
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namePrefix: foo-
 configMapGenerator:
-{% sample lang="yaml" %}
 - name: props
   literals:	
   - BAR=baz
@@ -261,6 +274,8 @@ spec:
        name: nginx
 ```
 
+{% endmethod %}
+
 {% panel style="info", title="参照" %}
 Apply は `namePrefix` を、プロジェクト内のリソースが他のリソースによって参照されている場所ならどこへでも、伝播させます。それは以下を含みます。
 
@@ -268,4 +283,4 @@ Apply は `namePrefix` を、プロジェクト内のリソースが他のリソ
 - PodSpec から参照される ConfigMap
 - PodSpec から参照される Secret
 
-{% endmethod %}
+{% endpanel %}

@@ -1,15 +1,18 @@
 {% panel style="success", title="Feedback and Contributing" %}
 **Provide feedback on new kubectl docs at the [survey](https://www.surveymonkey.com/r/JH35X82)**
 
-
+See [CONTRIBUTING](https://github.com/kubernetes/kubectl/blob/master/docs/book/CONTRIBUTING.md) for
+instructions on filing/fixing issues and adding new content.
 
 {% endpanel %}
+
 {% panel style="info", title="TL;DR" %}
 
 - Kubectl は Kubernetes の CLI
 - Kubectl は Kubernetes クラスタを扱うための十徳ナイフ
 - Kubectl は Kubernetes 上のアプリケーションのデプロイと管理に使う
 - Kubectl はより高レベルのフレームワークを記述・構築するために使うこともできる
+
 {% endpanel %}
 
 # Kubectl
@@ -37,10 +40,11 @@ Kubectl コマンドは一般的に以下のカテゴリの一つに分類され
 {% panel style="info", title="Apply" %}
 Apply は Kubernetes のリソースを管理するための推奨方法です。
 
+{% endpanel %}
+
 ## ワークロードの状態を表示
 
 ワークロードの状態を確認する必要があるときに使用します。
-{% endpanel %}
 
 - リソースの状態とその情報を要約して表示する
 - リソースの状態とその情報を完全に表示する
@@ -70,3 +74,5 @@ Kubectl はデバッグをサポートするために以下のようなコマン
 
 {% panel style="danger", title="開発用" %}
 命令的なコマンドはユーザーフレンドリーであるため開発用クラスタ内でワークロードを試行錯誤する上で時間の節約になりますが、本番で使うべきではありません。
+
+{% endpanel %}

@@ -1,13 +1,15 @@
 {% panel style="success", title="Providing Feedback" %}
 **Provide feedback at the [survey](https://www.surveymonkey.com/r/JH35X82)**
+
 {% endpanel %}
 
 {% panel style="info", title="TL;DR" %}
 
 - Kubernetes API はリソースタイプとコントローラという 2 つの部分からなる
 - リソースは JSON や YAML で宣言されたオブジェクトで、クラスタに書き込まれる
-{% endpanel %}
 - コントローラはリソースが書き込まれてから、非同期にリソースを作動させる
+
+{% endpanel %}
 
 # Kubernetes のリソースとコントローラの概要
 
@@ -43,14 +45,16 @@ Kubernetes オブジェクト (Deployment、Service、名前空間など) のイ
 {% panel style="warning", title="デフォルトの名前空間" %}
 リソース構成で名前空間が省略されると **default** という名前空間が使用されますが、アプリケーションには名前空間を必ず明示的に指定すべきと言って差し支えありません。名前空間は `kustomization.yaml` に記述します。
 
+{% endpanel %}
+
+{% method %}
+
 ### リソースの構造
 
 リソースの構成要素は次の通りです。
 
 **TypeMeta:** リソースタイプの **apiVersion** と**種類**
-{% endpanel %}
 
-{% method %}
 **ObjectMeta:** リソースの**名前**、**名前空間** + 他のメタデータ (ラベル、アノテーションなど)
 
 **Spec:** リソースの望ましい状態 - ユーザーがクラスタに教えるあるべき状態
@@ -61,13 +65,14 @@ Kubernetes オブジェクト (Deployment、Service、名前空間など) のイ
 
 **Deployment のリソース構成の例**
 
+{% sample lang="yaml" %}
+
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx-deployment
   labels:
-{% sample lang="yaml" %}
     app: nginx
 spec:
   replicas: 3
@@ -84,21 +89,25 @@ spec:
         image: nginx:1.15.4
 ```
 
+{% endmethod %}
+
 {% panel style="info", title="Spec と Status" %}
 ConfigMap や Secret のようなリソースには Status がありません。そのため、それらの Spec は暗黙的です (言い換えると spec フィールドがありません)。
+
+{% endpanel %}
 
 ## コントローラ
 
 コントローラは Kubernetes API を作動します。コントローラはシステムの状態を監視し、リソースを望ましい状態にするための変更 (作成、更新、削除) や、システムの変更 (Pod や Node の停止) を検知します。
-{% endmethod %}
 
 コントローラはユーザーが (たとえばリソース構成の中で) 決めた意図通りの仕様や (たとえば Autoscaler による) 自動化の要求を満たすようにクラスタを変更します。
 
 **例**: Deployment が作成されると、Deployment コントローラは Deployment が存在することを確認し、対応する ReplicaSet が期待どおりに存在するかどうか検証します。ReplicaSet が存在しなければ作成します。
-{% endpanel %}
 
 {% panel style="warning", title="非同期な動作" %}
 コントローラは非同期に実行されるため、コンテナイメージが壊れているとか Pod がスケジュール不能であるとかといった問題は CRUD のレスポンスでは顕在化しません。何かツールを作るときには、コントローラの動作が完了するまでシステムの状態の監視を簡単にできるようにすべきです。リソースの変更が完了して、望ましい状態とコントローラが観測した状態とが一致したら、リソースは**安定状態にある**とみなされます。
+
+{% endpanel %}
 
 ### コントローラの構造
 
@@ -117,7 +126,6 @@ ConfigMap や Secret のようなリソースには Status がありません。
 
 コントローラがリソースを作動させるタイミングは、監視用のリソースタイプによってリソースが書き込まれ、それからイベントが調停をトリガーした**後**です。リソースが作成・更新・削除された後、リソースタイプを監視しているコントローラはリソースが更新されたという通知を受け取り、(イベントが持っている更新情報に依存することなく) システムの状態を読み込んで何を更新すべきかを理解します。
 
-{% endpanel %}
 - Deployment コントローラは Deployment と ReplicaSet (と Pod) を監視します
 - ReplicaSet コントローラは ReplicaSets と Pod を監視します
 - Scheduler (コントローラ) は Pod を監視します
@@ -125,6 +133,8 @@ ConfigMap や Secret のようなリソースには Status がありません。
 
 {% panel style="info", title="レベルベースの調停とエッジベースの調停" %}
 コントローラは個々のイベントに反応せず、調停の実行時にシステムの状態を期待される状態に一致させるため、**さまざまなイベントが変更を通知してきても、まとめて一度にシステムの観測と調停を行うことができます。**これは**レベルベース**のシステムと呼ばれます。これと対比して、個々のイベントに対して反応するシステムは**エッジベース**のシステムと呼ばれます。
+
+{% endpanel %}
 
 ## Kubernetes リソース API の概要
 
@@ -147,12 +157,13 @@ Pod はアプリケーションの**レプリカを一つ**を実行し、以下
 
 場合によっては Pod は複数のコンテナを含み、それがアプリケーションの一つのインスタンスを形成しているかもしれません。Pod 内のコンテナはネットワーク (IP) とストレージを共有することによって協働します。
 
+{% endpanel %}
+
 ### ワークロード
 
 一般的に Pod は関心ごとに分けられた上位の抽象化によって管理されます。たとえば、レプリケーション、同一性、永続化ストレージ、カスタムスケジュール、ローリングアップデートなどです。
 
 最もよく使われるワークロード API (Pod を管理する API) は以下です。
-{% endpanel %}
 
 - [Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) (ステートレスなアプリケーション)
   - レプリケーション + ロールアウト
@@ -168,6 +179,8 @@ Pod はアプリケーションの**レプリカを一つ**を実行し、以下
 {% panel style="success", title="API の抽象化レイヤー" %}
 上位のワークロード API は下位のワークロード API を管理できます。Pod を直接管理する必要はありません。(たとえば Deployment は ReplicaSet を管理します)
 
+{% endpanel %}
+
 ### サービスディスカバリとロードバランシング
 
 サービスディスカバリとロードバランシングは **Service** オブジェクトが管理します。Service は一つの仮想 IP アドレスと DNS 名を提供し、ラベルにマッチする Pod にロードバランスされます。
@@ -177,8 +190,9 @@ Pod はアプリケーションの**レプリカを一つ**を実行し、以下
 - [Service リソース](https://kubernetes.io/docs/concepts/services-networking/service/)
     (L4) は内側に対してはクラスタに、外側に対しては HA プロキシを通じて Pod を公開することができます
 - [Ingress Resources](https://kubernetes.io/docs/concepts/services-networking/ingress/) (L7)
-{% endpanel %}
     は URI エンドポイントを公開し、それを Service に振り分けます
+
+{% endpanel %}
 
 ### Configuration と Secret
 
@@ -190,3 +204,5 @@ Pod はアプリケーションの**レプリカを一つ**を実行し、以下
     は機密でないデータを Pod に提供します
 - [Secrets](https://kubernetes.io/docs/concepts/configuration/secret/)
     は機密データを Pod に提供します
+
+{% endpanel %}

@@ -1,5 +1,6 @@
 {% panel style="success", title="Providing Feedback" %}
 **Provide feedback at the [survey](https://www.surveymonkey.com/r/JH35X82)**
+
 {% endpanel %}
 
 {% panel style="warning", title="Experimental" %}
@@ -9,10 +10,12 @@ Leave feedback on the conventions by creating an issue in the [kubectl](https://
 GitHub repository.
 
 Also provide feedback on new kubectl docs at the [survey](https://www.surveymonkey.com/r/JH35X82)
+
 {% endpanel %}
 
 {% panel style="info", title="TL;DR" %}
 分離された環境にデプロイするために構成の変更を切り離す
+
 {% endpanel %}
 
 # ブランチ構造をベースとしたレイアウト
@@ -79,12 +82,13 @@ Note left of PB: Alice: App SRE
 Note over PB: Alice fixes Config
 PB-->PC: Alice's changes (only)
 Note over PC: At v1* release
-{% endsequence %}
 Note over BB,PC: Prod Outage resolved
 Note over PB: Alice Releases v2
 BB-->PB: Merge v2
 PB-->PC: Deploy v2
 Note over PC: At v2 release
+
+{% endsequence %}
 
 ### 詳細
 
@@ -106,7 +110,6 @@ Note over PC: At v2 release
 
 1. *v2* が Staging にロールアウトされる
 
-{% method %}
 - *v2* タグ -> Staring ブランチにマージ
 - Staging ブランチを Staging クラスタにデプロイ
 
@@ -126,7 +129,8 @@ Note over PC: At v2 release
 
 - *v2* タグ -> Prod ブランチにマージ
 - Prod ブランチを Prod クラスタにデプロイ
-{% sample lang="yaml" %}
+
+{% method %}
 
 テクニック:
 
@@ -144,6 +148,8 @@ Note over PC: At v2 release
   - [ディレクトリ](structure_directories.md)と同様
 - 環境ごとにデプロイブランチを分離する (`deploy-<env>` など)
   - 各ブランチに伴う新しいディレクトリは overlay カスタマイズを含む - `deploy-<env>` など
+
+{% sample lang="yaml" %}
 
 **Base ブランチ:** `master`
 
@@ -218,7 +224,6 @@ tree
 ```
 
 Test ブランチ: `deploy-test`
-{% endmethod %}
 
 ```bash
 tree
@@ -235,6 +240,8 @@ tree
 └── test # From Base Branch
     └── ...
 ```
+
+{% endmethod %}
 
 ## ロールバックのワークフロー例
 
@@ -272,7 +279,6 @@ tree
 {% sequence width=1000 %}
 
 participant Base Branch as BB
-{% endsequence %}
 participant Staging Branch as SB
 participant Staging Clusters as SC
 participant Prod Branch as PB
@@ -298,3 +304,5 @@ Note over PB: Alice rolls back v2 merge commit
 PB-->PC: Deploy v1
 Note over PC: At v1 release
 Note over BB,PC: Prod Outage resolved
+
+{% endsequence %}

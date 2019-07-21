@@ -1,11 +1,13 @@
 {% panel style="success", title="Providing Feedback" %}
 **Provide feedback at the [survey](https://www.surveymonkey.com/r/JH35X82)**
+
 {% endpanel %}
 
 {% panel style="info", title="TL;DR" %}
 
-{% endpanel %}
 - Reference for `kustomization.yaml`
+
+{% endpanel %}
 
 # Kustomization.yaml Reference
 
@@ -43,6 +45,7 @@ Resource Generators provide Resource Configs to Kustomize from sources such as f
 `kustomization.yaml` fields.
 
 ### bases
+
 {% method %}
 
 `bases` contains a list of paths to **directories or git repositories** containing `kustomization.yaml`s.
@@ -56,8 +59,9 @@ will then have Transformers from the current `kustomization.yaml` applied.
 | :------- | :------- | :-------------------------------------------------------------------------------------------- |
 | **base** | []string | List of paths must point to directories or git repositories containing `kustomization.yaml`s. |
 
-```yaml
 {% sample lang="yaml" %}
+
+```yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 bases:
@@ -65,13 +69,15 @@ bases:
 - https://github.com/org/repo/dir/
 ```
 
+{% endmethod %}
+
 ### configMapGenerator
 
-{% endmethod %}
+{% method %}
+
 `configMapGenerator` contains a list of ConfigMaps to generate.
 
 By default, generated ConfigMaps will have a hash appended to the name.  The ConfigMap hash is
-{% method %}
 appended after a `nameSuffix`, if one is specified. Changes to ConfigMap data will cause a ConfigMap
 with a new name to be generated, triggering a rolling update to Workloads referencing the ConfigMap.
 
@@ -99,13 +105,14 @@ as well as `namePrefix`'s and `nameSuffix`'s.
 | **name**      | string   | Name for the ConfigMap.  Modified by the `namePrefix` and `nameSuffix` fields.                                                                                                                                                              |
 | **namespace** | string   | Namespace for the ConfigMap.  Overridden by kustomize-wide `namespace` field.                                                                                                                                                               |
 
+{% sample lang="yaml" %}
+
 ```yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 configMapGenerator:
 # generate a ConfigMap named my-java-server-props-<some-hash> where each file
 # in the list appears as a data entry (keyed by base filename).
-{% sample lang="yaml" %}
 - name: my-java-server-props
   files:
   - application.properties
@@ -122,18 +129,22 @@ configMapGenerator:
   env: env.txt
 ```
 
+{% endmethod %}
+
 ### resources
+
+{% method %}
 
 `resources` contains a list of Resource Config file paths to be customized.  Each file may contain multiple
 Resource Config definitions separated by `\n---\n`.
 
 | Name          | Type     | Desc                            |
 | :------------ | :------- | :------------------------------ |
-{% endmethod %}
 | **resources** | []string | Paths to Resource Config files. |
 
+{% sample lang="yaml" %}
+
 ```yaml
-{% method %}
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 # list of files containing Resource Config to add
@@ -142,8 +153,11 @@ resources:
 - another/path/to/resource.yaml
 ```
 
+{% endmethod %}
+
 ### secretGenerator
-{% sample lang="yaml" %}
+
+{% method %}
 
 `secretGenerator` contains a list of Secrets to generate.
 
@@ -154,11 +168,9 @@ with a new name to be generated, triggering a rolling update to Workloads refere
 Resources such as PodTemplates should reference Secrets by the `name` secretsGenerator field,
 and Kustomize will update the reference to match the generated name,
 as well as `namePrefix`'s and `nameSuffix`'s.
-{% endmethod %}
 
 **Note:** Hash suffix generation can be disabled for a subset of Secret by creating a separate
 `kustomization.yaml` and  generating these Secret there.  This `kustomization.yaml` must set
-{% method %}
 `generatorOptions.disableNameSuffixHash=true`, and be used as a `base`.  See
 [generatorOptions](#generatoroptions) for more details.
 
@@ -178,6 +190,8 @@ as well as `namePrefix`'s and `nameSuffix`'s.
 | **namespace** | string   | Namespace for the Secret.  Overridden by kustomize-wide `namespace` field.                                                                                                                                                            |
 | **type**      | string   | Type of Secret. If type is "kubernetes.io/tls", then "literals" or "files" must have exactly two keys: "tls.key" and "tls.crt".                                                                                                       |
 
+{% sample lang="yaml" %}
+
 ```yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
@@ -193,8 +207,9 @@ secretGenerator:
   # you can only specify one env file per secret.
   env: env.txt
   type: Opaque
-{% sample lang="yaml" %}
 ```
+
+{% endmethod %}
 
 ## Transformers
 
@@ -208,14 +223,17 @@ Config - e.g.
 
 ### commonAnnotations
 
+{% method %}
+
 `commonAnnotations` sets annotations on all Resources.  `commonAnnotations`'s from bases will stack - e.g.
 if a `commonAnnotations` was set in a `base`, the new `commonAnnotations` will be added
 to or override the base `commonAnnotations`.
 
-{% endmethod %}
 | Name                  | Type              | Desc                         |
 | :-------------------- | :---------------- | :--------------------------- |
 | **commonAnnotations** | map[string]string | Keys/Values for annotations. |
+
+{% sample lang="yaml" %}
 
 ```yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
@@ -225,7 +243,10 @@ commonAnnotations:
   annotationKey2: "annotationValue2"
 ```
 
+{% endmethod %}
+
 ### commonLabels
+
 {% method %}
 
 This field sets labels on all Resources.  `commonLabels`'s from bases will stack - e.g.
@@ -237,9 +258,10 @@ to or override the base `commonLabels`.
 **Note:**  Because `commonLabels` are applied to Selectors, they cannot be changed for some objects.
 
 | Name             | Type              | Desc                    |
-{% sample lang="yaml" %}
 | :--------------- | :---------------- | :---------------------- |
 | **commonLabels** | map[string]string | Keys/Values for labels. |
+
+{% sample lang="yaml" %}
 
 ```yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
@@ -247,10 +269,12 @@ kind: Kustomization
 commonLabels:
   labelKey1: "labelValue1"
   labelKey2: "labelValue2"
-{% endmethod %}
 ```
 
+{% endmethod %}
+
 ### images
+
 {% method %}
 
 `images` overrides image names and tags in all `[spec.template.]spec.containers.image` fields matching the
@@ -266,7 +290,6 @@ Definitions:
 
 - *name*: portion of the `image` field value before the `:` - e.g. for `foo:v1` the name would be `foo`.
 - *tag*: portion of the `image` field value after the `:` - e.g. for `foo:v1` the name would be `v1`.
-{% sample lang="yaml" %}
 - *digest*: alternative to tag for referencing an image. 
 
 | Name         | Type   | Desc                                                                                                   |
@@ -276,11 +299,11 @@ Definitions:
 | **newTag**   | string | Replace the `image` field *tag* with this tag value.                                                   |
 | **digest**   | string | Replace the `image` field *tag* with this digest value.  Includes the `sha256:` portion of the digest. |
 
-{% endmethod %}
+{% sample lang="yaml" %}
+
 ```yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-{% method %}
 images:
   - name: postgres
     newName: my-registry/my-postgres
@@ -293,7 +316,11 @@ images:
     digest: sha256:24a0c4b4a4c0eb97a1aabb8e29f18e917d05abfe1b7a7c07857230879ce7d3d3
 ```
 
+{% endmethod %}
+
 ### patchesJson6902
+
+{% method %}
 
 Each entry in this list should resolve to a kubernetes object and a JSON patch that will be applied
 to the object. The JSON patch schema is documented at https://tools.ietf.org/html/rfc6902
@@ -304,7 +331,6 @@ to the object. The JSON patch schema is documented at https://tools.ietf.org/htm
 
 ##### Json6902
 
-{% sample lang="yaml" %}
 Target field points to a kubernetes object by the object's group, version, kind, name and namespace.
 Path field is a relative file path of a JSON patch file.  File contents can be either json or yaml.
 
@@ -321,11 +347,9 @@ Path field is a relative file path of a JSON patch file.  File contents can be e
    value: value
  - op: replace
    path: /some/existing/path
-{% endmethod %}
    value: new value
 ```
 
-{% method %}
 ##### Target
 
 | Name          | Type   | Desc                                |
@@ -335,6 +359,8 @@ Path field is a relative file path of a JSON patch file.  File contents can be e
 | **name**      | string | Name of the Resource to patch.      |
 | **namespace** | string | Namespace of the Resource to patch. |
 | **version**   | string | Version of the Resource to patch.   |
+
+{% sample lang="yaml" %}
 
 ```yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
@@ -352,7 +378,11 @@ patchesJson6902:
   path: add_service_annotation.yaml
 ```
 
+{% endmethod %}
+
 ### patchesStrategicMerge
+
+{% method %}
 
 `patchesStrategicMerge` applies patches to the matching Resource Config (by Group/Version/Kind + Name/Namespace).  Patch
 files contain sparse Resource Config definitions - i.e. containing only the Resource Config fields to
@@ -365,9 +395,10 @@ Small patches are easy to review and easy to compose together.
 | :------------------------ | :------- | :------------------------------------------------ |
 | **patchesStrategicMerge** | []string | Paths to files containing sparse Resource Config. |
 
+{% sample lang="yaml" %}
+
 ```yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
-{% sample lang="yaml" %}
 kind: Kustomization
 patchesStrategicMerge:
 - service_port_8888.yaml
@@ -375,7 +406,11 @@ patchesStrategicMerge:
 - deployment_increase_memory.yaml
 ```
 
+{% endmethod %}
+
 ### namespace
+
+{% method %}
 
 This field sets the `namespace` of all namespaced Resources.  If the namespace has already been set in the
 Resource Config, this will override the namespace.
@@ -384,15 +419,19 @@ Resource Config, this will override the namespace.
 | :------------ | :----- | :-------- |
 | **namespace** | String | Namespace |
 
+{% sample lang="yaml" %}
+
 ```yaml
-{% endmethod %}
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: "my-app-namespace"
-{% method %}
 ```
 
+{% endmethod %}
+
 ### namePrefix
+
+{% method %}
 
 `namePrefix` sets a name prefix on all Resources.  `namePrefix`'s from bases will stack - 
 e.g. if a `namePrefix` was set in a `base`, the new `namePrefix` will be pre-prended to the `namePrefix` in the
@@ -402,9 +441,10 @@ Fields that references another Resource will also have the `namePrefix` applied 
 updated.
 
 | Name           | Type   | Desc                                                   |
-{% sample lang="yaml" %}
 | :------------- | :----- | :----------------------------------------------------- |
 | **namePrefix** | String | Value to prepend to all Resource names and references. |
+
+{% sample lang="yaml" %}
 
 ```yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
@@ -412,12 +452,14 @@ kind: Kustomization
 namePrefix: "my-app-name-prefix-"
 ```
 
-### nameSuffix
 {% endmethod %}
+
+### nameSuffix
+
+{% method %}
 
 `nameSuffix` sets a `nameSuffix` on all Resources.  `nameSuffix`'s from bases will stack - 
 e.g. if a `nameSuffix` was set in a `base`, the new `nameSuffix` will be appended to the `nameSuffix` in the
-{% method %}
 `base`.
 
 Fields that references another Resource will also have the `nameSuffix` applied so that the reference is
@@ -428,18 +470,21 @@ updated.
 | **nameSuffix** | String | Value to append to all Resource names and references. |
 
 {% sample lang="yaml" %}
+
 ```yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 nameSuffix: "-my-app-name-suffix"
 ```
 
-### vars
 {% endmethod %}
+
+### vars
+
+{% method %}
 
 `vars` defines values that can be substituted into Pod container arguments and environment variables.
 This is necessary for wiring post-transformed fields into container arguments and environment variables.
-{% method %}
 e.g. Services names may be transformed by `namePrefix` and containers may need to refer to Service names
 at runtime. 
 
@@ -453,7 +498,6 @@ Example:
 ```yaml
 containers:
 - image: myimage
-{% sample lang="yaml" %}
   command: ["start", "--host", "$(MY_SERVICE_NAME)"]
   env:
    - name: SECRET_TOKEN
@@ -461,11 +505,9 @@ containers:
 ```
 
 | Name     | Type  | Desc                                                                         |
-{% endmethod %}
 | :------- | :---- | :--------------------------------------------------------------------------- |
 | **vars** | []Var | List of variable declarations that may be referenced in container arguments. |
 
-{% method %}
 ##### Var
 
 | Name         | Type   | Desc                                                                                                            |
@@ -474,12 +516,13 @@ containers:
 | **objref**   | string | Reference to the object containing the field to be referenced.  ObjRef should use the unTransformed object name |
 | **fieldref** | string | Reference to the field in the object.  Defaults to `metadata.name` if unspecified.                              |
 
+{% sample lang="yaml" %}
+
 ```yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 vars:
   - name: SOME_SECRET_NAME
-{% sample lang="yaml" %}
     objref:
       kind: Secret
       name: my-secret
@@ -487,11 +530,9 @@ vars:
   - name: MY_SERVICE_NAME
     objref:
       kind: Service
-{% endmethod %}
       name: my-service
       apiVersion: v1
     fieldref:
-{% method %}
       fieldpath: metadata.name
   - name: ANOTHER_DEPLOYMENTS_POD_RESTART_POLICY
     objref:
@@ -501,6 +542,8 @@ vars:
     fieldref:
       fieldpath: spec.template.spec.restartPolicy
 ```
+
+{% endmethod %}
 
 ## Meta Options
 
@@ -528,10 +571,11 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 configurations:
 - mykind_configuration.yaml
-{% sample lang="yaml" %}
 ```
 
 ##### commonAnnotations
+
+{% method %}
 
 Specify `commonAnnotations` in the **configuration file** to configure the Kustomize `commonAnnotations` field
 to find additional annotation fields on CRDs.
@@ -550,18 +594,23 @@ to find additional annotation fields on CRDs.
 
 [Built-in examples](https://github.com/kubernetes-sigs/kustomize/blob/master/pkg/transformers/config/defaultconfig/commonannotations.go)
 
+{% sample lang="yaml" %}
+
 > mykind_configuration.yaml file referenced by the configurations field
 
 ```yaml
 commonAnnotations:
   # set labels at metadata.annotations for all types
-{% endmethod %}
 - path: metadata/annotations
   # create metadata.annotations if it doesn't exist
   create: true
 ```
 
+{% endmethod %}
+
 ##### commonLabels
+
+{% method %}
 
 Specify `commonLabels` in the **configuration file** to configure the Kustomize `commonLabels` field find
 additional labels and selector fields on CRDs.
@@ -580,6 +629,8 @@ additional labels and selector fields on CRDs.
 
 [Built-in examples](https://github.com/kubernetes-sigs/kustomize/blob/master/pkg/transformers/config/defaultconfig/commonlabels.go)
 
+{% sample lang="yaml" %}
+
 > mykind_configuration.yaml file referenced by the configurations field
 
 ```yaml
@@ -588,7 +639,6 @@ commonLabels:
 - path: metadata/labels
   # create metadata.annotations if it doesn't exist
   create: true
-{% method %}
   
   # set labels at spec.selector for v1.Service types
 - path: spec/selector
@@ -607,10 +657,13 @@ commonLabels:
   create: false
   group: apps
   kind: Deployment
-{% sample lang="yaml" %}
 ```
 
+{% endmethod %}
+
 ##### images
+
+{% method %}
 
 Specify `images` in the **configuration file** to configure the Kustomize `images` field find additional
 image fields on CRDs.
@@ -619,14 +672,14 @@ image fields on CRDs.
 | :--------- | :------ | :----------------------------- |
 | **images** | []Image | List of paths to image fields. |
 
-{% endmethod %}
 | Name        | Type   | Desc                                                                               |
 | :---------- | :----- | :--------------------------------------------------------------------------------- |
 | **group**   | string | API Group of the object to add the label to.  If unset, applies to all API Groups. |
-{% method %}
 | **kind**    | string | Kind of the object to add the label to.  If unset, applies to all Kinds.           |
 | **path**    | string | Path to label field.                                                               |
 | **version** | string | API Version of the object to add the label to.  If unset, applies to all Versions. |
+
+{% sample lang="yaml" %}
 
 > mykind_configuration.yaml file referenced by the configurations field
 
@@ -637,12 +690,15 @@ images:
   kind: MyKind
 ```
 
+{% endmethod %}
+
 ##### Name References
+
+{% method %}
 
 Specify `nameReference` in the **configuration file** for CRDs that reference other objects by name - e.g.
 Secrets, ConfigMaps, Services, etc.
 
-{% sample lang="yaml" %}
 `nameReference` registers for a given type, that **it is referenced by name from another type** - e.g.
 Secrets are referenced by Pods.
 
@@ -669,15 +725,15 @@ names are modified - e.g. `namePrefix`, `secretGenerator`.
 
 [Built-In Examples](https://github.com/kubernetes-sigs/kustomize/blob/master/pkg/transformers/config/defaultconfig/namereference.go)
 
+{% sample lang="yaml" %}
+
 > mykind_configuration.yaml file referenced by the configurations field
 
 ```yaml
-{% endmethod %}
 nameReference:
 # Configure named references to Secret objects to be updated by Transformers and Generators - e.g. namePrefix, secretGenerator, etc
 - kind: Secret
   version: v1
-{% method %}
   fieldSpecs:
   # v1.Pods that reference a Secret in spec.volumes.secret.secretName will have it updated
   - path: spec/volumes/secret/secretName
@@ -689,11 +745,14 @@ nameReference:
     kind: Pod
 ```
 
+{% endmethod %}
+
 ### generatorOptions
+
+{% method %}
 
 `generatorOptions` modifies behavior of all ConfigMap and Secret generators in the current `kustomization.yaml`.
 generatorOptions from `bases` apply **only** to the Secrets and ConfigMaps generated within **the same
-{% sample lang="yaml" %}
 `kustomization.yaml`**.
 
 **Note** It is possible to define generatorOptions for a subset of generated Resources by defining a `base` to generate
@@ -704,15 +763,15 @@ without.
 | :------------------- | :--------------- | :---------------------------------------------------------- |
 | **generatorOptions** | GeneratorOptions | Options to define how Secrets and ConfigMaps are generated. |
 
-{% endmethod %}
 ##### GeneratorOptions
 
 | Name                      | Type                   | Desc                                                                                               |
-{% method %}
 | :------------------------ | :--------------------- | :------------------------------------------------------------------------------------------------- |
 | **labels**                | map[string]string      | Labels to add to all Resources generated from this `kustomization.yaml`.                           |
 | **annotations**           | map[string]annotations | Annotations to add to all Resources generated from this `kustomization.yaml`.                      |
 | **disableNameSuffixHash** | bool                   | If set to true, don't add a hash suffix to any Resources generated from this `kustomization.yaml`. |
+
+{% sample lang="yaml" %}
 
 ```yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
@@ -729,3 +788,5 @@ generatorOptions:
   # the resource contents.
   disableNameSuffixHash: true
 ```
+
+{% endmethod %}

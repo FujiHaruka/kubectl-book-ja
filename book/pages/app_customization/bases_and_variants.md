@@ -1,13 +1,15 @@
 {% panel style="success", title="Providing Feedback" %}
 **Provide feedback at the [survey](https://www.surveymonkey.com/r/C855WZW)**
+
 {% endpanel %}
 
 {% panel style="info", title="TL;DR" %}
 
 - `kustomization.yaml` の構成を Base としたリソース構成の再利用
 - 複数の環境向けに Base をカスタマイズする
-{% endpanel %}
 - 複数のプロジェクトをまたいだ Base の再利用
+
+{% endpanel %}
 
 # Base とバリエーション
 
@@ -25,9 +27,10 @@
 
 - [bases](../reference/kustomize.md#bases)
 
+ {% endpanel %}
+
 ## Base
 
- {% endpanel %}
 Base は `kustomization.yaml` の中で共有されるリソース構成で、別の `kustomization.yaml` が利用したりカスタマイズしたりします。
 
 Base の例。
@@ -67,16 +70,18 @@ graph TD;
   B3[B3]-->A2[A2];
 ```
 
+{% method %}
+
 **例:** `kustomization.yaml` を Base として追加する
+
+{% sample lang="yaml" %}
 
 **入力:** kustomization.yaml ファイル
 
 ```yaml
 # kustomization.yaml
-{% method %}
 bases:
 - ../base
-{% sample lang="yaml" %}
 ```
 
 **Base:** kustomization.yaml とリソース構成
@@ -161,14 +166,16 @@ spec:
         name: config-volume
 ```
 
+{% endmethod %}
+
 {% panel style="info", title="Base の中の Base" %}
 Base 自体にもバリエーションとその Base を作れます。
 詳細は [Advanced Composition](../app_composition_and_deployment/structure_multi_tier_apps.md) をご覧ください。
 
+{% endpanel %}
+
 ```mermaid
-{% endmethod %}
 graph TD;
   B1[B1]-->B2[B2];
   B2[B2]-->A[A];
 ```
-{% endpanel %}

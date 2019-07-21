@@ -1,12 +1,14 @@
 {% panel style="success", title="Providing Feedback" %}
 **Provide feedback at the [survey](https://www.surveymonkey.com/r/JH35X82)**
+
 {% endpanel %}
 
 {% panel style="info", title="TL;DR" %}
 
 - リソースの特定のフィールドをフォーマットして表示します
-{% endpanel %}
 - get コマンドでスクリプトを書くときに使います
+
+{% endpanel %}
 
 # リソースのフィールドを表示する
 
@@ -29,12 +31,13 @@ Kubectl の get コマンドは検索したリソースからフィールドを�
 
 これを省略すると、異なる API グループ / バージョンがクラスタのアップグレード後に使われ、その API グループ / バージョンがフィールドの表現を変更してしまうかもしれません。
 
+{% endpanel %}
+
 ### JSON パス
 
 JSON パスからフィールドを表示します
 
 **注意:** JSON パスはファイルから読み込むこともでき、そのためには `-o custom-columns-file` を使用します。
-{% endpanel %}
 
 - JSON パステンプレートは {} で囲まれた JSONPath 記法で構成されます。もともとの JSONPath 構文に加えて、いつくかの拡張が追加されています。
   - `$` 演算子はオプショナルです (デフォルトではルートオブジェクトから式が始まります)
@@ -59,36 +62,47 @@ JSON パスからフィールドを表示します
 
 - - -
 
+{% method %}
+
 リスト中の最初の Deployment を一行の JSON 表現で表示します。
+
+{% sample lang="yaml" %}
 
 ```bash
 kubectl get deployment.v1.apps -o=jsonpath='{.items[0]}{"\n"}'
 ```
 
-{% method %}
 ```bash
 map[apiVersion:apps/v1 kind:Deployment...replicas:1 updatedReplicas:1]]
 ```
-{% sample lang="yaml" %}
+
+{% endmethod %}
 
 - - -
 
+{% method %}
+
 リスト中の 最初の Deployment の `metadata.name` フィールドを表示します。
+
+{% sample lang="yaml" %}
 
 ```bash
 kubectl get deployment.v1.apps -o=jsonpath='{.items[0].metadata.name}{"\n"}'
 ```
 
-{% endmethod %}
 ```bash
 nginx
 ```
-{% method %}
+
+{% endmethod %}
 
 - - -
 
-{% sample lang="yaml" %}
+{% method %}
+
 各 Deployment ごとに、その `metadata.name` フィールドを改行区切りで表示します。
+
+{% sample lang="yaml" %}
 
 ```bash
 kubectl get deployment.v1.apps -o=jsonpath='{range .items[*]}{.metadata.name}{"\n"}{end}'
@@ -97,15 +111,18 @@ kubectl get deployment.v1.apps -o=jsonpath='{range .items[*]}{.metadata.name}{"\
 ```bash
 nginx
 nginx2
-{% endmethod %}
 ```
 
+{% endmethod %}
+
 - - -
+
 {% method %}
 
 各 Deployment ごとに、その `metadata.name` と `.status.availableReplicas` を表示します
 
 {% sample lang="yaml" %}
+
 ```bash
 kubectl get deployment.v1.apps -o=jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.status.availableReplicas}{"\n"}{end}'
 ```
@@ -115,36 +132,44 @@ nginx	1
 nginx2	1
 ```
 
-- - -
 {% endmethod %}
+
+- - -
+
+{% method %}
 
 Deployment のリストを一行で表示します。
 
-{% method %}
+{% sample lang="yaml" %}
+
 ```bash
 kubectl get deployment.v1.apps -o=jsonpath='{@}{"\n"}'
 ```
-{% sample lang="yaml" %}
 
 ```bash
 map[kind:List apiVersion:v1 metadata:map[selfLink: resourceVersion:] items:[map[apiVersion:apps/v1 kind:Deployment...replicas:1 updatedReplicas:1]]]]
 ```
 
+{% endmethod %}
+
 - - -
+
+{% method %}
 
 各 Deployment を改行区切りで表示します。
 
-{% endmethod %}
+{% sample lang="yaml" %}
+
 ```bash
 kubectl get deployment.v1.apps -o=jsonpath='{range .items[*]}{@}{"\n"}{end}'
 ```
-{% method %}
 
 ```bash
 map[kind:Deployment...readyReplicas:1]]
-{% sample lang="yaml" %}
 map[kind:Deployment...readyReplicas:1]]
 ```
+
+{% endmethod %}
 
 - - -
 
@@ -152,12 +177,10 @@ map[kind:Deployment...readyReplicas:1]]
 リテラル構文では、スペースを含む JSONPath テンプレートは (上の bash で示したシングルクォートではなく) ダブルクォートで囲います。
 これは、テンプレート内のリテラルを囲む引用符にはシングルクォートを使うか、エスケープしたダブルクォートを使う必要があることを意味します。
 
-{% endmethod %}
 例:
 
 ```bash
-{% method %}
 C:\> kubectl get pods -o=jsonpath="{range .items[*]}{.metadata.name}{'\t'}{.status.startTime}{'\n'}{end}"
 ```
 
-{% sample lang="yaml" %}
+{% endpanel %}

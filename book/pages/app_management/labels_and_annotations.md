@@ -1,12 +1,14 @@
 {% panel style="success", title="Providing Feedback" %}
 **Provide feedback at the [survey](https://www.surveymonkey.com/r/CLQBQHR)**
+
 {% endpanel %}
 
 {% panel style="info", title="TL;DR" %}
 
 - プロジェクト内で宣言されたすべてのリソースにラベルを設定するには `commonLables` を使用する
-{% endpanel %}
 - プロジェクト内で宣言されたすべてのリソースにアノテーションを設定するには `commonAnnotations` を使用する
+
+{% endpanel %}
 
 # ラベルとアノテーションを設定する
 
@@ -22,11 +24,13 @@
 
 {% panel style="info", title="Reference" %}
 
-{% endpanel %}
 - [commonLabels](../reference/kustomize.md#commonlabels)
 - [commonAnnotations](../reference/kustomize.md#commonannotations)
 
+{% endpanel %}
+
 ## すべてのリソースにラベルを設定する
+
 {% method %}
 
 **例:** プロジェクト内のすべてのリソースに `commonLabels` に宣言されたラベルを追加する
@@ -34,6 +38,7 @@
 **重要:** 一度設定した commonLabels は変更すべきではありません。Service やワークロードのセレクタを変更しないためです。
 
 {% sample lang="yaml" %}
+
 **入力:** kustomization.yaml ファイルと deployment.yaml ファイル
 
 ```yaml
@@ -100,6 +105,7 @@ spec:
       - image: nginx
         name: nginx
 ```
+
 {% endmethod %}
 
 {% panel style="warning", title="ラベルのセレクタへの伝播" %}
@@ -107,26 +113,30 @@ spec:
 
 **注意:** 一度 commonLabels を設定したら、変更すべきではありません。Service やワークロードを取得するセレクタを変更しないためです。
 
+{% endpanel %}
+
 {% panel style="success", title="共通のラベル" %}
 k8s.io ドキュメントではアプリケーションに適用可能な[共通ラベルの規則](https://kubernetes.io/docs/concepts/overview/working-with-objects/common-labels/)を定義しています。
-{% endpanel %}
 
 **注意:** commonLabels は**不変の**ラベルにだけ設定されるべきです。セレクタに適用されるからです。
 
 ワークロードリソースにラベル付けすることは、Pod へのクエリを単純にします - たとえば、Pod のログを取得する目的でラベルを付けます。
 
+{% endpanel %}
+
 ## すべてのリソースにアノテーションを設定する
 
+{% method %}
+
 **例:** プロジェクト内のすべてのリソースに `commonAnnotations` で宣言されたアノテーションを追加する
-{% endpanel %}
+
+{% sample lang="yaml" %}
 
 **入力:** kustomization.yaml ファイルと deployment.yaml ファイル
 
 ```yaml
-{% method %}
 # kustomization.yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
-{% sample lang="yaml" %}
 kind: Kustomization
 commonAnnotations:
   oncallPager: 800-555-1212
@@ -185,5 +195,9 @@ spec:
         name: nginx
 ```
 
+{% endmethod %}
+
 {% panel style="info", title="アノテーションの伝播" %}
 各リソースのアノテーションを更新すると、ObjectMeta を含むすべてのフィールド (たとえば PodTemplate) にもアノテーションが追加されます。
+
+{% endpanel %}

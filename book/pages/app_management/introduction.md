@@ -1,12 +1,14 @@
 {% panel style="success", title="Providing Feedback" %}
 **Provide feedback at the [survey](https://www.surveymonkey.com/r/CLQBQHR)**
+
 {% endpanel %}
 
 {% panel style="info", title="TL;DR" %}
 
 - Apply コマンドは Kubernetes リソースを定義するファイル (リソース構成) を通じてアプリケーションを管理する
-{% endpanel %}
 - Kustomize はリソース構成を書くために使われる
+
+{% endpanel %}
 
 # 宣言的なアプリケーション管理
 

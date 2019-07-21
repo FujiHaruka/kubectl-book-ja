@@ -1,5 +1,6 @@
 {% panel style="success", title="Providing Feedback" %}
 **Provide feedback at the [survey](https://www.surveymonkey.com/r/JH35X82)**
+
 {% endpanel %}
 
 {% panel style="warning", title="Experimental" %}
@@ -9,12 +10,14 @@ Leave feedback on the conventions by creating an issue in the [kubectl](https://
 GitHub repository.
 
 Also provide feedback on new kubectl docs at the [survey](https://www.surveymonkey.com/r/JH35X82)
+
 {% endpanel %}
 
 {% panel style="info", title="TL;DR" %}
 
-{% endpanel %}
 - 他のユーザーが Kustomize するためのホワイトボックスなアプリケーションを公開する
+
+{% endpanel %}
 
 # Base の公開
 
@@ -27,15 +30,17 @@ Also provide feedback on new kubectl docs at the [survey](https://www.surveymonk
 
 ## ホワイトボックスな Base の公開
 
+{% method %}
+
 ホワイトボックスなアプリケーションは URL で公開し、 `kustomization.yaml` の中で Base として利用できます。これは以下の方法で利用できます。
 
-{% method %}
 **ユースケース:** ホワイトボックスなアプリケーションを GitHub で公開する
+
+{% sample lang="yaml" %}
 
 **入力:** kustomization.yaml ファイル
 
 ```yaml
-{% sample lang="yaml" %}
 # kustomization.yaml
 bases:
 # GitHub URL
@@ -58,9 +63,10 @@ spec:
     name: nginx
 ```
 
+{% endmethod %}
+
 ## ホワイトボックスな Base をカスタマイズする
 
-{% endmethod %}
 ホワイトボックスなアプリケーションを [Bases and Variations](../app_customization/bases_and_variants.md) で説明したのと同じ手法でカスタマイズできます。
 
 ## ホワイトボックス Base  のバージョニング

@@ -1,12 +1,14 @@
 {% panel style="success", title="Providing Feedback" %}
 **Provide feedback at the [survey](https://www.surveymonkey.com/r/C855WZW)**
+
 {% endpanel %}
 
 {% panel style="info", title="TL;DR" %}
 
 - Base の Pod と PodTemplate のイメージの**名前**と**タグ**を上書きする
-{% endpanel %}
 - Base の Pod と PodTemplate の環境変数と引数を上書きする
+
+{% endpanel %}
 
 # Pod のカスタマイズ
 
@@ -24,10 +26,12 @@ Pod Template をカスタマイズするシンプルな方法は**イメージ�
 
 - [images](../reference/kustomize.md#images)
 - [configMapGenerator](../reference/kustomize.md#configmapgenerator)
-{% endpanel %}
 - [secretGenerator](../reference/kustomize.md#secretgenerator)
 
+{% endpanel %}
+
 ## イメージのカスタマイズ
+
 {% method %}
 
 **ユースケース:** 複数の環境 (test、dev、staging、canary、prod) が異なるタグのイメージを使用します。
@@ -41,6 +45,7 @@ Base の [Pod Template](https://kubernetes.io/docs/concepts/workloads/pods/pod-o
 | `newName` | `name` にマッチするイメージ名をもつイメージに対してイメージの**名前**を上書きする       | `newImage: nginx-special` | `nginx:old` -> `nginx-special:old` |
 
 {% sample lang="yaml" %}
+
 **入力:** `kustomization.yaml` ファイル
 
 ```yaml
@@ -107,6 +112,7 @@ spec:
       - name: nginx
         image: nginx-pod-2:1.15
 ```
+
 {% endmethod %}
 
 {% panel style="info", title="イメージ名の置換" %}
@@ -116,20 +122,23 @@ spec:
 イメージのカスタマイズに関する詳細は [Container Images](../app_management/container_images.md) をご覧ください。
 
 {% endpanel %}
+
 ## Pod の環境変数をカスタマイズする
 
-**ユースケース:** 複数の環境 (test、dev、staging、canary、prod) に異なる環境変数を設定します。
 {% method %}
+
+**ユースケース:** 複数の環境 (test、dev、staging、canary、prod) に異なる環境変数を設定します。
 
 Pod の環境変数を上書きします。
 
 - Base が Pod 内の ConfigMap データを環境変数として使用
 - 各バリエーションは ConfigMap データを上書きまたは拡張する
 
+{% sample lang="yaml" %}
+
 **入力:** kustomization.yaml ファイル
 
 ```yaml
-{% sample lang="yaml" %}
 # kustomization.yaml
 bases:
 - ../base
@@ -218,25 +227,28 @@ spec:
             name: special-config-82tc88cmcg
 ```
 
+{% endmethod %}
+
 [ConfigMaps and Secrets](../app_management/secrets_and_configmaps.md) 参照。
 
-{% endmethod %}
 ## Pod のコマンドライン引数をカスタマイズ
+
+{% method %}
 
 **ユースケース:** 複数の環境 (test、dev、staging、canary、prod) に異なるコマンドライン引数を与えます。
 
 Pod のコマンド引数を上書きします。
 
-{% method %}
 - Base は ConfigMap データをコマンド引数として使用
 - 各バリエーションは異なる ConfigMap データを定義する
+
+{% sample lang="yaml" %}
 
 **入力:** kustomization.yaml ファイル
 
 ```yaml
 # kustomization.yaml
 bases:
-{% sample lang="yaml" %}
 - ../base
 configMapGenerator:
 - name: special-config
@@ -344,5 +356,9 @@ spec:
               name: special-config-82tc88cmcg
 ```
 
+{% endmethod %}
+
 {% panel style="info", title="詳細" %}
 ConfigMap と Secret の生成に関する詳細は [Secrets and ConfigMaps](../app_management/secrets_and_configmaps.md) を参照してください。
+
+{% endpanel %}

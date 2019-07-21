@@ -1,19 +1,22 @@
 {% panel style="success", title="Providing Feedback" %}
 **Provide feedback at the [survey](https://www.surveymonkey.com/r/CLQBQHR)**
+
 {% endpanel %}
 
 {% panel style="info", title="TL;DR" %}
 
 - リソース構成から追加また削除されたフィールドは Apply を実行することでリソースにマージされる
   - すでにリソースが存在していれば、Apply を実行するとリソースが更新され、ローカルにあるリソース構成がリモートのリソースにマージされる
-{% endpanel %}
   - リソース構成から除かれたフィールドは、リモートのリソースから削除される
+
+{% endpanel %}
 
 # フィールドのマージ
 
 {% panel style="warning", title="高度な内容" %}
-{% endpanel %}
 この章には高度な内容が含まれるため、読み飛ばして後から戻っても構いません。
+
+{% endpanel %}
 
 ## フィールドはマージされるのはいつか？
 
@@ -38,9 +41,13 @@ Apply は新しいリソース構成を使ってリソースを置換するの�
 
 `replicas` のような他のフィールドは、人間が所有することもありますし、apiserver やコントローラが所有することもあります。たとえば、`replicas` はユーザーが排他的に設定することもできますが、apiserver が暗黙的にデフォルト値を設定することもあり、あるいは HorizontalPodAutoscaler のようなコントローラが継続的に調整することもあります。
 
+{% method %}
+
 ### 前回適用されたリソース構成
 
 Apply はリソースを作成または更新するときに、適用されたリソース構成をリソース上のアノテーションに書き込みます。これによって前回適用されたリソース構成と今回のリソース構成を比較することができ、削除されたフィールドを特定できます。
+
+{% sample lang="yaml" %}
 
 ```yaml
 # deployment.yaml (Resource Config)
@@ -48,13 +55,11 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx-deployment
-{% method %}
 spec:
   selector:
     matchLabels:
       app: nginx
   template:
-{% sample lang="yaml" %}
     metadata:
       labels:
         app: nginx
@@ -89,32 +94,35 @@ status:
   # ...
 ```
 
+{% endmethod %}
+
 ## リソースをマージする
 
 以下はリソースをマージするときの意味論です。
+
+{% method %}
 
 フィールドの追加
 
 - リソース構成に存在しているがリソースに欠落しているフィールドは、リソースに追加される
 - フィールドは前回適用されたリソース構成に追加される
 
+{% sample lang="yaml" %}
+
 ```yaml
 # deployment.yaml (Resource Config)
 apiVersion: apps/v1
 kind: Deployment
-{% endmethod %}
 metadata:
   # ...
   name: nginx-deployment
 spec:
   # ...
-{% method %}
   minReadySeconds: 3
 ```
 
 ```yaml
 # Original Resource
-{% sample lang="yaml" %}
 kind: Deployment
 metadata:
   # ...
@@ -138,10 +146,16 @@ status:
   # ...
 ```
 
+{% endmethod %}
+
+{% method %}
+
 **フィールドの更新**
 
 - リソース構成にもリソースにも存在しているフィールドは、再帰的にマージされ、末端のプリミティブ値のフィールドが更新されるか、またはフィールドが追加 / 削除される
 - フィールドは前回適用されたリソース構成の中で更新される
+
+{% sample lang="yaml" %}
 
 ```yaml
 # deployment.yaml (Resource Config)
@@ -152,15 +166,12 @@ metadata:
   name: nginx-deployment
 spec:
   # ...
-{% endmethod %}
   replicas: 2
-{% method %}
 ```
 
 ```yaml
 # Original Resource
 kind: Deployment
-{% sample lang="yaml" %}
 metadata:
   # ...
   name: nginx-deployment
@@ -186,11 +197,17 @@ status:
   # ...
 ```
 
+{% endmethod %}
+
+{% method %}
+
 **フィールドの削除**
 
 - **前回適用されたリソース構成**に存在するが現在のリソース構成で除かれたフィールドは、リソースから削除される
 - リソース構成で **null** 値で存在しているフィールドはリソースから削除される
 - フィールドは前回適用されたリソース構成から除かれる
+
+{% sample lang="yaml" %}
 
 ```yaml
 # deployment.yaml (Resource Config)
@@ -201,9 +218,7 @@ metadata:
   name: nginx-deployment
 spec:
   # ...
-{% endmethod %}
 ```
-{% method %}
 
 ```yaml
 # Original Resource
@@ -212,7 +227,6 @@ metadata:
   # ...
   name: nginx-deployment
   # Containers replicas and minReadySeconds
-{% sample lang="yaml" %}
   kubectl.kubernetes.io/last-applied-configuration: |
       {"apiVersion":"apps/v1","kind":"Deployment", "spec":{"replicas": "2", "minReadySeconds": "3", ...}, "metadata": {...}}
 spec:
@@ -240,10 +254,14 @@ status:
   # ...
 ```
 
+{% endmethod %}
+
 {% panel style="danger", title="リソース構成からフィールドを削除する" %}
 リソース構成から単にフィールドを除くだけでは所有権がクラスタに移ることは**ありません**。そうではなくリソースからフィールドを削除します。もしフィールドがリソース構成の中に設定され、ユーザーが所有権を放棄したい (たとえば `replicas` をリソース構成から除いて autoscaler に頼る) と思ったら、最初に、クラスタに保存されている前回適用されたリソース構成からフィールドを削除しなければなりません。
 
 これを実行するには、`kubectl apply edit-last-applied` コマンドを使い、**前回適用されたリソース構成**から `replicas` を削除し、次に**リソース構成**からも削除します。
+
+{% endpanel %}
 
 ## フィールドのマージの意味論
 
@@ -258,7 +276,6 @@ status:
 **フィールドの削除:** プリミティブ値のフィールドを削除
 
 | リソース構成内のフィールド | リソース内のフィールド | 前回適用されたフィールド | アクション                |
-{% endmethod %}
 | ------------- | ----------- | ------------ | -------------------- |
 | Yes           | Yes         | -            | 稼働中のリソースにリソース構成の値を設定 |
 | Yes           | No          | -            | 稼働中のリソースにリソース構成の値を設定 |
@@ -269,7 +286,6 @@ status:
 
 オブジェクトのフィールドは下位のフィールドを (フィールド名で) 再帰的にマージすることによって更新します。マージは末端でプリミティブ値のフィールドが見つかるか、フィールドを追加 / 削除するまで続きます。
 
-{% endpanel %}
 **フィールドの作成:** オブジェクトのフィールドを追加
 
 **フィールドの更新:** 再帰的にオブジェクトの下位のフィールドを見て値を比較し、マージする
@@ -324,7 +340,11 @@ status:
 | No        | -       | Yes              | リストから除く |
 | No        | -       | No               | 何もしない   |
 
+{% method %}
+
 このマージ戦略は patch merge key を使ってリスト内のコンテナ要素を識別し、マージします。`patch merge key` はフィールド上の [Kubernetes API](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.12/#podspec-v1-core) で定義されています。
+
+{% sample lang="yaml" %}
 
 ```yaml
 # Last Applied
@@ -346,6 +366,8 @@ args: ["a", "b", "d"]
 args: ["a", "c", "d"]
 ```
 
+{% endmethod %}
+
 ### オブジェクトのリストのマージ
 
 **マージ戦略:** プリミティブ値のリストはマージされるか置換されるかします。リストの `patch strategy` が **merge** でリストフィールドに `patch merge key` があるとき、リストはマージされます。 [Container list example](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.12/#podspec-v1-core)
@@ -353,19 +375,21 @@ args: ["a", "c", "d"]
 **マージキー:** `patch merge key` はリスト内の同じ要素を識別するために使用されます。 map の要素 (キーによるキー) やオブジェクトのフィールド (フィールド名によるキー) と違って、リストは各要素を区別するビルトインの識別子がありません (インデックスは同一性を定義しません)。オブジェクトのフィールドの代わりに、マージする要素に対して人工のキー / バリューとして使われます。このフィールドは `patch merge key` です。同じ patch merge key をもつ要素はリストがマージされるときにマージされます。
 
 **順序:** リソース構成の中で定義された順序を使用します。リソース構成の中で定義されていない要素は順序が保証されません。
-{% method %}
 
 **マージテーブル:** 各リストの要素に対してリソース構成とリソースの要素をマージしますが、`patch merge key` の値が同じ要素をマージします。
 
 | リソース構成の要素 | リソースの要素 | 前回適用されたリソース構成の要素 | アクション                   |
 | --------- | ------- | ---------------- | ----------------------- |
-{% sample lang="yaml" %}
 | Yes       | -       | -                | 再帰的にリソース構成とリソースの値をマージする |
 | Yes       | No      | -                | リストに追加                  |
 | No        | -       | Yes              | リストから除く                 |
 | No        | -       | No               | 何もしない                   |
 
+{% method %}
+
 このマージ戦略は patch merge key を使ってリスト内のコンテナ要素を識別し、マージします。`patch merge key` はフィールド上の [Kubernetes API](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.12/#podspec-v1-core) で定義されています。
+
+{% sample lang="yaml" %}
 
 ```yaml
 # Last Applied Resource Config
@@ -381,7 +405,6 @@ containers:
 ```yaml
 # Resource Config (Local)
 containers:
-{% endmethod %}
 - name: nginx
   image: nginx:1.10
 - name: nginx-helper-b
@@ -406,13 +429,11 @@ containers:
 
 ```yaml
 # Applied Resource
-{% method %}
 containers:
 - name: nginx
   image: nginx:1.10
   # Element nginx-helper-a was Deleted
 - name: nginx-helper-b
-{% sample lang="yaml" %}
   image: helper:1.3
   # Field was Ignored
   args: ["run"]
@@ -424,6 +445,8 @@ containers:
   image: helper:1.3
 ```
 
+{% endmethod %}
+
 {% panel style="info", title="Edit と Set" %}
 `kubectl edit` と `kubectl set` は前回適用されたリソース構成を無視しますが、Apply は、`kubectl edit` や `kubectl set` でセットされたリソース構成の値を変更します。`kubectl edit` や `kubectl set` でセットされた値を無視するには、以下のようにします。
 
@@ -431,3 +454,5 @@ containers:
 - リソース構成からフィールドを削除します
 
 これは autoscaler のようなクラスタコンポーネントによって設定された値を保持するのと同じテクニックです。
+
+{% endpanel %}

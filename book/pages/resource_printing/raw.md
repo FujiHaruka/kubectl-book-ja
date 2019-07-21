@@ -1,11 +1,13 @@
 {% panel style="success", title="Providing Feedback" %}
 **Provide feedback at the [survey](https://www.surveymonkey.com/r/JH35X82)**
+
 {% endpanel %}
 
 {% panel style="info", title="TL;DR" %}
 
-{% endpanel %}
 - クラスタ内の生のリソースを YAML や JSON として取得、リスト表示します
+
+{% endpanel %}
 
 # 生のリソースを表示する
 
@@ -24,16 +26,18 @@ apiserver により etcd に保存された Kubernetes リソースは、**要�
 
 `kubectl get` はクラスタからリソースを読み込み、出力としてフォーマットします。この章の例では、引数に**リソースタイプ**を与えることでリソースを検索します。検索のオプションの詳細は[クエリとオプション](queries_and_options.md)を確認してください。
 
+{% method %}
+
 ### YAML
 
 生のリソースを YAML 形式で表示します。
-{% method %}
+
+{% sample lang="yaml" %}
 
 ```bash
 kubectl get deployments -o yaml
 ```
 
-{% sample lang="yaml" %}
 ```yaml
 apiVersion: v1
 items:
@@ -106,22 +110,25 @@ metadata:
   selfLink: ""
 ```
 
+{% endmethod %}
+
 - - -
+
+{% method %}
 
 ### JSON
 
 生のリソースを JSON 形式で出力します。
-{% endmethod %}
+
+{% sample lang="yaml" %}
 
 ```bash
 kubectl get deployments -o json
-{% method %}
 ```
 
 ```json
 {
     "apiVersion": "v1",
-{% sample lang="yaml" %}
     "items": [
         {
             "apiVersion": "extensions/v1beta1",
@@ -217,3 +224,5 @@ kubectl get deployments -o json
     }
 }
 ```
+
+{% endmethod %}

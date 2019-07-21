@@ -1,5 +1,6 @@
 {% panel style="success", title="Providing Feedback" %}
 **Provide feedback at the [survey](https://www.surveymonkey.com/r/JH35X82)**
+
 {% endpanel %}
 
 {% panel style="warning", title="Experimental" %}
@@ -9,12 +10,14 @@ Leave feedback on the conventions by creating an issue in the [kubectl](https://
 GitHub repository.
 
 Also provide feedback on new kubectl docs at the [survey](https://www.surveymonkey.com/r/JH35X82)
+
 {% endpanel %}
 
 {% panel style="info", title="TL;DR" %}
 
-{% endpanel %}
 - 同一プロジェクト内で同一の Base を異なるアプリケーションに対して複数回使うことができる
+
+{% endpanel %}
 
 # 共有 Base による合成
 
@@ -36,6 +39,7 @@ graph TD;
 ```
 
 {% method %}
+
 同一プロジェクト内で同じ Base を複数回使用するには、3 層構造を使って Base のバリエーションを複数合成します。
 
 1. `kustomization.yaml` 中の汎用的な Base
@@ -63,8 +67,9 @@ graph TD;
 - プロジェクト内のリソースに名前空間を設定
 - プロジェクト内のリソースに namePrefix を設定
 
-**汎用的 Base レイヤー:**
 {% sample lang="yaml" %}
+
+**汎用的 Base レイヤー:**
 
 ```yaml
 # base/java/kustomization.yaml
@@ -193,10 +198,12 @@ bases:
 - app2
 ```
 
-**結果**:
 {% endmethod %}
 
 {% method %}
+
+**結果**:
+
 - 2 つの Deployment が作成される
 - 各 Deployment は異なるイメージをもつ
 - 各 Deployment は異なるラベル / セレクタをもつ
@@ -218,9 +225,10 @@ bases:
 - 変更を下流の Base に伝播させることによってメンテナンスの労力を減らす
 - 関心の分離によってバリエーションの複雑を減らす
 
+{% sample lang="yaml" %}
+
 **適用:**
 
-{% sample lang="yaml" %}
 ```yaml
 apiVersion: v1
 kind: Service
@@ -345,8 +353,9 @@ spec:
           timeoutSeconds: 1
 ```
 
-{% panel style="info", title="ユースケース" %}
 {% endmethod %}
+
+{% panel style="info", title="ユースケース" %}
 
 - アプリケーションごとの汎用的な Archetype Base を定義する
 - メタプロジェクトに一緒にプッシュされる複数のプロジェクトを合成する
