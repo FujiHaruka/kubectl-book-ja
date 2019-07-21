@@ -29,15 +29,15 @@ texts:
 ---
 texts:
   en: Publish a White Box Application as a Base for other users to Kustomize
-  ja: __COPY__
+  ja: 他のユーザーが Kustomize するためのホワイトボックスなアプリケーションを公開する
 ---
 texts:
   en: Publishing Bases
-  ja: __COPY__
+  ja: Base の公開
 ---
 texts:
   en: Motivation
-  ja: __COPY__
+  ja: 動機
 ---
 texts:
   en: >-
@@ -48,83 +48,83 @@ texts:
     Config published specifically for the White Box Application, and add customizations for
 
     their specific needs.
-  ja: __COPY__
+  ja: アプリケーションを構築するためにリソース構成をスクラッチで書かずに、共通のホワイトボックスなアプリケーションを実行したくなることがあります。そういう場合、公開されている既存のリソース構成を利用し、特定の用途のためにカスタマイズを追加してアプリケーションを構築したくなります。
 ---
 texts:
   en: Run a White Box Application (e.g. Cassandra, MongoDB) instance from ready-made Resource Config
-  ja: __COPY__
+  ja: ホワイトボックスなアプリケーション (たとえば Cassandra、MongoDB) のインスタンスを既存のリソース構成から実行する
 ---
 texts:
   en: Publish Resource Config to run an Application
-  ja: __COPY__
+  ja: アプリケーションを実行するためにリソース構成を公開する
 ---
 texts:
   en: Publishing a White Box Base
-  ja: __COPY__
+  ja: ホワイトボックスな Base の公開
 ---
 texts:
   en: >-
     White Box Applications may be published to a URL and consumed as Bases in an `kustomization.yaml`.  It
 
     can then be consumed in the following manner.
-  ja: __COPY__
+  ja: ホワイトボックスなアプリケーションは URL で公開し、 `kustomization.yaml` の中で Base として利用できます。これは以下の方法で利用できます。
 ---
 texts:
   en: "**Use Case:** Run a White Box Application published to GitHub."
-  ja: __COPY__
+  ja: "**ユースケース:** ホワイトボックスなアプリケーションを GitHub で公開する"
 ---
 texts:
   en: "**Input:** The kustomization.yaml file"
-  ja: __COPY__
+  ja: "**入力:** kustomization.yaml ファイル"
 ---
 texts:
   en: "**Applied:** The Resource that is Applied to the cluster"
-  ja: __COPY__
+  ja: "**適用:** クラスタに適用されるリソース"
 ---
 texts:
   en: Customizing White Box Bases
-  ja: __COPY__
+  ja: ホワイトボックスな Base をカスタマイズする
 ---
 texts:
   en: >-
     The White Box Application may be customized using the same techniques described in
 
     [Bases and Variations](../app_customization/bases_and_variants.md).
-  ja: __COPY__
+  ja: ホワイトボックスなアプリケーションを [Bases and Variations](../app_customization/bases_and_variants.md) で説明したのと同じ手法でカスタマイズできます。
 ---
 texts:
   en: Versioning White Box Bases
-  ja: __COPY__
+  ja: ホワイトボックス Base  のバージョニング
 ---
 texts:
   en: White Box Bases may be versioned using the well known versioning techniques provided by Git.
-  ja: __COPY__
+  ja: "ホワイトボックス Base は Git が提供する周知のバージョニング手法を使ってバージョニングできます。"
 ---
 texts:
   en: "**Tag:**"
-  ja: __COPY__
+  ja: "**タグ:**"
 ---
 texts:
   en: >-
     Bases may be versioned by applying a tag to the repo and modifying the url to point to the tag:
 
     `github.com/kubernetes-sigs/kustomize/examples/multibases?ref=v1.0.6`
-  ja: __COPY__
+  ja: "Base をバージョニングするためにリポジトリにタグを適用し、そのタグを指すよう URL を修正します。`github.com/kubernetes-sigs/kustomize/examples/multibases?ref=v1.0.6`"
 ---
 texts:
   en: "**Branch:**"
-  ja: __COPY__
+  ja: "**ブランチ:**"
 ---
 texts:
   en: >-
     Bases may be versioned by creating a branch and modifying the url to point to the branch:
 
     `github.com/Liujingfang1/kustomize/examples/helloWorld?ref=repoUrl2`
-  ja: __COPY__
+  ja: Base をバージョニングするためにブランチを作成し、そのブランチを指すよう URL を修正します。`github.com/Liujingfang1/kustomize/examples/helloWorld?ref=repoUrl2`
 ---
 texts:
   en: "**Commit:**"
-  ja: __COPY__
+  ja: "**コミット:**"
 ---
 texts:
   en: >-
@@ -133,11 +133,11 @@ texts:
     base to a specific commit:
 
     `github.com/Liujingfang1/kustomize/examples/helloWorld?ref=7050a45134e9848fca214ad7e7007e96e5042c03`
-  ja: __COPY__
+  ja: Base のリポジトリがメンテナによって明示的にバージョニングされていない場合、特定のコミットに Base をピン付けできます。`github.com/Liujingfang1/kustomize/examples/helloWorld?ref=7050a45134e9848fca214ad7e7007e96e5042c03`
 ---
 texts:
   en: Forking a White Box Base
-  ja: __COPY__
+  ja: ホワイトボックス Base のフォーク
 ---
 texts:
   en: >-
@@ -146,4 +146,4 @@ texts:
     complete control over changes to the Base.  Users should periodically pull changes from the
 
     upstream repo back into the fork to get bug fixes and optimizations.
-  ja: __COPY__
+  ja: GitHub にホストされているホワイトボックス Base を GitHub リポジトリをフォークすることによってフォークできます。これによって、Base に対する変更を完全に管理できるようになります。その場合、定期的に upstream リポジトリの変更をフォークに pull し、不具合修正や最適化を取り入れるようにすべきです。
