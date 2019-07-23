@@ -3,7 +3,7 @@
   "pluginsConfig": {
     "favicon": "favicon.ico",
     "ga": {
-      "token": "UA-136142416-1"
+      "token": "UA-143063367-2"
     },
     "mermaid-gb3": {
       "width": "100%"
@@ -27,5 +27,5 @@
   },
   "gitbook": ">= 3.0.0",
   "author": "Phillip Wittrock",
-  "title": "The Kubectl Book"
+  "title": "The Kubectl Book 日本語訳"
 }

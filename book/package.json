@@ -3,9 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "description": "**Note:** Impatient readers head straight to [Quick Start](quick_start.md).",
-  "main": "index.js",
   "dependencies": {
-    "cryptiles": "^4.1.2",
     "gitbook-cli": "^2.3.2",
     "gitbook-plugin-copy-code-button": "0.0.2",
     "gitbook-plugin-custom-favicon": "0.0.4",
@@ -17,10 +15,7 @@
     "gitbook-plugin-panel": "^0.0.1",
     "gitbook-plugin-sequence-diagrams": "^1.1.0",
     "gitbook-plugin-theme-api": "^1.1.2",
-    "gitbook-plugin-toc": "0.0.2",
-    "lodash": "4.17.11",
-    "phantomjs-prebuilt": "^2.1.16",
-    "underscore.string": "^3.3.5"
+    "gitbook-plugin-toc": "0.0.2"
   },
   "devDependencies": {},
   "scripts": {
