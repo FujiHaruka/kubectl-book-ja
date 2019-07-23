@@ -1,5 +1,5 @@
-{% panel style="success", title="Feedback and Contributing" %}
-**Provide feedback on new kubectl docs at the [survey](https://www.surveymonkey.com/r/JH35X82)**
+{% panel style="success", title="翻訳" %}
+このドキュメントは [The Kubectl Book](https://kubectl.docs.kubernetes.io/) の翻訳です。翻訳の間違いは [GitHub の翻訳リポジトリ](https://github.com/FujiHaruka/kubectl-book-ja/issues) までお願いします。
 
 See [CONTRIBUTING](https://github.com/kubernetes/kubectl/blob/master/docs/book/CONTRIBUTING.md) for
 instructions on filing/fixing issues and adding new content.

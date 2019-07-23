@@ -1,5 +1,5 @@
-{% panel style="success", title="Providing Feedback" %}
-**Provide feedback at the [survey](https://www.surveymonkey.com/r/C855WZW)**
+{% panel style="success", title="翻訳" %}
+このドキュメントは [The Kubectl Book](https://kubectl.docs.kubernetes.io/) の翻訳です。翻訳の間違いは [GitHub の翻訳リポジトリ](https://github.com/FujiHaruka/kubectl-book-ja/issues) までお願いします。
 
 {% endpanel %}
 
