@@ -14,11 +14,11 @@ texts:
 ---
 texts:
   en: Get or List Raw Resources in a cluster as Yaml or Json
-  ja: クラスタ内の生のリソースを YAML や JSON として取得、リスト表示します
+  ja: クラスタ内のリソースの詳細を YAML や JSON として取得、リスト表示します
 ---
 texts:
   en: Print Raw Resource
-  ja: 生のリソースを表示する
+  ja: リソースの詳細を表示する
 ---
 texts:
   en: Motivation
@@ -35,7 +35,7 @@ texts:
     are shown in the summarized views**.  Users can learn much more about a Resource by
 
     viewing the Raw Resource as Yaml or Json.  The Raw Resource will contain:
-  ja: apiserver により etcd に保存された Kubernetes リソースは、**要約表示で表示されるよりも多くのフィールドを持っています**。生のリソースを YAML や JSON で表示することで、より多くの情報を知ることができます。生のリソースには以下が含まれます。
+  ja: apiserver により etcd に保存された Kubernetes リソースは、**概要表示で表示されるよりも多くのフィールドを持っています**。リソースの詳細を YAML や JSON で表示することで、より多くの情報を知ることができます。リソースの詳細には以下が含まれます。
 ---
 texts:
   en: fields specified by the **user** in the Resource Config (e.g. `metadata.name`)
@@ -47,11 +47,11 @@ texts:
 ---
 texts:
   en: fields defaulted by the **apiserver** (e.g. `spec..imagePullPolicy`)
-  ja: "**apiserver** によりデフォルト値が設定されたフィールド (例: `spec.imagePullPolicy`)"
+  ja: "**apiserver** がデフォルト値を設定したフィールド (例: `spec.imagePullPolicy`)"
 ---
 texts:
   en: fields set by **Controllers** (e.g. `spec.clusterIp`, `status`)
-  ja: "**コントローラ**により設定されたフィールド (例: `spec.clusterIp`、`status`)"
+  ja: "**コントローラ**が設定したフィールド (例: `spec.clusterIp`、`status`)"
 ---
 texts:
   en: Get
@@ -73,7 +73,7 @@ texts:
 ---
 texts:
   en: Print the Raw Resource formatting it as YAML.
-  ja: 生のリソースを YAML 形式で表示します。
+  ja: リソースの詳細を YAML 形式で表示します。
 ---
 texts:
   en: JSON
@@ -81,4 +81,4 @@ texts:
 ---
 texts:
   en: Print the Raw Resource formatting it as JSON.
-  ja: 生のリソースを JSON 形式で出力します。
+  ja: リソースの詳細を JSON 形式で出力します。

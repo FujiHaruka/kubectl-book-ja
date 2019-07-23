@@ -34,11 +34,11 @@ texts:
 ---
 texts:
   en: This may be **useful for scripting or gathering data** about Resources from a Kubernetes cluster.
-  ja: これは Kubernetes クラスタからリソースについてのデータを収集したり処理するスクリプトを書くときに便利です。
+  ja: これは Kubernetes クラスタからリソースについてのデータを収集または処理するスクリプトを書くときに便利です。
 ---
 texts:
   en: Get
-  ja: 取得
+  ja: Get
 ---
 texts:
   en: >-
@@ -50,7 +50,7 @@ texts:
 
     For more query options see [Queries and Options](queries_and_options.md).
   ja: >-
-    `kubectl get` コマンドはクラスタからリソースを読み込み、フォーマットして出力します。この章の例では、リソースを検索するためにコマンドの引数に**リソースタイプ**をバージョンとグループ名付きで与えます。検索オプションの詳細は [Queries and Options](queries_and_options.md) をご覧ください。
+    `kubectl get` コマンドはクラスタからリソースを読み込み、フォーマットして出力します。この章の例では、リソースを検索するためにコマンドの引数に**リソースタイプ**をバージョンとグループ名付きで与えます。検索オプションの詳細は[クエリとオプション](queries_and_options.md)をご覧ください。
 ---
 texts:
   en: Kubectl can format and print specific fields from Resources using Json Path.
@@ -91,7 +91,7 @@ texts:
 ---
 texts:
   en: Print the fields from the JSON Path
-  ja: JSON パスからフィールドを表示します
+  ja: JSON パスからフィールドを表示します。
 ---
 texts:
   en: "**Note:**  JSON Path can also be read from a file using `-o custom-columns-file`."
@@ -311,7 +311,7 @@ texts:
 ---
 texts:
   en: For each Deployment, print its `metadata.name` and `.status.availableReplicas`.
-  ja: 各 Deployment ごとに、その `metadata.name` と `.status.availableReplicas` を表示します
+  ja: 各 Deployment ごとに、その `metadata.name` と `.status.availableReplicas` を表示します。
 ---
 texts:
   en: Print the list of Deployments as single line.

@@ -14,7 +14,7 @@ texts:
 ---
 texts:
   en: Print verbose debug information about a Resource
-  ja: リソースに関する詳細なデバッグ情報を表示します
+  ja: リソースに関する詳細なデバッグ情報を表示する
 ---
 texts:
   en: Describe Resources
@@ -29,7 +29,7 @@ texts:
     Describe is a **higher level printing operation that may aggregate data from other sources** in addition
 
     to the Resource being queried (e.g. Events).
-  ja: describe は、検索されたリソースの情報に加えて**他のソース (たとえば Evnet) からも情報を集めて表示することのできる高レベルの操作**です。
+  ja: describe は、検索されたリソースの情報に加えて**他のソース (たとえばイベント) からも情報を集めて表示することのできる高レベルの操作**です。
 ---
 texts:
   en: >-

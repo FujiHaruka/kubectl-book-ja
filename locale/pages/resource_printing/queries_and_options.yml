@@ -58,7 +58,7 @@ texts:
 ---
 texts:
   en: The Singular, Plural, Short Name also apply to *Types with Name* and *Types with Selectors*.
-  ja: 単数形、複数形、省略形の名前も *Types with Name* と *Types with Selectors* に適用されます。
+  ja: 単数形、複数形、省略形の名前も、**名前付きリソースタイプ**と**セレクタ付きリソースタイプ**に適用されます。
 ---
 texts:
   en: Resource Types with Group / Version
@@ -74,7 +74,7 @@ texts:
 ---
 texts:
   en: Resource Types with Name
-  ja: 名前付きのリソース
+  ja: 名前付きのリソースタイプ
 ---
 texts:
   en: Get named Resources in a namespace for a given type.
@@ -132,7 +132,7 @@ texts:
 ---
 texts:
   en: Not Found
-  ja: __COPY__
+  ja: リソースが見つからない場合
 ---
 texts:
   en: >-

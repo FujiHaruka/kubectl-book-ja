@@ -18,7 +18,7 @@ texts:
 ---
 texts:
   en: Kustomize is used to author Resource Config
-  ja: Kustomize はリソース構成を書くために使われる
+  ja: Kustomize はリソース構成を記述するために使用される
 ---
 texts:
   en: Declarative Application Management
@@ -74,7 +74,7 @@ texts:
 ---
 texts:
   en: "**Setting cross-cutting fields** - e.g. namespace, labels, annotations, name-prefixes, etc"
-  ja: "**横断的にフィールドを設定する - たとえば名前空間、ラベル、annotation、名前のプレフィックスなど**"
+  ja: "**横断的にフィールドを設定する - たとえば名前空間、ラベル、アノテーション、名前のプレフィックスなど**"
 ---
 texts:
   en: >-
@@ -96,7 +96,7 @@ texts:
     state on the Resource - e.g. *defaulting unspecified fields, filling in IP addresses, autoscaling
 
     replica count, etc.*
-  ja: サーバーコンポーネントは、書かれたリソース構成をクラスタに適用することからなります。Apply が実行されると、Kubernetes クラスタはリソースを作成・更新することになりますが、リソース構成ファイルには書かれていないリソース上の望ましい状態を追加します。たとえば、**指定されていないフィールドをデフォルト値で埋め、IP アドレスを入力し、レプリカ数をオートスケールさせるといったことです。**
+  ja: サーバーコンポーネントは、記述されたリソース構成をクラスタに適用することからなります。Apply が実行されると、Kubernetes クラスタはリソースを作成・更新することになりますが、リソース構成ファイルには書かれていないリソース上の望ましい状態を追加します。たとえば、**指定されていないフィールドをデフォルト値で埋め、IP アドレスを入力し、レプリカ数をオートスケールさせるといったことです。**
 ---
 texts:
   en: >-

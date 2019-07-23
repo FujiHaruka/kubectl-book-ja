@@ -13,7 +13,7 @@ texts:
     See [CONTRIBUTING](https://github.com/kubernetes/kubectl/blob/master/docs/book/CONTRIBUTING.md) for
 
     instructions on filing/fixing issues and adding new content.
-  ja: __COPY__
+  ja: ""
 ---
 texts:
   en: '{% panel style="info", title="TL;DR" %}'
@@ -80,7 +80,7 @@ texts:
 ---
 texts:
   en: Declaratively manage Kubernetes Workloads using Resource Config
-  ja: リソース構成を使い Kubernetes ワークロードを宣言的に管理する
+  ja: リソース構成を使い Kubernetes ワークロードを宣言的に管理
 ---
 texts:
   en: Imperative Resource Management
@@ -92,7 +92,7 @@ texts:
 ---
 texts:
   en: Run commands to manage Kubernetes Workloads using Command Line arguments and flags
-  ja: コマンドラインに引数とフラグを与えて Kubernetes ワークロードを管理するコマンドを実行する
+  ja: コマンドライン引数とフラグを与えて Kubernetes ワークロードを管理するコマンドを実行
 ---
 texts:
   en: Printing Workload State
@@ -104,7 +104,7 @@ texts:
 ---
 texts:
   en: Print information about Workloads
-  ja: ワークロードについての情報を表示する
+  ja: ワークロードの情報を表示
 ---
 texts:
   en: Interacting with Containers
@@ -128,7 +128,7 @@ texts:
 ---
 texts:
   en: Drain and Cordon Nodes
-  ja: __COPY__
+  ja: Node の Drain や Cordon
 ---
 texts:
   en: Declarative Application Management
@@ -143,7 +143,7 @@ texts:
     This command reads a local (or remote) file structure and modifies cluster state to
 
     reflect the declared intent.
-  ja: リソースを管理する方法は、リソース構成と呼ばれる宣言的なファイルを置き、Kubectl **Apply** コマンドで管理するのが推奨方法です。このコマンドはローカル (またはリモート) にあるファイル群を読み込み、そこに宣言された望ましい状態に合わせてクラスタの状態を変更します。
+  ja: リソースを管理するには、リソース構成と呼ばれる宣言的なファイルを置き、Kubectl **Apply** コマンドで管理するのが推奨方法です。このコマンドはローカル (またはリモート) にあるファイル群を読み込み、そこに宣言された望ましい状態に合わせてクラスタの状態を変更します。
 ---
 texts:
   en: >-
@@ -153,7 +153,7 @@ texts:
   ja: >-
     {% panel style="info", title="Apply" %}
 
-    Apply は Kubernetes のリソースを管理するための推奨方法です。
+    Apply コマンドは Kubernetes のリソースを管理するための推奨方法です。
 ---
 texts:
   en: Printing state about Workloads
@@ -165,11 +165,11 @@ texts:
 ---
 texts:
   en: Printing summarize state and information about Resources
-  ja: リソースの状態とその情報を要約して表示する
+  ja: リソースの状態とその情報の概要表示する
 ---
 texts:
   en: Printing complete state and information about Resources
-  ja: リソースの状態とその情報を完全に表示する
+  ja: リソースの状態とその情報の詳細を表示する
 ---
 texts:
   en: Printing specific fields from Resources
@@ -212,7 +212,7 @@ texts:
     On occasion, users may need to perform operations to the Nodes of cluster.  Kubectl supports
 
     commands to drain Workloads from a Node so that it can be decommission or debugged.
-  ja: 時には、クラスタの Node に何らかの操作を実行したくなることがあります。Kubectl は Node からワークロードをドレイン？するコマンドをサポートしています。それを使うと、ワークロードを停止したりデバッグしたりできます。
+  ja: 時には、クラスタの Node に対して何らかの操作を実行したくなることがあります。Kubectl は Node からワークロードを drain するコマンドをサポートしています。それを使うと、ワークロードを停止したりデバッグしたりできます。
 ---
 texts:
   en: Porcelain
@@ -237,7 +237,7 @@ texts:
 ---
 texts:
   en: Editing (live) Resources in a text editor
-  ja: テキストエディタでリソースを (稼働させたまま) 編集する
+  ja: テキストエディタで (稼働中の) リソースを編集する
 ---
 texts:
   en: >-
@@ -249,4 +249,4 @@ texts:
   ja: >-
     {% panel style="danger", title="開発用" %}
 
-    命令的なコマンドはユーザーフレンドリーであるため開発用クラスタ内でワークロードを試行錯誤する上で時間の節約になりますが、本番で使うべきではありません。
+    命令的なコマンドはユーザーフレンドリーであるため、開発用のクラスタ内でワークロードを実験的に操作する上で時間の節約になりますが、本番環境で使うべきではありません。

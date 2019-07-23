@@ -56,7 +56,7 @@ texts:
 ---
 texts:
   en: "[Raw](pages/resource_printing/raw.md)"
-  ja: "[生のリソース](pages/resource_printing/raw.md)"
+  ja: "[詳細](pages/resource_printing/raw.md)"
 ---
 texts:
   en: "[Fields](pages/resource_printing/fields.md)"
