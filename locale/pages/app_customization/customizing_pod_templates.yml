@@ -14,11 +14,11 @@ texts:
 ---
 texts:
   en: Override Base Pod and PodTemplate Image **Names** and **Tags**
-  ja: Base の Pod と PodTemplate のイメージの**名前**と**タグ**を上書きする
+  ja: ベースの Pod と PodTemplate のイメージの**名前**と**タグ**を上書きする
 ---
 texts:
   en: Override Base Pod and PodTemplate Environment Variables and Arguments
-  ja: Base の Pod と PodTemplate の環境変数と引数を上書きする
+  ja: ベースの Pod と PodTemplate の環境変数と引数を上書きする
 ---
 texts:
   en: Customizing Pods
@@ -81,7 +81,7 @@ texts:
     Override the name or tag for an `image` field from a [Pod Template](https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/#pod-templates)
 
     in a base by specifying the `images` field in the `kustomization.yaml`.
-  ja: Base の [Pod Template](https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/#pod-templates) から `image` フィールドの名前とタグを上書きするには、`kustomization.yaml` の `images` フィールドを指定します。
+  ja: ベースの [Pod Template](https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/#pod-templates) から `image` フィールドの名前とタグを上書きするには、`kustomization.yaml` の `images` フィールドを指定します。
 ---
 texts:
   en: Field
@@ -149,7 +149,7 @@ texts:
 ---
 texts:
   en: "**Base:** Resources to be modified by the `kustomization.yaml`"
-  ja: "**Base:** `kustomization.yaml` により修正されるリソース"
+  ja: "**ベース:** `kustomization.yaml` により修正されるリソース"
 ---
 texts:
   en: "**Applied:** The Resource that is Applied to the cluster"
@@ -190,7 +190,7 @@ texts:
 ---
 texts:
   en: Base uses ConfigMap data in Pods as Environment Variables
-  ja: Base が Pod 内の ConfigMap データを環境変数として使用
+  ja: ベースが Pod 内の ConfigMap データを環境変数として使用
 ---
 texts:
   en: Each Variant overrides or extends ConfigMap data
@@ -202,7 +202,7 @@ texts:
 ---
 texts:
   en: "**Base: kustomization.yaml and Resources**"
-  ja: "**Base: kustomization.yaml とリソース"
+  ja: "**ベース: kustomization.yaml とリソース"
 ---
 texts:
   en: "**Applied:** The Resources that are Applied to the cluster"
@@ -229,7 +229,7 @@ texts:
 ---
 texts:
   en: Base uses ConfigMap data in Pods as Command Arguments
-  ja: Base は ConfigMap データをコマンド引数として使用
+  ja: ベースは ConfigMap データをコマンド引数として使用
 ---
 texts:
   en: Each Variant defines different ConfigMap data

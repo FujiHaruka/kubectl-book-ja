@@ -48,7 +48,7 @@ texts:
     *Bases:* provide **common or shared Resource Config to be factored out** that can be
       imported into multiple projects.
   ja: >-
-    **Base:** 複数のプロジェクトにインポートできるように**共通部分をくくり出した共有のリソース構成**
+    **ベース:** 複数のプロジェクトにインポートできるように**共通部分をくくり出した共有のリソース構成**
 ---
 texts:
   en: >-

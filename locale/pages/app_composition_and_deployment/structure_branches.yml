@@ -378,7 +378,7 @@ texts:
 ---
 texts:
   en: "**Base Branch:** `master`"
-  ja: "**Base ブランチ:** `master`"
+  ja: "**ベース ブランチ:** `master`"
 ---
 texts:
   en: "**Deploy Branches:**"

@@ -14,19 +14,19 @@ texts:
 ---
 texts:
   en: Reuse Resource Config as Bases to `kustomization.yaml`'s.
-  ja: "`kustomization.yaml` の構成を Base としたリソース構成の再利用"
+  ja: "`kustomization.yaml` の構成をベースとしたリソース構成の再利用"
 ---
 texts:
   en: Customize Base for different Environments.
-  ja: 複数の環境向けに Base をカスタマイズする
+  ja: 複数の環境向けにベースをカスタマイズする
 ---
 texts:
   en: Reuse a Base across multiple Projects.
-  ja: 複数のプロジェクトをまたいだ Base の再利用
+  ja: 複数のプロジェクトをまたいだベースの再利用
 ---
 texts:
   en: Bases and Variations
-  ja: Base とバリエーション
+  ja: ベースとバリエーション
 ---
 texts:
   en: Motivation
@@ -42,7 +42,7 @@ texts:
   ja: >-
     ユーザーが**一つのリソース構成を変形して**複数の構成をデプロイしたり、**同じリソース構成を再利用**したりすることはよくあります。
   
-    `kustomization.yaml` によって作成されたリソース構成は、`kustomization.yaml` を **Base** として使い、複数のプロジェクトをまたいで再利用することができます。
+    `kustomization.yaml` によって作成されたリソース構成は、`kustomization.yaml` を**ベース**とし、複数のプロジェクトをまたいで再利用することができます。
 ---
 texts:
   en: "Examples:"
@@ -74,11 +74,11 @@ texts:
 ---
 texts:
   en: Bases are shared Resource Config in a `kustomization.yaml` to be used and customized by another `kustomization.yaml`.
-  ja: Base は `kustomization.yaml` の中で共有されるリソース構成で、別の `kustomization.yaml` が利用したりカスタマイズしたりします。
+  ja: ベースは `kustomization.yaml` の中で共有されるリソース構成で、別の `kustomization.yaml` が利用したりカスタマイズしたりします。
 ---
 texts:
   en: "Examples of Bases:"
-  ja: Base の例。
+  ja: ベースの例。
 ---
 texts:
   en: Common Java Base
@@ -106,7 +106,7 @@ texts:
 ---
 texts:
   en: Referring to a Base
-  ja: Base への参照
+  ja: ベースへの参照
 ---
 texts:
   en: >-
@@ -115,7 +115,7 @@ texts:
     points to a directory** containing another `kustomization.yaml` file.  This will automatically
 
     add and kustomize all of the Resources from the base project to the current project.
-  ja: プロジェクトに Base を追加するには、別の `kustomization.yaml` があるディレクトリのパス (`kustomization.yaml` への相対パス) を **`base`** に追加します。これによって、ベースプロジェクトから現プロジェクトにすべてのリソースが自動的に追加、kustomize されます。
+  ja: プロジェクトにベースを追加するには、別の `kustomization.yaml` があるディレクトリのパス (`kustomization.yaml` への相対パス) を **`base`** に追加します。これによって、ベースプロジェクトから現プロジェクトにすべてのリソースが自動的に追加、kustomize されます。
 ---
 texts:
   en: "Bases can be:"
@@ -123,7 +123,7 @@ texts:
 ---
 texts:
   en: Relative paths from the `kustomization.yaml` - e.g. `../base`
-  ja: "`kustomization.yaml` からの相対パス - たとえば `..base`"
+  ja: "`kustomization.yaml` からの相対パス - たとえば `../base`"
 ---
 texts:
   en: Urls - e.g. `github.com/kubernetes-sigs/kustomize/examples/multibases?ref=v1.0.6`
@@ -135,15 +135,15 @@ texts:
 ---
 texts:
   en: Single Base inheritted by single Application
-  ja: 一つの Base が一つのアプリケーションに継承される
+  ja: 単一のベースが単一のアプリケーションに継承される
 ---
 texts:
   en: Shared Bases inheritted by different Applications
-  ja: 共有 Base が異なるアプリケーションに継承される
+  ja: ベースを共有し、異なるアプリケーションに継承される
 ---
 texts:
   en: "**Example:** Add a `kustomization.yaml` as a Base."
-  ja: "**例:** `kustomization.yaml` を Base として追加する"
+  ja: "**例:** `kustomization.yaml` をベースとして追加する"
 ---
 texts:
   en: "**Input:** The kustomization.yaml file"
@@ -151,7 +151,7 @@ texts:
 ---
 texts:
   en: "**Base: kustomization.yaml and Resource Config**"
-  ja: "**Base:** kustomization.yaml とリソース構成"
+  ja: "**ベース:** kustomization.yaml とリソース構成"
 ---
 texts:
   en: "**Applied:** The Resource that is Applied to the cluster"
@@ -165,8 +165,8 @@ texts:
 
     for more information.
   ja: >-
-    {% panel style="info", title="Base の中の Base" %}
+    {% panel style="info", title="ベース内のベース" %}
 
-    Base 自体にもバリエーションとその Base を作れます。
+    ベース自体にもバリエーションとそのベースを作れます。
 
     詳細は [Advanced Composition](../app_composition_and_deployment/structure_multi_tier_apps.md) をご覧ください。

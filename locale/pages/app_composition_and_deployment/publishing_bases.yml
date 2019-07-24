@@ -32,11 +32,11 @@ texts:
 ---
 texts:
   en: Publish a White Box Application as a Base for other users to Kustomize
-  ja: 他のユーザーが Kustomize するためのホワイトボックスなアプリケーションを公開する
+  ja: 他のユーザーが Kustomize するためのホワイトボックスなアプリケーションをベースとして公開する
 ---
 texts:
   en: Publishing Bases
-  ja: Base の公開
+  ja: ベースの公開
 ---
 texts:
   en: Motivation
@@ -63,7 +63,7 @@ texts:
 ---
 texts:
   en: Publishing a White Box Base
-  ja: ホワイトボックスな Base の公開
+  ja: ホワイトボックスなベースの公開
 ---
 texts:
   en: >-

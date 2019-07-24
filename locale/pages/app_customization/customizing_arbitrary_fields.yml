@@ -14,7 +14,7 @@ texts:
 ---
 texts:
   en: Customize arbitrary fields from arbitrary Resources in a Base.
-  ja: Base の任意のリソースから任意のフィールドをカスタマイズする
+  ja: ベースの任意のリソースから任意のフィールドをカスタマイズする
 ---
 texts:
   en: Customizing Resource Fields
@@ -31,7 +31,7 @@ texts:
     as resource reservations for Pods, replicas on Deployments, etc.  Overlays and patches can
 
     be used by Variants to specify fields values which will override the Base field values.
-  ja: ユーザーが Base から**任意のフィールドを修正**したくなることがよくあります。たとえば Pod のリソース割り当て予約や Deployment のレプリカ数といったフィールドです。Overlay や patch を使うと、バリエーションで Base のフィールドを上書きするようフィールドの値を指定できます。
+  ja: ユーザーがベースから**任意のフィールドを修正**したくなることがよくあります。たとえば Pod のリソース割り当て予約や Deployment のレプリカ数といったフィールドです。Overlay や patch を使うと、ベースのフィールドをバリエーションで上書きするようフィールドの値を指定できます。
 ---
 texts:
   en: '{% panel style="info", title="Reference" %}'
@@ -59,9 +59,9 @@ texts:
 
     the customization as a template.
   ja: >-
-    Base が提供するリソースに対して Overlay を与えると任意の**フィールドを追加、変更、削除**できます。
+    ベースが提供するリソースに対して Overlay を与えると任意の**フィールドを追加、変更、削除**できます。
 
-    **Overlay は疎なリソース定義であり*、これを使うと Base にカスタマイズをテンプレートとして公開させることなく任意のカスタマイズを実行できます。
+    **Overlay は疎なリソース定義であり*、これを使うとベースにカスタマイズをテンプレートとして公開させることなく任意のカスタマイズを実行できます。
 ---
 texts:
   en: >-
@@ -73,7 +73,7 @@ texts:
   ja: >-
     Overlay にはリソースを指定するために**グループ、バージョン、種類、名前**を書く必要があります。
 
-    そこに、Base リソースに設定する任意のフィールドを記述します。Overlay は **StrategicMergePatch** を使って適用されます。
+    そこに、ベースリソースに設定する任意のフィールドを記述します。Overlay は **StrategicMergePatch** を使って適用されます。
 ---
 texts:
   en: >-
@@ -89,7 +89,7 @@ texts:
 ---
 texts:
   en: "**Base:**"
-  ja: __COPY__
+  ja: "**ベース:**"
 ---
 texts:
   en: "**Applied:** The Resource that is Applied to the cluster"
@@ -118,7 +118,7 @@ texts:
     Arbitrary fields may be added, changed, or deleted by supplying *JSON Patches* against the
 
     Resources provided by the base.
-  ja: Base が提供するリソースに対して、**JSON Patch** を与えることで任意のフィールドを追加、変更、削除できます。
+  ja: ベースが提供するリソースに対して、**JSON Patch** を与えることで任意のフィールドを追加、変更、削除できます。
 ---
 texts:
   en: >-
@@ -138,7 +138,7 @@ texts:
 
     for modifying the base Resources.
   ja: >-
-    JSON Patch は [RFC 6902](https://tools.ietf.org/html/rfc6902) で定められ、リソースに適用されるパッチとなります。Patch はリソースを指定するために、Patch 本体に加えて**グループ、バージョン、種類、名前**が必要です。Patch は Base のリソースを修正するために多くのパワフルな命令的操作を提供します。
+    JSON Patch は [RFC 6902](https://tools.ietf.org/html/rfc6902) で定められ、リソースに適用されるパッチとなります。Patch はリソースを指定するために、Patch 本体に加えて**グループ、バージョン、種類、名前**が必要です。Patch はベースのリソースを修正するために多くのパワフルな命令的操作を提供します。
 ---
 texts:
   en: "**Input:** The kustomization.yaml file"
