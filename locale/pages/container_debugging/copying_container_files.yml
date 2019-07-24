@@ -92,7 +92,7 @@ texts:
 ---
 texts:
   en: Set the Pod namespace by prefixing the Pod name with `<namespace>/` .
-  ja: Pod の名前空間を指定するには、Pod 名に `<namespace>/` というプレフィックスを付けます。
+  ja: Pod の名前空間を指定するには、Pod 名に `<namespace>/` という接頭辞を付けます。
 ---
 texts:
   en: "`<pod-namespace>/<pod-name>:<path>`"

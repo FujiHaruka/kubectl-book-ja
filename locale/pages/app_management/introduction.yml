@@ -74,7 +74,7 @@ texts:
 ---
 texts:
   en: "**Setting cross-cutting fields** - e.g. namespace, labels, annotations, name-prefixes, etc"
-  ja: "**横断的にフィールドを設定する - たとえば名前空間、ラベル、アノテーション、名前のプレフィックスなど**"
+  ja: "**横断的にフィールドを設定する - たとえば名前空間、ラベル、アノテーション、名前の接頭辞など**"
 ---
 texts:
   en: >-

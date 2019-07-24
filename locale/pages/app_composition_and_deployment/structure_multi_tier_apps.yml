@@ -175,7 +175,7 @@ texts:
 ---
 texts:
   en: All Resource names share the same prefix
-  ja: すべてのリソース名は同じプレフィックスを共有する
+  ja: すべてのリソース名は同じ接頭辞を共有する
 ---
 texts:
   en: All Resources share the same namespace
