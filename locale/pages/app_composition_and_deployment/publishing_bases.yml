@@ -149,4 +149,4 @@ texts:
     complete control over changes to the Base.  Users should periodically pull changes from the
 
     upstream repo back into the fork to get bug fixes and optimizations.
-  ja: GitHub にホストされているホワイトボックス Base を GitHub リポジトリをフォークすることによってフォークできます。これによって、Base に対する変更を完全に管理できるようになります。その場合、定期的に upstream リポジトリの変更をフォークに pull し、不具合修正や最適化を取り入れるようにすべきです。
+  ja: GitHub にホストされているホワイトボックス Base を GitHub リポジトリをフォークすることによってフォークできます。これによって、Base に対する変更を完全に管理できるようになります。その場合、定期的に upstream リポジトリの変更をフォークに pull し、不具合修正や最適化を取り入れるようにしてください。

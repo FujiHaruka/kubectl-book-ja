@@ -34,7 +34,7 @@ texts:
 ---
 texts:
   en: Listen on ports 5000 and 6000 locally, forwarding data to/from ports 5000 and 6000 in the pod
-  ja: ローカルの 5000 番、6000 番ポートをリッスンし、Pod 内の 5000 番、6000 番ポートに / ポートからデータをフォワードします。
+  ja: ローカルの 5000 番、6000 番ポートを待ち受け、Pod 内の 5000 番、6000 番ポートに、あるいはポートからデータを転送します。
 ---
 texts:
   en: Pod in a Workload
@@ -45,7 +45,7 @@ texts:
     Listen on ports 5000 and 6000 locally, forwarding data to/from ports 5000 and 6000 in a pod selected by the
 
     deployment
-  ja: ローカルの 5000 番、6000 番ポートをリッスンし、Deployment に選択された Pod 内の  5000 番、6000 番ポートに / ポートからデータをフォワードします。
+  ja: ローカルの 5000 番、6000 番ポートを待ち受け、Deployment に選択された Pod 内の  5000 番、6000 番ポートに、あるいはポートからデータを転送します。
 ---
 texts:
   en: Different Local and Remote Ports
@@ -53,7 +53,7 @@ texts:
 ---
 texts:
   en: Listen on port 8888 locally, forwarding to 5000 in the pod
-  ja: ローカルで 8888 番ポートをリッスンし、Pod 内の 5000 番ポートにフォワードします。
+  ja: ローカルで 8888 番ポートを待ち受け、Pod 内の 5000 番ポートに転送します。
 ---
 texts:
   en: Random Local Port
@@ -61,4 +61,4 @@ texts:
 ---
 texts:
   en: Listen on a random port locally, forwarding to 5000 in the pod
-  ja: ローカルのランダムなポート番号をリッスンし、Pod 内の 5000 番ポートにフォワードします。
+  ja: ローカルのランダムなポート番号を待ち受け、Pod 内の 5000 番ポートに転送します。

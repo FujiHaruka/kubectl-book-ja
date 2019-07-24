@@ -329,7 +329,7 @@ texts:
 
     This in turn means that you must use a single quote or escaped double quote around any literals in the template.
   ja: >-
-    {% panel style="info", title="リテラル構文" %}
+    {% panel style="info", title="リテラルの構文" %}
 
     リテラル構文では、スペースを含む JSONPath テンプレートは (上の bash で示したシングルクォートではなく) ダブルクォートで囲います。
 

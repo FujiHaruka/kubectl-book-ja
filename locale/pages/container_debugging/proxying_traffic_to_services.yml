@@ -14,7 +14,7 @@ texts:
 ---
 texts:
   en: Proxy local connections to Services running in the cluster
-  ja: ローカルの接続をクラスタ内で実行中の Service にプロキシする
+  ja: ローカルの接続をクラスタ内で稼働中の Service にプロキシする
 ---
 texts:
   en: Connecting to Services
@@ -32,9 +32,9 @@ texts:
 
     apiserver proxy.
   ja: >-
-    Kubernetes クラスタ内で実行中のすべての Service が外部に公開されているわけではありません。
+    Kubernetes クラスタ内で稼働中のすべての Service が外部に公開されるわけではありません。
 
-    しかし、**clusterIp** を通じてクラスタの内部に向けてのみ公開している Service であっても、apiserver proxy を通じてアクセスできます。
+    しかし、クラスタの内部に向けてのみ **clusterIp** を通じて公開している Service であっても、apiserver proxy を通じてアクセスできます。
 ---
 texts:
   en: >-
@@ -42,7 +42,7 @@ texts:
 
     externally exposed**.
   ja: >-
-    ユーザーは Proxy を使用すると、**クラスタ内の Kubernetes Service のうち外部に公開されていないものに接続できます**。
+    Proxy を使用すると、**クラスタ内で外部に非公開な Kubernetes Service に接続できます**。
 ---
 texts:
   en: >-
@@ -50,9 +50,9 @@ texts:
 
     accessed without the need for a Proxy.
   ja: >-
-    **注意:** LoadBalancer タイプや NodePort タイプを実行している Service は、外部に公開することができるため、
+    **注意:** LoadBalancer タイプや NodePort タイプを実行している Service は、外部に公開可能なため、
 
-    Proxy を通じてアクセスする必要はありません。
+    Proxy を使わなくてもアクセスできます。
 ---
 texts:
   en: Connecting to an internal Service
@@ -76,9 +76,9 @@ texts:
 
     To connect to a Service through a proxy the user must build the Proxy URL.  The Proxy URL format is:
   ja: >-
-    {% panel style="info", title="リテラル構文" %}
+    {% panel style="info", title="リテラルの構文" %}
 
-    プロキシを通じて Service に接続するには、ユーザーは Proxy URL を作らなければなりません。Proxy URL の形式は以下です。
+    プロキシを通じて Service に接続するために、ユーザーは Proxy URL を作る必要があります。Proxy URL の形式は以下です。
 ---
 texts:
   en: "`http://<apiserver-address>/api/v1/namespaces/<service-namespace>/services/[https:]<service-name>[:<port-name>]/proxy`"
@@ -86,11 +86,11 @@ texts:
 ---
 texts:
   en: The apiserver-address should be the URL printed by the Proxy command
-  ja: apiserver-address は Proxy コマンドによって表示された URL
+  ja: "<apiserver-address> は Proxy コマンドによって表示された URL"
 ---
 texts:
   en: The Port is optional if you haven’t specified a name for your port
-  ja: ポート番号は、ポートに名前を指定していない場合はオプショナル
+  ja: "ポート番号 <port-name> は、ポートに名前を指定していない場合はオプショナル"
 ---
 texts:
   en: The Protocol is optional if you are using `http`
@@ -108,7 +108,7 @@ texts:
   ja: >-
     よくあるユースケースとして、クラスタ自体の一部分として実行される Service に接続することが挙げられます。
 
-    ユーザーはこれらの Service とその Proxy URL を `kubectl cluster-info` で表示できます。
+    ユーザーは Service と Proxy URL を `kubectl cluster-info` で表示できます。
 ---
 texts:
   en: >-
@@ -118,6 +118,6 @@ texts:
 
     [Accessing Clusters](https://kubernetes.io/docs/tasks/access-application-cluster/access-cluster/).
   ja: >-
-    {% panel style="info", title="More Info" %}
+    {% panel style="info", title="もっと知る" %}
 
-    クラスタに接続することに関して詳細は、[Accessing Clusters](https://kubernetes.io/docs/tasks/access-application-cluster/access-cluster/) を確認してください。
+    クラスタへの接続に関する詳細は、[Accessing Clusters](https://kubernetes.io/docs/tasks/access-application-cluster/access-cluster/) を確認してください。

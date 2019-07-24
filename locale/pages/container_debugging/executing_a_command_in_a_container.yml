@@ -59,4 +59,4 @@ texts:
   ja: >-
     {% panel style="info", title="コンテナの指定" %}
 
-    複数のコンテナを実行する Pod に対しては、シェルを実行するコンテナを `-c <container-name>` で指定すべきです。
+    複数のコンテナを実行する Pod に対しては、シェルを実行するコンテナを `-c <container-name>` で指定してください。
