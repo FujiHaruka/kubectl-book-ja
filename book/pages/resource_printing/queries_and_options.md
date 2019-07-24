@@ -1,5 +1,5 @@
 {% panel style="success", title="翻訳" %}
-このドキュメントは [The Kubectl Book](https://kubectl.docs.kubernetes.io/) の翻訳です。翻訳の間違いは [GitHub の翻訳リポジトリ](https://github.com/FujiHaruka/kubectl-book-ja/issues) までお願いします。
+このドキュメントは [The Kubectl Book](https://kubectl.docs.kubernetes.io/) の翻訳です。翻訳の GitHub リポジトリは[こちら](https://github.com/FujiHaruka/kubectl-book-ja)。
 
 {% endpanel %}
 
@@ -51,7 +51,7 @@ kubectl get -f configs/
 
 リソースのグループとバージョンは apiserver のディスカバリーサービスによって決定されます。
 
-単数形、複数形、省略形の名前も *Types with Name* と *Types with Selectors* に適用されます。
+単数形、複数形、省略形の名前も、**名前付きリソースタイプ**と**セレクタ付きリソースタイプ**に適用されます。
 
 {% sample lang="yaml" %}
 
@@ -94,7 +94,7 @@ kubectl get deployments.v1.apps
 
 {% method %}
 
-## 名前付きのリソース
+## 名前付きのリソースタイプ
 
 名前空間内で与えられたタイプの名前付きリソースを取得します。
 
@@ -180,7 +180,7 @@ kubectl get deployments --include-uninitialized
 
 {% method %}
 
-## Not Found
+## リソースが見つからない場合
 
 デフォルトでは、get / describe は**リクエストされたオブジェクトが存在しなければエラーを返します**。`--ignore-not-found` フラグを付けると、リソースが見つからなくても kubectrl が終了コード 0 で終了します。
 

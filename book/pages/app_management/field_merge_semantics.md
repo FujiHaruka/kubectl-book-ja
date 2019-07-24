@@ -1,5 +1,5 @@
 {% panel style="success", title="翻訳" %}
-このドキュメントは [The Kubectl Book](https://kubectl.docs.kubernetes.io/) の翻訳です。翻訳の間違いは [GitHub の翻訳リポジトリ](https://github.com/FujiHaruka/kubectl-book-ja/issues) までお願いします。
+このドキュメントは [The Kubectl Book](https://kubectl.docs.kubernetes.io/) の翻訳です。翻訳の GitHub リポジトリは[こちら](https://github.com/FujiHaruka/kubectl-book-ja)。
 
 {% endpanel %}
 
@@ -37,7 +37,7 @@ Apply は新しいリソース構成を使ってリソースを置換するの�
 
 このページではリソース構成をマージするための意味論を説明します。
 
-リソースフィールドの所有権は、人間の手で書かれた宣言的なリソース構成と、クラスタ内で実行されるコントローラが設定した値との間で共有されます。`status` や `clusterIp` のようないくつかのフィールドは、コントローラが排他的に所有します。`namespace` などのフィールドは、リソースを管理する人間が排他的に所有します。
+リソースフィールドの所有権は、人間の手で書かれた宣言的なリソース構成と、クラスタ内で稼働するコントローラが設定した値との間で共有されます。`status` や `clusterIp` のようないくつかのフィールドは、コントローラが排他的に所有します。`namespace` などのフィールドは、リソースを管理する人間が排他的に所有します。
 
 `replicas` のような他のフィールドは、人間が所有することもありますし、apiserver やコントローラが所有することもあります。たとえば、`replicas` はユーザーが排他的に設定することもできますが、apiserver が暗黙的にデフォルト値を設定することもあり、あるいは HorizontalPodAutoscaler のようなコントローラが継続的に調整することもあります。
 

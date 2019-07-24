@@ -1,5 +1,5 @@
 {% panel style="success", title="翻訳" %}
-このドキュメントは [The Kubectl Book](https://kubectl.docs.kubernetes.io/) の翻訳です。翻訳の間違いは [GitHub の翻訳リポジトリ](https://github.com/FujiHaruka/kubectl-book-ja/issues) までお願いします。
+このドキュメントは [The Kubectl Book](https://kubectl.docs.kubernetes.io/) の翻訳です。翻訳の GitHub リポジトリは[こちら](https://github.com/FujiHaruka/kubectl-book-ja)。
 
 {% endpanel %}
 
@@ -36,17 +36,17 @@ Also provide feedback on new kubectl docs at the [survey](https://www.surveymonk
 
 ## ディレクトリ構想
 
-| ディレクトリのタイプ | クラスタへのデプロイ           | 内容                | ディレクトリ名の例                             |
-| ---------- | -------------------- | ----------------- | ------------------------------------- |
-| Base       | **No** - Base として使用  | 共有の構成             | `base/`                               |
-| 環境         | **No** - 他のディレクトリを含む | Base とクラスタのディレクトリ | `test/`, `staging/`, `prod/`          |
-| クラスタ       | **Yes** - 手動 or 継続的  | デプロイ可能な構成         | `us-west1`, `us-east1`, `us-central1` |
+| ディレクトリのタイプ | クラスタへのデプロイ           | 内容              | ディレクトリ名の例                             |
+| ---------- | -------------------- | --------------- | ------------------------------------- |
+| Base       | **No** - ベースとして使用    | 共有の構成           | `base/`                               |
+| 環境         | **No** - 他のディレクトリを含む | ベースとクラスタのディレクトリ | `test/`, `staging/`, `prod/`          |
+| クラスタ       | **Yes** - 手動 or 継続的  | デプロイ可能な構成       | `us-west1`, `us-east1`, `us-central1` |
 
-### Base
+### ベース
 
-Kustomize Base (例えば `bases:`) は `kustomization.yaml` をいくらか利用することでカスタマイズされた共有の構成を提供します。
+Kustomize ベース (例えば `bases:`) は `kustomization.yaml` をいくらか利用することでカスタマイズされた共有の構成を提供します。
 
-この章で概説されるディレクトリ構造は Base を `app-bases/environment-bases/cluster` として階層化します。
+この章で概説されるディレクトリ構造はベースを `app-bases/environment-bases/cluster` として階層化します。
 
 ## ワークフローの例
 

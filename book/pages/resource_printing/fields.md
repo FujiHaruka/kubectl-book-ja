@@ -1,5 +1,5 @@
 {% panel style="success", title="翻訳" %}
-このドキュメントは [The Kubectl Book](https://kubectl.docs.kubernetes.io/) の翻訳です。翻訳の間違いは [GitHub の翻訳リポジトリ](https://github.com/FujiHaruka/kubectl-book-ja/issues) までお願いします。
+このドキュメントは [The Kubectl Book](https://kubectl.docs.kubernetes.io/) の翻訳です。翻訳の GitHub リポジトリは[こちら](https://github.com/FujiHaruka/kubectl-book-ja)。
 
 {% endpanel %}
 
@@ -16,11 +16,11 @@
 
 Kubectl の get コマンドは検索したリソースからフィールドを抽出し、フォーマットして出力することができます。
 
-これは Kubernetes クラスタからリソースについてのデータを収集したり処理するスクリプトを書くときに便利です。
+これは Kubernetes クラスタからリソースについてのデータを収集または処理するスクリプトを書くときに便利です。
 
-## 取得
+## Get
 
-`kubectl get` コマンドはクラスタからリソースを読み込み、フォーマットして出力します。この章の例では、リソースを検索するためにコマンドの引数に**リソースタイプ**をバージョンとグループ名付きで与えます。検索オプションの詳細は [Queries and Options](queries_and_options.md) をご覧ください。
+`kubectl get` コマンドはクラスタからリソースを読み込み、フォーマットして出力します。この章の例では、リソースを検索するためにコマンドの引数に**リソースタイプ**をバージョンとグループ名付きで与えます。検索オプションの詳細は[クエリとオプション](queries_and_options.md)をご覧ください。
 
 リソースから特定のフィールドをフォーマットして表示するには JSON パスを使うことができます。
 
@@ -35,7 +35,7 @@ Kubectl の get コマンドは検索したリソースからフィールドを�
 
 ### JSON パス
 
-JSON パスからフィールドを表示します
+JSON パスからフィールドを表示します。
 
 **注意:** JSON パスはファイルから読み込むこともでき、そのためには `-o custom-columns-file` を使用します。
 
@@ -119,7 +119,7 @@ nginx2
 
 {% method %}
 
-各 Deployment ごとに、その `metadata.name` と `.status.availableReplicas` を表示します
+各 Deployment ごとに、その `metadata.name` と `.status.availableReplicas` を表示します。
 
 {% sample lang="yaml" %}
 
@@ -173,7 +173,7 @@ map[kind:Deployment...readyReplicas:1]]
 
 - - -
 
-{% panel style="info", title="リテラル構文" %}
+{% panel style="info", title="リテラルの構文" %}
 リテラル構文では、スペースを含む JSONPath テンプレートは (上の bash で示したシングルクォートではなく) ダブルクォートで囲います。
 これは、テンプレート内のリテラルを囲む引用符にはシングルクォートを使うか、エスケープしたダブルクォートを使う必要があることを意味します。
 

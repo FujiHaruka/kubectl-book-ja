@@ -1,11 +1,11 @@
 {% panel style="success", title="翻訳" %}
-このドキュメントは [The Kubectl Book](https://kubectl.docs.kubernetes.io/) の翻訳です。翻訳の間違いは [GitHub の翻訳リポジトリ](https://github.com/FujiHaruka/kubectl-book-ja/issues) までお願いします。
+このドキュメントは [The Kubectl Book](https://kubectl.docs.kubernetes.io/) の翻訳です。翻訳の GitHub リポジトリは[こちら](https://github.com/FujiHaruka/kubectl-book-ja)。
 
 {% endpanel %}
 
 {% panel style="info", title="TL;DR" %}
 
-- Base の任意のリソースから任意のフィールドをカスタマイズする
+- ベースの任意のリソースから任意のフィールドをカスタマイズする
 
 {% endpanel %}
 
@@ -13,7 +13,7 @@
 
 ## 動機
 
-ユーザーが Base から**任意のフィールドを修正**したくなることがよくあります。たとえば Pod のリソース割り当て予約や Deployment のレプリカ数といったフィールドです。Overlay や patch を使うと、バリエーションで Base のフィールドを上書きするようフィールドの値を指定できます。
+ユーザーがベースから**任意のフィールドを修正**したくなることがよくあります。たとえば Pod のリソース割り当て予約や Deployment のレプリカ数といったフィールドです。Overlay や patch を使うと、ベースのフィールドをバリエーションで上書きするようフィールドの値を指定できます。
 
 {% panel style="info", title="Reference" %}
 
@@ -26,11 +26,11 @@
 
 {% method %}
 
-Base が提供するリソースに対して Overlay を与えると任意の**フィールドを追加、変更、削除**できます。
-**Overlay は疎なリソース定義であり*、これを使うと Base にカスタマイズをテンプレートとして公開させることなく任意のカスタマイズを実行できます。
+ベースが提供するリソースに対して Overlay を与えると任意の**フィールドを追加、変更、削除**できます。
+**Overlay は疎なリソース定義であり*、これを使うとベースにカスタマイズをテンプレートとして公開させることなく任意のカスタマイズを実行できます。
 
 Overlay にはリソースを指定するために**グループ、バージョン、種類、名前**を書く必要があります。
-そこに、Base リソースに設定する任意のフィールドを記述します。Overlay は **StrategicMergePatch** を使って適用されます。
+そこに、ベースリソースに設定する任意のフィールドを記述します。Overlay は **StrategicMergePatch** を使って適用されます。
 
 **ユースケース:** 複数の環境 (test、dev、staging、canary、prod) で、replicas や resources といったフィールドを上書きします。
 
@@ -67,7 +67,7 @@ spec:
             cpu: "0.5"
 ```
 
-**Base:**
+**ベース:**
 
 ```yaml
 # ../base/kustomization.yaml
@@ -145,11 +145,11 @@ Overlay はクラスタにリソース構成を Apply するのと同じ[マー�
 
 {% method %}
 
-Base が提供するリソースに対して、**JSON Patch** を与えることで任意のフィールドを追加、変更、削除できます。
+ベースが提供するリソースに対して、**JSON Patch** を与えることで任意のフィールドを追加、変更、削除できます。
 
 **ユースケース:** 複数の環境 (test、dev、staging、canary、prod) で、replicas や resources といったフィールドを上書きします。
 
-JSON Patch は [RFC 6902](https://tools.ietf.org/html/rfc6902) で定められ、リソースに適用されるパッチとなります。Patch はリソースを指定するために、Patch 本体に加えて**グループ、バージョン、種類、名前**が必要です。Patch は Base のリソースを修正するために多くのパワフルな命令的操作を提供します。
+JSON Patch は [RFC 6902](https://tools.ietf.org/html/rfc6902) で定められ、リソースに適用されるパッチとなります。Patch はリソースを指定するために、Patch 本体に加えて**グループ、バージョン、種類、名前**が必要です。Patch はベースのリソースを修正するために多くのパワフルな命令的操作を提供します。
 
 {% sample lang="yaml" %}
 

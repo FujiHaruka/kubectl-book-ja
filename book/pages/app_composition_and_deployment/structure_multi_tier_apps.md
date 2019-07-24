@@ -1,5 +1,5 @@
 {% panel style="success", title="翻訳" %}
-このドキュメントは [The Kubectl Book](https://kubectl.docs.kubernetes.io/) の翻訳です。翻訳の間違いは [GitHub の翻訳リポジトリ](https://github.com/FujiHaruka/kubectl-book-ja/issues) までお願いします。
+このドキュメントは [The Kubectl Book](https://kubectl.docs.kubernetes.io/) の翻訳です。翻訳の GitHub リポジトリは[こちら](https://github.com/FujiHaruka/kubectl-book-ja)。
 
 {% endpanel %}
 
@@ -15,20 +15,20 @@ Also provide feedback on new kubectl docs at the [survey](https://www.surveymonk
 
 {% panel style="info", title="TL;DR" %}
 
-- 同一プロジェクト内で同一の Base を異なるアプリケーションに対して複数回使うことができる
+- 同一プロジェクト内で同一のベースを異なるアプリケーションに対して複数回使うことができる
 
 {% endpanel %}
 
-# 共有 Base による合成
+# 共有ベースによる合成
 
 ## 動機
 
-**同じ Apply により管理されるプロジェクト内で、同一の Base を複数回**、再利用したくなることがあります。たとえば、
+**同じ Apply により管理されるプロジェクト内で、同一のベースを複数回**、再利用したくなることがあります。たとえば、
 
-- 非常に汎用的な Base ("Java Application" など) を定義し、一つのプロジェクト内で複数のアプリケーションに使用する
+- 非常に汎用的なベース ("Java Application" など) を定義し、一つのプロジェクト内で複数のアプリケーションに使用する
 - 一つのプロジェクト内に複数の環境 (Staging、Canary、Prod) を定義する
 
-## 共有 Base による合成
+## 共有ベースによる合成
 
 ```mermaid
 graph TD;
@@ -40,36 +40,36 @@ graph TD;
 
 {% method %}
 
-同一プロジェクト内で同じ Base を複数回使用するには、3 層構造を使って Base のバリエーションを複数合成します。
+同一プロジェクト内で同じベースを複数回使用するには、3 層構造を使ってベースのバリエーションを複数合成します。
 
-1. `kustomization.yaml` 中の汎用的な Base
-2. 複数の `kustomization.yaml` の汎用的 Base のバリエーション
-3. 複数の Base としてのバリエーションを一つの `kustomization.yaml` に合成する
+1. `kustomization.yaml` 中の汎用的なベース
+2. 複数の `kustomization.yaml` の汎用的ベースのバリエーション
+3. 複数のベースとしてのバリエーションを一つの `kustomization.yaml` に合成する
 
 各レイヤーには前段のレイヤーに対するカスタマイズやリソースを追加できます。
 
-汎用的な Base レイヤー: **../base/java**
+汎用的なベースレイヤー: **../base/java**
 
-- Java アプリケーションの Base となる Deployment を定義
-- Java アプリケーションの Base となる Service を定義
+- Java アプリケーションのベースとなる Deployment を定義
+- Java アプリケーションのベースとなる Service を定義
 
 バリエーションレイヤー: **../app1/ + ../app2/**
 
-- 汎用的な Base の継承
+- 汎用的なベースの継承
 - namePrefix を設定
 - ラベルとセレクタを設定
-- Base 上のイメージを Overlay
+- ベース上のイメージを Overlay
 - イメージタグを設定
 
 合成レイヤー: **kustomization.yaml**
 
-- 2 つのアプリケーションを Base として合成
+- 2 つのアプリケーションをベースとして合成
 - プロジェクト内のリソースに名前空間を設定
 - プロジェクト内のリソースに namePrefix を設定
 
 {% sample lang="yaml" %}
 
-**汎用的 Base レイヤー:**
+**汎用的ベースレイヤー:**
 
 ```yaml
 # base/java/kustomization.yaml
@@ -210,19 +210,19 @@ bases:
 - 各 Deployment は異なる異なる名前をもつ
 - 2 つの Service が作成される
 - 各 Service は異なるセレクタをもち、別々の Deployment にマッチする
-- すべてのリソース名は同じプレフィックスを共有する
+- すべてのリソース名は同じ接頭辞を共有する
 - すべてのリソースは同じ名前空間を共有する
 
 **要約**
 
-- ほとんどの複雑性は共有の Base に押し込められる
-- チーム間、組織間の慣習は共通 Base に基準がある
-- Base のバリエーションは互いに非常に似ており、バリエーション用におあつらえの部品に修正できる - イメージ、引数など
+- ほとんどの複雑性は共有のベースに押し込められる
+- チーム間、組織間の慣習は共通ベースに基準がある
+- ベースのバリエーションは互いに非常に似ており、バリエーション用におあつらえの部品に修正できる - イメージ、引数など
 - バリエーションは合成され、プロジェクトワイドな慣習が適用される一つのプロジェクトを形成する
 
 **利点**
 
-- 変更を下流の Base に伝播させることによってメンテナンスの労力を減らす
+- 変更を下流のベースに伝播させることによってメンテナンスの労力を減らす
 - 関心の分離によってバリエーションの複雑を減らす
 
 {% sample lang="yaml" %}
@@ -357,7 +357,7 @@ spec:
 
 {% panel style="info", title="ユースケース" %}
 
-- アプリケーションごとの汎用的な Archetype Base を定義する
+- アプリケーションごとの汎用的な Archetype ベースを定義する
 - メタプロジェクトに一緒にプッシュされる複数のプロジェクトを合成する
 
 {% endpanel %}

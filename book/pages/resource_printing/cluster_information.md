@@ -1,5 +1,5 @@
 {% panel style="success", title="翻訳" %}
-このドキュメントは [The Kubectl Book](https://kubectl.docs.kubernetes.io/) の翻訳です。翻訳の間違いは [GitHub の翻訳リポジトリ](https://github.com/FujiHaruka/kubectl-book-ja/issues) までお願いします。
+このドキュメントは [The Kubectl Book](https://kubectl.docs.kubernetes.io/) の翻訳です。翻訳の GitHub リポジトリは[こちら](https://github.com/FujiHaruka/kubectl-book-ja)。
 
 {% endpanel %}
 
@@ -16,7 +16,7 @@
 
 ## 動機
 
-Kubernetes クラスタ上で実行するワークロードだけでなく、クラスタ自体について学ぶ必要があるかもしれません。そうしておくと、期待される挙動をデバッグするのに役立ちます。
+Kubernetes クラスタ内で稼働するワークロードだけでなく、クラスタ自体について学ぶ必要があるかもしれません。そうしておくと、期待される挙動をデバッグするのに役立ちます。
 
 ## バージョン
 

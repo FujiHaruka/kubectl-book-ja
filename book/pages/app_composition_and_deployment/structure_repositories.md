@@ -1,5 +1,5 @@
 {% panel style="success", title="翻訳" %}
-このドキュメントは [The Kubectl Book](https://kubectl.docs.kubernetes.io/) の翻訳です。翻訳の間違いは [GitHub の翻訳リポジトリ](https://github.com/FujiHaruka/kubectl-book-ja/issues) までお願いします。
+このドキュメントは [The Kubectl Book](https://kubectl.docs.kubernetes.io/) の翻訳です。翻訳の GitHub リポジトリは[こちら](https://github.com/FujiHaruka/kubectl-book-ja)。
 
 {% endpanel %}
 
@@ -36,26 +36,26 @@ Also provide feedback on new kubectl docs at the [survey](https://www.surveymonk
 
 | リポジトリのタイプ | クラスタへのデプロイ          | 内容          | 名前の例         |
 | --------- | ------------------- | ----------- | ------------ |
-| Base      | **No** - Base として使用 | 他チームと共有する構成 | `platform`   |
+| Base      | **No** - ベースとして使用   | 他チームと共有する構成 | `platform`   |
 | App       | **Yes** - 手動 or 継続的 | デプロイ可能な構成   | `guest-book` |
 
 [ディレクトリ](structure_directories.md)と[ブランチ](structure_branches.md)で説明されているテクニックを使用します。
 
 ## ワークフロー例
 
-1. Java プラットフォームチームに所属するアリスが他チームが使用する Java Base を更新する
+1. Java プラットフォームチームに所属するアリスが他チームが使用する Java ベースを更新する
 2. アリスが新規リリースのために Git タグを作成する
-3. GuestBook App チームに所属するボブが新しい Java Base に切り替えるため、参照を更新する
+3. GuestBook App チームに所属するボブが新しい Java ベースに切り替えるため、参照を更新する
 
 ## 図
 
 ### シナリオ
 
-1. アリスが Java Base リポジトリを修正し、v2 タグを作成する
+1. アリスが Java ベースリポジトリを修正し、v2 タグを作成する
 
 - 変更はこの段階ではどこにもプッシュされない
 
-1. ボブが GuestBook App リポジトリを修正し、Java Base の v2 を使うようにする
+1. ボブが GuestBook App リポジトリを修正し、Java ベースの v2 を使うようにする
 
 - 変更が継続的デプロイメントによりプッシュされる
 
@@ -82,11 +82,11 @@ AR-->C: java Base v2 changes deployed
 
 構造:
 
-- プラットフォームチームが共有の構成のために Base リポジトリを作成する
+- プラットフォームチームが共有の構成のためにベースリポジトリを作成する
 - App チームが App を開発するために App リポジトリを作成する
-  - Base リポジトリをリモートに参照
+  - ベースリポジトリをリモートに参照
 
-**Base リポジトリ**: プラットフォームチーム
+**ベースリポジトリ**: プラットフォームチーム
 
 ```bash
 tree

@@ -1,11 +1,11 @@
 {% panel style="success", title="翻訳" %}
-このドキュメントは [The Kubectl Book](https://kubectl.docs.kubernetes.io/) の翻訳です。翻訳の間違いは [GitHub の翻訳リポジトリ](https://github.com/FujiHaruka/kubectl-book-ja/issues) までお願いします。
+このドキュメントは [The Kubectl Book](https://kubectl.docs.kubernetes.io/) の翻訳です。翻訳の GitHub リポジトリは[こちら](https://github.com/FujiHaruka/kubectl-book-ja)。
 
 {% endpanel %}
 
 {% panel style="info", title="TL;DR" %}
 
-- リソースに関する詳細なデバッグ情報を表示します
+- リソースに関する詳細なデバッグ情報を表示する
 
 {% endpanel %}
 
@@ -15,7 +15,7 @@
 
 {% method %}
 
-describe は、検索されたリソースの情報に加えて**他のソース (たとえば Evnet) からも情報を集めて表示することのできる高レベルの操作**です。
+describe は、検索されたリソースの情報に加えて**他のソース (たとえばイベント) からも情報を集めて表示することのできる高レベルの操作**です。
 
 describe は対象のリソースとそれに関連するリソースから、リソースに関する最も重要な情報を引き出し、その情報を複数行にフォーマットし、表示します。
 

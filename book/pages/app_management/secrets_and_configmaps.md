@@ -1,5 +1,5 @@
 {% panel style="success", title="翻訳" %}
-このドキュメントは [The Kubectl Book](https://kubectl.docs.kubernetes.io/) の翻訳です。翻訳の間違いは [GitHub の翻訳リポジトリ](https://github.com/FujiHaruka/kubectl-book-ja/issues) までお願いします。
+このドキュメントは [The Kubectl Book](https://kubectl.docs.kubernetes.io/) の翻訳です。翻訳の GitHub リポジトリは[こちら](https://github.com/FujiHaruka/kubectl-book-ja)。
 
 {% endpanel %}
 
@@ -177,7 +177,7 @@ data:
 {% endmethod %}
 
 {% panel style="success", title="ベースの ConfigMap の値の上書き" %}
-ベース (Base) から生成された ConfigMap は、Variant の ConfigMap 用に別のジェネレータを追加し、`behavior` フィールドを指定することで上書きできます。`behavior` は、`create` (デフォルト値)、`replace` (ベースの ConfigMap を置換)、`merge` (ConfigMap の値を追加または更新) のうちどれか一つの値を取ります (たとえば、`behavior: "merge"`)。ベースの詳しい使い方は [Bases and Variantions](../app_customization/bases_and_variants.md) 参照。
+ベースから生成された ConfigMap は、Variant の ConfigMap 用に別のジェネレータを追加し、`behavior` フィールドを指定することで上書きできます。`behavior` は、`create` (デフォルト値)、`replace` (ベースの ConfigMap を置換)、`merge` (ConfigMap の値を追加または更新) のうちどれか一つの値を取ります (たとえば、`behavior: "merge"`)。ベースの詳しい使い方は[ベースとバリエーション](../app_customization/bases_and_variants.md)参照。
 
 {% endpanel %}
 

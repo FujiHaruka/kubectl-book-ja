@@ -1,26 +1,26 @@
 {% panel style="success", title="翻訳" %}
-このドキュメントは [The Kubectl Book](https://kubectl.docs.kubernetes.io/) の翻訳です。翻訳の間違いは [GitHub の翻訳リポジトリ](https://github.com/FujiHaruka/kubectl-book-ja/issues) までお願いします。
+このドキュメントは [The Kubectl Book](https://kubectl.docs.kubernetes.io/) の翻訳です。翻訳の GitHub リポジトリは[こちら](https://github.com/FujiHaruka/kubectl-book-ja)。
 
 {% endpanel %}
 
 {% panel style="info", title="TL;DR" %}
 
-- クラスタ内の生のリソースを YAML や JSON として取得、リスト表示します
+- クラスタ内のリソースの詳細を YAML や JSON として取得、リスト表示します
 
 {% endpanel %}
 
-# 生のリソースを表示する
+# リソースの詳細を表示する
 
 ## 動機
 
 リソースの調査やデバッグのためです。
 
-apiserver により etcd に保存された Kubernetes リソースは、**要約表示で表示されるよりも多くのフィールドを持っています**。生のリソースを YAML や JSON で表示することで、より多くの情報を知ることができます。生のリソースには以下が含まれます。
+apiserver により etcd に保存された Kubernetes リソースは、**概要表示で表示されるよりも多くのフィールドを持っています**。リソースの詳細を YAML や JSON で表示することで、より多くの情報を知ることができます。リソースの詳細には以下が含まれます。
 
 - リソース内で**ユーザー**が指定したフィールド (例: `metadata.name`)
 - **apiserver** が所有するメタデータ (例: `metadata.creationTimestamp`)
-- **apiserver** によりデフォルト値が設定されたフィールド (例: `spec.imagePullPolicy`)
-- **コントローラ**により設定されたフィールド (例: `spec.clusterIp`、`status`)
+- **apiserver** がデフォルト値を設定したフィールド (例: `spec.imagePullPolicy`)
+- **コントローラ**が設定したフィールド (例: `spec.clusterIp`、`status`)
 
 ## Get
 
@@ -30,7 +30,7 @@ apiserver により etcd に保存された Kubernetes リソースは、**要�
 
 ### YAML
 
-生のリソースを YAML 形式で表示します。
+リソースの詳細を YAML 形式で表示します。
 
 {% sample lang="yaml" %}
 
@@ -118,7 +118,7 @@ metadata:
 
 ### JSON
 
-生のリソースを JSON 形式で出力します。
+リソースの詳細を JSON 形式で出力します。
 
 {% sample lang="yaml" %}
 

@@ -1,5 +1,5 @@
 {% panel style="success", title="翻訳" %}
-このドキュメントは [The Kubectl Book](https://kubectl.docs.kubernetes.io/) の翻訳です。翻訳の間違いは [GitHub の翻訳リポジトリ](https://github.com/FujiHaruka/kubectl-book-ja/issues) までお願いします。
+このドキュメントは [The Kubectl Book](https://kubectl.docs.kubernetes.io/) の翻訳です。翻訳の GitHub リポジトリは[こちら](https://github.com/FujiHaruka/kubectl-book-ja)。
 
 {% endpanel %}
 
@@ -21,7 +21,7 @@
 - すべてのリソースが共通の命名規則を共有することを保証する
 - 既存のプロジェクトをコピーまたはフォークして、名前空間 / 名前を変更する
 
-プロジェクトのコピーについての詳細は [Bases and Variations](../app_customization/bases_and_variants.md) を確認してください。
+プロジェクトのコピーについての詳細は[ベースとバリエーション](../app_customization/bases_and_variants.md)を確認してください。
 
 {% panel style="info", title="Reference" %}
 

@@ -1,5 +1,5 @@
 {% panel style="success", title="翻訳" %}
-このドキュメントは [The Kubectl Book](https://kubectl.docs.kubernetes.io/) の翻訳です。翻訳の間違いは [GitHub の翻訳リポジトリ](https://github.com/FujiHaruka/kubectl-book-ja/issues) までお願いします。
+このドキュメントは [The Kubectl Book](https://kubectl.docs.kubernetes.io/) の翻訳です。翻訳の GitHub リポジトリは[こちら](https://github.com/FujiHaruka/kubectl-book-ja)。
 
 {% endpanel %}
 
@@ -13,7 +13,7 @@
 
 ## 動機
 
-Pod 内で実行されるアプリケーションがアプリケーションのコンテキストや設定について知りたくなることがあります。たとえば、**Pod はプロジェクト内で定義されている Service 名をコマンド引数からとっているかもしれません**。
+Pod 内で稼働しているアプリケーションがアプリケーションのコンテキストや設定について知りたくなることがあります。たとえば、**Pod はプロジェクト内で定義されている Service 名をコマンド引数からとっているかもしれません**。
 Service の値を PodSpec の中に直接ハードコーディングするのではなく、**`vars` エントリを使って Service の値を参照**することができます。
 その値が `kustomization.yaml` によって (たとえば `namePrefix` を設定して) 更新されたり変形されたりすると、PodSpec の中で参照されているところまで値が伝播します。
 
@@ -145,6 +145,6 @@ spec:
 {% endmethod %}
 
 {% panel style="warning", title="変数の参照" %}
-変数はリソース構成を Pod に注入するためのものであり、他の用途に向いていません。変数は一般的なテンプレート機構として使う**べきではありません**。値の上書きは変数ではなく patch で行うべきです。[Bases and Variations] を参考にしてください。
+変数はリソース構成を Pod に注入するためのものであり、他の用途に向いていません。変数は一般的なテンプレート機構として使う**べきではありません**。値の上書きは変数ではなく patch で行うべきです。[ベースとバリエーション](bases_and_variants)を参考にしてください。
 
 {% endpanel %}

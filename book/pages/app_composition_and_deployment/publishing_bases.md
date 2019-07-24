@@ -1,5 +1,5 @@
 {% panel style="success", title="翻訳" %}
-このドキュメントは [The Kubectl Book](https://kubectl.docs.kubernetes.io/) の翻訳です。翻訳の間違いは [GitHub の翻訳リポジトリ](https://github.com/FujiHaruka/kubectl-book-ja/issues) までお願いします。
+このドキュメントは [The Kubectl Book](https://kubectl.docs.kubernetes.io/) の翻訳です。翻訳の GitHub リポジトリは[こちら](https://github.com/FujiHaruka/kubectl-book-ja)。
 
 {% endpanel %}
 
@@ -15,11 +15,11 @@ Also provide feedback on new kubectl docs at the [survey](https://www.surveymonk
 
 {% panel style="info", title="TL;DR" %}
 
-- 他のユーザーが Kustomize するためのホワイトボックスなアプリケーションを公開する
+- 他のユーザーが Kustomize するためのホワイトボックスなアプリケーションをベースとして公開する
 
 {% endpanel %}
 
-# Base の公開
+# ベースの公開
 
 ## 動機
 
@@ -28,11 +28,11 @@ Also provide feedback on new kubectl docs at the [survey](https://www.surveymonk
 - ホワイトボックスなアプリケーション (たとえば Cassandra、MongoDB) のインスタンスを既存のリソース構成から実行する
 - アプリケーションを実行するためにリソース構成を公開する
 
-## ホワイトボックスな Base の公開
+## ホワイトボックスなベースの公開
 
 {% method %}
 
-ホワイトボックスなアプリケーションは URL で公開し、 `kustomization.yaml` の中で Base として利用できます。これは以下の方法で利用できます。
+ホワイトボックスなアプリケーションは URL で公開し、 `kustomization.yaml` の中でベースとして利用できます。これは以下の方法で利用できます。
 
 **ユースケース:** ホワイトボックスなアプリケーションを GitHub で公開する
 
@@ -65,26 +65,26 @@ spec:
 
 {% endmethod %}
 
-## ホワイトボックスな Base をカスタマイズする
+## ホワイトボックスなベースをカスタマイズする
 
-ホワイトボックスなアプリケーションを [Bases and Variations](../app_customization/bases_and_variants.md) で説明したのと同じ手法でカスタマイズできます。
+ホワイトボックスなアプリケーションを[ベースとバリエーション](../app_customization/bases_and_variants.md)で説明したのと同じ手法でカスタマイズできます。
 
-## ホワイトボックス Base  のバージョニング
+## ホワイトボックスベースのバージョニング
 
-ホワイトボックス Base は Git が提供する周知のバージョニング手法を使ってバージョニングできます。
+ホワイトボックスベースは Git が提供する周知のバージョニング手法を使ってバージョニングできます。
 
 **タグ:**
 
-Base をバージョニングするためにリポジトリにタグを適用し、そのタグを指すよう URL を修正します。`github.com/kubernetes-sigs/kustomize/examples/multibases?ref=v1.0.6`
+ベースをバージョニングするためにリポジトリにタグを適用し、そのタグを指すよう URL を修正します。`github.com/kubernetes-sigs/kustomize/examples/multibases?ref=v1.0.6`
 
 **ブランチ:**
 
-Base をバージョニングするためにブランチを作成し、そのブランチを指すよう URL を修正します。`github.com/Liujingfang1/kustomize/examples/helloWorld?ref=repoUrl2`
+ベースをバージョニングするためにブランチを作成し、そのブランチを指すよう URL を修正します。`github.com/Liujingfang1/kustomize/examples/helloWorld?ref=repoUrl2`
 
 **コミット:**
 
-Base のリポジトリがメンテナによって明示的にバージョニングされていない場合、特定のコミットに Base をピン付けできます。`github.com/Liujingfang1/kustomize/examples/helloWorld?ref=7050a45134e9848fca214ad7e7007e96e5042c03`
+ベースのリポジトリがメンテナによって明示的にバージョニングされていない場合、特定のコミットにベースをピン付けできます。`github.com/Liujingfang1/kustomize/examples/helloWorld?ref=7050a45134e9848fca214ad7e7007e96e5042c03`
 
-## ホワイトボックス Base のフォーク
+## ホワイトボックスベースのフォーク
 
-GitHub にホストされているホワイトボックス Base を GitHub リポジトリをフォークすることによってフォークできます。これによって、Base に対する変更を完全に管理できるようになります。その場合、定期的に upstream リポジトリの変更をフォークに pull し、不具合修正や最適化を取り入れるようにすべきです。
+GitHub にホストされているホワイトボックスベースを GitHub リポジトリをフォークすることによってフォークできます。これによって、ベース に対する変更を完全に管理できるようになります。その場合、定期的に upstream リポジトリの変更をフォークに pull し、不具合修正や最適化を取り入れるようにしてください。

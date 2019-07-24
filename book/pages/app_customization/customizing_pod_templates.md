@@ -1,12 +1,12 @@
 {% panel style="success", title="翻訳" %}
-このドキュメントは [The Kubectl Book](https://kubectl.docs.kubernetes.io/) の翻訳です。翻訳の間違いは [GitHub の翻訳リポジトリ](https://github.com/FujiHaruka/kubectl-book-ja/issues) までお願いします。
+このドキュメントは [The Kubectl Book](https://kubectl.docs.kubernetes.io/) の翻訳です。翻訳の GitHub リポジトリは[こちら](https://github.com/FujiHaruka/kubectl-book-ja)。
 
 {% endpanel %}
 
 {% panel style="info", title="TL;DR" %}
 
-- Base の Pod と PodTemplate のイメージの**名前**と**タグ**を上書きする
-- Base の Pod と PodTemplate の環境変数と引数を上書きする
+- ベースの Pod と PodTemplate のイメージの**名前**と**タグ**を上書きする
+- ベースの Pod と PodTemplate の環境変数と引数を上書きする
 
 {% endpanel %}
 
@@ -36,7 +36,7 @@ Pod Template をカスタマイズするシンプルな方法は**イメージ�
 
 **ユースケース:** 複数の環境 (test、dev、staging、canary、prod) が異なるタグのイメージを使用します。
 
-Base の [Pod Template](https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/#pod-templates) から `image` フィールドの名前とタグを上書きするには、`kustomization.yaml` の `images` フィールドを指定します。
+ベースの [Pod Template](https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/#pod-templates) から `image` フィールドの名前とタグを上書きするには、`kustomization.yaml` の `images` フィールドを指定します。
 
 | フィールド     | 説明                                                   | フィールドの例                   | 結果の例                               |
 | --------- | ---------------------------------------------------- | ------------------------- | ---------------------------------- |
@@ -58,7 +58,7 @@ images:
     newName: nginx-pod-2
 ```
 
-**Base:** `kustomization.yaml` により修正されるリソース
+**ベース:** `kustomization.yaml` により修正されるリソース
 
 ```yaml
 # ../base/kustomization.yaml
@@ -131,7 +131,7 @@ spec:
 
 Pod の環境変数を上書きします。
 
-- Base が Pod 内の ConfigMap データを環境変数として使用
+- ベースが Pod 内の ConfigMap データを環境変数として使用
 - 各バリエーションは ConfigMap データを上書きまたは拡張する
 
 {% sample lang="yaml" %}
@@ -150,7 +150,7 @@ configMapGenerator:
   - special.type=charm # add a value to the base
 ```
 
-**Base: kustomization.yaml とリソース
+**ベース: kustomization.yaml とリソース
 
 ```yaml
 # ../base/kustomization.yaml
@@ -239,7 +239,7 @@ spec:
 
 Pod のコマンド引数を上書きします。
 
-- Base は ConfigMap データをコマンド引数として使用
+- ベースは ConfigMap データをコマンド引数として使用
 - 各バリエーションは異なる ConfigMap データを定義する
 
 {% sample lang="yaml" %}

@@ -18,7 +18,7 @@
 ## リソースの表示
 
 - [概要](pages/resource_printing/summaries.md)
-- [生のリソース](pages/resource_printing/raw.md)
+- [詳細](pages/resource_printing/raw.md)
 - [フィールド](pages/resource_printing/fields.md)
 - [Describe](pages/resource_printing/describe.md)
 - [クエリとオプション](pages/resource_printing/queries_and_options.md)
