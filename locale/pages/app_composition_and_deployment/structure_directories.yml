@@ -96,7 +96,7 @@ texts:
 ---
 texts:
   en: "**No** - Used as base"
-  ja: "**No** - Base として使用"
+  ja: "**No** - ベースとして使用"
 ---
 texts:
   en: Shared Config.
@@ -116,7 +116,7 @@ texts:
 ---
 texts:
   en: Base and Cluster dirs.
-  ja: "Base とクラスタのディレクトリ"
+  ja: ベースとクラスタのディレクトリ
 ---
 texts:
   en: "`test/`, `staging/`, `prod/`"
@@ -140,18 +140,18 @@ texts:
 ---
 texts:
   en: Bases
-  ja: Base
+  ja: ベース
 ---
 texts:
   en: A Kustomize Base (e.g. `bases:`) provides shared Config that is customized by some consuming `kustomization.yaml`.
-  ja: Kustomize Base (例えば `bases:`) は `kustomization.yaml` をいくらか利用することでカスタマイズされた共有の構成を提供します。
+  ja: Kustomize ベース (例えば `bases:`) は `kustomization.yaml` をいくらか利用することでカスタマイズされた共有の構成を提供します。
 ---
 texts:
   en: >-
     The directory structure outlined in this chapter organizes Bases into a hierarchy as:
 
     `app-bases/environment-bases/cluster`
-  ja: "この章で概説されるディレクトリ構造は Base を `app-bases/environment-bases/cluster` として階層化します。"
+  ja: この章で概説されるディレクトリ構造はベースを `app-bases/environment-bases/cluster` として階層化します。
 ---
 texts:
   en: Workflow Example
@@ -269,7 +269,7 @@ texts:
 ---
 texts:
   en: Perform Last-mile customizations with [patches / overlays](../app_customization/customizing_arbitrary_fields.md)
-  ja: "カスタマイズの最後の微調整は [patch / overlay](../app_customization/customizing_arbitrary_fields.md) で行う"
+  ja: カスタマイズの最後の微調整は [patch / overlay](../app_customization/customizing_arbitrary_fields.md) で行う
 ---
 texts:
   en: "Structure:"
@@ -277,7 +277,7 @@ texts:
 ---
 texts:
   en: Put reusable bases under `*/bases/`
-  ja: "再利用可能な base は `*/bases/` 下に置く"
+  ja: 再利用可能な base は `*/bases/` 下に置く
 ---
 texts:
   en: "`<project-name>/bases/`"

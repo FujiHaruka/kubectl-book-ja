@@ -109,7 +109,7 @@ texts:
 ---
 texts:
   en: Base + Changes required to respond to "production" events (or dev, staging, etc).
-  ja: Base と、"production" (または dev、staging など) のイベントに対する反応として要求される変更
+  ja: ベースと、"production" (または dev、staging など) のイベントに対する反応として要求される変更
 ---
 texts:
   en: Increase *memory resources* - e.g. for crashing Containers
@@ -141,7 +141,7 @@ texts:
 ---
 texts:
   en: "*v2* changes committed to Base Branch Config"
-  ja: "*v2* の変更が Base ブランチの構成にコミットされる"
+  ja: "*v2* の変更がベースブランチの構成にコミットされる"
 ---
 texts:
   en: "*v2* rolled out to Staging"
@@ -173,7 +173,7 @@ texts:
 ---
 texts:
   en: Tag on Base Branch merged into Prod Branch
-  ja: Base ブランチのタグが Prod ブランチにマージされる
+  ja: ベースブランチのタグが Prod ブランチにマージされる
 ---
 texts:
   en: Prod Branch continuously deployed
@@ -255,7 +255,7 @@ texts:
 ---
 texts:
   en: Bob updates the Base Config with the new flag
-  ja: ボブは Base 構成を更新して新しいフラグを取り入れる
+  ja: ボブはベース構成を更新して新しいフラグを取り入れる
 ---
 texts:
   en: Add staging topic for Staging (e.g. `staging-topic`)
@@ -275,7 +275,7 @@ texts:
 ---
 texts:
   en: Base tagged with *v2* tag
-  ja: Base ブランチが *v2* タグでタグ付けされる
+  ja: ベースブランチが *v2* タグでタグ付けされる
 ---
 texts:
   en: "*v2* rolled out to Staging"
@@ -303,7 +303,7 @@ texts:
 ---
 texts:
   en: Changes go directly into Prod Branch without going into Base
-  ja: 変更は直接 Prod ブランチに行い、Base ブランチを経由しない
+  ja: 変更は直接 Prod ブランチに行い、ベースブランチを経由しない
 ---
 texts:
   en: "*v1* changes rolled out to Prod (*v1++*)"
@@ -333,8 +333,7 @@ texts:
   en: >-
     Add new required flags and environment variables to the Resource Config in the Base branch at the
       time they are added to the code.
-  ja: >-
-    新しく要求されたフラグと環境変数をコードに追加するとき、Base ブランチのリリース構成に追加する
+  ja: 新しく要求されたフラグと環境変数をコードに追加するとき、ベースブランチのリリース構成に追加する
 ---
 texts:
   en: Will be rolled out when the code is rolled out.
@@ -350,7 +349,7 @@ texts:
 ---
 texts:
   en: Merge code from the Base branch to the Deploy branches to perform a Rollout.
-  ja: Base ブランチからデプロイブランチにマージし、ロールアウトを実行する
+  ja: ベースブランチからデプロイブランチにマージし、ロールアウトを実行する
 ---
 texts:
   en: Directory and Branch Layout
@@ -362,7 +361,7 @@ texts:
 ---
 texts:
   en: Base branch (e.g. `master`, `app-version`, etc) for Config changes tied to releases.
-  ja: 構成の変更を受ける Base ブランチ (`master`、`app-version` など) はリリースに結びつく
+  ja: 構成の変更を受けるベースブランチ (`master`、`app-version` など) はリリースに結びつく
 ---
 texts:
   en: Looks like [Directories](structure_directories.md)
@@ -378,7 +377,7 @@ texts:
 ---
 texts:
   en: "**Base Branch:** `master`"
-  ja: "**ベース ブランチ:** `master`"
+  ja: "**ベースブランチ:** `master`"
 ---
 texts:
   en: "**Deploy Branches:**"
@@ -410,11 +409,11 @@ texts:
 ---
 texts:
   en: Changes are introduced to Base Branch Config
-  ja: 変更が Base ブランチの構成に取り入れられる
+  ja: 変更がベースブランチの構成に取り入れられる
 ---
 texts:
   en: To be released with version *v2*
-  ja: "バージョン *v2* としてリリースされる"
+  ja: バージョン *v2* としてリリースされる
 ---
 texts:
   en: Release *v2* is cut to be rolled out
@@ -422,15 +421,15 @@ texts:
 ---
 texts:
   en: Tag Base *v2* and build artifacts (e.g. images)
-  ja: Base のタグ *v2* が切られ、アーティファクト (イメージなど) がビルドされる
+  ja: ベースのタグ *v2* が切られ、アーティファクト (イメージなど) がビルドされる
 ---
 texts:
   en: Changes are introduced into the Base Branch Confiug
-  ja: 変更が Base ブランチの構成に取り入れられる
+  ja: 変更がベースブランチの構成に取り入れられる
 ---
 texts:
   en: To be released with version *v3*
-  ja: "バージョン *v3* としてリリースされる"
+  ja: バージョン *v3* としてリリースされる
 ---
 texts:
   en: "*v2* is pushed to Prod (eventually)"
@@ -442,7 +441,7 @@ texts:
 ---
 texts:
   en: "*v2* has issues in Prod and must be rolled back"
-  ja: "Prod で *v2* に問題が見つかり、ロールバックしなければならなくなる"
+  ja: Prod で *v2* に問題が見つかり、ロールバックしなければならなくなる
 ---
 texts:
   en: "*v2* changes are rolled back in new commit to Prod Branch"
@@ -450,18 +449,18 @@ texts:
 ---
 texts:
   en: Base Branch is unaffected
-  ja: Base ブランチは影響を受けない
+  ja: ベースブランチは影響を受けない
 ---
 texts:
   en: Fix introduced in *v3*
-  ja: "修正が *v3* に取り入れられる"
+  ja: 修正が *v3* に取り入れられる
 ---
 texts:
   en: >-
     **Note:** New changes committed to the Base for "v3" did not make the rollback from
 
     "v2" -> "v1" more challenging, as they had not been merged into the Prod Branch.
-  ja: '**注意:** "v3" で Base に新しい変更がコミットされた場合、"v2" から "v1" へのロールバックがより難しくなるということはありません。"v3" の変更は Prod ブランチにマージされていないからです。'
+  ja: '**注意:** "v3" でベースに新しい変更がコミットされた場合、"v2" から "v1" へのロールバックがより難しくなるということはありません。"v3" の変更は Prod ブランチにマージされていないからです。'
 ---
 texts:
   en: Diagram

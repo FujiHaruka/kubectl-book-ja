@@ -41,12 +41,12 @@ texts:
     reused across multiple project using the `kustomization.yaml` as a *Base*.
   ja: >-
     ユーザーが**一つのリソース構成を変形して**複数の構成をデプロイしたり、**同じリソース構成を再利用**したりすることはよくあります。
-  
+
     `kustomization.yaml` によって作成されたリソース構成は、`kustomization.yaml` を**ベース**とし、複数のプロジェクトをまたいで再利用することができます。
 ---
 texts:
   en: "Examples:"
-  ja: "例。"
+  ja: 例。
 ---
 texts:
   en: >-
@@ -70,7 +70,7 @@ texts:
 ---
 texts:
   en: Bases
-  ja: Base
+  ja: ベース
 ---
 texts:
   en: Bases are shared Resource Config in a `kustomization.yaml` to be used and customized by another `kustomization.yaml`.
@@ -119,7 +119,7 @@ texts:
 ---
 texts:
   en: "Bases can be:"
-  ja: "Base の取りうる値は以下です。"
+  ja: ベースの取りうる値は以下です。
 ---
 texts:
   en: Relative paths from the `kustomization.yaml` - e.g. `../base`

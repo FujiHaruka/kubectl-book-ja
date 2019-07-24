@@ -54,7 +54,7 @@ texts:
 ---
 texts:
   en: "**Fine grain control** over"
-  ja: "きめ細かい制御"
+  ja: きめ細かい制御
 ---
 texts:
   en: PRs
@@ -102,7 +102,7 @@ texts:
 ---
 texts:
   en: "**No** - Used as Base"
-  ja: "**No** - Base として使用"
+  ja: "**No** - ベースとして使用"
 ---
 texts:
   en: Config shared with other teams.
@@ -138,7 +138,7 @@ texts:
 ---
 texts:
   en: Alice on the Java Platform team updates the Java Base used by other teams
-  ja: Java プラットフォームチームに所属するアリスが他チームが使用する Java Base を更新する
+  ja: Java プラットフォームチームに所属するアリスが他チームが使用する Java ベースを更新する
 ---
 texts:
   en: Alice creates a Git Tag for the new release
@@ -146,7 +146,7 @@ texts:
 ---
 texts:
   en: Bob on the GuestBook App team switches to the new Java Base by updating the reference
-  ja: GuestBook App チームに所属するボブが新しい Java Base に切り替えるため、参照を更新する
+  ja: GuestBook App チームに所属するボブが新しい Java ベースに切り替えるため、参照を更新する
 ---
 texts:
   en: Diagram
@@ -158,7 +158,7 @@ texts:
 ---
 texts:
   en: Alice modifies java Base Repo and tags it v2
-  ja: アリスが Java Base リポジトリを修正し、v2 タグを作成する
+  ja: アリスが Java ベースリポジトリを修正し、v2 タグを作成する
 ---
 texts:
   en: Change doesn't get pushed anywhere yet
@@ -166,7 +166,7 @@ texts:
 ---
 texts:
   en: Bob modifies GuestBook App Repo to use v2 of the java Base
-  ja: ボブが GuestBook App リポジトリを修正し、Java Base の v2 を使うようにする
+  ja: ボブが GuestBook App リポジトリを修正し、Java ベースの v2 を使うようにする
 ---
 texts:
   en: Change gets pushed by continuous deployment
@@ -210,7 +210,7 @@ texts:
 ---
 texts:
   en: Platform teams create Base Repositories for shared Config
-  ja: プラットフォームチームが共有の構成のために Base リポジトリを作成する
+  ja: プラットフォームチームが共有の構成のためにベースリポジトリを作成する
 ---
 texts:
   en: App teams create App Repositories for their Apps
@@ -218,7 +218,7 @@ texts:
 ---
 texts:
   en: Remotely reference the Base Repository
-  ja: Base リポジトリをリモートに参照
+  ja: ベースリポジトリをリモートに参照
 ---
 texts:
   en: "**Base Repository:** Platform Team"

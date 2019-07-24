@@ -70,7 +70,7 @@ texts:
     White Box Applications may be published to a URL and consumed as Bases in an `kustomization.yaml`.  It
 
     can then be consumed in the following manner.
-  ja: ホワイトボックスなアプリケーションは URL で公開し、 `kustomization.yaml` の中で Base として利用できます。これは以下の方法で利用できます。
+  ja: ホワイトボックスなアプリケーションは URL で公開し、 `kustomization.yaml` の中でベースとして利用できます。これは以下の方法で利用できます。
 ---
 texts:
   en: "**Use Case:** Run a White Box Application published to GitHub."
@@ -86,22 +86,22 @@ texts:
 ---
 texts:
   en: Customizing White Box Bases
-  ja: ホワイトボックスな Base をカスタマイズする
+  ja: ホワイトボックスなベースをカスタマイズする
 ---
 texts:
   en: >-
     The White Box Application may be customized using the same techniques described in
 
     [Bases and Variations](../app_customization/bases_and_variants.md).
-  ja: ホワイトボックスなアプリケーションを [Bases and Variations](../app_customization/bases_and_variants.md) で説明したのと同じ手法でカスタマイズできます。
+  ja: ホワイトボックスなアプリケーションを[ベースとバリエーション](../app_customization/bases_and_variants.md)で説明したのと同じ手法でカスタマイズできます。
 ---
 texts:
   en: Versioning White Box Bases
-  ja: ホワイトボックス Base  のバージョニング
+  ja: ホワイトボックスベースのバージョニング
 ---
 texts:
   en: White Box Bases may be versioned using the well known versioning techniques provided by Git.
-  ja: "ホワイトボックス Base は Git が提供する周知のバージョニング手法を使ってバージョニングできます。"
+  ja: ホワイトボックスベースは Git が提供する周知のバージョニング手法を使ってバージョニングできます。
 ---
 texts:
   en: "**Tag:**"
@@ -112,7 +112,7 @@ texts:
     Bases may be versioned by applying a tag to the repo and modifying the url to point to the tag:
 
     `github.com/kubernetes-sigs/kustomize/examples/multibases?ref=v1.0.6`
-  ja: "Base をバージョニングするためにリポジトリにタグを適用し、そのタグを指すよう URL を修正します。`github.com/kubernetes-sigs/kustomize/examples/multibases?ref=v1.0.6`"
+  ja: ベースをバージョニングするためにリポジトリにタグを適用し、そのタグを指すよう URL を修正します。`github.com/kubernetes-sigs/kustomize/examples/multibases?ref=v1.0.6`
 ---
 texts:
   en: "**Branch:**"
@@ -123,7 +123,7 @@ texts:
     Bases may be versioned by creating a branch and modifying the url to point to the branch:
 
     `github.com/Liujingfang1/kustomize/examples/helloWorld?ref=repoUrl2`
-  ja: Base をバージョニングするためにブランチを作成し、そのブランチを指すよう URL を修正します。`github.com/Liujingfang1/kustomize/examples/helloWorld?ref=repoUrl2`
+  ja: ベースをバージョニングするためにブランチを作成し、そのブランチを指すよう URL を修正します。`github.com/Liujingfang1/kustomize/examples/helloWorld?ref=repoUrl2`
 ---
 texts:
   en: "**Commit:**"
@@ -136,11 +136,11 @@ texts:
     base to a specific commit:
 
     `github.com/Liujingfang1/kustomize/examples/helloWorld?ref=7050a45134e9848fca214ad7e7007e96e5042c03`
-  ja: Base のリポジトリがメンテナによって明示的にバージョニングされていない場合、特定のコミットに Base をピン付けできます。`github.com/Liujingfang1/kustomize/examples/helloWorld?ref=7050a45134e9848fca214ad7e7007e96e5042c03`
+  ja: ベースのリポジトリがメンテナによって明示的にバージョニングされていない場合、特定のコミットにベースをピン付けできます。`github.com/Liujingfang1/kustomize/examples/helloWorld?ref=7050a45134e9848fca214ad7e7007e96e5042c03`
 ---
 texts:
   en: Forking a White Box Base
-  ja: ホワイトボックス Base のフォーク
+  ja: ホワイトボックスベースのフォーク
 ---
 texts:
   en: >-
@@ -149,4 +149,4 @@ texts:
     complete control over changes to the Base.  Users should periodically pull changes from the
 
     upstream repo back into the fork to get bug fixes and optimizations.
-  ja: GitHub にホストされているホワイトボックス Base を GitHub リポジトリをフォークすることによってフォークできます。これによって、Base に対する変更を完全に管理できるようになります。その場合、定期的に upstream リポジトリの変更をフォークに pull し、不具合修正や最適化を取り入れるようにしてください。
+  ja: GitHub にホストされているホワイトボックスベースを GitHub リポジトリをフォークすることによってフォークできます。これによって、ベース に対する変更を完全に管理できるようになります。その場合、定期的に upstream リポジトリの変更をフォークに pull し、不具合修正や最適化を取り入れるようにしてください。

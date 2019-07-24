@@ -59,7 +59,7 @@ texts:
 ---
 texts:
   en: See [Bases and Variations](../app_customization/bases_and_variants.md) for more details on Copying Projects.
-  ja: プロジェクトのコピーについて詳細は [Bases and Variations](../app_customization/bases_and_variants.md) を確認してください。
+  ja: プロジェクトのコピーについて詳細は[ベースとバリエーション](../app_customization/bases_and_variants.md)を確認してください。
 ---
 texts:
   en: '{% panel style="info", title="Reference" %}'
@@ -162,8 +162,7 @@ texts:
 ---
 texts:
   en: "**Input:** The kustomization.yaml and deployment.yaml files"
-  ja: >-
-    **入力:** kustomization.yaml ファイルと deployment.yaml ファイル
+  ja: "**入力:** kustomization.yaml ファイルと deployment.yaml ファイル"
 ---
 texts:
   en: "**Applied:** The Resource that is Applied to the cluster"
@@ -175,8 +174,7 @@ texts:
 ---
 texts:
   en: The name for an image may be set by specifying `newName` and the name of the old container image.
-  ja: >-
-    イメージ名は `newName` と以前のコンテナイメージ名を指定することで設定できます。
+  ja: イメージ名は `newName` と以前のコンテナイメージ名を指定することで設定できます。
 ---
 texts:
   en: Setting a Tag
@@ -192,8 +190,7 @@ texts:
 ---
 texts:
   en: The digest for an image may be set by specifying `digest` and the name of the container image.
-  ja: >-
-    イメージのダイジェストは `digest` とコンテナイメージ名を指定することで設定できます。
+  ja: イメージのダイジェストは `digest` とコンテナイメージ名を指定することで設定できます。
 ---
 texts:
   en: Setting a Tag from the latest commit SHA

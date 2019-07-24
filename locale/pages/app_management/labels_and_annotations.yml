@@ -46,7 +46,7 @@ texts:
 ---
 texts:
   en: See [Bases and Variations](../app_customization/bases_and_variants.md) for more details on Copying Projects.
-  ja: プロジェクトのコピーについて詳細は [Bases and Variations](../app_customization/bases_and_variants.md) を確認してください。
+  ja: プロジェクトのコピーについて詳細は[ベースとバリエーション](../app_customization/bases_and_variants.md)を確認してください。
 ---
 texts:
   en: '{% panel style="info", title="Reference" %}'

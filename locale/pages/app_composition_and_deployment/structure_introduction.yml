@@ -47,15 +47,13 @@ texts:
   en: >-
     *Bases:* provide **common or shared Resource Config to be factored out** that can be
       imported into multiple projects.
-  ja: >-
-    **ベース:** 複数のプロジェクトにインポートできるように**共通部分をくくり出した共有のリソース構成**
+  ja: "**ベース:** 複数のプロジェクトにインポートできるように**共通部分をくくり出した共有のリソース構成**"
 ---
 texts:
   en: >-
     *Overlays and Customizations:* tailor **common or shared Resource Config to be modified** to
       a specific application, environment or purpose.
-  ja: >-
-    **Overlay とカスタマイズ:** 共有のリソース構成を特定のアプリケーション、環境、目的に合わせて修正すること
+  ja: "**Overlay とカスタマイズ:** 共有のリソース構成を特定のアプリケーション、環境、目的に合わせて修正すること"
 ---
 texts:
   en: Technique
@@ -131,7 +129,7 @@ texts:
 ---
 texts:
   en: Use Bases with Overlays / Customizations for factoring across Directories
-  ja: Overlay / カスタマイズするための Base はディレクトリをまたがって抜き出す
+  ja: Overlay / カスタマイズするためのベースはディレクトリをまたがって抜き出す
 ---
 texts:
   en: Different Deployment environments for the same app may be loosely coupled
@@ -143,7 +141,7 @@ texts:
 ---
 texts:
   en: Use Bases with Overlays / Customization for factoring across Branches
-  ja: ブランチをまたがって共通部分を抜き出した Base をもとに Overlay / カスタマイズを行う
+  ja: ブランチをまたがって共通部分を抜き出したベースをもとに Overlay / カスタマイズを行う
 ---
 texts:
   en: Different Teams owning sharing Config may be loosely coupled
@@ -155,4 +153,4 @@ texts:
 ---
 texts:
   en: Use Bases with Overlays / Customization for factoring across Repositories
-  ja: リポジトリをまたがった共通部分を抜き出した Base をもとに Overlay /カスタマイズを行う
+  ja: リポジトリをまたがった共通部分を抜き出したベースをもとに Overlay /カスタマイズを行う

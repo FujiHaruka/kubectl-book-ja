@@ -32,11 +32,11 @@ texts:
 ---
 texts:
   en: The same Base may be used multiple times for different Applications within the same project.
-  ja: 同一プロジェクト内で同一の Base を異なるアプリケーションに対して複数回使うことができる
+  ja: 同一プロジェクト内で同一のベースを異なるアプリケーションに対して複数回使うことができる
 ---
 texts:
   en: Composition with Shared Bases
-  ja: 共有 Base による合成
+  ja: 共有ベースによる合成
 ---
 texts:
   en: Motivation
@@ -44,11 +44,11 @@ texts:
 ---
 texts:
   en: "Users may want to reuse the **same base multiple times within the same Apply Project**.  Examples:"
-  ja: "**同じ Apply により管理されるプロジェクト内で、同一の Base を複数回**、再利用したくなることがあります。たとえば、"
+  ja: "**同じ Apply により管理されるプロジェクト内で、同一のベースを複数回**、再利用したくなることがあります。たとえば、"
 ---
 texts:
   en: Define a very generic base (e.g. "Java Application") used by multiple Applications within a Project.
-  ja: 非常に汎用的な Base ("Java Application" など) を定義し、一つのプロジェクト内で複数のアプリケーションに使用する
+  ja: 非常に汎用的なベース ("Java Application" など) を定義し、一つのプロジェクト内で複数のアプリケーションに使用する
 ---
 texts:
   en: Define multiple Environments (e.g. Staging, Canary, Prod) within a Project.
@@ -56,26 +56,26 @@ texts:
 ---
 texts:
   en: Composition With A Shared Base
-  ja: 共有 Base による合成
+  ja: 共有ベースによる合成
 ---
 texts:
   en: >-
     It is possible to reuse the same base multiple times within the same project by using a 3-tier
 
     structure to compose multiple Variants of the base.
-  ja: 同一プロジェクト内で同じ Base を複数回使用するには、3 層構造を使って Base のバリエーションを複数合成します。
+  ja: 同一プロジェクト内で同じベースを複数回使用するには、3 層構造を使ってベースのバリエーションを複数合成します。
 ---
 texts:
   en: Generic Base in a `kustomization.yaml`.
-  ja: "`kustomization.yaml` 中の汎用的な Base"
+  ja: "`kustomization.yaml` 中の汎用的なベース"
 ---
 texts:
   en: Variants of the Generic Base in multiple `kustomization.yaml`'s.
-  ja: "複数の `kustomization.yaml` の汎用的 Base のバリエーション"
+  ja: 複数の `kustomization.yaml` の汎用的ベースのバリエーション
 ---
 texts:
   en: Compose Variants as Bases to a single `kustomization.yaml`.
-  ja: 複数の Base としてのバリエーションを一つの `kustomization.yaml` に合成する
+  ja: 複数のベースとしてのバリエーションを一つの `kustomization.yaml` に合成する
 ---
 texts:
   en: Each layer may add customizations and resources to the preceding layers.
@@ -83,15 +83,15 @@ texts:
 ---
 texts:
   en: "Generic Base Layer: **../base/java**"
-  ja: "汎用的な Base レイヤー: **../base/java**"
+  ja: "汎用的なベースレイヤー: **../base/java**"
 ---
 texts:
   en: define the java app base Deployment
-  ja: Java アプリケーションの Base となる Deployment を定義
+  ja: Java アプリケーションのベースとなる Deployment を定義
 ---
 texts:
   en: define the java app base Service
-  ja: Java アプリケーションの Base となる Service を定義
+  ja: Java アプリケーションのベースとなる Service を定義
 ---
 texts:
   en: "Variant Layers: **../app1/ + ../app2/**"
@@ -99,7 +99,7 @@ texts:
 ---
 texts:
   en: inherit the generic base
-  ja: 汎用的な Base の継承
+  ja: 汎用的なベースの継承
 ---
 texts:
   en: set a namePrefix
@@ -111,7 +111,7 @@ texts:
 ---
 texts:
   en: overlay an image on the base
-  ja: Base 上のイメージを Overlay
+  ja: ベース上のイメージを Overlay
 ---
 texts:
   en: set the image tag
@@ -123,11 +123,11 @@ texts:
 ---
 texts:
   en: compose the 2 apps as bases
-  ja: 2 つのアプリケーションを Base として合成
+  ja: 2 つのアプリケーションをベースとして合成
 ---
 texts:
   en: set the namespace for Resources in the project
-  ja: "プロジェクト内のリソースに名前空間を設定"
+  ja: プロジェクト内のリソースに名前空間を設定
 ---
 texts:
   en: set a namePrefix for Resources in the project
@@ -135,7 +135,7 @@ texts:
 ---
 texts:
   en: "**Generic Base Layer:**"
-  ja: "**汎用的 Base レイヤー:**"
+  ja: "**汎用的ベースレイヤー:**"
 ---
 texts:
   en: "**Variant Layers 1 and 2:**"
@@ -187,15 +187,15 @@ texts:
 ---
 texts:
   en: Most of the complexity lives in the shared common base
-  ja: ほとんどの複雑性は共有の Base に押し込められる
+  ja: ほとんどの複雑性は共有のベースに押し込められる
 ---
 texts:
   en: Cross Team or Cross Org conventions can be canonized in the common base
-  ja: チーム間、組織間の慣習は共通 Base に基準がある
+  ja: チーム間、組織間の慣習は共通ベースに基準がある
 ---
 texts:
   en: Variations of the Base are much simpler and can modify pieces bespoke to the Variation - e.g. images, args, etc
-  ja: Base のバリエーションは互いに非常に似ており、バリエーション用におあつらえの部品に修正できる - イメージ、引数など
+  ja: ベースのバリエーションは互いに非常に似ており、バリエーション用におあつらえの部品に修正できる - イメージ、引数など
 ---
 texts:
   en: Variations may be Composed to form a Project where project-wide conventions are applied
@@ -207,7 +207,7 @@ texts:
 ---
 texts:
   en: Reduced maintenance through propagating updates to Base downstream
-  ja: 変更を下流の Base に伝播させることによってメンテナンスの労力を減らす
+  ja: 変更を下流のベースに伝播させることによってメンテナンスの労力を減らす
 ---
 texts:
   en: Reduced complexity in Variations through separation of concerns
@@ -223,7 +223,7 @@ texts:
 ---
 texts:
   en: Defining Generic Per-Application Archetype Bases
-  ja: アプリケーションごとの汎用的な Archetype Base を定義する
+  ja: アプリケーションごとの汎用的な Archetype ベースを定義する
 ---
 texts:
   en: Composing multiple Projects pushed together into a meta-Project
