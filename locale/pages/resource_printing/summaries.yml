@@ -14,7 +14,7 @@ texts:
 ---
 texts:
   en: Get a Summary of Resources Running in the Cluster
-  ja: クラスタ内で実行中のリソースについて概要を取得する
+  ja: クラスタ内で稼働中のリソースについて概要を取得する
 ---
 texts:
   en: Summarizing Resources

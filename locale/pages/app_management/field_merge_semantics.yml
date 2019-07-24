@@ -100,7 +100,7 @@ texts:
     and `clusterIp` fields, are owned exclusively by Controllers.  Fields, such as the `name`
 
     and `namespace` fields, are owned exclusively by the human user managing the Resource.
-  ja: リソースフィールドの所有権は、人間の手で書かれた宣言的なリソース構成と、クラスタ内で実行されるコントローラが設定した値との間で共有されます。`status` や `clusterIp` のようないくつかのフィールドは、コントローラが排他的に所有します。`namespace` などのフィールドは、リソースを管理する人間が排他的に所有します。
+  ja: リソースフィールドの所有権は、人間の手で書かれた宣言的なリソース構成と、クラスタ内で稼働するコントローラが設定した値との間で共有されます。`status` や `clusterIp` のようないくつかのフィールドは、コントローラが排他的に所有します。`namespace` などのフィールドは、リソースを管理する人間が排他的に所有します。
 ---
 texts:
   en: >-

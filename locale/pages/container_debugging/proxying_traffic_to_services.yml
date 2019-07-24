@@ -106,7 +106,7 @@ texts:
 
     Services and their Proxy Urls with `kubectl cluster-info`.
   ja: >-
-    よくあるユースケースとして、クラスタ自体の一部分として実行される Service に接続することが挙げられます。
+    よくあるユースケースとして、クラスタ自体の一部分として稼働している Service に接続することが挙げられます。
 
     ユーザーは Service と Proxy URL を `kubectl cluster-info` で表示できます。
 ---

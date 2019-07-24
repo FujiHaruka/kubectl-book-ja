@@ -14,7 +14,7 @@ texts:
 ---
 texts:
   en: "Port Forward local connections to Pods running in a cluster "
-  ja: "ローカルの接続をクラスタ内で実行中の Pod にポートフォワードする"
+  ja: "ローカルの接続をクラスタ内で稼働中の Pod にポートフォワードする"
 ---
 texts:
   en: Port Forward
@@ -26,7 +26,7 @@ texts:
 ---
 texts:
   en: Connect to ports of Pods running a cluster by port forwarding local ports.
-  ja: ローカルのポートをポートフォワードすることで、クラスタ内で実行中の Pod のポートに接続します。
+  ja: ローカルのポートをポートフォワードすることで、クラスタ内で稼働中の Pod のポートに接続します。
 ---
 texts:
   en: Forward Multiple Ports

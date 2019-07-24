@@ -43,7 +43,7 @@ texts:
     than just the workloads running in it.  This can be useful for debugging
 
     unexpected behavior.
-  ja: Kubernetes クラスタ上で実行するワークロードだけでなく、クラスタ自体について学ぶ必要があるかもしれません。そうしておくと、期待される挙動をデバッグするのに役立ちます。
+  ja: Kubernetes クラスタ内で稼働するワークロードだけでなく、クラスタ自体について学ぶ必要があるかもしれません。そうしておくと、期待される挙動をデバッグするのに役立ちます。
 ---
 texts:
   en: Versions
