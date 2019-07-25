@@ -112,7 +112,7 @@ texts:
 ---
 texts:
   en: "[Bases and Variations](pages/app_customization/bases_and_variants.md)"
-  ja: "[Base とバリエーション](pages/app_customization/bases_and_variants.md)"
+  ja: "[ベースとバリエーション](pages/app_customization/bases_and_variants.md)"
 ---
 texts:
   en: "[Customizing Pod Templates](pages/app_customization/customizing_pod_templates.md)"
