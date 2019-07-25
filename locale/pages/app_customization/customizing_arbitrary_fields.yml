@@ -31,7 +31,7 @@ texts:
     as resource reservations for Pods, replicas on Deployments, etc.  Overlays and patches can
 
     be used by Variants to specify fields values which will override the Base field values.
-  ja: ユーザーがベースから**任意のフィールドを修正**したくなることがよくあります。たとえば Pod のリソース割り当て予約や Deployment のレプリカ数といったフィールドです。Overlay や patch を使うと、ベースのフィールドをバリエーションで上書きするようフィールドの値を指定できます。
+  ja: ベースから**任意のフィールドを修正**したくなることがよくあります。たとえば Pod のリソース割り当て予約や Deployment のレプリカ数といったフィールドです。Overlay や patch を使うと、ベースのフィールドをバリエーションで上書きするようフィールドの値を設定できます。
 ---
 texts:
   en: '{% panel style="info", title="Reference" %}'
@@ -61,7 +61,7 @@ texts:
   ja: >-
     ベースが提供するリソースに対して Overlay を与えると任意の**フィールドを追加、変更、削除**できます。
 
-    **Overlay は疎なリソース定義であり*、これを使うとベースにカスタマイズをテンプレートとして公開させることなく任意のカスタマイズを実行できます。
+    **Overlay は疎なリソース定義**であり、これを使うと、ベースがカスタマイズをテンプレートとして公開することなく、任意のカスタマイズを実行できます。
 ---
 texts:
   en: >-

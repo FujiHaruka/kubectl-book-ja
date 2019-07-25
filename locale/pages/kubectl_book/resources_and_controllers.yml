@@ -493,7 +493,7 @@ texts:
     [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/)
       are for providing non-sensitive data to Pods.
   ja: >-
-    [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/)
+    [ConfigMap](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/)
       は機密でないデータを Pod に提供します
 ---
 texts:
@@ -501,5 +501,5 @@ texts:
     [Secrets](https://kubernetes.io/docs/concepts/configuration/secret/)
       are for providing sensitive data to Pods.
   ja: >-
-    [Secrets](https://kubernetes.io/docs/concepts/configuration/secret/)
+    [Secret](https://kubernetes.io/docs/concepts/configuration/secret/)
       は機密データを Pod に提供します

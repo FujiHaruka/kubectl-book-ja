@@ -36,7 +36,7 @@ texts:
 
     Command Line Arguments**.
   ja: >-
-    ユーザーがアプリケーションを特定の環境用にカスタマイズすることがよくあります。
+    アプリケーションを特定の環境用にカスタマイズすることがよくあります。
 
     Pod Template をカスタマイズするシンプルな方法は**イメージ、環境変数、コマンドライン引数**を通じて行うことです。
 ---
@@ -171,7 +171,7 @@ texts:
 ---
 texts:
   en: For more information on customizing images, see [Container Images](../app_management/container_images.md).
-  ja: イメージのカスタマイズに関する詳細は [Container Images](../app_management/container_images.md) をご覧ください。
+  ja: イメージのカスタマイズに関する詳細は [コンテナイメージ](../app_management/container_images.md) をご覧ください。
 ---
 texts:
   en: Customizing Pod Environment Variables
@@ -202,7 +202,7 @@ texts:
 ---
 texts:
   en: "**Base: kustomization.yaml and Resources**"
-  ja: "**ベース: kustomization.yaml とリソース"
+  ja: "**ベース:** kustomization.yaml とリソース"
 ---
 texts:
   en: "**Applied:** The Resources that are Applied to the cluster"
@@ -210,7 +210,7 @@ texts:
 ---
 texts:
   en: See [ConfigMaps and Secrets](../app_management/secrets_and_configmaps.md).
-  ja: "[ConfigMaps and Secrets](../app_management/secrets_and_configmaps.md) 参照。"
+  ja: "[ConfigMap と Secret](../app_management/secrets_and_configmaps.md) 参照。"
 ---
 texts:
   en: Customizing Pod Command Arguments
@@ -221,7 +221,7 @@ texts:
     **Use Case:** Different Environments (test, dev, staging, canary, prod) provide different Commandline
 
     Arguments to a Pod.
-  ja: "**ユースケース:** 複数の環境 (test、dev、staging、canary、prod) に異なるコマンドライン引数を与えます。"
+  ja: "**ユースケース:** 複数の環境 (test、dev、staging、canary、prod) にそれぞれ異なるコマンドライン引数を与えます。"
 ---
 texts:
   en: Override Pod Command Arguments.
@@ -251,4 +251,4 @@ texts:
   ja: >-
     {% panel style="info", title="詳細" %}
 
-    ConfigMap と Secret の生成に関する詳細は [Secrets and ConfigMaps](../app_management/secrets_and_configmaps.md) を参照してください。
+    ConfigMap と Secret の生成に関する詳細は [Secret と ConfigMap](../app_management/secrets_and_configmaps.md) を参照してください。
