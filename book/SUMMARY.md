@@ -36,7 +36,7 @@
 ## アプリのカスタマイズ
 
 - [はじめに](pages/app_customization/introduction.md)
-- [Base とバリエーション](pages/app_customization/bases_and_variants.md)
+- [ベースとバリエーション](pages/app_customization/bases_and_variants.md)
 - [Pod Template のカスタマイズ](pages/app_customization/customizing_pod_templates.md)
 - [任意のフィールドのカスタマイズ](pages/app_customization/customizing_arbitrary_fields.md)
 - [構成の反映](pages/app_customization/config_reflection.md)

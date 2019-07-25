@@ -200,9 +200,9 @@ Pod はアプリケーションの**レプリカを一つ**を実行し、以下
 
 {% panel style="info", title="ConfigMap vs Secret" %}
 
-- [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/)
+- [ConfigMap](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/)
     は機密でないデータを Pod に提供します
-- [Secrets](https://kubernetes.io/docs/concepts/configuration/secret/)
+- [Secret](https://kubernetes.io/docs/concepts/configuration/secret/)
     は機密データを Pod に提供します
 
 {% endpanel %}

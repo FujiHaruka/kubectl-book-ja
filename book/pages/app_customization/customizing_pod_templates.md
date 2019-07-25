@@ -14,7 +14,7 @@
 
 ## 動機
 
-ユーザーがアプリケーションを特定の環境用にカスタマイズすることがよくあります。
+アプリケーションを特定の環境用にカスタマイズすることがよくあります。
 Pod Template をカスタマイズするシンプルな方法は**イメージ、環境変数、コマンドライン引数**を通じて行うことです。
 
 よくある例は以下のようなものです。
@@ -119,7 +119,7 @@ spec:
 `newImage` を使うとイメージ名を別の任意のイメージ名に置換できます。
 たとえば、イメージ名を `webserver` や `database` と呼ぶために、`nginx` や `mysql` イメージ名を置換できます。
 
-イメージのカスタマイズに関する詳細は [Container Images](../app_management/container_images.md) をご覧ください。
+イメージのカスタマイズに関する詳細は [コンテナイメージ](../app_management/container_images.md) をご覧ください。
 
 {% endpanel %}
 
@@ -150,7 +150,7 @@ configMapGenerator:
   - special.type=charm # add a value to the base
 ```
 
-**ベース: kustomization.yaml とリソース
+**ベース:** kustomization.yaml とリソース
 
 ```yaml
 # ../base/kustomization.yaml
@@ -229,13 +229,13 @@ spec:
 
 {% endmethod %}
 
-[ConfigMaps and Secrets](../app_management/secrets_and_configmaps.md) 参照。
+[ConfigMap と Secret](../app_management/secrets_and_configmaps.md) 参照。
 
 ## Pod のコマンドライン引数をカスタマイズ
 
 {% method %}
 
-**ユースケース:** 複数の環境 (test、dev、staging、canary、prod) に異なるコマンドライン引数を与えます。
+**ユースケース:** 複数の環境 (test、dev、staging、canary、prod) にそれぞれ異なるコマンドライン引数を与えます。
 
 Pod のコマンド引数を上書きします。
 
@@ -359,6 +359,6 @@ spec:
 {% endmethod %}
 
 {% panel style="info", title="詳細" %}
-ConfigMap と Secret の生成に関する詳細は [Secrets and ConfigMaps](../app_management/secrets_and_configmaps.md) を参照してください。
+ConfigMap と Secret の生成に関する詳細は [Secret と ConfigMap](../app_management/secrets_and_configmaps.md) を参照してください。
 
 {% endpanel %}

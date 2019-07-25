@@ -20,8 +20,8 @@
 
 例。
 
-- **dev、test、staging、canary、production 環境**にデプロイされるプロジェクトで、各環境で設定が違っている
-- **複数のクラスタ**にデプロイされるプロジェクトで、各クラスタでプロジェクトの設定やバージョンが異なっている
+- **dev、test、staging、canary、production 環境**にデプロイされるプロジェクトで、各環境で設定が異なる
+- **複数のクラスタ**にデプロイされるプロジェクトで、各クラスタでプロジェクトの設定やバージョンが異なる
 
 {% panel style="info", title="Reference" %}
 
@@ -31,7 +31,7 @@
 
 ## ベース
 
-ベースは `kustomization.yaml` の中で共有されるリソース構成で、別の `kustomization.yaml` が利用したりカスタマイズしたりします。
+ベースは `kustomization.yaml` の中で共有されるリソース構成のことで、別の `kustomization.yaml` が利用またカスタマイズします。
 
 ベースの例。
 
@@ -44,7 +44,7 @@
 
 ## ベースへの参照
 
-プロジェクトにベースを追加するには、別の `kustomization.yaml` があるディレクトリのパス (`kustomization.yaml` への相対パス) を **`base`** に追加します。これによって、ベースプロジェクトから現プロジェクトにすべてのリソースが自動的に追加、kustomize されます。
+プロジェクトにベースを追加するには、別の `kustomization.yaml` があるディレクトリのパス (`kustomization.yaml` への相対パス) を **`base`** に追加します。そうすると、ベースのプロジェクトから現プロジェクトにすべてのリソースが自動的に追加され、kustomize します。
 
 ベースの取りうる値は以下です。
 
@@ -72,7 +72,7 @@ graph TD;
 
 {% method %}
 
-**例:** `kustomization.yaml` をベースとして追加する
+**例:** `kustomization.yaml` をベースとして追加
 
 {% sample lang="yaml" %}
 
