@@ -49,7 +49,7 @@ texts:
     **Why use branches?** Decouple changes that are rolled out with releases (e.g. new flags) from changes that are
 
     rolled out in response to production events (e.g. resource tuning).
-  ja: "**なせブランチを使うか**。リリース時にロールアウトされる変更 (たとえば新しいフラグ) を、本番環境のイベントに対するレスポンスでロールアウトされる変更から分離するためです。"
+  ja: "**ブランチを使う理由**。リリース時にロールアウトされる変更 (たとえば新しいフラグ) を、本番環境のイベントに対するレスポンスでロールアウトされる変更から分離するためです。"
 ---
 texts:
   en: Branch Structure
@@ -81,7 +81,7 @@ texts:
 ---
 texts:
   en: Base
-  ja: __COPY__
+  ja: ベース
 ---
 texts:
   en: "**No**.  Merged into other Branches only."
@@ -101,11 +101,11 @@ texts:
 ---
 texts:
   en: Deploy
-  ja: __COPY__
+  ja: デプロイ
 ---
 texts:
   en: "**Yes**. - Manually or Continuously."
-  ja: "**Yes** - 手動 or 継続的"
+  ja: "**Yes** - 手動でまたは継続的にデプロイ"
 ---
 texts:
   en: Base + Changes required to respond to "production" events (or dev, staging, etc).
@@ -413,7 +413,7 @@ texts:
 ---
 texts:
   en: To be released with version *v2*
-  ja: バージョン *v2* としてリリースされる
+  ja: バージョン *v2* としてリリースするため
 ---
 texts:
   en: Release *v2* is cut to be rolled out
@@ -421,7 +421,7 @@ texts:
 ---
 texts:
   en: Tag Base *v2* and build artifacts (e.g. images)
-  ja: ベースのタグ *v2* が切られ、アーティファクト (イメージなど) がビルドされる
+  ja: ベースのタグ *v2* が切られると、アーティファクト (イメージなど) がビルドされる
 ---
 texts:
   en: Changes are introduced into the Base Branch Confiug
@@ -429,7 +429,7 @@ texts:
 ---
 texts:
   en: To be released with version *v3*
-  ja: バージョン *v3* としてリリースされる
+  ja: バージョン *v3* としてリリースするため
 ---
 texts:
   en: "*v2* is pushed to Prod (eventually)"

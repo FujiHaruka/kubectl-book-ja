@@ -66,9 +66,9 @@ texts:
 
     exists in the same Repository as the source code that is being deployed.
   ja: >-
-    {% panel style="info", title="構成専用のレポジトリ or モノレポ" %}
+    {% panel style="info", title="構成の専用レポジトリかモノレポか" %}
 
-    この章で説明する方法は、デプロイするソースコードと同じリポジトリにリソース構成を置いても、別のリポジトリに切り分けても、どちらでも実行できます。
+    この章で説明する方法は、デプロイするソースコードと同じリポジトリにリソース構成を置いても、別の専用リポジトリに切り分けても、どちらでも実行できます。
 ---
 texts:
   en: Directory Structure
@@ -92,7 +92,7 @@ texts:
 ---
 texts:
   en: Base
-  ja: __COPY__
+  ja: ベース
 ---
 texts:
   en: "**No** - Used as base"
@@ -128,7 +128,7 @@ texts:
 ---
 texts:
   en: "**Yes** - Manually or Continuously"
-  ja: "**Yes** - 手動 or 継続的"
+  ja: "**Yes** - 手動でまたは継続的にデプロイ"
 ---
 texts:
   en: Deployable Config.
@@ -159,7 +159,7 @@ texts:
 ---
 texts:
   en: Changes made to *env/cluster/* roll out to **only that specific env-cluster**
-  ja: "*env/cluster/* に対して行われた変更は、**特定の環境-クラスタにのみ**ロールアウトされる"
+  ja: "*env/cluster/* に対して行われた変更は、**特定の環境の特定のクラスタにのみ**ロールアウトされる"
 ---
 texts:
   en: Changes made to *env>/bases/* roll out to **all clusters for that env**
@@ -319,7 +319,7 @@ texts:
   ja: >-
     {% panel style="success", title="Code Owners" %}
 
-    git のホスティングサービスには、きめ細かい権限モデルを提供っするために**コードオーナー**を設定できるものがあります。コードオーナーは分離された各環境 (たとえば dev、test、prod) のために権限を分離するためにも利用できます。
+    git のホスティングサービスには、きめ細かい権限モデルを提供するために**コードオーナー**を設定できるものがあります。コードオーナーは分離された各環境 (たとえば dev、test、prod) のために権限を分離するためにも利用できます。
 ---
 texts:
   en: Rollback Diagram

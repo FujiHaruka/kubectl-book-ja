@@ -98,7 +98,7 @@ texts:
 ---
 texts:
   en: Base
-  ja: __COPY__
+  ja: ベース
 ---
 texts:
   en: "**No** - Used as Base"
@@ -118,7 +118,7 @@ texts:
 ---
 texts:
   en: "**Yes** - Manually or Continuously"
-  ja: "**Yes** - 手動 or 継続的"
+  ja: "**Yes** - 手動でまたは継続的にデプロイ"
 ---
 texts:
   en: Deployable Config.
