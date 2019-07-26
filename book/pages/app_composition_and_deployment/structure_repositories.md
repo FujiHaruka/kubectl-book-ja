@@ -52,12 +52,9 @@ Also provide feedback on new kubectl docs at the [survey](https://www.surveymonk
 ### シナリオ
 
 1. アリスが Java ベースリポジトリを修正し、v2 タグを作成する
-
-- 変更はこの段階ではどこにもプッシュされない
-
+   - 変更はこの段階ではどこにもプッシュされない
 1. ボブが GuestBook App リポジトリを修正し、Java ベースの v2 を使うようにする
-
-- 変更が継続的デプロイメントによりプッシュされる
+   - 変更が継続的デプロイメントによりプッシュされる
 
 {% sequence width=1000 %}
 

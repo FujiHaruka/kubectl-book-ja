@@ -1,7 +1,7 @@
 {
   "scripts": {
     "sync": "inalz sync",
-    "build": "inalz build",
+    "build": "inalz build && ./misc/scripts/afterInalzBuild.js",
     "validate": "inalz validate"
   },
   "dependencies": {
