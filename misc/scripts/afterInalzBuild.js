@@ -5,8 +5,11 @@
 'use strict'
 
 async function afterInalzBuild() {
+  console.log('\n[afterInalzBuild] script started.')
   process.chdir(__dirname + '/../..')
+  console.log('  fixNestedList...')
   await require('./funcs/fixNestedList')()
+  console.log('[afterInalzBuild] done.\n')
 }
 
 afterInalzBuild().catch((e) => {
