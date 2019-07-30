@@ -19,7 +19,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "build": "gitbook build",
+    "build": "gitbook build && cp ../misc/assets/*.html _book/",
     "serve": "gitbook serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
