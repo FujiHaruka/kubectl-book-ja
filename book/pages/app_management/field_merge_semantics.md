@@ -92,6 +92,7 @@ spec:
   # ...
 status:
   # ...
+
 ```
 
 {% endmethod %}

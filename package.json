@@ -5,6 +5,6 @@
     "validate": "inalz validate"
   },
   "dependencies": {
-    "inalz": "^0.9.3"
+    "inalz": "^0.12.1"
   }
 }

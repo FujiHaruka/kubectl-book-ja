@@ -70,6 +70,7 @@ JSON パスからフィールドを表示します。
 
 ```bash
 kubectl get deployment.v1.apps -o=jsonpath='{.items[0]}{"\n"}'
+
 ```
 
 ```bash
